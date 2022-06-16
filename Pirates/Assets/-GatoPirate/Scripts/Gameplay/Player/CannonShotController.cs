@@ -36,11 +36,11 @@ public class CannonShotController : MonoBehaviour
         {
             Debug.Log($"Shooting {_cannonToShoot}");
             // Change this to use a pooling system
-            GameObject newCannonBall = Instantiate(cannonBall,transform);
+            GameObject newCannonBall = Instantiate(cannonBall, transform);
             newCannonBall.transform.position = transform.position;
             // Give direction here
             Vector3 direction = enemyShipTargetTransform.position - PlayerShipTransform.position;
-            newCannonBall.GetComponent<CannonBall>().Direction = direction;
+            newCannonBall.GetComponent<CannonBall>().Direction = Vector3.up;
         }
     }
 

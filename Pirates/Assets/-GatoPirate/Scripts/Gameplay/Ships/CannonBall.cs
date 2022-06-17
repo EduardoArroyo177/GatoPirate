@@ -6,21 +6,29 @@ public class CannonBall : MonoBehaviour
 {
     [SerializeField]
     private float movementSpeed;
+    [SerializeField]
+    private float destroyTime;
 
     public Vector3 Direction { get; set; }
 
-    void Update()
+    private void OnEnable()
     {
-        transform.Translate(movementSpeed * Time.deltaTime * Direction);
+        Invoke("DestroyCannonBall", destroyTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void Update()
+    {
+        transform.Translate(movementSpeed * Time.deltaTime * Vector3.forward);
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         DestroyCannonBall();
     }
 
     private void DestroyCannonBall()
     {
+        CancelInvoke("DestroyCannonBall");
         Destroy(gameObject);
     }
 }

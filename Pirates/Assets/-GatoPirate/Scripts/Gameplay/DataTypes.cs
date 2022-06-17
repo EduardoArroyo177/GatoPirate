@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ShipLevelType
+{ 
+    WOOD,
+    SILVER,
+    GOLD
+}
+
 public enum CannonSide
 { 
     LEFT,

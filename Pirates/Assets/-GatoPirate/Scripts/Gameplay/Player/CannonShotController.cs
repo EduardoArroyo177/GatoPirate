@@ -9,53 +9,32 @@ public class CannonShotController : MonoBehaviour
     private CannonSide cannonSide;
     [SerializeField]
     private GameObject cannonBall;
+    [SerializeField]
+    private bool isEnabled;
 
-    public CannonSideEvent ShootCannonEvent { get; set; }
-    public Transform PlayerShipTransform { get; set; }
+    public bool IsEnabled { get => isEnabled; set => isEnabled = value; }
 
-    public Transform enemyShipTargetTransform;
-
-    private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
-
-    public void SetCannonTarget(CannonSide _cannonSide, Transform _target)
+    public void ShootCannonBall()
     {
-        if (_cannonSide.Equals(cannonSide))
-        {
-            enemyShipTargetTransform = _target;
-        }
+        // Change this to use a pooling system
+        GameObject newCannonBall = Instantiate(cannonBall);
+        newCannonBall.transform.rotation = transform.rotation;
+        newCannonBall.transform.position = transform.position;
+        
     }
 
-    public void Initialize()
-    {
-        _eventHandlers.Add(EventHandlerFactory<CannonSide>.BuildEventHandler(ShootCannonEvent, ShootCannonEventCallback));
-    }
+    //private void CleanEventHandlers()
+    //{
+    //    foreach (var item in _eventHandlers)
+    //    {
+    //        item.UnregisterListener();
+    //    }
 
-    public void ShootCannonEventCallback(CannonSide _cannonToShoot)
-    {
-        if (cannonSide.Equals(_cannonToShoot))
-        {
-            Debug.Log($"Shooting {_cannonToShoot}");
-            // Change this to use a pooling system
-            GameObject newCannonBall = Instantiate(cannonBall, transform);
-            newCannonBall.transform.position = transform.position;
-            // Give direction here
-            Vector3 direction = enemyShipTargetTransform.position - PlayerShipTransform.position;
-            newCannonBall.GetComponent<CannonBall>().Direction = Vector3.up;
-        }
-    }
+    //    _eventHandlers.Clear();
+    //}
 
-    private void CleanEventHandlers()
-    {
-        foreach (var item in _eventHandlers)
-        {
-            item.UnregisterListener();
-        }
-
-        _eventHandlers.Clear();
-    }
-
-    private void OnDestroy()
-    {
-        CleanEventHandlers();
-    }
+    //private void OnDestroy()
+    //{
+    //    CleanEventHandlers();
+    //}
 }

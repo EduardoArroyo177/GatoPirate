@@ -7,35 +7,21 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 {
     [Header("Ships")]
     [SerializeField]
-    private GameObject playerShip;
-    [SerializeField]
-    private GameObject enemyShip;
+    private PlayerShipController playerShipController;
 
-    [Header("Cannons")]
-    [SerializeField]
-    private CannonShotController[] cannonShotControllerList;
+    [Header("Cannon Events")]
     [SerializeField]
     private CannonSideEvent ShootCannonEvent;
 
-    private EnemyManager enemyManager;
 
     private void Awake()
     {
-        enemyManager = enemyShip.GetComponent<EnemyManager>();
-        InitializeCannonShotControllers();
+        InitializePlayer();
     }
 
-    private void InitializeCannonShotControllers()
+    private void InitializePlayer()
     {
-        
-        foreach (var item in cannonShotControllerList)
-        {
-            item.PlayerShipTransform = playerShip.transform;
-            item.ShootCannonEvent = ShootCannonEvent;
-            item.SetCannonTarget(CannonSide.LEFT, enemyManager.cannonOriginLeft.transform);
-            item.SetCannonTarget(CannonSide.MIDDLE, enemyManager.cannonOriginMiddle.transform);
-            item.SetCannonTarget(CannonSide.RIGHT, enemyManager.cannonOriginRight.transform);
-            item.Initialize();
-        }
+        playerShipController.ShootCannonEvent = ShootCannonEvent;
+        playerShipController.Initialize();
     }
 }

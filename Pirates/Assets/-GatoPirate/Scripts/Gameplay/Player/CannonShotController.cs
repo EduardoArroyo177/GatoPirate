@@ -17,24 +17,10 @@ public class CannonShotController : MonoBehaviour
     public void ShootCannonBall()
     {
         // Change this to use a pooling system
-        GameObject newCannonBall = Instantiate(cannonBall);
+        GameObject newCannonBall = ObjectPooling.Instance.GetCannonBall();
         newCannonBall.transform.rotation = transform.rotation;
         newCannonBall.transform.position = transform.position;
+        newCannonBall.SetActive(true);
         
     }
-
-    //private void CleanEventHandlers()
-    //{
-    //    foreach (var item in _eventHandlers)
-    //    {
-    //        item.UnregisterListener();
-    //    }
-
-    //    _eventHandlers.Clear();
-    //}
-
-    //private void OnDestroy()
-    //{
-    //    CleanEventHandlers();
-    //}
 }

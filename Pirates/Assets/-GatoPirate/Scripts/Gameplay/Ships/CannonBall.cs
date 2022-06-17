@@ -29,6 +29,6 @@ public class CannonBall : MonoBehaviour
     private void DestroyCannonBall()
     {
         CancelInvoke("DestroyCannonBall");
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

@@ -16,6 +16,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 
     private void Awake()
     {
+        InitializePoolingSystem();
         InitializePlayer();
     }
 
@@ -23,5 +24,10 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     {
         playerShipController.ShootCannonEvent = ShootCannonEvent;
         playerShipController.Initialize();
+    }
+
+    private void InitializePoolingSystem()
+    {
+        ObjectPooling.Instance.Initialize();
     }
 }

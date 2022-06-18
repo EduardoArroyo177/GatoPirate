@@ -9,9 +9,15 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private PlayerShipController playerShipController;
 
+    [Header("UI")]
+    [SerializeField]
+    private PlayerShipUIController playerShipUIController;
+
     [Header("Cannon Events")]
     [SerializeField]
     private CannonSideEvent ShootCannonEvent;
+    [SerializeField]
+    private CannonSideEvent EnableCannonEvent;
 
 
     private void Awake()
@@ -20,14 +26,19 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         InitializePlayer();
     }
 
-    private void InitializePlayer()
-    {
-        playerShipController.ShootCannonEvent = ShootCannonEvent;
-        playerShipController.Initialize();
-    }
-
     private void InitializePoolingSystem()
     {
         ObjectPooling.Instance.Initialize();
+    }
+
+    private void InitializePlayer()
+    {
+        playerShipController.ShootCannonEvent = ShootCannonEvent;
+        playerShipController.EnableCannonEvent = EnableCannonEvent;
+        playerShipController.Initialize();
+
+        playerShipUIController.ShootCannonEvent = ShootCannonEvent;
+        playerShipUIController.EnableCannonEvent = EnableCannonEvent;
+        playerShipUIController.Initialize();
     }
 }

@@ -11,8 +11,12 @@ public class PlayerShipController : MonoBehaviour
     private CannonShotController middleCannon;
     [SerializeField]
     private CannonShotController rightCannon;
+    [SerializeField]
+    private float cannonCoolDownTime; // TODO: Make this a property
+
 
     public CannonSideEvent ShootCannonEvent { get; set; }
+    public CannonSideEvent EnableCannonEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
@@ -26,17 +30,23 @@ public class PlayerShipController : MonoBehaviour
         switch (_side)
         {
             case CannonSide.LEFT:
-                if(leftCannon.IsEnabled)
-                    leftCannon.ShootCannonBall();
+                leftCannon.ShootCannonBall();
+                StartCoroutine(EnableCannon(_side));
                 break;
             case CannonSide.MIDDLE:
-                if(middleCannon.IsEnabled)
-                    middleCannon.ShootCannonBall();
+                middleCannon.ShootCannonBall();
+                StartCoroutine(EnableCannon(_side));
                 break;
             case CannonSide.RIGHT:
-                if(rightCannon.IsEnabled)
-                    rightCannon.ShootCannonBall();
+                rightCannon.ShootCannonBall();
+                StartCoroutine(EnableCannon(_side));
                 break;
         }
+    }
+
+    private IEnumerator EnableCannon(CannonSide _side)
+    {
+        yield return new WaitForSeconds(cannonCoolDownTime);
+        EnableCannonEvent.Raise(_side);
     }
 }

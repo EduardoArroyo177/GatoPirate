@@ -33,7 +33,7 @@ public class SceneSingleton<T> : MonoBehaviour where T : MonoBehaviour
                         singletonObject.name = typeof(T).ToString() + " (Singleton)";
 
                         // Make instance persistent.
-                        DontDestroyOnLoad(singletonObject);
+                        //DontDestroyOnLoad(singletonObject);
                     }
                 }
 

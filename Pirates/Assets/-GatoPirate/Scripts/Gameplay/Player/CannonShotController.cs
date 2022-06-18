@@ -9,10 +9,6 @@ public class CannonShotController : MonoBehaviour
     private CannonSide cannonSide;
     [SerializeField]
     private GameObject cannonBall;
-    [SerializeField]
-    private bool isEnabled;
-
-    public bool IsEnabled { get => isEnabled; set => isEnabled = value; }
 
     public void ShootCannonBall()
     {
@@ -21,6 +17,5 @@ public class CannonShotController : MonoBehaviour
         newCannonBall.transform.rotation = transform.rotation;
         newCannonBall.transform.position = transform.position;
         newCannonBall.SetActive(true);
-        
     }
 }

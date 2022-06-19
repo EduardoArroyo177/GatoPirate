@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 public class PlayerShipController : MonoBehaviour
@@ -16,7 +17,7 @@ public class PlayerShipController : MonoBehaviour
 
 
     public CannonSideEvent ShootCannonEvent { get; set; }
-    public CannonSideEvent EnableCannonEvent { get; set; }
+    public CannonSideFloatEvent StartCoolDownTimerAnimationEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
@@ -30,23 +31,17 @@ public class PlayerShipController : MonoBehaviour
         switch (_side)
         {
             case CannonSide.LEFT:
+                StartCoolDownTimerAnimationEvent.Raise(CannonSide.LEFT, cannonCoolDownTime);
                 leftCannon.ShootCannonBall();
-                StartCoroutine(EnableCannon(_side));
                 break;
             case CannonSide.MIDDLE:
+                StartCoolDownTimerAnimationEvent.Raise(CannonSide.MIDDLE, cannonCoolDownTime);
                 middleCannon.ShootCannonBall();
-                StartCoroutine(EnableCannon(_side));
                 break;
             case CannonSide.RIGHT:
+                StartCoolDownTimerAnimationEvent.Raise(CannonSide.RIGHT, cannonCoolDownTime);
                 rightCannon.ShootCannonBall();
-                StartCoroutine(EnableCannon(_side));
                 break;
         }
-    }
-
-    private IEnumerator EnableCannon(CannonSide _side)
-    {
-        yield return new WaitForSeconds(cannonCoolDownTime);
-        EnableCannonEvent.Raise(_side);
     }
 }

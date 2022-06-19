@@ -13,31 +13,33 @@ public class PlayerShipUIController : MonoBehaviour
     private CannonShootButtonController rightCannon;
 
     public CannonSideEvent ShootCannonEvent { get; set; }
-    public CannonSideEvent EnableCannonEvent { get; set; }
+    public CannonSideFloatEvent StartCoolDownTimerAnimationEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
     public void Initialize()
     {
-        _eventHandlers.Add(EventHandlerFactory<CannonSide>.BuildEventHandler(EnableCannonEvent, EnableCannonEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<CannonSide, float>.BuildEventHandler(StartCoolDownTimerAnimationEvent, StartCoolDownTimerAnimationEventCallback));
 
         leftCannon.ShootCannonEvent = ShootCannonEvent;
         middleCannon.ShootCannonEvent = ShootCannonEvent;
         rightCannon.ShootCannonEvent = ShootCannonEvent;
     }
+    
 
-    private void EnableCannonEventCallback(CannonSide _cannonSide)
+    private void StartCoolDownTimerAnimationEventCallback(CannonSide _cannonSide, float _duration)
     {
         switch (_cannonSide)
         {
             case CannonSide.LEFT:
-                leftCannon.EnableShootButton();
+                leftCannon.ShowCoolDownAnimation(_duration);
                 break;
             case CannonSide.MIDDLE:
-                middleCannon.EnableShootButton();
+                middleCannon.ShowCoolDownAnimation(_duration);
                 break;
             case CannonSide.RIGHT:
-                rightCannon.EnableShootButton();
+                rightCannon.ShowCoolDownAnimation(_duration);
                 break;
         }
     }

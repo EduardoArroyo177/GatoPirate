@@ -17,7 +17,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private CannonSideEvent ShootCannonEvent;
     [SerializeField]
-    private CannonSideEvent EnableCannonEvent;
+    private CannonSideFloatEvent StartCoolDownTimerAnimationEvent;
 
 
     private void Awake()
@@ -34,11 +34,11 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     private void InitializePlayer()
     {
         playerShipController.ShootCannonEvent = ShootCannonEvent;
-        playerShipController.EnableCannonEvent = EnableCannonEvent;
+        playerShipController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
         playerShipController.Initialize();
 
         playerShipUIController.ShootCannonEvent = ShootCannonEvent;
-        playerShipUIController.EnableCannonEvent = EnableCannonEvent;
+        playerShipUIController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
         playerShipUIController.Initialize();
     }
 }

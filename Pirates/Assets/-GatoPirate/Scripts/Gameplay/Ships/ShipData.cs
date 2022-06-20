@@ -13,21 +13,21 @@ public class ShipData : ScriptableObject
     [SerializeField]
     private string shipName;
     [SerializeField]
-    private float shipLevelAttackMultiplier;
+    private float shipLevelAttackMultiplier; // Used
     [SerializeField]
-    private float shipLevelCoolDownMultiplier;
+    private float shipLevelCoolDownMultiplier; // Used
     [SerializeField]
-    private float shipLevelBallSpeedMultiplier;
+    private float shipLevelBallSpeedMultiplier; // Used
     [SerializeField]
     private float shipLevelHealthMultiplier;
     [SerializeField]
-    private float shipLevelSpecialAttackMultiplier;
+    private float shipLevelSpecialAttackMultiplier; // Used
     [SerializeField]
     private int shipHealth;
     [SerializeField]
-    private int cannonBallSpeed;
+    private int cannonBallSpeed; // Used
     [SerializeField]
-    private int cannonBallDamage;
+    private int cannonBallDamage; // Used
     [SerializeField]
     private float cannonCoolDownTime;
     [SerializeField]

@@ -7,6 +7,8 @@ public class CannonBall : MonoBehaviour
     [SerializeField]
     private float movementSpeed;
     [SerializeField]
+    private float ballDamage;
+    [SerializeField]
     private float destroyTime;
 
     public Vector3 Direction { get; set; }
@@ -30,5 +32,11 @@ public class CannonBall : MonoBehaviour
     {
         CancelInvoke("DestroyCannonBall");
         gameObject.SetActive(false);
+    }
+
+    public void SetDamageAndSpeed(float _damage, float _speed)
+    {
+        ballDamage = _damage;
+        movementSpeed = _speed;
     }
 }

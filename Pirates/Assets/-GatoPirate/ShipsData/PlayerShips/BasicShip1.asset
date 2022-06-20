@@ -14,5 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipID: 
   shipLevelType: 0
+  shipLevel: 0
   shipName: 
-  shipLevelAttackMultiplier: 0
+  shipLevelAttackMultiplier: 1
+  shipLevelCoolDownMultiplier: 1
+  shipLevelBallSpeedMultiplier: 1
+  shipLevelHealthMultiplier: 1
+  shipLevelSpecialAttackMultiplier: 1
+  shipHealth: 0
+  cannonBallSpeed: 15
+  cannonBallDamage: 10
+  cannonCoolDownTime: 1.5
+  basicAttackDamage: 0
+  basicAttackCoolDownTime: 0
+  specialAttackDamage: 0
+  specialAttackChargeTime: 0

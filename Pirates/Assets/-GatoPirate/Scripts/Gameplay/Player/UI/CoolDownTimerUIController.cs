@@ -17,10 +17,10 @@ public class CoolDownTimerUIController : MonoBehaviour
         animationDuration = _duration;
         img_fillBar.fillAmount = 0;
         gameObject.SetActive(true);
-        StartCoroutine(CircleFillAnimation(_duration));
+        StartCoroutine(CircleFillAnimation());
     }
 
-    private IEnumerator CircleFillAnimation(float _animationDuration)
+    private IEnumerator CircleFillAnimation()
     {
         float percentage;
         float activeTimer = 0;
@@ -28,7 +28,7 @@ public class CoolDownTimerUIController : MonoBehaviour
         while (img_fillBar.fillAmount < 1)
         {
             activeTimer += Time.deltaTime;
-            percentage = activeTimer / _animationDuration;
+            percentage = activeTimer / animationDuration;
             img_fillBar.fillAmount = Mathf.Lerp(0, 1, percentage);
             yield return null;
         }

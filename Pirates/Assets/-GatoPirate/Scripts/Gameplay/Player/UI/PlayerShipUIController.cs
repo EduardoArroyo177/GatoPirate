@@ -1,19 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 public class PlayerShipUIController : MonoBehaviour
 {
+    [Header("Cannons")]
     [SerializeField]
     private CannonShootButtonController leftCannon;
     [SerializeField]
     private CannonShootButtonController middleCannon;
     [SerializeField]
     private CannonShootButtonController rightCannon;
+    [Header("Special attack")]
+    [SerializeField]
+    private SpecialAttackButtonController specialAttackButtonController;
 
+    // Cannons
     public CannonSideEvent ShootCannonEvent { get; set; }
     public CannonSideFloatEvent StartCoolDownTimerAnimationEvent { get; set; }
+
+    // Special attack
+    public FloatEvent InitializeSpecialAttackEvent { get; set; }
+    public VoidEvent ShootSpecialAttackEvent { get; set; }
 
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
@@ -22,9 +32,15 @@ public class PlayerShipUIController : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory<CannonSide, float>.BuildEventHandler(StartCoolDownTimerAnimationEvent, StartCoolDownTimerAnimationEventCallback));
 
+        // Cannons
         leftCannon.ShootCannonEvent = ShootCannonEvent;
         middleCannon.ShootCannonEvent = ShootCannonEvent;
         rightCannon.ShootCannonEvent = ShootCannonEvent;
+
+        // Special attack
+        specialAttackButtonController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
+        specialAttackButtonController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
+        specialAttackButtonController.Initialize();
     }
     
 

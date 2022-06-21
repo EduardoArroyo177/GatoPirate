@@ -29,6 +29,7 @@ public class PlayerShipAttackController : MonoBehaviour
     // Events
     public CannonSideEvent ShootCannonEvent { get; set; }
     public CannonSideFloatEvent StartCoolDownTimerAnimationEvent { get; set; }
+    public FloatEvent InitializeSpecialAttackEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
     private float currentCountDown;
@@ -46,6 +47,9 @@ public class PlayerShipAttackController : MonoBehaviour
 
         rightCannon.SetDamageValue(CannonBallDamage * ShipLevelAttackMultiplier);
         rightCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+
+        // Special attack
+        InitializeSpecialAttackEvent.Raise(SpecialAttackChargeTime);
 
         // Ship
         currentCountDown = CannonCoolDownTime * ShipLevelCoolDownMultiplier;

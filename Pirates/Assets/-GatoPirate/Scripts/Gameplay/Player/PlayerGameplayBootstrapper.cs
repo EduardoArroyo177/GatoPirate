@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 public class PlayerGameplayBootstrapper : MonoBehaviour
@@ -21,6 +22,12 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private CannonSideFloatEvent StartCoolDownTimerAnimationEvent;
 
+    [Header("Special attack events")]
+    [SerializeField]
+    private FloatEvent InitializeSpecialAttackEvent;
+    [SerializeField]
+    private VoidEvent ShootSpecialAttackEvent;
+
 
     private void Awake()
     {
@@ -35,7 +42,14 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 
     private void InitializePlayer()
     {
-        // Properties
+        // UI Init goes first
+        playerShipUIController.ShootCannonEvent = ShootCannonEvent;
+        playerShipUIController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
+        playerShipUIController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
+        playerShipUIController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
+        playerShipUIController.Initialize();
+
+        // Controller Properties
         playerShipController.ShipLevelAttackMultiplier = playerShipData.ShipLevelAttackMultiplier;
         playerShipController.ShipLevelBallSpeedMultiplier = playerShipData.ShipLevelBallSpeedMultiplier;
         playerShipController.ShipLevelCoolDownMultiplier = playerShipData.ShipLevelCoolDownMultiplier;
@@ -49,13 +63,12 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipController.SpecialAttackDamage = playerShipData.SpecialAttackDamage;
         playerShipController.SpecialAttackChargeTime = playerShipData.SpecialAttackChargeTime;
 
+        // TODO: Initialize ship with data from main screen 
+
         // Events
         playerShipController.ShootCannonEvent = ShootCannonEvent;
         playerShipController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
+        playerShipController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
         playerShipController.Initialize();
-
-        playerShipUIController.ShootCannonEvent = ShootCannonEvent;
-        playerShipUIController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
-        playerShipUIController.Initialize();
     }
 }

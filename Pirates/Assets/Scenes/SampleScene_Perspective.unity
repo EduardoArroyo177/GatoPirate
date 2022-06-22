@@ -231,7 +231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1850766636939751444, guid: 9b9171b8fe4821c418c7467aa7e4e829, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1850766636939751444, guid: 9b9171b8fe4821c418c7467aa7e4e829, type: 3}
       propertyPath: m_AnchorMax.x
@@ -332,6 +332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486798721}
+  - component: {fileID: 486798722}
   m_Layer: 0
   m_Name: CannonShotOriginMiddle
   m_TagString: Untagged
@@ -346,14 +347,31 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486798720}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.67, z: 0}
+  m_LocalRotation: {x: 0, y: 0.9659258, z: -0.2588191, w: 0}
+  m_LocalPosition: {x: 0, y: -0.67, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1069782710}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 180, z: 0}
+--- !u!114 &486798722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486798720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2182b96141cd62b4eb212fa81f402b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  movementSpeed: 0
+  specialDamage: 0
+  specialMovementSpeed: 0
+  isShooting: 0
 --- !u!1 &600958275
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +468,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 330, y: 0, z: 0}
 --- !u!1 &655124739
 GameObject:
@@ -779,7 +797,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &922512147
 GameObject:
@@ -958,6 +976,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1069639526}
+  - component: {fileID: 1069639527}
   m_Layer: 0
   m_Name: CannonShotOriginLeft
   m_TagString: Untagged
@@ -972,14 +991,31 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069639525}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0.14, z: 0}
+  m_LocalRotation: {x: 0, y: 0.9659258, z: -0.2588191, w: 0}
+  m_LocalPosition: {x: -2, y: 0.14, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1069782710}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 180, z: 0}
+--- !u!114 &1069639527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069639525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2182b96141cd62b4eb212fa81f402b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  movementSpeed: 0
+  specialDamage: 0
+  specialMovementSpeed: 0
+  isShooting: 0
 --- !u!1 &1069782708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,8 +1102,9 @@ Transform:
   - {fileID: 1069639526}
   - {fileID: 486798721}
   - {fileID: 2085303968}
+  - {fileID: 1919641524}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1069782712
 MonoBehaviour:
@@ -1081,9 +1118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fef901856331c48977c5bf3a64842e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonOriginLeft: {fileID: 1069639525}
-  cannonOriginMiddle: {fileID: 486798720}
-  cannonOriginRight: {fileID: 2085303967}
+  leftCannon: {fileID: 1069639527}
+  middleCannon: {fileID: 486798722}
+  rightCannon: {fileID: 2085303969}
+  specialCannon: {fileID: 1919641523}
 --- !u!65 &1069782713
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1375,6 +1413,7 @@ MonoBehaviour:
   movementSpeed: 0
   specialDamage: 0
   specialMovementSpeed: 0
+  isShooting: 0
 --- !u!4 &1382944652
 Transform:
   m_ObjectHideFlags: 0
@@ -1512,7 +1551,53 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1660922699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1660922701}
+  - component: {fileID: 1660922700}
+  m_Layer: 0
+  m_Name: EnemyGameplayBootstrapper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1660922700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660922699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26e50299e5af894e89bfeb9a1e3605b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyShipData: {fileID: 11400000, guid: c6424596538fe354f92e9deb4a2733b3, type: 2}
+  enemyShipAttackController: {fileID: 1069782712}
+--- !u!4 &1660922701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660922699}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1712832576
 GameObject:
@@ -1653,6 +1738,7 @@ MonoBehaviour:
   movementSpeed: 0
   specialDamage: 0
   specialMovementSpeed: 0
+  isShooting: 0
 --- !u!1 &1760117028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1787,7 @@ MonoBehaviour:
   movementSpeed: 0
   specialDamage: 0
   specialMovementSpeed: 0
+  isShooting: 0
 --- !u!1 &1763248059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,7 +1883,7 @@ RectTransform:
   - {fileID: 1364895126}
   - {fileID: 1189303229}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2043,6 +2130,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonSide: 0
   coolDownTimerUIController: {fileID: 1712832578}
+--- !u!1 &1919641522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919641524}
+  - component: {fileID: 1919641523}
+  m_Layer: 0
+  m_Name: SpecialAttackOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1919641523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919641522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2182b96141cd62b4eb212fa81f402b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  movementSpeed: 0
+  specialDamage: 0
+  specialMovementSpeed: 0
+  isShooting: 0
+--- !u!4 &1919641524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919641522}
+  m_LocalRotation: {x: 0, y: 0.9659258, z: -0.2588191, w: 0}
+  m_LocalPosition: {x: 0, y: -0.67, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1069782710}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 30, y: 180, z: 0}
 --- !u!1 &1963738342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,6 +2361,7 @@ MonoBehaviour:
   movementSpeed: 0
   specialDamage: 0
   specialMovementSpeed: 0
+  isShooting: 0
 --- !u!4 &1984097637
 Transform:
   m_ObjectHideFlags: 0
@@ -2284,7 +2421,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006826696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9386961, y: -13.746098, z: 24.664131}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2571,6 +2708,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2085303968}
+  - component: {fileID: 2085303969}
   m_Layer: 0
   m_Name: CannonShotOriginRight
   m_TagString: Untagged
@@ -2585,11 +2723,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085303967}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: -0.29, z: 0}
+  m_LocalRotation: {x: 0, y: 0.9659258, z: -0.2588191, w: 0}
+  m_LocalPosition: {x: 2, y: -0.29, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1069782710}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 180, z: 0}
+--- !u!114 &2085303969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085303967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2182b96141cd62b4eb212fa81f402b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  movementSpeed: 0
+  specialDamage: 0
+  specialMovementSpeed: 0
+  isShooting: 0

@@ -10,6 +10,7 @@ public class CannonShotController : MonoBehaviour
     public float movementSpeed;
     public float specialDamage;
     public float specialMovementSpeed;
+    public bool isShooting;
 
     // Normal cannons
     public void SetDamageValue(float _damage)

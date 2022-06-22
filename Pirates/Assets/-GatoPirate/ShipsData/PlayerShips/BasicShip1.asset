@@ -27,5 +27,5 @@ MonoBehaviour:
   cannonCoolDownTime: 1.5
   basicAttackDamage: 0
   basicAttackCoolDownTime: 0
-  specialAttackDamage: 0
-  specialAttackChargeTime: 0
+  specialAttackDamage: 25
+  specialAttackChargeTime: 10

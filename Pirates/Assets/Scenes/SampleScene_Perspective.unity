@@ -1342,6 +1342,54 @@ MonoBehaviour:
   middleCannon: {fileID: 2021312100}
   rightCannon: {fileID: 1963738347}
   specialAttackButtonController: {fileID: 1189303233}
+--- !u!1 &1382944650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1382944652}
+  - component: {fileID: 1382944651}
+  m_Layer: 0
+  m_Name: SpecialAttackOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1382944651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382944650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2182b96141cd62b4eb212fa81f402b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  movementSpeed: 0
+  specialDamage: 0
+  specialMovementSpeed: 0
+--- !u!4 &1382944652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382944650}
+  m_LocalRotation: {x: 0.25881916, y: -0, z: -0, w: -0.9659258}
+  m_LocalPosition: {x: -0.3, y: -0.73, z: 0.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2030053265}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 330, y: 0, z: 0}
 --- !u!1 &1383704706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,6 +1497,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonBall: {fileID: 5587535167352711626, guid: e75308ea180c58a4098baef8a7bc7b80, type: 3}
   cannonBallInstanceAmnt: 50
+  specialAttackProjectile: {fileID: 2452222041959279251, guid: a082131442f611a43a2ef1b907915905, type: 3}
+  specialProjectileAmnt: 10
 --- !u!4 &1548224210
 Transform:
   m_ObjectHideFlags: 0
@@ -1599,10 +1649,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2182b96141cd62b4eb212fa81f402b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonSide: 0
-  cannonBall: {fileID: 5587535167352711626, guid: e75308ea180c58a4098baef8a7bc7b80, type: 3}
   damage: 0
   movementSpeed: 0
+  specialDamage: 0
+  specialMovementSpeed: 0
 --- !u!1 &1760117028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,10 +1697,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2182b96141cd62b4eb212fa81f402b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonSide: 1
-  cannonBall: {fileID: 5587535167352711626, guid: e75308ea180c58a4098baef8a7bc7b80, type: 3}
   damage: 0
   movementSpeed: 0
+  specialDamage: 0
+  specialMovementSpeed: 0
 --- !u!1 &1763248059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,10 +2221,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2182b96141cd62b4eb212fa81f402b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonSide: 2
-  cannonBall: {fileID: 5587535167352711626, guid: e75308ea180c58a4098baef8a7bc7b80, type: 3}
   damage: 0
   movementSpeed: 0
+  specialDamage: 0
+  specialMovementSpeed: 0
 --- !u!4 &1984097637
 Transform:
   m_ObjectHideFlags: 0
@@ -2479,6 +2529,7 @@ Transform:
   - {fileID: 1715126127}
   - {fileID: 1760117029}
   - {fileID: 1984097637}
+  - {fileID: 1382944652}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2510,6 +2561,7 @@ MonoBehaviour:
   leftCannon: {fileID: 1715126128}
   middleCannon: {fileID: 1760117030}
   rightCannon: {fileID: 1984097636}
+  specialCannon: {fileID: 1382944651}
 --- !u!1 &2085303967
 GameObject:
   m_ObjectHideFlags: 0

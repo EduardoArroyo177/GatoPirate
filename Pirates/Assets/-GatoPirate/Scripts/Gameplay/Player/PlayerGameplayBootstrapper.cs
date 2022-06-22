@@ -69,6 +69,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipController.ShootCannonEvent = ShootCannonEvent;
         playerShipController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
         playerShipController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
+        playerShipController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
         playerShipController.Initialize();
     }
 }

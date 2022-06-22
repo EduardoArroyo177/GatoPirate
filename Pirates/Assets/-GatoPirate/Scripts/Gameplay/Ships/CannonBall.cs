@@ -39,4 +39,9 @@ public class CannonBall : MonoBehaviour
         ballDamage = _damage;
         movementSpeed = _speed;
     }
+
+    public void SetDamage(float _damage)
+    {
+        ballDamage = _damage;
+    }
 }

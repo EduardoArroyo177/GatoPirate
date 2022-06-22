@@ -6,12 +6,17 @@ using UnityEngine;
 
 public class PlayerShipAttackController : MonoBehaviour
 {
+    [Header("Cannons")]
     [SerializeField]
     private CannonShotController leftCannon;
     [SerializeField]
     private CannonShotController middleCannon;
     [SerializeField]
     private CannonShotController rightCannon;
+
+    [Header("Special cannon")]
+    [SerializeField]
+    private CannonShotController specialCannon;
 
     // Properties
     public float ShipLevelAttackMultiplier { get; set; } //
@@ -30,6 +35,7 @@ public class PlayerShipAttackController : MonoBehaviour
     public CannonSideEvent ShootCannonEvent { get; set; }
     public CannonSideFloatEvent StartCoolDownTimerAnimationEvent { get; set; }
     public FloatEvent InitializeSpecialAttackEvent { get; set; }
+    public VoidEvent ShootSpecialAttackEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
     private float currentCountDown;
@@ -37,6 +43,7 @@ public class PlayerShipAttackController : MonoBehaviour
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory<CannonSide>.BuildEventHandler(ShootCannonEvent, ShootCannonEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ShootSpecialAttackEvent, ShootSpecialAttackEventCallback));
 
         // Cannon ball
         leftCannon.SetDamageValue(CannonBallDamage * ShipLevelAttackMultiplier);
@@ -50,6 +57,9 @@ public class PlayerShipAttackController : MonoBehaviour
 
         // Special attack
         InitializeSpecialAttackEvent.Raise(SpecialAttackChargeTime);
+        specialCannon.SetSpecialDamageValue(SpecialAttackDamage * ShipLevelSpecialAttackMultiplier);
+        // TODO: Create special attack movement speed if needed
+        specialCannon.SetSpecialMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
         // Ship
         currentCountDown = CannonCoolDownTime * ShipLevelCoolDownMultiplier;
@@ -72,5 +82,10 @@ public class PlayerShipAttackController : MonoBehaviour
                 rightCannon.ShootCannonBall();
                 break;
         }
+    }
+
+    private void ShootSpecialAttackEventCallback(Void _item)
+    {
+        specialCannon.ShootSpecialAttack();
     }
 }

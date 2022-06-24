@@ -47,13 +47,15 @@ public class CannonShotController : MonoBehaviour
         specialMovementSpeed = _speed;
     }
 
-    public void ShootSpecialAttack()
+    public void ShootSpecialAttack(bool _isEnemy = false)
     {
         GameObject newSpecialAttackProjectile = ObjectPooling.Instance.GetSpecialProjectile();
         newSpecialAttackProjectile.transform.rotation = transform.rotation;
         newSpecialAttackProjectile.transform.position = transform.position;
         // TODO: Update movement speed if needed
-        newSpecialAttackProjectile.GetComponent<CannonBall>().SetDamageAndSpeed(specialDamage, specialMovementSpeed);
+        CannonBall cannonBallHelper = newSpecialAttackProjectile.GetComponent<CannonBall>();
+        cannonBallHelper.SetDamageAndSpeed(damage, specialMovementSpeed);
+        cannonBallHelper.IsEnemy = _isEnemy;
         newSpecialAttackProjectile.SetActive(true);
     }
 }

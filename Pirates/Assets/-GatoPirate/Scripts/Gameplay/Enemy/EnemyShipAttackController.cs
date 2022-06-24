@@ -21,6 +21,8 @@ public class EnemyShipAttackController : MonoBehaviour
     [Header ("Special cannon")]
     [SerializeField]
     private CannonShotController specialCannon;
+    [SerializeField]
+    private EnemySpecialAttackShooting specialCannonShooting;
 
     // Properties
     public float ShipLevelAttackMultiplier { get; set; } //
@@ -62,7 +64,8 @@ public class EnemyShipAttackController : MonoBehaviour
 
         // TODO: Move this to a StartCombatEvent
         StartCoroutine("AutomaticAttack");
-
+        specialCannonShooting.EnemyShipAtkController = this;
+        specialCannonShooting.StartCoolDownTimer(SpecialAttackChargeTime);
     }
 
     
@@ -108,5 +111,10 @@ public class EnemyShipAttackController : MonoBehaviour
                     ShootRandomCannon();
                 break;
         }
+    }
+
+    public void ShootSpecialAttack()
+    {
+        specialCannon.ShootSpecialAttack(true);
     }
 }

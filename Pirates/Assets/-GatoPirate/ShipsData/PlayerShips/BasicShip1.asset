@@ -22,9 +22,9 @@ MonoBehaviour:
   shipLevelHealthMultiplier: 1
   shipLevelSpecialAttackMultiplier: 1
   shipHealth: 0
-  cannonBallSpeed: 15
+  cannonBallSpeed: 30
   cannonBallDamage: 10
-  cannonCoolDownTime: 1.5
+  cannonCoolDownTime: 1
   basicAttackDamage: 0
   basicAttackCoolDownTime: 0
   specialAttackDamage: 25

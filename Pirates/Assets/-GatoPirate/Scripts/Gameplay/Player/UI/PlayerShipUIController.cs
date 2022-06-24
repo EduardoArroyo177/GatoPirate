@@ -8,11 +8,11 @@ public class PlayerShipUIController : MonoBehaviour
 {
     [Header("Cannons")]
     [SerializeField]
-    private CannonShootButtonController leftCannon;
+    private CannonShootButtonController btn_leftCannon;
     [SerializeField]
-    private CannonShootButtonController middleCannon;
+    private CannonShootButtonController btn_middleCannon;
     [SerializeField]
-    private CannonShootButtonController rightCannon;
+    private CannonShootButtonController btn_rightCannon;
     [Header("Special attack")]
     [SerializeField]
     private SpecialAttackButtonController specialAttackButtonController;
@@ -33,9 +33,9 @@ public class PlayerShipUIController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<CannonSide, float>.BuildEventHandler(StartCoolDownTimerAnimationEvent, StartCoolDownTimerAnimationEventCallback));
 
         // Cannons
-        leftCannon.ShootCannonEvent = ShootCannonEvent;
-        middleCannon.ShootCannonEvent = ShootCannonEvent;
-        rightCannon.ShootCannonEvent = ShootCannonEvent;
+        btn_leftCannon.ShootCannonEvent = ShootCannonEvent;
+        btn_middleCannon.ShootCannonEvent = ShootCannonEvent;
+        btn_rightCannon.ShootCannonEvent = ShootCannonEvent;
 
         // Special attack
         specialAttackButtonController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
@@ -49,13 +49,13 @@ public class PlayerShipUIController : MonoBehaviour
         switch (_cannonSide)
         {
             case CannonSide.LEFT:
-                leftCannon.ShowCoolDownAnimation(_duration);
+                btn_leftCannon.ShowCoolDownAnimation(_duration);
                 break;
             case CannonSide.MIDDLE:
-                middleCannon.ShowCoolDownAnimation(_duration);
+                btn_middleCannon.ShowCoolDownAnimation(_duration);
                 break;
             case CannonSide.RIGHT:
-                rightCannon.ShowCoolDownAnimation(_duration);
+                btn_rightCannon.ShowCoolDownAnimation(_duration);
                 break;
         }
     }

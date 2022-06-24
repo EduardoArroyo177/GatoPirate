@@ -23,14 +23,16 @@ public class CannonShotController : MonoBehaviour
         movementSpeed = _speed;
     }
 
-    public void ShootCannonBall()
+    public void ShootCannonBall(bool _isEnemy = false)
     {
         GameObject newCannonBall = ObjectPooling.Instance.GetCannonBall();
         if (!newCannonBall)
             return;
         newCannonBall.transform.rotation = transform.rotation;
         newCannonBall.transform.position = transform.position;
-        newCannonBall.GetComponent<CannonBall>().SetDamageAndSpeed(damage, movementSpeed);
+        CannonBall cannonBallHelper = newCannonBall.GetComponent<CannonBall>();
+        cannonBallHelper.SetDamageAndSpeed(damage, movementSpeed);
+        cannonBallHelper.IsEnemy = _isEnemy;
         newCannonBall.SetActive(true);
     }
 

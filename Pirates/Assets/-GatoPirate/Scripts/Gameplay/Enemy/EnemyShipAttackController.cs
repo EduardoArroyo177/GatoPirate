@@ -8,9 +8,15 @@ public class EnemyShipAttackController : MonoBehaviour
     [SerializeField]
     private CannonShotController leftCannon;
     [SerializeField]
+    private EnemyCannonShooting leftCannonShooting;
+    [SerializeField]
     private CannonShotController middleCannon;
     [SerializeField]
+    private EnemyCannonShooting middleCannonShooting;
+    [SerializeField]
     private CannonShotController rightCannon;
+    [SerializeField]
+    private EnemyCannonShooting rightCannonShooting;
 
     [Header ("Special cannon")]
     [SerializeField]
@@ -72,17 +78,34 @@ public class EnemyShipAttackController : MonoBehaviour
 
     private void ShootRandomCannon()
     {
-        float randomCannon = Random.Range(0, 3);
         switch (Random.Range(0, 3))
         {
             case 0:
-                leftCannon.ShootCannonBall();
+                if (!leftCannonShooting.IsShooting)
+                {
+                    leftCannon.ShootCannonBall(true);
+                    leftCannonShooting.StartCoolDownTimer(CannonCoolDownTime);
+                }
+                else
+                    ShootRandomCannon();
                 break;
             case 1:
-                middleCannon.ShootCannonBall();
+                if (!middleCannonShooting.IsShooting)
+                {
+                    middleCannon.ShootCannonBall(true);
+                    middleCannonShooting.StartCoolDownTimer(CannonCoolDownTime);
+                }
+                else
+                    ShootRandomCannon();
                 break;
             case 2:
-                rightCannon.ShootCannonBall();
+                if (!rightCannonShooting.IsShooting)
+                {
+                    rightCannon.ShootCannonBall(true);
+                    rightCannonShooting.StartCoolDownTimer(CannonCoolDownTime);
+                }
+                else
+                    ShootRandomCannon();
                 break;
         }
     }

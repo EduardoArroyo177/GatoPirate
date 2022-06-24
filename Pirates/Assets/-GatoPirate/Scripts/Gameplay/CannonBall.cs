@@ -10,12 +10,27 @@ public class CannonBall : MonoBehaviour
     private float ballDamage;
     [SerializeField]
     private float destroyTime;
+    [SerializeField]
+    private Transform cannonBallSprite;
 
     public Vector3 Direction { get; set; }
+    public bool IsEnemy;// { get; set; }
+
+    private Vector3 currentRotationEuler;
 
     private void OnEnable()
     {
+        if (IsEnemy)
+            cannonBallSprite.localEulerAngles = new Vector3(-30, 0, currentRotationEuler.z);
+        else
+            cannonBallSprite.localEulerAngles = new Vector3(30, currentRotationEuler.y, currentRotationEuler.z);
+       
         Invoke("DestroyCannonBall", destroyTime);
+    }
+
+    private void Awake()
+    {
+        currentRotationEuler = cannonBallSprite.eulerAngles;
     }
 
     void Update()

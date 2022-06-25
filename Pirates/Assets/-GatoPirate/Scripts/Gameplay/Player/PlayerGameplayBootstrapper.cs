@@ -10,7 +10,9 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private ShipData playerShipData; // TODO: Someone needs to give this from another place
     [SerializeField]
-    private PlayerShipAttackController playerShipController;
+    private PlayerShipAttackController playerShipAttackController;
+    [SerializeField]
+    private PlayerShipHealthController playerShipHealthController;
 
     [Header("UI")]
     [SerializeField]
@@ -49,27 +51,33 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipUIController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
         playerShipUIController.Initialize();
 
+        // Player ship attack controller
         // Controller Properties
-        playerShipController.ShipLevelAttackMultiplier = playerShipData.ShipLevelAttackMultiplier;
-        playerShipController.ShipLevelBallSpeedMultiplier = playerShipData.ShipLevelBallSpeedMultiplier;
-        playerShipController.ShipLevelCoolDownMultiplier = playerShipData.ShipLevelCoolDownMultiplier;
-        playerShipController.ShipLevelSpecialAttackMultiplier = playerShipData.ShipLevelSpecialAttackMultiplier;
+        playerShipAttackController.ShipLevelAttackMultiplier = playerShipData.ShipLevelAttackMultiplier;
+        playerShipAttackController.ShipLevelBallSpeedMultiplier = playerShipData.ShipLevelBallSpeedMultiplier;
+        playerShipAttackController.ShipLevelCoolDownMultiplier = playerShipData.ShipLevelCoolDownMultiplier;
+        playerShipAttackController.ShipLevelSpecialAttackMultiplier = playerShipData.ShipLevelSpecialAttackMultiplier;
 
-        playerShipController.CannonBallSpeed = playerShipData.CannonBallSpeed;
-        playerShipController.CannonBallDamage = playerShipData.CannonBallDamage;
-        playerShipController.CannonCoolDownTime = playerShipData.CannonCoolDownTime;
-        playerShipController.BasicAttackDamage = playerShipData.BasicAttackDamage;
-        playerShipController.BasicAttackCoolDownTime = playerShipData.BasicAttackCoolDownTime;
-        playerShipController.SpecialAttackDamage = playerShipData.SpecialAttackDamage;
-        playerShipController.SpecialAttackChargeTime = playerShipData.SpecialAttackChargeTime;
+        playerShipAttackController.CannonBallSpeed = playerShipData.CannonBallSpeed;
+        playerShipAttackController.CannonBallDamage = playerShipData.CannonBallDamage;
+        playerShipAttackController.CannonCoolDownTime = playerShipData.CannonCoolDownTime;
+        playerShipAttackController.BasicAttackDamage = playerShipData.BasicAttackDamage;
+        playerShipAttackController.BasicAttackCoolDownTime = playerShipData.BasicAttackCoolDownTime;
+        playerShipAttackController.SpecialAttackDamage = playerShipData.SpecialAttackDamage;
+        playerShipAttackController.SpecialAttackChargeTime = playerShipData.SpecialAttackChargeTime;
 
         // TODO: Initialize ship with data from main screen 
 
         // Events
-        playerShipController.ShootCannonEvent = ShootCannonEvent;
-        playerShipController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
-        playerShipController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
-        playerShipController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
-        playerShipController.Initialize();
+        playerShipAttackController.ShootCannonEvent = ShootCannonEvent;
+        playerShipAttackController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
+        playerShipAttackController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
+        playerShipAttackController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
+        playerShipAttackController.Initialize();
+
+        // Player ship health controller
+        playerShipHealthController.ShipHealth = playerShipData.ShipHealth;
+        playerShipHealthController.ShipLevelHealthMultiplier = playerShipData.ShipLevelHealthMultiplier;
+        playerShipHealthController.Initialize();
     }
 }

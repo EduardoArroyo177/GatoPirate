@@ -54,7 +54,7 @@ public class CannonShotController : MonoBehaviour
         newSpecialAttackProjectile.transform.position = transform.position;
         // TODO: Update movement speed if needed
         CannonBall cannonBallHelper = newSpecialAttackProjectile.GetComponent<CannonBall>();
-        cannonBallHelper.SetDamageAndSpeed(damage, specialMovementSpeed);
+        cannonBallHelper.SetDamageAndSpeed(specialDamage, specialMovementSpeed);
         cannonBallHelper.IsEnemy = _isEnemy;
         newSpecialAttackProjectile.SetActive(true);
     }

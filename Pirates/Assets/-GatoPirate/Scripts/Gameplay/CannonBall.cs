@@ -14,6 +14,8 @@ public class CannonBall : MonoBehaviour
     private Transform cannonBallSprite;
 
     public Vector3 Direction { get; set; }
+    public float BallDamage { get => ballDamage; set => ballDamage = value; }
+
     public bool IsEnemy;// { get; set; }
 
     private Vector3 currentRotationEuler;
@@ -51,12 +53,12 @@ public class CannonBall : MonoBehaviour
 
     public void SetDamageAndSpeed(float _damage, float _speed)
     {
-        ballDamage = _damage;
+        BallDamage = _damage;
         movementSpeed = _speed;
     }
 
     public void SetDamage(float _damage)
     {
-        ballDamage = _damage;
+        BallDamage = _damage;
     }
 }

@@ -8,14 +8,14 @@ public class PlayerShipAttackUIController : MonoBehaviour
 {
     [Header("Cannons")]
     [SerializeField]
-    private CannonShootButtonController btn_leftCannon;
+    private PlayerCannonShootButtonController btn_leftCannon;
     [SerializeField]
-    private CannonShootButtonController btn_middleCannon;
+    private PlayerCannonShootButtonController btn_middleCannon;
     [SerializeField]
-    private CannonShootButtonController btn_rightCannon;
+    private PlayerCannonShootButtonController btn_rightCannon;
     [Header("Special attack")]
     [SerializeField]
-    private SpecialAttackButtonController specialAttackButtonController;
+    private PlayerSpecialAttackButtonController specialAttackButtonController;
 
     // Cannons
     public CannonSideEvent ShootCannonEvent { get; set; }

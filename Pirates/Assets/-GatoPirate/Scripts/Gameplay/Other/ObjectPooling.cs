@@ -19,7 +19,6 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     private List<GameObject> cannonBallList = new List<GameObject>();
     private List<GameObject> specialProjectileList = new List<GameObject>();
 
-
     public void Initialize()
     {
         InstantiateCannonBalls();

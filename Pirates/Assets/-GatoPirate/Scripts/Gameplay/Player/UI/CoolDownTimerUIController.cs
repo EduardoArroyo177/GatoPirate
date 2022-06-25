@@ -10,7 +10,7 @@ public class CoolDownTimerUIController : MonoBehaviour
     [SerializeField]
     private float animationDuration;
 
-    public CannonShootButtonController CannonShootBtnController { get; set; }
+    public PlayerCannonShootButtonController CannonShootBtnController { get; set; }
 
     public void StartCoolDownTimerAnimation(float _duration)
     {

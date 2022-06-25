@@ -4,7 +4,7 @@ using UnityAtoms;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CannonShootButtonController : MonoBehaviour
+public class PlayerCannonShootButtonController : MonoBehaviour
 {
     [SerializeField]
     private CannonSide cannonSide;

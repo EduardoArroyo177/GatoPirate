@@ -5,7 +5,7 @@ using UnityAtoms.BaseAtoms;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpecialAttackButtonController : MonoBehaviour
+public class PlayerSpecialAttackButtonController : MonoBehaviour
 {
     [SerializeField]
     private Image img_fillBar;
@@ -65,5 +65,14 @@ public class SpecialAttackButtonController : MonoBehaviour
             yield return null;
         }
         btn_specialAttack.interactable = true;
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var item in _eventHandlers)
+        {
+            item.UnregisterListener();
+        }
+        _eventHandlers.Clear();
     }
 }

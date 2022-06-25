@@ -37,7 +37,7 @@ public class PlayerShipAttackController : MonoBehaviour
     public FloatEvent InitializeSpecialAttackEvent { get; set; }
     public VoidEvent ShootSpecialAttackEvent { get; set; }
 
-    private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
+    private List<IAtomEventHandler> _eventHandlers = new();
     private float currentCountDown;
 
     public void Initialize()
@@ -87,5 +87,14 @@ public class PlayerShipAttackController : MonoBehaviour
     private void ShootSpecialAttackEventCallback(Void _item)
     {
         specialCannon.ShootSpecialAttack();
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var item in _eventHandlers)
+        {
+            item.UnregisterListener();
+        }
+        _eventHandlers.Clear();
     }
 }

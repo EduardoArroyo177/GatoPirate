@@ -14,6 +14,13 @@ public class ShipHealthUIController : MonoBehaviour
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
+    private void Awake()
+    {
+        Debug.Log($"IS THIS CALLED TWICE? {gameObject.name} CURRENT FILL {Img_currentHealth.fillAmount}");
+        Img_currentHealth.fillAmount = 1;
+        Debug.Log($"CURRENT FILL {Img_currentHealth.fillAmount}");
+    }
+
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory<float>.BuildEventHandler(CurrentHealthUIEvent, CurrentHealthUIEventCallback));
@@ -24,5 +31,13 @@ public class ShipHealthUIController : MonoBehaviour
         Img_currentHealth.fillAmount = _healthValue;
     }
 
+    private void OnDestroy()
+    {
+        foreach (var item in _eventHandlers)
+        {
+            item.UnregisterListener();
+        }
 
+        _eventHandlers.Clear();
+    }
 }

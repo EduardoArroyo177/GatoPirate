@@ -31,3 +31,7 @@ MonoBehaviour:
   specialAttackChargeTime: 10
   cannonAttackRateMin: 1.3
   cannonAttackRateMax: 1.8
+  weakSpotAppearanceRateMin: 3.7
+  weakSpotAppearanceRateMax: 6.1
+  weakSpotCoolDownTime: 3.2
+  weakSpotPlayerDamageMultiplier: 1.75

@@ -58,4 +58,14 @@ public class PlayerShipAttackUIController : MonoBehaviour
                 break;
         }
     }
+
+    private void OnDestroy()
+    {
+        foreach (var item in _eventHandlers)
+        {
+            item.UnregisterListener();
+        }
+
+        _eventHandlers.Clear();
+    }
 }

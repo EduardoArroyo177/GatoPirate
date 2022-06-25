@@ -8,6 +8,7 @@ public class FpsCounter : MonoBehaviour
 	string label = "";
 	float count;
 	private GUIStyle guiStyle = new GUIStyle(); //create a new variable
+	public bool destroyOnLoad;
 
 	void Awake()
     {
@@ -15,7 +16,8 @@ public class FpsCounter : MonoBehaviour
 			Application.targetFrameRate = 60;
 		guiStyle.fontSize = 5;
 		
-		DontDestroyOnLoad(gameObject);
+		if(!destroyOnLoad)
+			DontDestroyOnLoad(gameObject);
     }
 
     IEnumerator Start()

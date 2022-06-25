@@ -10,7 +10,19 @@ public class EnemyShipData : ShipData
     private float cannonAttackRateMin;
     [SerializeField]
     private float cannonAttackRateMax;
+    [SerializeField]
+    private float weakSpotAppearanceRateMin;
+    [SerializeField]
+    private float weakSpotAppearanceRateMax;
+    [SerializeField]
+    private float weakSpotCoolDownTime;
+    [SerializeField]
+    private float weakSpotPlayerDamageMultiplier;
 
     public float CannonAttackRateMin { get => cannonAttackRateMin; set => cannonAttackRateMin = value; }
     public float CannonAttackRateMax { get => cannonAttackRateMax; set => cannonAttackRateMax = value; }
+    public float WeakSpotAppearanceRateMin { get => weakSpotAppearanceRateMin; set => weakSpotAppearanceRateMin = value; }
+    public float WeakSpotAppearanceRateMax { get => weakSpotAppearanceRateMax; set => weakSpotAppearanceRateMax = value; }
+    public float WeakSpotCoolDownTime { get => weakSpotCoolDownTime; set => weakSpotCoolDownTime = value; }
+    public float WeakSpotPlayerDamageMultiplier { get => weakSpotPlayerDamageMultiplier; set => weakSpotPlayerDamageMultiplier = value; }
 }

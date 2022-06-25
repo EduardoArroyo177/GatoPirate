@@ -12,6 +12,8 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     private EnemyShipAttackController enemyShipAttackController;
     [SerializeField]
     private ShipHealthController enemyShipHealthController;
+    [SerializeField]
+    private EnemyShipWeakSpotController enemyShipWeakSpotController;
 
     [Header("UI")]
     [SerializeField]
@@ -48,7 +50,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyShipAttackController.SpecialAttackChargeTime = enemyShipData.SpecialAttackChargeTime;
         enemyShipAttackController.CannonAttackRateMin = enemyShipData.CannonAttackRateMin;
         enemyShipAttackController.CannonAttackRateMax = enemyShipData.CannonAttackRateMax;
-
+        // TODO: Initialize this after x amount of time or from a button or whatever
         enemyShipAttackController.Initialize();
 
         // Enemy ship health controller
@@ -58,6 +60,17 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         // Events
         enemyShipHealthController.CurrentHealthUIEvent = CurrentEnemyHealthUIEvent;
         enemyShipHealthController.Initialize();
+
+        // Enemy ship weak spot controller
+        enemyShipWeakSpotController.WeakSpotAppearanceRateMin = enemyShipData.WeakSpotAppearanceRateMin;
+        enemyShipWeakSpotController.WeakSpotAppearanceRateMax = enemyShipData.WeakSpotAppearanceRateMax;
+        enemyShipWeakSpotController.WeakSpotCoolDownTime = enemyShipData.WeakSpotCoolDownTime;
+        enemyShipWeakSpotController.WeakSpotPlayerDamageMultiplier = enemyShipData.WeakSpotPlayerDamageMultiplier;
+        enemyShipWeakSpotController.EnemyShipHealthController = enemyShipHealthController;
+        // TODO: Update this with value that comes from main menu
+        enemyShipWeakSpotController.PlayerNumberOfCannons = 3;
+        // TODO: Initialize this after x amount of time or from a button or whatever
+        enemyShipWeakSpotController.Initialize();
     }
 }
 

@@ -4,7 +4,7 @@ using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
-public class PlayerShipUIController : MonoBehaviour
+public class PlayerShipAttackUIController : MonoBehaviour
 {
     [Header("Cannons")]
     [SerializeField]
@@ -24,7 +24,6 @@ public class PlayerShipUIController : MonoBehaviour
     // Special attack
     public FloatEvent InitializeSpecialAttackEvent { get; set; }
     public VoidEvent ShootSpecialAttackEvent { get; set; }
-
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 

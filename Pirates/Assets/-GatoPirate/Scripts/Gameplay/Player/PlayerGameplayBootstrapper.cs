@@ -16,7 +16,9 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 
     [Header("UI")]
     [SerializeField]
-    private PlayerShipUIController playerShipUIController;
+    private PlayerShipAttackUIController playerShipAttackUIController;
+    [SerializeField]
+    private PlayerShipHealthUIController playerShipHealthUIController;
 
     [Header("Cannon Events")]
     [SerializeField]
@@ -29,6 +31,10 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     private FloatEvent InitializeSpecialAttackEvent;
     [SerializeField]
     private VoidEvent ShootSpecialAttackEvent;
+
+    [Header("Health events")]
+    [SerializeField]
+    private FloatEvent CurrentHealthUIEvent;
 
 
     private void Awake()
@@ -45,11 +51,14 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     private void InitializePlayer()
     {
         // UI Init goes first
-        playerShipUIController.ShootCannonEvent = ShootCannonEvent;
-        playerShipUIController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
-        playerShipUIController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
-        playerShipUIController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
-        playerShipUIController.Initialize();
+        playerShipAttackUIController.ShootCannonEvent = ShootCannonEvent;
+        playerShipAttackUIController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
+        playerShipAttackUIController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
+        playerShipAttackUIController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
+        playerShipAttackUIController.Initialize();
+
+        playerShipHealthUIController.CurrentHealthUIEvent = CurrentHealthUIEvent;
+        playerShipHealthUIController.Initialize();
 
         // Player ship attack controller
         // Controller Properties
@@ -76,8 +85,12 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipAttackController.Initialize();
 
         // Player ship health controller
+        // Properties
         playerShipHealthController.ShipHealth = playerShipData.ShipHealth;
         playerShipHealthController.ShipLevelHealthMultiplier = playerShipData.ShipLevelHealthMultiplier;
+
+        // Events
+        playerShipHealthController.CurrentHealthUIEvent = CurrentHealthUIEvent;
         playerShipHealthController.Initialize();
     }
 }

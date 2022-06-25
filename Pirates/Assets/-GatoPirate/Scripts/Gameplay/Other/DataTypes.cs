@@ -15,3 +15,9 @@ public enum CannonSide
     MIDDLE,
     RIGHT
 }
+
+public enum CharacterType
+{ 
+    PLAYER,
+    ENEMY
+}

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
-public class PlayerShipHealthController : MonoBehaviour
+public class ShipHealthController : MonoBehaviour
 {
+    [SerializeField]
+    private CharacterType shipType;
+
     // Properties
     public float ShipLevelHealthMultiplier { get; set; }
     public float ShipHealth { get; set; }
@@ -37,6 +40,11 @@ public class PlayerShipHealthController : MonoBehaviour
 
             // Calculate percentage and send it to UI
             CurrentHealthUIEvent.Raise(CurrentHealth / ShipHealth);
+
+            if (shipType.Equals(CharacterType.ENEMY))
+            { 
+                // TODO: Calculate chance to receive resources
+            }
         }
     }
 }

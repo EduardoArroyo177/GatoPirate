@@ -12,13 +12,13 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private PlayerShipAttackController playerShipAttackController;
     [SerializeField]
-    private PlayerShipHealthController playerShipHealthController;
+    private ShipHealthController playerShipHealthController;
 
     [Header("UI")]
     [SerializeField]
     private PlayerShipAttackUIController playerShipAttackUIController;
     [SerializeField]
-    private PlayerShipHealthUIController playerShipHealthUIController;
+    private ShipHealthUIController playerShipHealthUIController;
 
     [Header("Cannon Events")]
     [SerializeField]
@@ -34,7 +34,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 
     [Header("Health events")]
     [SerializeField]
-    private FloatEvent CurrentHealthUIEvent;
+    private FloatEvent CurrentPlayerHealthUIEvent;
 
 
     private void Awake()
@@ -57,7 +57,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipAttackUIController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
         playerShipAttackUIController.Initialize();
 
-        playerShipHealthUIController.CurrentHealthUIEvent = CurrentHealthUIEvent;
+        playerShipHealthUIController.CurrentHealthUIEvent = CurrentPlayerHealthUIEvent;
         playerShipHealthUIController.Initialize();
 
         // Player ship attack controller
@@ -90,7 +90,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipHealthController.ShipLevelHealthMultiplier = playerShipData.ShipLevelHealthMultiplier;
 
         // Events
-        playerShipHealthController.CurrentHealthUIEvent = CurrentHealthUIEvent;
+        playerShipHealthController.CurrentHealthUIEvent = CurrentPlayerHealthUIEvent;
         playerShipHealthController.Initialize();
     }
 }

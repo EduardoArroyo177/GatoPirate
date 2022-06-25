@@ -5,7 +5,7 @@ using UnityAtoms.BaseAtoms;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerShipHealthUIController : MonoBehaviour
+public class ShipHealthUIController : MonoBehaviour
 {
     [SerializeField]
     private Image Img_currentHealth;

@@ -40,7 +40,7 @@ namespace UnityAtoms {
             EventHandlerFactory<T> handler = new EventHandlerFactory<T>();
             handler.EventRaised += action;
             handler.handlerEvent = gameEvent;
-            gameEvent.RegisterListener(handler);
+            gameEvent.RegisterListener(handler, false);
             return handler;
         }
 

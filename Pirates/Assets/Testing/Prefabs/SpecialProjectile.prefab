@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3904698444856780924}
   - component: {fileID: 4994130895023080591}
   m_Layer: 0
-  m_Name: SpecialProjecctile
+  m_Name: SpecialProjectile
   m_TagString: CannonBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

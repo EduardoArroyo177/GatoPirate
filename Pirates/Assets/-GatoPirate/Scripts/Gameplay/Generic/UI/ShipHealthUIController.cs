@@ -16,9 +16,7 @@ public class ShipHealthUIController : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log($"IS THIS CALLED TWICE? {gameObject.name} CURRENT FILL {Img_currentHealth.fillAmount}");
         Img_currentHealth.fillAmount = 1;
-        Debug.Log($"CURRENT FILL {Img_currentHealth.fillAmount}");
     }
 
     public void Initialize()

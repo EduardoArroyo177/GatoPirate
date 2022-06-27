@@ -9,6 +9,23 @@ public class ShipHealthUIController : MonoBehaviour
 {
     [SerializeField]
     private Image Img_currentHealth;
+    [SerializeField]
+    private Color highHealthColor;
+    [Range(0.0f, 1.0f)]
+    [SerializeField]
+    private float highHealthValue;
+
+    [SerializeField]
+    private Color meddiumHealthColor;
+    [Range(0.0f, 1.0f)]
+    [SerializeField]
+    private float meddiumHealthValue;
+
+    [SerializeField]
+    private Color lowHealthColor;
+    [Range(0.0f, 1.0f)]
+    [SerializeField]
+    private float lowHealthValue;
 
     public FloatEvent CurrentHealthUIEvent { get; set; }
 
@@ -16,6 +33,7 @@ public class ShipHealthUIController : MonoBehaviour
 
     private void Awake()
     {
+        Img_currentHealth.color = highHealthColor;
         Img_currentHealth.fillAmount = 1;
     }
 
@@ -27,6 +45,17 @@ public class ShipHealthUIController : MonoBehaviour
     private void CurrentHealthUIEventCallback(float _healthValue)
     {
         Img_currentHealth.fillAmount = _healthValue;
+
+        //if (Img_currentHealth.fillAmount > highHealthValue)
+        //    Img_currentHealth.color = highHealthColor;
+
+        if (Img_currentHealth.fillAmount < highHealthValue
+            && Img_currentHealth.fillAmount > meddiumHealthValue)
+            Img_currentHealth.color = meddiumHealthColor;
+
+        else if(Img_currentHealth.fillAmount < meddiumHealthValue)
+            Img_currentHealth.color = lowHealthColor;
+
     }
 
     private void OnDestroy()

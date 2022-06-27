@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.11399722, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.011764706, g: 0.58431375, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.11399722, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.011764706, g: 0.58431375, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -669,6 +669,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Img_currentHealth: {fileID: 5966620956406710865}
+  highHealthColor: {r: 0.4240434, g: 0.7169812, b: 0.057493784, a: 1}
+  highHealthValue: 0.6
+  meddiumHealthColor: {r: 1, g: 0.6416, b: 0, a: 1}
+  meddiumHealthValue: 0.35
+  lowHealthColor: {r: 1, g: 0, b: 0, a: 1}
+  lowHealthValue: 0
 --- !u!1 &5966620956884692917
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,3 +844,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Img_currentHealth: {fileID: 5966620955570636673}
+  highHealthColor: {r: 0.42745098, g: 0.7176471, b: 0.05882353, a: 1}
+  highHealthValue: 0.6
+  meddiumHealthColor: {r: 1, g: 0.6416, b: 0, a: 1}
+  meddiumHealthValue: 0.35
+  lowHealthColor: {r: 1, g: 0, b: 0, a: 1}
+  lowHealthValue: 0

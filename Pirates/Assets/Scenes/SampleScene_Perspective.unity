@@ -1160,7 +1160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2178504743405983317, guid: 5efc7170ca5fd8d49bcc52f68eb6f780, type: 3}
       propertyPath: m_Name
-      value: Pnl_Controls_3Cannons
+      value: Pnl_PlayerCannonControls
       objectReference: {fileID: 0}
     - target: {fileID: 2178504743405983318, guid: 5efc7170ca5fd8d49bcc52f68eb6f780, type: 3}
       propertyPath: m_Pivot.x
@@ -1369,7 +1369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2913088963646352115, guid: f6b2a57cadd17884c8d294cd67570d0b, type: 3}
       propertyPath: m_Name
-      value: Btn_SpecialAttack
+      value: Btn_PlayerSpecialAttack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6b2a57cadd17884c8d294cd67570d0b, type: 3}
@@ -1453,6 +1453,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1763248063}
     m_Modifications:
+    - target: {fileID: 5966620955570636673, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
+      propertyPath: m_Color.g
+      value: 0.58431375
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966620955570636673, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
+      propertyPath: m_Color.r
+      value: 0.011764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966620956406710865, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
+      propertyPath: m_Color.g
+      value: 0.58431375
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966620956406710865, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
+      propertyPath: m_Color.r
+      value: 0.011764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966620956515749358, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
+      propertyPath: highHealthColor.b
+      value: 0.057493784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966620956515749358, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
+      propertyPath: highHealthColor.g
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966620956515749358, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
+      propertyPath: highHealthColor.r
+      value: 0.4240434
+      objectReference: {fileID: 0}
     - target: {fileID: 5966620956884692916, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1540,6 +1568,18 @@ PrefabInstance:
     - target: {fileID: 5966620956884692917, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
       propertyPath: m_Name
       value: Pnl_ShipsInfoUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966620957360749043, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
+      propertyPath: highHealthColor.b
+      value: 0.05882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966620957360749043, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
+      propertyPath: highHealthColor.g
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966620957360749043, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
+      propertyPath: highHealthColor.r
+      value: 0.42745098
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}

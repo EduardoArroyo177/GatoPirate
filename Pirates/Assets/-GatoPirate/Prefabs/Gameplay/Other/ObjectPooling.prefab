@@ -48,3 +48,7 @@ MonoBehaviour:
   cannonBallInstanceAmnt: 50
   specialAttackProjectile: {fileID: 2452222041959279251, guid: a082131442f611a43a2ef1b907915905, type: 3}
   specialProjectileAmnt: 10
+  cannonBallShotParticles: {fileID: 193574, guid: 5c2bdcf6f0badc34f9f192b0995e4a79, type: 3}
+  cannonBallShotParticlesInstanceAmnt: 25
+  cannonBallExplosionParticles: {fileID: 1198724786340194, guid: 0898b572f28fb32439fbe4be9a9beb52, type: 3}
+  cannonBallExplosionInstanceAmnt: 25

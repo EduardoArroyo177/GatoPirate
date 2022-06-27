@@ -222,6 +222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 1850766636939751465, guid: 9b9171b8fe4821c418c7467aa7e4e829, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1850766637105070478, guid: 9b9171b8fe4821c418c7467aa7e4e829, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -1453,34 +1457,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1763248063}
     m_Modifications:
-    - target: {fileID: 5966620955570636673, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
-      propertyPath: m_Color.g
-      value: 0.58431375
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966620955570636673, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
-      propertyPath: m_Color.r
-      value: 0.011764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966620956406710865, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
-      propertyPath: m_Color.g
-      value: 0.58431375
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966620956406710865, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
-      propertyPath: m_Color.r
-      value: 0.011764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966620956515749358, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
-      propertyPath: highHealthColor.b
-      value: 0.057493784
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966620956515749358, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
-      propertyPath: highHealthColor.g
-      value: 0.7169812
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966620956515749358, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
-      propertyPath: highHealthColor.r
-      value: 0.4240434
-      objectReference: {fileID: 0}
     - target: {fileID: 5966620956884692916, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1568,18 +1544,6 @@ PrefabInstance:
     - target: {fileID: 5966620956884692917, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
       propertyPath: m_Name
       value: Pnl_ShipsInfoUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966620957360749043, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
-      propertyPath: highHealthColor.b
-      value: 0.05882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966620957360749043, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
-      propertyPath: highHealthColor.g
-      value: 0.7176471
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966620957360749043, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}
-      propertyPath: highHealthColor.r
-      value: 0.42745098
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 571b652d17e58a54c8fb50a1a58dc637, type: 3}

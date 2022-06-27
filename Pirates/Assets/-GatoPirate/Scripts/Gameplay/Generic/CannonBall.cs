@@ -42,13 +42,34 @@ public class CannonBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Enemy"))
+            ShowExplosionParticle(true);
+        else
+            ShowExplosionParticle(false);
+
         DestroyCannonBall();
     }
 
     private void DestroyCannonBall()
     {
-        CancelInvoke("DestroyCannonBall");
+        
+        CancelInvoke(nameof(DestroyCannonBall));
         gameObject.SetActive(false);
+    }
+
+    private void ShowExplosionParticle(bool _isEnemy)
+    {
+        GameObject explosionParticle = ObjectPooling.Instance.GetCannonBallExplosionParticle();
+        if (explosionParticle)
+        {
+            explosionParticle.transform.position = transform.position;
+
+            if (_isEnemy)
+                explosionParticle.transform.localScale = new Vector3(2, 2, 2);
+            else
+                explosionParticle.transform.localScale = Vector3.one;
+            explosionParticle.SetActive(true);
+        }
     }
 
     public void SetDamageAndSpeed(float _damage, float _speed)

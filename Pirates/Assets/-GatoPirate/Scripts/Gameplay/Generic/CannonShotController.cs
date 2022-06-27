@@ -34,6 +34,12 @@ public class CannonShotController : MonoBehaviour
         cannonBallHelper.SetDamageAndSpeed(damage, movementSpeed);
         cannonBallHelper.IsEnemy = _isEnemy;
         newCannonBall.SetActive(true);
+        GameObject cannonBallShotParticle = ObjectPooling.Instance.GetCannonBallShotParticle();
+        if (cannonBallShotParticle)
+        {
+            cannonBallShotParticle.transform.position = transform.position;
+            cannonBallShotParticle.SetActive(true);
+        }
     }
 
     // Special attack

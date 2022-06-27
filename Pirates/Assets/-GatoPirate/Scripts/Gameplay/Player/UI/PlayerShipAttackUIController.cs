@@ -41,7 +41,6 @@ public class PlayerShipAttackUIController : MonoBehaviour
         specialAttackButtonController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
         specialAttackButtonController.Initialize();
     }
-    
 
     private void StartCoolDownTimerAnimationEventCallback(CannonSide _cannonSide, float _duration)
     {

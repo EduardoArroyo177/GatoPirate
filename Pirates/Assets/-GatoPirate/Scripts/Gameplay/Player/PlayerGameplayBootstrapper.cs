@@ -36,12 +36,17 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private FloatEvent CurrentPlayerHealthUIEvent;
 
-
-    private void Awake()
+    public void InitializeBootstrapper()
     {
         InitializePoolingSystem();
         InitializePlayer();
     }
+
+    //private void Awake()
+    //{
+    //    InitializePoolingSystem();
+    //    InitializePlayer();
+    //}
 
     private void InitializePoolingSystem()
     {

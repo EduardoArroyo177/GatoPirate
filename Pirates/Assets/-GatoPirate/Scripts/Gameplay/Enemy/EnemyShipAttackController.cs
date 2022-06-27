@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 public class EnemyShipAttackController : MonoBehaviour
@@ -39,10 +41,16 @@ public class EnemyShipAttackController : MonoBehaviour
     public float CannonAttackRateMin { get; set; }
     public float CannonAttackRateMax { get; set; }
 
+    // Events
+    public VoidEvent StartCombatEvent { get; set; }
+
     private float currentCountDown;
+
+    private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
     public void Initialize()
     {
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartCombatEvent, StartCombatEventCallback));
 
         // Cannon ball
         leftCannon.SetDamageValue(CannonBallDamage * ShipLevelAttackMultiplier);
@@ -63,6 +71,13 @@ public class EnemyShipAttackController : MonoBehaviour
         currentCountDown = CannonCoolDownTime * ShipLevelCoolDownMultiplier;
 
         // TODO: Move this to a StartCombatEvent
+        //StartCoroutine("AutomaticAttack");
+        //specialCannonShooting.EnemyShipAtkController = this;
+        //specialCannonShooting.StartCoolDownTimer(SpecialAttackChargeTime);
+    }
+
+    public void StartCombatEventCallback(Void _item)
+    {
         StartCoroutine("AutomaticAttack");
         specialCannonShooting.EnemyShipAtkController = this;
         specialCannonShooting.StartCoolDownTimer(SpecialAttackChargeTime);
@@ -116,5 +131,15 @@ public class EnemyShipAttackController : MonoBehaviour
     public void ShootSpecialAttack()
     {
         specialCannon.ShootSpecialAttack(true);
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var item in _eventHandlers)
+        {
+            item.UnregisterListener();
+        }
+
+        _eventHandlers.Clear();
     }
 }

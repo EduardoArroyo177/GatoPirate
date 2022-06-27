@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 public class EnemyShipWeakSpotController : MonoBehaviour
@@ -19,14 +21,26 @@ public class EnemyShipWeakSpotController : MonoBehaviour
     public float WeakSpotPlayerDamageMultiplier { get; set; }
     public ShipHealthController EnemyShipHealthController { get; set; }
 
+    // Events
+    public VoidEvent StartCombatEvent { get; set; }
+
+    private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
+
     public int PlayerNumberOfCannons { get; set; }
 
     private bool isWeakSpotActive;
 
     public void Initialize()
     {
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartCombatEvent, StartCombatEventCallback));
+
         weakSpotIndicator.EnemyShipHealthController = EnemyShipHealthController;
         weakSpotIndicator.WeakSpotPlayerDamageMultiplier = WeakSpotPlayerDamageMultiplier;
+        //StartCoroutine(HandleWeakSpot());
+    }
+
+    public void StartCombatEventCallback(Void _item)
+    {
         StartCoroutine(HandleWeakSpot());
     }
 
@@ -77,5 +91,15 @@ public class EnemyShipWeakSpotController : MonoBehaviour
         yield return new WaitForSeconds(WeakSpotCoolDownTime);
         weakSpotIndicator.gameObject.SetActive(false);
         isWeakSpotActive = false;
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var item in _eventHandlers)
+        {
+            item.UnregisterListener();
+        }
+
+        _eventHandlers.Clear();
     }
 }

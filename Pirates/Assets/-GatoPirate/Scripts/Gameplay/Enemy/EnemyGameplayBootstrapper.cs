@@ -23,14 +23,21 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private FloatEvent CurrentEnemyHealthUIEvent;
 
-    private void Awake()
+    public VoidEvent StartCombatEvent { get; set; }
+
+    public void InitializeBootstrapper()
     {
         InitializeEnemy();
     }
 
+    //private void Awake()
+    //{
+    //    InitializeEnemy();
+    //}
+
     private void InitializeEnemy()
     {
-        // UI Init goes first
+        // UI Init 
         enemyShipHealthUIController.CurrentHealthUIEvent = CurrentEnemyHealthUIEvent;
         enemyShipHealthUIController.Initialize();
 
@@ -50,6 +57,10 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyShipAttackController.SpecialAttackChargeTime = enemyShipData.SpecialAttackChargeTime;
         enemyShipAttackController.CannonAttackRateMin = enemyShipData.CannonAttackRateMin;
         enemyShipAttackController.CannonAttackRateMax = enemyShipData.CannonAttackRateMax;
+
+        // Events
+        enemyShipAttackController.StartCombatEvent = StartCombatEvent;
+
         // TODO: Initialize this after x amount of time or from a button or whatever
         enemyShipAttackController.Initialize();
 
@@ -69,6 +80,8 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyShipWeakSpotController.EnemyShipHealthController = enemyShipHealthController;
         // TODO: Update this with value that comes from main menu
         enemyShipWeakSpotController.PlayerNumberOfCannons = 3;
+        // Events
+        enemyShipWeakSpotController.StartCombatEvent = StartCombatEvent;
         // TODO: Initialize this after x amount of time or from a button or whatever
         enemyShipWeakSpotController.Initialize();
     }

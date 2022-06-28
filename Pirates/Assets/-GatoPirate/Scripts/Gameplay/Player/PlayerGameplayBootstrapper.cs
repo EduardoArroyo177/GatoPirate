@@ -36,6 +36,8 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private FloatEvent CurrentPlayerHealthUIEvent;
 
+    public FloatEvent TriggerShakingCameraEvent { get; set; }
+
     public void InitializeBootstrapper()
     {
         InitializePoolingSystem();
@@ -96,6 +98,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 
         // Events
         playerShipHealthController.CurrentHealthUIEvent = CurrentPlayerHealthUIEvent;
+        playerShipHealthController.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
         playerShipHealthController.Initialize();
     }
 }

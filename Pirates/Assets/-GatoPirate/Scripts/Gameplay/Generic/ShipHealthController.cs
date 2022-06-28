@@ -7,6 +7,8 @@ public class ShipHealthController : MonoBehaviour
 {
     [SerializeField]
     private CharacterType shipType;
+    [SerializeField]
+    private float _cameraShakeDuration;
 
     // Properties
     public float ShipLevelHealthMultiplier { get; set; }
@@ -16,6 +18,7 @@ public class ShipHealthController : MonoBehaviour
 
     // Events
     public FloatEvent CurrentHealthUIEvent { get; set; }
+    public FloatEvent TriggerShakingCameraEvent { get; set; }
 
     private float ballDamage;
     private EnemyResourcesDrop enemyResourcesDrop;
@@ -33,22 +36,34 @@ public class ShipHealthController : MonoBehaviour
         if (other.CompareTag("CannonBall"))
         {
             ballDamage = other.GetComponent<CannonBall>().BallDamage;
-            if ((CurrentHealth - ballDamage) <= 0)
-            {
-                CurrentHealth = 0;
-                // Trigger combat over
-                Debug.Log("Combat over");
-            }
-            else
-                CurrentHealth -= (int)ballDamage;
+            CauseDamage();
+        }
+        else if (other.CompareTag("SpecialAttack") && !enemyResourcesDrop)
+        {
+            // TODO: Get correct component based on whatever projectile special attack is
+            ballDamage = other.GetComponent<CannonBall>().BallDamage;
+            CauseDamage();
+            TriggerShakingCameraEvent.Raise(_cameraShakeDuration);
+        }
+    }
 
-            // Calculate percentage and send it to UI
-            CurrentHealthUIEvent.Raise(CurrentHealth / ShipHealth);
+    private void CauseDamage()
+    {
+        if ((CurrentHealth - ballDamage) <= 0)
+        {
+            CurrentHealth = 0;
+            // Trigger combat over
+            Debug.Log("Combat over");
+        }
+        else
+            CurrentHealth -= (int)ballDamage;
 
-            if (enemyResourcesDrop)
-            {
-                enemyResourcesDrop.DropResources();
-            }
+        // Calculate percentage and send it to UI
+        CurrentHealthUIEvent.Raise(CurrentHealth / ShipHealth);
+
+        if (enemyResourcesDrop)
+        {
+            enemyResourcesDrop.DropResources();
         }
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4994130895023080591}
   m_Layer: 0
   m_Name: SpecialProjectile
-  m_TagString: CannonBall
+  m_TagString: SpecialAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

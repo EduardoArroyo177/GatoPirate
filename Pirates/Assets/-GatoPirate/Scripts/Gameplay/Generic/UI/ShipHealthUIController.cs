@@ -28,6 +28,7 @@ public class ShipHealthUIController : MonoBehaviour
     private float lowHealthValue;
 
     public FloatEvent CurrentHealthUIEvent { get; set; }
+    public FloatEvent TriggerShakingCameraEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 

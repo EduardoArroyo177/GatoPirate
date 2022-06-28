@@ -35,3 +35,6 @@ MonoBehaviour:
   weakSpotAppearanceRateMax: 6.1
   weakSpotCoolDownTime: 3.2
   weakSpotPlayerDamageMultiplier: 1.75
+  chanceToDropResources: 60
+  resourcesDroppedAmntMin: 10
+  resourcesDroppedAmntMax: 20

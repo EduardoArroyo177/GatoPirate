@@ -363,9 +363,10 @@ GameObject:
   - component: {fileID: 2070584654543354069}
   - component: {fileID: 2070584654543354070}
   - component: {fileID: 2070584654543354071}
+  - component: {fileID: 7491796974937068731}
   m_Layer: 0
   m_Name: EnemyShip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -502,6 +503,18 @@ MonoBehaviour:
   leftWeakSpot: {fileID: 2070584653719205169}
   middleWeakSpot: {fileID: 2070584653489961569}
   rightWeakSpot: {fileID: 2070584653945850481}
+--- !u!114 &7491796974937068731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070584654543354072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c236b01bf5c8eed4c82a5f975a82f5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2070584654816907711
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +529,7 @@ GameObject:
   - component: {fileID: 2070584654816907707}
   m_Layer: 0
   m_Name: WeakSpotIndicator
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

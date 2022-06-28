@@ -21,3 +21,9 @@ public enum CharacterType
     PLAYER,
     ENEMY
 }
+
+public enum CurrencyType
+{ 
+    GOLDEN_COINS,
+    WOOD
+}

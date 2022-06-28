@@ -18,11 +18,14 @@ public class ShipHealthController : MonoBehaviour
     public FloatEvent CurrentHealthUIEvent { get; set; }
 
     private float ballDamage;
+    private EnemyResourcesDrop enemyResourcesDrop;
 
     public void Initialize()
     {
         ShipHealth *= ShipLevelHealthMultiplier;
         CurrentHealth = (int)ShipHealth;
+        if (shipType.Equals(CharacterType.ENEMY))
+            enemyResourcesDrop = GetComponent<EnemyResourcesDrop>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,6 +37,7 @@ public class ShipHealthController : MonoBehaviour
             {
                 CurrentHealth = 0;
                 // Trigger combat over
+                Debug.Log("Combat over");
             }
             else
                 CurrentHealth -= (int)ballDamage;
@@ -41,9 +45,9 @@ public class ShipHealthController : MonoBehaviour
             // Calculate percentage and send it to UI
             CurrentHealthUIEvent.Raise(CurrentHealth / ShipHealth);
 
-            if (shipType.Equals(CharacterType.ENEMY))
-            { 
-                // TODO: Calculate chance to receive resources
+            if (enemyResourcesDrop)
+            {
+                enemyResourcesDrop.DropResources();
             }
         }
     }

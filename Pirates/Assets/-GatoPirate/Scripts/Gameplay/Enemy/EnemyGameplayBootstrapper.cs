@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyGameplayBootstrapper : MonoBehaviour
 {
-    [Header("Ships")]
+    [Header("Ship data")]
     [SerializeField]
     private EnemyShipData enemyShipData; // TODO: Someone needs to give this from another place
     [SerializeField]
@@ -14,14 +14,24 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     private ShipHealthController enemyShipHealthController;
     [SerializeField]
     private EnemyShipWeakSpotController enemyShipWeakSpotController;
+    [SerializeField]
+    private EnemyResourcesDrop enemyResourcesDrop;
 
     [Header("UI")]
     [SerializeField]
     private ShipHealthUIController enemyShipHealthUIController;
+    [SerializeField]
+    private EnemyResourcesDropUIController enemyResourcesDropUIController;
 
     [Header("Health events")]
     [SerializeField]
     private FloatEvent CurrentEnemyHealthUIEvent;
+
+    [Header("Resources drop events")]
+    [SerializeField]
+    private IntEvent GoldResourcesDroppedEvent;
+    [SerializeField]
+    private IntEvent WoodResourcesDroppedEvent;
 
     public VoidEvent StartCombatEvent { get; set; }
 
@@ -40,6 +50,10 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         // UI Init 
         enemyShipHealthUIController.CurrentHealthUIEvent = CurrentEnemyHealthUIEvent;
         enemyShipHealthUIController.Initialize();
+
+        enemyResourcesDropUIController.GoldResourcesDroppedEvent = GoldResourcesDroppedEvent;
+        enemyResourcesDropUIController.WoodResourcesDroppedEvent = WoodResourcesDroppedEvent;
+        enemyResourcesDropUIController.Initialize();
 
         // Enemy ship attack controller
         // Controller Properties
@@ -82,8 +96,17 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyShipWeakSpotController.PlayerNumberOfCannons = 3;
         // Events
         enemyShipWeakSpotController.StartCombatEvent = StartCombatEvent;
-        // TODO: Initialize this after x amount of time or from a button or whatever
         enemyShipWeakSpotController.Initialize();
+
+        // Enemy resources drop 
+        // Properties
+        enemyResourcesDrop.ChanceToDropResources = enemyShipData.ChanceToDropResources;
+        enemyResourcesDrop.ResourcesDroppedAmntMin = enemyShipData.ResourcesDroppedAmntMin;
+        enemyResourcesDrop.ResourcesDroppedAmntMax = enemyShipData.ResourcesDroppedAmntMax;
+
+        // Events
+        enemyResourcesDrop.GoldResourcesDroppedEvent = GoldResourcesDroppedEvent;
+        enemyResourcesDrop.WoodResourcesDroppedEvent = WoodResourcesDroppedEvent;
     }
 }
 

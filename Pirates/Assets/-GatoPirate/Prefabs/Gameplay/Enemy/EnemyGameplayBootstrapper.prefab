@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756207709050791772}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -48,5 +48,9 @@ MonoBehaviour:
   enemyShipAttackController: {fileID: 0}
   enemyShipHealthController: {fileID: 0}
   enemyShipWeakSpotController: {fileID: 0}
+  enemyResourcesDrop: {fileID: 0}
   enemyShipHealthUIController: {fileID: 0}
+  enemyResourcesDropUIController: {fileID: 0}
   CurrentEnemyHealthUIEvent: {fileID: 11400000, guid: 3f32ac08d3caef14a8605b00df6eb57b, type: 2}
+  GoldResourcesDroppedEvent: {fileID: 11400000, guid: 5d6fcd9ca4809f848bcfe0d700d169b1, type: 2}
+  WoodResourcesDroppedEvent: {fileID: 11400000, guid: 595848577f3f6324eb1b2cddd3765071, type: 2}

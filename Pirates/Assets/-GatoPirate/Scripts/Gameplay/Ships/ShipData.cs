@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipData : ScriptableObject
 {
+    [Header("Basic ship data")]
     [SerializeField]
     private string shipID;
     [SerializeField]
@@ -12,6 +13,8 @@ public class ShipData : ScriptableObject
     private int shipLevel;
     [SerializeField]
     private string shipName;
+
+    [Header("Multipliers")]
     [SerializeField]
     private float shipLevelAttackMultiplier; // Used
     [SerializeField]
@@ -22,14 +25,20 @@ public class ShipData : ScriptableObject
     private float shipLevelHealthMultiplier;
     [SerializeField]
     private float shipLevelSpecialAttackMultiplier; // Used
+
+    [Header("Health")]
     [SerializeField]
     private int shipHealth;
+
+    [Header("Cannon balls")]
     [SerializeField]
     private int cannonBallSpeed; // Used
     [SerializeField]
     private int cannonBallDamage; // Used
     [SerializeField]
     private float cannonCoolDownTime;
+
+    [Header("Attacks")]
     [SerializeField]
     private int basicAttackDamage;
     [SerializeField]

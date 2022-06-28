@@ -1,3 +1,4 @@
+using Lofelt.NiceVibrations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;
@@ -82,11 +83,15 @@ public class PlayerShipAttackController : MonoBehaviour
                 rightCannon.ShootCannonBall();
                 break;
         }
+        HapticController.fallbackPreset = HapticPatterns.PresetType.LightImpact;
+        HapticPatterns.PlayEmphasis(0.05f, 0.05f);
     }
 
     private void ShootSpecialAttackEventCallback(Void _item)
     {
         specialCannon.ShootSpecialAttack();
+        HapticController.fallbackPreset = HapticPatterns.PresetType.HeavyImpact;
+        HapticPatterns.PlayEmphasis(0.05f, 0.05f);
     }
 
     private void OnDestroy()

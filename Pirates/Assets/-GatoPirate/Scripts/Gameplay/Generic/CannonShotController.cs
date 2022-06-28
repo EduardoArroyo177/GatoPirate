@@ -1,3 +1,4 @@
+using Lofelt.NiceVibrations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;

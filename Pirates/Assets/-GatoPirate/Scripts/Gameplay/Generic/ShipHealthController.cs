@@ -1,3 +1,4 @@
+using Lofelt.NiceVibrations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms.BaseAtoms;
@@ -44,6 +45,8 @@ public class ShipHealthController : MonoBehaviour
             ballDamage = other.GetComponent<CannonBall>().BallDamage;
             CauseDamage();
             TriggerShakingCameraEvent.Raise(_cameraShakeDuration);
+            HapticController.fallbackPreset = HapticPatterns.PresetType.HeavyImpact;
+            HapticPatterns.PlayConstant(0.85f, 0.5f, _cameraShakeDuration);
         }
     }
 

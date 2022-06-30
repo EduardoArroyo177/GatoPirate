@@ -15,7 +15,7 @@ MonoBehaviour:
   playerShipData: {fileID: 11400000, guid: 269b5ceab8369614d847b4e39b4ad43e, type: 2}
   catCrewControllerList:
   - {fileID: 955593655, guid: 795b96b2ca5f8144a9f28a3e291960a9, type: 3}
-  - {fileID: 955593655, guid: 54d407d906327024d839b02fb01fda41, type: 3}
-  - {fileID: 955593655, guid: 54d407d906327024d839b02fb01fda41, type: 3}
-  - {fileID: 955593655, guid: 54d407d906327024d839b02fb01fda41, type: 3}
+  - {fileID: 955593655, guid: 795b96b2ca5f8144a9f28a3e291960a9, type: 3}
+  - {fileID: 955593655, guid: 795b96b2ca5f8144a9f28a3e291960a9, type: 3}
+  - {fileID: 955593655, guid: 795b96b2ca5f8144a9f28a3e291960a9, type: 3}
   enemyShipData: {fileID: 11400000, guid: c6424596538fe354f92e9deb4a2733b3, type: 2}

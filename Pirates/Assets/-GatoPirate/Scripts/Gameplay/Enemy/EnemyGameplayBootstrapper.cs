@@ -61,6 +61,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
 
         // Enemy ship attack controller
         // Controller Properties
+        enemyShipAttackController.NumberOfActiveCannons = NumberOfActiveCannons;
         enemyShipAttackController.ShipLevelAttackMultiplier = EnemyShipData.ShipLevelAttackMultiplier;
         enemyShipAttackController.ShipLevelBallSpeedMultiplier = EnemyShipData.ShipLevelBallSpeedMultiplier;
         enemyShipAttackController.ShipLevelCoolDownMultiplier = EnemyShipData.ShipLevelCoolDownMultiplier;
@@ -96,8 +97,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyShipWeakSpotController.WeakSpotCoolDownTime = EnemyShipData.WeakSpotCoolDownTime;
         enemyShipWeakSpotController.WeakSpotPlayerDamageMultiplier = EnemyShipData.WeakSpotPlayerDamageMultiplier;
         enemyShipWeakSpotController.EnemyShipHealthController = enemyShipHealthController;
-        // TODO: Update this with value that comes from main menu
-        enemyShipWeakSpotController.PlayerNumberOfCannons = 3;
+        enemyShipWeakSpotController.NumberOfActiveCannons = NumberOfActiveCannons;
         // Events
         enemyShipWeakSpotController.StartCombatEvent = StartCombatEvent;
         enemyShipWeakSpotController.Initialize();

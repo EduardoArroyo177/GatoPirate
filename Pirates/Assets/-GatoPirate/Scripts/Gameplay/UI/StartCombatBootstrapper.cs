@@ -42,6 +42,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         playerGameplayBootstrapper.PlayerShipData = combatData.PlayerShipData;
         playerGameplayBootstrapper.CatCrewControllerObjectsList = combatData.CatCrewControllerList;
         // Events
+        playerGameplayBootstrapper.StartCombatEvent = StartCombatEvent;
         playerGameplayBootstrapper.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
 
         playerGameplayBootstrapper.InitializeBootstrapper();

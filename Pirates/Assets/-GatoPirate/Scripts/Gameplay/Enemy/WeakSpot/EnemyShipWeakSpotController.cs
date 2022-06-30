@@ -26,7 +26,8 @@ public class EnemyShipWeakSpotController : MonoBehaviour
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
-    public int PlayerNumberOfCannons { get; set; }
+    public int NumberOfActiveCannons { get; set; }
+
 
     private bool isWeakSpotActive;
 
@@ -36,7 +37,6 @@ public class EnemyShipWeakSpotController : MonoBehaviour
 
         weakSpotIndicator.EnemyShipHealthController = EnemyShipHealthController;
         weakSpotIndicator.WeakSpotPlayerDamageMultiplier = WeakSpotPlayerDamageMultiplier;
-        //StartCoroutine(HandleWeakSpot());
     }
 
     public void StartCombatEventCallback(Void _item)
@@ -52,17 +52,55 @@ public class EnemyShipWeakSpotController : MonoBehaviour
             
             if (!isWeakSpotActive)
             {
-                switch (PlayerNumberOfCannons)
+                switch (NumberOfActiveCannons)
                 {
                     case 1:
                         // Only middle
+                        weakSpotIndicator.transform.position = middleWeakSpot.transform.position;
+                        isWeakSpotActive = true;
+                        weakSpotIndicator.gameObject.SetActive(true);
+                        StartCoroutine(WeakSpotActive());
+                        
                         break;
                     case 2:
                         // left and right
+                        switch (Random.Range(0, 2))
+                        {
+                            case 0:
+                                weakSpotIndicator.transform.position = leftWeakSpot.transform.position;
+                                break;
+                            case 1:
+                                weakSpotIndicator.transform.position = rightWeakSpot.transform.position;
+                                break;
+                        }
+                        isWeakSpotActive = true;
+                        weakSpotIndicator.gameObject.SetActive(true);
+                        StartCoroutine(WeakSpotActive());
                         break;
                     case 3:
                         // left, middle, right
-                        switch (Random.Range(0, PlayerNumberOfCannons))
+                        switch (Random.Range(0, 3))
+                        {
+                            case 0:
+                                // Left side
+                                weakSpotIndicator.transform.position = leftWeakSpot.transform.position;
+                                break;
+                            case 1:
+                                // Middle side
+                                weakSpotIndicator.transform.position = middleWeakSpot.transform.position;
+                                break;
+                            case 2:
+                                // Right side
+                                weakSpotIndicator.transform.position = rightWeakSpot.transform.position;
+                                break;
+                        }
+                        isWeakSpotActive = true;
+                        weakSpotIndicator.gameObject.SetActive(true);
+                        StartCoroutine(WeakSpotActive());
+                        break;
+                    case 4:
+                        // left, middle, right
+                        switch (Random.Range(0, 3))
                         {
                             case 0:
                                 // Left side

@@ -40,6 +40,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 
     // Events
     public FloatEvent TriggerShakingCameraEvent { get; set; }
+    public VoidEvent StartCombatEvent { get; set; }
 
     // Properties
     public CatCrewController[] CatCrewControllerObjectsList { get; set; }
@@ -95,13 +96,12 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipAttackController.SpecialAttackDamage = PlayerShipData.SpecialAttackDamage;
         playerShipAttackController.SpecialAttackChargeTime = PlayerShipData.SpecialAttackChargeTime;
 
-        // TODO: Initialize ship with data from main screen 
-
         // Events
         playerShipAttackController.ShootCannonEvent = ShootCannonEvent;
         playerShipAttackController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
         playerShipAttackController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
         playerShipAttackController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
+        playerShipAttackController.StartCombatEvent = StartCombatEvent;
         playerShipAttackController.Initialize();
 
         // Player ship health controller

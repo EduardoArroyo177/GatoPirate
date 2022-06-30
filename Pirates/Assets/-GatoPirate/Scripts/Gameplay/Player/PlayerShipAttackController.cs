@@ -37,6 +37,7 @@ public class PlayerShipAttackController : MonoBehaviour
     public CannonSideFloatEvent StartCoolDownTimerAnimationEvent { get; set; }
     public FloatEvent InitializeSpecialAttackEvent { get; set; }
     public VoidEvent ShootSpecialAttackEvent { get; set; }
+    public VoidEvent StartCombatEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private float currentCountDown;
@@ -45,6 +46,7 @@ public class PlayerShipAttackController : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory<CannonSide>.BuildEventHandler(ShootCannonEvent, ShootCannonEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ShootSpecialAttackEvent, ShootSpecialAttackEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartCombatEvent, StartCombatEventCallback));
 
         // Cannon ball
         leftCannon.SetDamageValue(CannonBallDamage * ShipLevelAttackMultiplier);
@@ -56,14 +58,18 @@ public class PlayerShipAttackController : MonoBehaviour
         rightCannon.SetDamageValue(CannonBallDamage * ShipLevelAttackMultiplier);
         rightCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
-        // Special attack
-        InitializeSpecialAttackEvent.Raise(SpecialAttackChargeTime);
         specialCannon.SetSpecialDamageValue(SpecialAttackDamage * ShipLevelSpecialAttackMultiplier);
         // TODO: Create special attack movement speed if needed
         specialCannon.SetSpecialMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
         // Ship
         currentCountDown = CannonCoolDownTime * ShipLevelCoolDownMultiplier;
+    }
+
+    private void StartCombatEventCallback(Void _item)
+    {
+        // Special attack
+        InitializeSpecialAttackEvent.Raise(SpecialAttackChargeTime);
     }
 
     private void ShootCannonEventCallback(CannonSide _side)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
@@ -35,6 +36,9 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
 
     // Events
     public VoidEvent StartCombatEvent { get; set; }
+    public VoidEvent StopCombatEvent { get; set; }
+    public CharacterTypeEvent ShowResultScreenEvent { get; set; }
+
     // Properties
     public EnemyShipData EnemyShipData { get => enemyShipData; set => enemyShipData = value; }
     public int NumberOfActiveCannons { get; set; }
@@ -79,6 +83,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
 
         // Events
         enemyShipAttackController.StartCombatEvent = StartCombatEvent;
+        enemyShipAttackController.StopCombatEvent = StopCombatEvent;
 
         // TODO: Initialize this after x amount of time or from a button or whatever
         enemyShipAttackController.Initialize();
@@ -89,6 +94,8 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
 
         // Events
         enemyShipHealthController.CurrentHealthUIEvent = CurrentEnemyHealthUIEvent;
+        enemyShipHealthController.StopCombatEvent = StopCombatEvent;
+        enemyShipHealthController.ShowResultScreenEvent = ShowResultScreenEvent;
         enemyShipHealthController.Initialize();
 
         // Enemy ship weak spot controller
@@ -100,6 +107,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyShipWeakSpotController.NumberOfActiveCannons = NumberOfActiveCannons;
         // Events
         enemyShipWeakSpotController.StartCombatEvent = StartCombatEvent;
+        enemyShipWeakSpotController.StopCombatEvent = StopCombatEvent;
         enemyShipWeakSpotController.Initialize();
 
         // Enemy resources drop 

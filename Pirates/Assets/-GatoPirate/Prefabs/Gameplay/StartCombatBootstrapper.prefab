@@ -44,9 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4043c2fcf483a46ad460e58676e6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatData: {fileID: 11400000, guid: 32a0ef828edb74049a6a9c95635e6ee4, type: 2}
   startCombatController: {fileID: 0}
   playerGameplayBootstrapper: {fileID: 0}
   enemyGameplayBootstrapper: {fileID: 0}
   virtualCameraController: {fileID: 0}
   StartCombatEvent: {fileID: 11400000, guid: a014a61bd5d2b3349b01e4bb9b126113, type: 2}
+  StopCombatEvent: {fileID: 11400000, guid: cefadfdde67a02d4c9e08b95c5783ca0, type: 2}
+  ShowResultScreenEvent: {fileID: 11400000, guid: c10eeb6d9b8ff214e8a5c79a89d8db35, type: 2}
   TriggerShakingCameraEvent: {fileID: 11400000, guid: d22614e6bf7d44447a7a6ca5dbd86781, type: 2}

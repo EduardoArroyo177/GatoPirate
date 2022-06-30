@@ -1,6 +1,7 @@
 using Lofelt.NiceVibrations;
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ public class ShipHealthController : MonoBehaviour
     // Events
     public FloatEvent CurrentHealthUIEvent { get; set; }
     public FloatEvent TriggerShakingCameraEvent { get; set; }
+    public VoidEvent StopCombatEvent { get; set; }
+    public CharacterTypeEvent ShowResultScreenEvent { get; set; }
 
     private float ballDamage;
     private EnemyResourcesDrop enemyResourcesDrop;
@@ -55,8 +58,15 @@ public class ShipHealthController : MonoBehaviour
         if ((CurrentHealth - ballDamage) <= 0)
         {
             CurrentHealth = 0;
-            // Trigger combat over
             Debug.Log("Combat over");
+            StopCombatEvent.Raise();
+            // TODO: Trigger destroy animation
+            // DestroyAnim();
+            // TODO: This should be called after previous anim is completed
+            if (shipType.Equals(CharacterType.ENEMY))
+                ShowResultScreenEvent.Raise(CharacterType.PLAYER);
+            else
+                ShowResultScreenEvent.Raise(CharacterType.ENEMY);
         }
         else
             CurrentHealth -= (int)ballDamage;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private CombatData combatData;
 
-    [Header("Script references")]
+    [Header("Gameplay Script references")]
     [SerializeField]
     private StartCombatController startCombatController;
     [SerializeField]
@@ -19,9 +20,17 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private VirtualCameraController virtualCameraController;
 
+    [Header("UI script references")]
+    [SerializeField]
+    private UICanvasBootstrapper uiCanvasBootstrapper;
+
     [Header("Events")]
     [SerializeField]
     private VoidEvent StartCombatEvent;
+    [SerializeField]
+    private VoidEvent StopCombatEvent;
+    [SerializeField]
+    private CharacterTypeEvent ShowResultScreenEvent;
     [SerializeField]
     private FloatEvent TriggerShakingCameraEvent;
 
@@ -36,6 +45,9 @@ public class StartCombatBootstrapper : MonoBehaviour
         virtualCameraController.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
         virtualCameraController.Initialize();
 
+        uiCanvasBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
+        uiCanvasBootstrapper.Initialize();
+
         // Player
         // Properties
         playerGameplayBootstrapper.NumberOfActiveCannons = activeCannons;
@@ -43,7 +55,9 @@ public class StartCombatBootstrapper : MonoBehaviour
         playerGameplayBootstrapper.CatCrewControllerObjectsList = combatData.CatCrewControllerList;
         // Events
         playerGameplayBootstrapper.StartCombatEvent = StartCombatEvent;
+        playerGameplayBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         playerGameplayBootstrapper.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
+        playerGameplayBootstrapper.StopCombatEvent = StopCombatEvent;
 
         playerGameplayBootstrapper.InitializeBootstrapper();
 
@@ -53,6 +67,8 @@ public class StartCombatBootstrapper : MonoBehaviour
         enemyGameplayBootstrapper.EnemyShipData = combatData.EnemyShipData;
         // Events
         enemyGameplayBootstrapper.StartCombatEvent = StartCombatEvent;
+        enemyGameplayBootstrapper.StopCombatEvent = StopCombatEvent;
+        enemyGameplayBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         enemyGameplayBootstrapper.InitializeBootstrapper();
     }
 }

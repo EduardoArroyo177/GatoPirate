@@ -24,6 +24,7 @@ public class PlayerShipAttackUIController : MonoBehaviour
     // Special attack
     public FloatEvent InitializeSpecialAttackEvent { get; set; }
     public VoidEvent ShootSpecialAttackEvent { get; set; }
+    public VoidEvent StopCombatEvent { get; set; }
 
     // Properties
     public int NumberOfActiveCannons { get; set; }
@@ -33,12 +34,18 @@ public class PlayerShipAttackUIController : MonoBehaviour
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory<CannonSide, float>.BuildEventHandler(StartCoolDownTimerAnimationEvent, StartCoolDownTimerAnimationEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StopCombatEvent, StopCombatEventCallback));
 
         btn_leftCannon.ShootCannonEvent = ShootCannonEvent;
         btn_middleCannon.ShootCannonEvent = ShootCannonEvent;
         btn_rightCannon.ShootCannonEvent = ShootCannonEvent;
 
         SetCannons();
+    }
+
+    private void StopCombatEventCallback(Void _item)
+    {
+        specialAttackButtonController.StopAnimation();
     }
 
     private void SetCannons()

@@ -43,6 +43,7 @@ public class EnemyShipAttackController : MonoBehaviour
 
     // Events
     public VoidEvent StartCombatEvent { get; set; }
+    public VoidEvent StopCombatEvent { get; set; }
 
     // Other properties
     public int NumberOfActiveCannons { get; set; }
@@ -54,6 +55,7 @@ public class EnemyShipAttackController : MonoBehaviour
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartCombatEvent, StartCombatEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StopCombatEvent, StopCombatEventCallback));
 
         // Cannon ball
         leftCannon.SetDamageValue(CannonBallDamage * ShipLevelAttackMultiplier);
@@ -74,7 +76,7 @@ public class EnemyShipAttackController : MonoBehaviour
         currentCountDown = CannonCoolDownTime * ShipLevelCoolDownMultiplier;
     }
 
-    public void StartCombatEventCallback(Void _item)
+    private void StartCombatEventCallback(Void _item)
     {
         StartCoroutine("AutomaticAttack");
         specialCannonShooting.EnemyShipAtkController = this;
@@ -83,7 +85,14 @@ public class EnemyShipAttackController : MonoBehaviour
             specialCannonShooting.StartCoolDownTimer(SpecialAttackChargeTime);
     }
 
-    
+    private void StopCombatEventCallback(Void _item)
+    {
+        StopAllCoroutines();
+        specialCannonShooting.StopCoolDownTimer();
+    }
+
+
+
     private IEnumerator AutomaticAttack()
     {
         while (true)

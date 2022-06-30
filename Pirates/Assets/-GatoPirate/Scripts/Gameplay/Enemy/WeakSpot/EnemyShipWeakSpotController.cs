@@ -23,6 +23,7 @@ public class EnemyShipWeakSpotController : MonoBehaviour
 
     // Events
     public VoidEvent StartCombatEvent { get; set; }
+    public VoidEvent StopCombatEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
@@ -34,14 +35,20 @@ public class EnemyShipWeakSpotController : MonoBehaviour
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartCombatEvent, StartCombatEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StopCombatEvent, StopCombatEventCallback));
 
         weakSpotIndicator.EnemyShipHealthController = EnemyShipHealthController;
         weakSpotIndicator.WeakSpotPlayerDamageMultiplier = WeakSpotPlayerDamageMultiplier;
     }
 
-    public void StartCombatEventCallback(Void _item)
+    private void StartCombatEventCallback(Void _item)
     {
         StartCoroutine(HandleWeakSpot());
+    }
+
+    private void StopCombatEventCallback(Void _item)
+    {
+        StopAllCoroutines();
     }
 
     private IEnumerator HandleWeakSpot()

@@ -14,6 +14,11 @@ public class EnemySpecialAttackShooting : MonoBehaviour
         StartCoroutine("CoolDownTimer");
     }
 
+    public void StopCoolDownTimer()
+    {
+        StopAllCoroutines();
+    }
+
     private IEnumerator CoolDownTimer()
     {
         while (true)

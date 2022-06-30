@@ -41,6 +41,9 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     // Events
     public FloatEvent TriggerShakingCameraEvent { get; set; }
     public VoidEvent StartCombatEvent { get; set; }
+    public VoidEvent StopCombatEvent { get; set; }
+    public CharacterTypeEvent ShowResultScreenEvent { get; set; }
+
 
     // Properties
     public CatCrewController[] CatCrewControllerObjectsList { get; set; }
@@ -52,12 +55,6 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         InitializePoolingSystem();
         InitializePlayer();
     }
-
-    //private void Awake()
-    //{
-    //    InitializePoolingSystem();
-    //    InitializePlayer();
-    //}
 
     private void InitializePoolingSystem()
     {
@@ -72,6 +69,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipAttackUIController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
         playerShipAttackUIController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
         playerShipAttackUIController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
+        playerShipAttackUIController.StopCombatEvent = StopCombatEvent;
         playerShipAttackUIController.Initialize();
 
         playerShipHealthUIController.CurrentHealthUIEvent = CurrentPlayerHealthUIEvent;
@@ -112,6 +110,8 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         // Events
         playerShipHealthController.CurrentHealthUIEvent = CurrentPlayerHealthUIEvent;
         playerShipHealthController.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
+        playerShipHealthController.StopCombatEvent = StopCombatEvent;
+        playerShipHealthController.ShowResultScreenEvent = ShowResultScreenEvent;
         playerShipHealthController.Initialize();
     }
 }

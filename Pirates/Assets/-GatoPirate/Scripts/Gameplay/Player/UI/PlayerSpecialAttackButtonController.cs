@@ -68,6 +68,11 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
         btn_specialAttack.interactable = true;
     }
 
+    public void StopAnimation()
+    {
+        StopAllCoroutines();
+    }
+
     private void OnDestroy()
     {
         foreach (var item in _eventHandlers)

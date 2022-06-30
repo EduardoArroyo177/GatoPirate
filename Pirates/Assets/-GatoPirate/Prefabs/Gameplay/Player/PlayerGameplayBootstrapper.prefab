@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8516d0e43ade644aba2cb5045112741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerShipData: {fileID: 11400000, guid: 269b5ceab8369614d847b4e39b4ad43e, type: 2}
+  playerShipData: {fileID: 0}
   playerShipAttackController: {fileID: 0}
   playerShipHealthController: {fileID: 0}
+  playerBuildShipController: {fileID: 0}
   playerShipAttackUIController: {fileID: 0}
   playerShipHealthUIController: {fileID: 0}
   ShootCannonEvent: {fileID: 11400000, guid: f3af0f4e971701e46b5d47b20fbadca7, type: 2}

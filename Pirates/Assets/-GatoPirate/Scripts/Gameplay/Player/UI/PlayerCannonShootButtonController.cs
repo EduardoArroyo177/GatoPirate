@@ -10,7 +10,7 @@ public class PlayerCannonShootButtonController : MonoBehaviour
     private CannonSide cannonSide;
     [SerializeField]
     private CoolDownTimerUIController coolDownTimerUIController;
-    public CannonSideEvent ShootCannonEvent { get; set; }
+    public CannonSideEvent ShootCannonEvent;// { get; set; }
 
     private Button btn_shootCannon;
 

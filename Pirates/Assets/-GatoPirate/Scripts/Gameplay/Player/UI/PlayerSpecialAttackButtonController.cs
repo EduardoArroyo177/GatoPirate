@@ -49,7 +49,8 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
         animationDuration = _duration;
         img_fillBar.fillAmount = 0;
         btn_specialAttack.interactable = false;
-        StartCoroutine(CircleFillAnimation());
+        if(gameObject.activeInHierarchy)
+            StartCoroutine(CircleFillAnimation());
     }
 
     private IEnumerator CircleFillAnimation()

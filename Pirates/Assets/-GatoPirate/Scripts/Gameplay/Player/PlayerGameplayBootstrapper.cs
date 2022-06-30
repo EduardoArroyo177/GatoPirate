@@ -13,6 +13,8 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     private PlayerShipAttackController playerShipAttackController;
     [SerializeField]
     private ShipHealthController playerShipHealthController;
+    [SerializeField]
+    private PlayerBuildShipController playerBuildShipController;
 
     [Header("UI")]
     [SerializeField]
@@ -36,7 +38,13 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private FloatEvent CurrentPlayerHealthUIEvent;
 
+    // Events
     public FloatEvent TriggerShakingCameraEvent { get; set; }
+
+    // Properties
+    public CatCrewController[] CatCrewControllerObjectsList { get; set; }
+    public ShipData PlayerShipData { get => playerShipData; set => playerShipData = value; }
+    public int NumberOfActiveCannons { get; set; }
 
     public void InitializeBootstrapper()
     {
@@ -58,6 +66,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     private void InitializePlayer()
     {
         // UI Init goes first
+        playerShipAttackUIController.NumberOfActiveCannons = NumberOfActiveCannons;
         playerShipAttackUIController.ShootCannonEvent = ShootCannonEvent;
         playerShipAttackUIController.StartCoolDownTimerAnimationEvent = StartCoolDownTimerAnimationEvent;
         playerShipAttackUIController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
@@ -67,20 +76,24 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipHealthUIController.CurrentHealthUIEvent = CurrentPlayerHealthUIEvent;
         playerShipHealthUIController.Initialize();
 
+        // Player build ship controller
+        playerBuildShipController.CatCrewControllerObjectsList = CatCrewControllerObjectsList;
+        playerBuildShipController.Initialize();
+
         // Player ship attack controller
         // Controller Properties
-        playerShipAttackController.ShipLevelAttackMultiplier = playerShipData.ShipLevelAttackMultiplier;
-        playerShipAttackController.ShipLevelBallSpeedMultiplier = playerShipData.ShipLevelBallSpeedMultiplier;
-        playerShipAttackController.ShipLevelCoolDownMultiplier = playerShipData.ShipLevelCoolDownMultiplier;
-        playerShipAttackController.ShipLevelSpecialAttackMultiplier = playerShipData.ShipLevelSpecialAttackMultiplier;
+        playerShipAttackController.ShipLevelAttackMultiplier = PlayerShipData.ShipLevelAttackMultiplier;
+        playerShipAttackController.ShipLevelBallSpeedMultiplier = PlayerShipData.ShipLevelBallSpeedMultiplier;
+        playerShipAttackController.ShipLevelCoolDownMultiplier = PlayerShipData.ShipLevelCoolDownMultiplier;
+        playerShipAttackController.ShipLevelSpecialAttackMultiplier = PlayerShipData.ShipLevelSpecialAttackMultiplier;
 
-        playerShipAttackController.CannonBallSpeed = playerShipData.CannonBallSpeed;
-        playerShipAttackController.CannonBallDamage = playerShipData.CannonBallDamage;
-        playerShipAttackController.CannonCoolDownTime = playerShipData.CannonCoolDownTime;
-        playerShipAttackController.BasicAttackDamage = playerShipData.BasicAttackDamage;
-        playerShipAttackController.BasicAttackCoolDownTime = playerShipData.BasicAttackCoolDownTime;
-        playerShipAttackController.SpecialAttackDamage = playerShipData.SpecialAttackDamage;
-        playerShipAttackController.SpecialAttackChargeTime = playerShipData.SpecialAttackChargeTime;
+        playerShipAttackController.CannonBallSpeed = PlayerShipData.CannonBallSpeed;
+        playerShipAttackController.CannonBallDamage = PlayerShipData.CannonBallDamage;
+        playerShipAttackController.CannonCoolDownTime = PlayerShipData.CannonCoolDownTime;
+        playerShipAttackController.BasicAttackDamage = PlayerShipData.BasicAttackDamage;
+        playerShipAttackController.BasicAttackCoolDownTime = PlayerShipData.BasicAttackCoolDownTime;
+        playerShipAttackController.SpecialAttackDamage = PlayerShipData.SpecialAttackDamage;
+        playerShipAttackController.SpecialAttackChargeTime = PlayerShipData.SpecialAttackChargeTime;
 
         // TODO: Initialize ship with data from main screen 
 
@@ -93,8 +106,8 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 
         // Player ship health controller
         // Properties
-        playerShipHealthController.ShipHealth = playerShipData.ShipHealth;
-        playerShipHealthController.ShipLevelHealthMultiplier = playerShipData.ShipLevelHealthMultiplier;
+        playerShipHealthController.ShipHealth = PlayerShipData.ShipHealth;
+        playerShipHealthController.ShipLevelHealthMultiplier = PlayerShipData.ShipLevelHealthMultiplier;
 
         // Events
         playerShipHealthController.CurrentHealthUIEvent = CurrentPlayerHealthUIEvent;

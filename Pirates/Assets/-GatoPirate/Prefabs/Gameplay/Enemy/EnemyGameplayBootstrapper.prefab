@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26e50299e5af894e89bfeb9a1e3605b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyShipData: {fileID: 11400000, guid: c6424596538fe354f92e9deb4a2733b3, type: 2}
+  enemyShipData: {fileID: 0}
   enemyShipAttackController: {fileID: 0}
   enemyShipHealthController: {fileID: 0}
   enemyShipWeakSpotController: {fileID: 0}

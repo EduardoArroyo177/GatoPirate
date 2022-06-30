@@ -33,7 +33,11 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private IntEvent WoodResourcesDroppedEvent;
 
+    // Events
     public VoidEvent StartCombatEvent { get; set; }
+    // Properties
+    public EnemyShipData EnemyShipData { get => enemyShipData; set => enemyShipData = value; }
+    public int NumberOfActiveCannons { get; set; }
 
     public void InitializeBootstrapper()
     {
@@ -57,20 +61,20 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
 
         // Enemy ship attack controller
         // Controller Properties
-        enemyShipAttackController.ShipLevelAttackMultiplier = enemyShipData.ShipLevelAttackMultiplier;
-        enemyShipAttackController.ShipLevelBallSpeedMultiplier = enemyShipData.ShipLevelBallSpeedMultiplier;
-        enemyShipAttackController.ShipLevelCoolDownMultiplier = enemyShipData.ShipLevelCoolDownMultiplier;
-        enemyShipAttackController.ShipLevelSpecialAttackMultiplier = enemyShipData.ShipLevelSpecialAttackMultiplier;
+        enemyShipAttackController.ShipLevelAttackMultiplier = EnemyShipData.ShipLevelAttackMultiplier;
+        enemyShipAttackController.ShipLevelBallSpeedMultiplier = EnemyShipData.ShipLevelBallSpeedMultiplier;
+        enemyShipAttackController.ShipLevelCoolDownMultiplier = EnemyShipData.ShipLevelCoolDownMultiplier;
+        enemyShipAttackController.ShipLevelSpecialAttackMultiplier = EnemyShipData.ShipLevelSpecialAttackMultiplier;
 
-        enemyShipAttackController.CannonBallSpeed = enemyShipData.CannonBallSpeed;
-        enemyShipAttackController.CannonBallDamage = enemyShipData.CannonBallDamage;
-        enemyShipAttackController.CannonCoolDownTime = enemyShipData.CannonCoolDownTime;
-        enemyShipAttackController.BasicAttackDamage = enemyShipData.BasicAttackDamage;
-        enemyShipAttackController.BasicAttackCoolDownTime = enemyShipData.BasicAttackCoolDownTime;
-        enemyShipAttackController.SpecialAttackDamage = enemyShipData.SpecialAttackDamage;
-        enemyShipAttackController.SpecialAttackChargeTime = enemyShipData.SpecialAttackChargeTime;
-        enemyShipAttackController.CannonAttackRateMin = enemyShipData.CannonAttackRateMin;
-        enemyShipAttackController.CannonAttackRateMax = enemyShipData.CannonAttackRateMax;
+        enemyShipAttackController.CannonBallSpeed = EnemyShipData.CannonBallSpeed;
+        enemyShipAttackController.CannonBallDamage = EnemyShipData.CannonBallDamage;
+        enemyShipAttackController.CannonCoolDownTime = EnemyShipData.CannonCoolDownTime;
+        enemyShipAttackController.BasicAttackDamage = EnemyShipData.BasicAttackDamage;
+        enemyShipAttackController.BasicAttackCoolDownTime = EnemyShipData.BasicAttackCoolDownTime;
+        enemyShipAttackController.SpecialAttackDamage = EnemyShipData.SpecialAttackDamage;
+        enemyShipAttackController.SpecialAttackChargeTime = EnemyShipData.SpecialAttackChargeTime;
+        enemyShipAttackController.CannonAttackRateMin = EnemyShipData.CannonAttackRateMin;
+        enemyShipAttackController.CannonAttackRateMax = EnemyShipData.CannonAttackRateMax;
 
         // Events
         enemyShipAttackController.StartCombatEvent = StartCombatEvent;
@@ -79,18 +83,18 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyShipAttackController.Initialize();
 
         // Enemy ship health controller
-        enemyShipHealthController.ShipHealth = enemyShipData.ShipHealth;
-        enemyShipHealthController.ShipLevelHealthMultiplier = enemyShipData.ShipLevelHealthMultiplier;
+        enemyShipHealthController.ShipHealth = EnemyShipData.ShipHealth;
+        enemyShipHealthController.ShipLevelHealthMultiplier = EnemyShipData.ShipLevelHealthMultiplier;
 
         // Events
         enemyShipHealthController.CurrentHealthUIEvent = CurrentEnemyHealthUIEvent;
         enemyShipHealthController.Initialize();
 
         // Enemy ship weak spot controller
-        enemyShipWeakSpotController.WeakSpotAppearanceRateMin = enemyShipData.WeakSpotAppearanceRateMin;
-        enemyShipWeakSpotController.WeakSpotAppearanceRateMax = enemyShipData.WeakSpotAppearanceRateMax;
-        enemyShipWeakSpotController.WeakSpotCoolDownTime = enemyShipData.WeakSpotCoolDownTime;
-        enemyShipWeakSpotController.WeakSpotPlayerDamageMultiplier = enemyShipData.WeakSpotPlayerDamageMultiplier;
+        enemyShipWeakSpotController.WeakSpotAppearanceRateMin = EnemyShipData.WeakSpotAppearanceRateMin;
+        enemyShipWeakSpotController.WeakSpotAppearanceRateMax = EnemyShipData.WeakSpotAppearanceRateMax;
+        enemyShipWeakSpotController.WeakSpotCoolDownTime = EnemyShipData.WeakSpotCoolDownTime;
+        enemyShipWeakSpotController.WeakSpotPlayerDamageMultiplier = EnemyShipData.WeakSpotPlayerDamageMultiplier;
         enemyShipWeakSpotController.EnemyShipHealthController = enemyShipHealthController;
         // TODO: Update this with value that comes from main menu
         enemyShipWeakSpotController.PlayerNumberOfCannons = 3;
@@ -100,9 +104,9 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
 
         // Enemy resources drop 
         // Properties
-        enemyResourcesDrop.ChanceToDropResources = enemyShipData.ChanceToDropResources;
-        enemyResourcesDrop.ResourcesDroppedAmntMin = enemyShipData.ResourcesDroppedAmntMin;
-        enemyResourcesDrop.ResourcesDroppedAmntMax = enemyShipData.ResourcesDroppedAmntMax;
+        enemyResourcesDrop.ChanceToDropResources = EnemyShipData.ChanceToDropResources;
+        enemyResourcesDrop.ResourcesDroppedAmntMin = EnemyShipData.ResourcesDroppedAmntMin;
+        enemyResourcesDrop.ResourcesDroppedAmntMax = EnemyShipData.ResourcesDroppedAmntMax;
 
         // Events
         enemyResourcesDrop.GoldResourcesDroppedEvent = GoldResourcesDroppedEvent;

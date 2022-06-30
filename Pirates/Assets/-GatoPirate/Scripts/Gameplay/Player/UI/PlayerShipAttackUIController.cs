@@ -18,12 +18,15 @@ public class PlayerShipAttackUIController : MonoBehaviour
     private PlayerSpecialAttackButtonController specialAttackButtonController;
 
     // Cannons
-    public CannonSideEvent ShootCannonEvent { get; set; }
+    public CannonSideEvent ShootCannonEvent;// { get; set; }
     public CannonSideFloatEvent StartCoolDownTimerAnimationEvent { get; set; }
 
     // Special attack
     public FloatEvent InitializeSpecialAttackEvent { get; set; }
     public VoidEvent ShootSpecialAttackEvent { get; set; }
+
+    // Properties
+    public int NumberOfActiveCannons { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
@@ -35,11 +38,38 @@ public class PlayerShipAttackUIController : MonoBehaviour
         btn_leftCannon.ShootCannonEvent = ShootCannonEvent;
         btn_middleCannon.ShootCannonEvent = ShootCannonEvent;
         btn_rightCannon.ShootCannonEvent = ShootCannonEvent;
+        SetCannons();
 
+        
         // Special attack
-        specialAttackButtonController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
-        specialAttackButtonController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
-        specialAttackButtonController.Initialize();
+        //specialAttackButtonController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
+        //specialAttackButtonController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
+        //specialAttackButtonController.Initialize();
+    }
+
+    private void SetCannons()
+    {
+        switch (NumberOfActiveCannons)
+        {
+            case 1:
+                btn_leftCannon.gameObject.SetActive(false);
+                btn_rightCannon.gameObject.SetActive(false);
+                specialAttackButtonController.gameObject.SetActive(false);
+                break;
+            case 2:
+                btn_middleCannon.gameObject.SetActive(false);
+                specialAttackButtonController.gameObject.SetActive(false);
+                break;
+            case 3:
+                specialAttackButtonController.gameObject.SetActive(false);
+                break;
+            case 4:
+                specialAttackButtonController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
+                specialAttackButtonController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
+                specialAttackButtonController.Initialize();
+                break;
+                  
+        }
     }
 
     private void StartCoolDownTimerAnimationEventCallback(CannonSide _cannonSide, float _duration)

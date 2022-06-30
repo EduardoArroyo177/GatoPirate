@@ -20,7 +20,6 @@ public class VirtualCameraController : MonoBehaviour
 
     private void TriggerShakingCameraEventCallback(float _duration)
     {
-        Debug.Log($"SHAKING CAMERA? DURATION {_duration}");
         shakingCamera.SetActive(true);
         StartCoroutine(DisableCameraAfterTime(shakingCamera, _duration));
     }

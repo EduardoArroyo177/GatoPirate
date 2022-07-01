@@ -29,6 +29,18 @@ public class EnemyShipData : ShipData
     [SerializeField]
     private int resourcesDroppedAmntMax;
 
+    [Header("Resources box")]
+    [SerializeField]
+    private float chanceToDropResourcesBox;
+    [SerializeField]
+    private int resourcesBoxesPerCombat;
+    [SerializeField]
+    private int resourcesBoxAmntMin;
+    [SerializeField]
+    private int resourcesBoxAmntMax;
+    [SerializeField]
+    private float resourcesBoxTimeToDestroy;
+
     public float CannonAttackRateMin { get => cannonAttackRateMin; set => cannonAttackRateMin = value; }
     public float CannonAttackRateMax { get => cannonAttackRateMax; set => cannonAttackRateMax = value; }
     public float WeakSpotAppearanceRateMin { get => weakSpotAppearanceRateMin; set => weakSpotAppearanceRateMin = value; }
@@ -38,4 +50,9 @@ public class EnemyShipData : ShipData
     public float ChanceToDropResources { get => chanceToDropResources; set => chanceToDropResources = value; }
     public int ResourcesDroppedAmntMin { get => resourcesDroppedAmntMin; set => resourcesDroppedAmntMin = value; }
     public int ResourcesDroppedAmntMax { get => resourcesDroppedAmntMax; set => resourcesDroppedAmntMax = value; }
+    public float ChanceToDropResourcesBox { get => chanceToDropResourcesBox; set => chanceToDropResourcesBox = value; }
+    public int ResourcesBoxesPerCombat { get => resourcesBoxesPerCombat; set => resourcesBoxesPerCombat = value; }
+    public int ResourcesBoxAmntMin { get => resourcesBoxAmntMin; set => resourcesBoxAmntMin = value; }
+    public int ResourcesBoxAmntMax { get => resourcesBoxAmntMax; set => resourcesBoxAmntMax = value; }
+    public float ResourcesBoxTimeToDestroy { get => resourcesBoxTimeToDestroy; set => resourcesBoxTimeToDestroy = value; }
 }

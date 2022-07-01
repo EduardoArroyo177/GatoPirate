@@ -116,9 +116,17 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyResourcesDrop.ResourcesDroppedAmntMin = EnemyShipData.ResourcesDroppedAmntMin;
         enemyResourcesDrop.ResourcesDroppedAmntMax = EnemyShipData.ResourcesDroppedAmntMax;
 
+        enemyResourcesDrop.ChanceToDropResourcesBox = EnemyShipData.ChanceToDropResourcesBox;
+        enemyResourcesDrop.ResourcesBoxesPerCombat = EnemyShipData.ResourcesBoxesPerCombat;
+        enemyResourcesDrop.ResourcesBoxAmntMin = EnemyShipData.ResourcesBoxAmntMin;
+        enemyResourcesDrop.ResourcesBoxAmntMax = EnemyShipData.ResourcesBoxAmntMax;
+        enemyResourcesDrop.ResourcesBoxTimeToDestroy = EnemyShipData.ResourcesBoxTimeToDestroy;
+
         // Events
         enemyResourcesDrop.GoldResourcesDroppedEvent = GoldResourcesDroppedEvent;
         enemyResourcesDrop.WoodResourcesDroppedEvent = WoodResourcesDroppedEvent;
+
+        enemyResourcesDrop.Initialize();
     }
 }
 

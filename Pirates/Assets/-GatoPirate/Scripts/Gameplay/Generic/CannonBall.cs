@@ -16,18 +16,23 @@ public class CannonBall : MonoBehaviour
     public Vector3 Direction { get; set; }
     public float BallDamage { get => ballDamage; set => ballDamage = value; }
 
-    public bool IsEnemy;// { get; set; }
+    public bool IsShotByEnemy;// { get; set; }
 
     private Vector3 currentRotationEuler;
 
     private void OnEnable()
     {
-        if (IsEnemy)
+        if (IsShotByEnemy)
             cannonBallSprite.localEulerAngles = new Vector3(-30, 0, currentRotationEuler.z);
         else
             cannonBallSprite.localEulerAngles = new Vector3(30, currentRotationEuler.y, currentRotationEuler.z);
        
-        Invoke("DestroyCannonBall", destroyTime);
+        Invoke(nameof(DestroyCannonBall), destroyTime);
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke(nameof(DestroyCannonBall));
     }
 
     private void Awake()
@@ -42,18 +47,18 @@ public class CannonBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
-            ShowExplosionParticle(true);
+        if (other.CompareTag("Enemy") || other.CompareTag("Player"))
+            DestroyCannonBall(true);
         else
-            ShowExplosionParticle(false);
-
-        DestroyCannonBall();
+        {
+            if(!IsShotByEnemy && other.CompareTag("ResourcesBox"))
+                DestroyCannonBall(false);
+        }
     }
 
-    private void DestroyCannonBall()
+    private void DestroyCannonBall(bool _hitEnemy)
     {
-        
-        CancelInvoke(nameof(DestroyCannonBall));
+        ShowExplosionParticle(_hitEnemy);
         gameObject.SetActive(false);
     }
 

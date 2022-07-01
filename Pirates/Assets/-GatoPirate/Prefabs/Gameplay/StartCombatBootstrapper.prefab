@@ -49,6 +49,7 @@ MonoBehaviour:
   playerGameplayBootstrapper: {fileID: 0}
   enemyGameplayBootstrapper: {fileID: 0}
   virtualCameraController: {fileID: 0}
+  uiCanvasBootstrapper: {fileID: 0}
   StartCombatEvent: {fileID: 11400000, guid: a014a61bd5d2b3349b01e4bb9b126113, type: 2}
   StopCombatEvent: {fileID: 11400000, guid: cefadfdde67a02d4c9e08b95c5783ca0, type: 2}
   ShowResultScreenEvent: {fileID: 11400000, guid: c10eeb6d9b8ff214e8a5c79a89d8db35, type: 2}

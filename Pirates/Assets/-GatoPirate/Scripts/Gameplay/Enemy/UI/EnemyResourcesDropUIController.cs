@@ -29,11 +29,13 @@ public class EnemyResourcesDropUIController : MonoBehaviour
 
     private void GoldResourcesDroppedEventCallback(int _droppedGold)
     {
+        CurrencyManager.Instance.EarnGoldenCoins(_droppedGold);
         StartCoroutine(CurrencyAmountAnimation(_droppedGold, CurrencyType.GOLDEN_COINS));
     }
 
     private void WoodResourcesDroppedEventCallback(int _droppedWood)
     {
+        CurrencyManager.Instance.EarnWood(_droppedWood);
         StartCoroutine(CurrencyAmountAnimation(_droppedWood, CurrencyType.WOOD));
     }
 
@@ -59,7 +61,6 @@ public class EnemyResourcesDropUIController : MonoBehaviour
             currencyText = lbl_earnedWood;
             currentEarnedWood = totalAmount;
         }
-
 
         while (timer < animationDuration)
         {

@@ -42,14 +42,17 @@ public class ShipHealthController : MonoBehaviour
             ballDamage = other.GetComponent<CannonBall>().BallDamage;
             CauseDamage();
         }
-        else if (other.CompareTag("SpecialAttack") && !enemyResourcesDrop)
+        else if (other.CompareTag("SpecialAttack"))
         {
             // TODO: Get correct component based on whatever projectile special attack is
             ballDamage = other.GetComponent<CannonBall>().BallDamage;
             CauseDamage();
-            TriggerShakingCameraEvent.Raise(_cameraShakeDuration);
-            HapticController.fallbackPreset = HapticPatterns.PresetType.HeavyImpact;
-            HapticPatterns.PlayConstant(0.85f, 0.5f, _cameraShakeDuration);
+            if (!enemyResourcesDrop)
+            {
+                TriggerShakingCameraEvent.Raise(_cameraShakeDuration);
+                HapticController.fallbackPreset = HapticPatterns.PresetType.HeavyImpact;
+                HapticPatterns.PlayConstant(0.85f, 0.5f, _cameraShakeDuration);
+            }
         }
     }
 
@@ -58,15 +61,7 @@ public class ShipHealthController : MonoBehaviour
         if ((CurrentHealth - ballDamage) <= 0)
         {
             CurrentHealth = 0;
-            Debug.Log("Combat over");
-            StopCombatEvent.Raise();
-            // TODO: Trigger destroy animation
-            // DestroyAnim();
-            // TODO: This should be called after previous anim is completed
-            if (shipType.Equals(CharacterType.ENEMY))
-                ShowResultScreenEvent.Raise(CharacterType.PLAYER);
-            else
-                ShowResultScreenEvent.Raise(CharacterType.ENEMY);
+            CombatOver();
         }
         else
             CurrentHealth -= (int)ballDamage;
@@ -78,5 +73,18 @@ public class ShipHealthController : MonoBehaviour
         {
             enemyResourcesDrop.DropResources();
         }
+    }
+
+    public void CombatOver()
+    {
+        Debug.Log("Combat over");
+        StopCombatEvent.Raise();
+        // TODO: Trigger destroy animation
+        // DestroyAnim();
+        // TODO: This should be called after previous anim is completed
+        if (shipType.Equals(CharacterType.ENEMY))
+            ShowResultScreenEvent.Raise(CharacterType.PLAYER);
+        else
+            ShowResultScreenEvent.Raise(CharacterType.ENEMY);
     }
 }

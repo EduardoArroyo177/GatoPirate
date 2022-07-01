@@ -14,17 +14,28 @@ public class EnemyWeakSpot : MonoBehaviour
         if (other.CompareTag("CannonBall"))
         {
             ballDamage = other.GetComponent<CannonBall>().BallDamage * WeakSpotPlayerDamageMultiplier;
-            if ((EnemyShipHealthController.CurrentHealth - ballDamage) <= 0)
-            {
-                EnemyShipHealthController.CurrentHealth = 0;
-                // Trigger combat over
-            }
-            else
-                EnemyShipHealthController.CurrentHealth -= (int)ballDamage;
-
-            // Calculate percentage and send it to UI
-            EnemyShipHealthController.CurrentHealthUIEvent
-                .Raise(EnemyShipHealthController.CurrentHealth / EnemyShipHealthController.ShipHealth);
+            CauseDamage();
         }
+        else if (other.CompareTag("SpecialAttack"))
+        {
+            // TODO: Update this with correct script
+            ballDamage = other.GetComponent<CannonBall>().BallDamage * WeakSpotPlayerDamageMultiplier;
+            CauseDamage();
+        }
+    }
+
+    private void CauseDamage()
+    {
+        if ((EnemyShipHealthController.CurrentHealth - ballDamage) <= 0)
+        {
+            EnemyShipHealthController.CurrentHealth = 0;
+            EnemyShipHealthController.CombatOver();
+        }
+        else
+            EnemyShipHealthController.CurrentHealth -= (int)ballDamage;
+
+        // Calculate percentage and send it to UI
+        EnemyShipHealthController.CurrentHealthUIEvent
+            .Raise(EnemyShipHealthController.CurrentHealth / EnemyShipHealthController.ShipHealth);
     }
 }

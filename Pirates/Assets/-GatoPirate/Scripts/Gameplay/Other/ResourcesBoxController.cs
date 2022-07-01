@@ -16,18 +16,27 @@ public class ResourcesBoxController : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke(nameof(DestroyResourcesBox), ResourcesBoxTimeToDestroy);
+        Invoke(nameof(DestroyResourcesBoxBasic), ResourcesBoxTimeToDestroy);
     }
 
     private void OnDisable()
     {
-        CancelInvoke(nameof(DestroyResourcesBox));
+        CancelInvoke(nameof(DestroyResourcesBoxBasic));
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("CannonBall"))
         {
+            if (!other.GetComponent<CannonBall>().IsShotByEnemy)
+            {
+                CalculateEarnedResources();
+                DestroyResourcesBox();
+            }
+        }
+        else if (other.CompareTag("SpecialAttack"))
+        {
+            // TODO: Update with correct script
             if (!other.GetComponent<CannonBall>().IsShotByEnemy)
             {
                 CalculateEarnedResources();
@@ -45,6 +54,12 @@ public class ResourcesBoxController : MonoBehaviour
     private void DestroyResourcesBox()
     {
         // TODO: Show box particles
+        gameObject.SetActive(false);
+    }
+
+    private void DestroyResourcesBoxBasic()
+    {
+        // TODO: Show simple particles, or don't show anything
         gameObject.SetActive(false);
     }
 }

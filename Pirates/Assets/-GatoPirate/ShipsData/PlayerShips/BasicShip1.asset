@@ -28,4 +28,4 @@ MonoBehaviour:
   basicAttackDamage: 0
   basicAttackCoolDownTime: 0
   specialAttackDamage: 25
-  specialAttackChargeTime: 10
+  specialAttackChargeTime: 5

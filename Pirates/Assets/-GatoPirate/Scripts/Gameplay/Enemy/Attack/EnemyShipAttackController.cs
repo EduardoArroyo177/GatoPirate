@@ -69,9 +69,9 @@ public class EnemyShipAttackController : MonoBehaviour
         rightCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
         // Special attack
-        specialCannon.SetSpecialDamageValue(SpecialAttackDamage * ShipLevelSpecialAttackMultiplier);
+        specialCannon.SetDamageValue(SpecialAttackDamage * ShipLevelSpecialAttackMultiplier);
         // TODO: Create special attack movement speed if needed
-        specialCannon.SetSpecialMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+        specialCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
         // Ship
         currentCountDown = NormalAttackCoolDownTime * ShipLevelCoolDownMultiplier;
@@ -130,7 +130,7 @@ public class EnemyShipAttackController : MonoBehaviour
             case 0:
                 if (!leftCannonShooting.IsShooting)
                 {
-                    leftCannon.ShootCannonBall(true);
+                    leftCannon.ShootNormalProjectile(true);
                     leftCannonShooting.StartCoolDownTimer(NormalAttackCoolDownTime);
                 }
                 else
@@ -139,7 +139,7 @@ public class EnemyShipAttackController : MonoBehaviour
             case 1:
                 if (!middleCannonShooting.IsShooting)
                 {
-                    middleCannon.ShootCannonBall(true);
+                    middleCannon.ShootNormalProjectile(true);
                     middleCannonShooting.StartCoolDownTimer(NormalAttackCoolDownTime);
                 }
                 else
@@ -148,7 +148,7 @@ public class EnemyShipAttackController : MonoBehaviour
             case 2:
                 if (!rightCannonShooting.IsShooting)
                 {
-                    rightCannon.ShootCannonBall(true);
+                    rightCannon.ShootNormalProjectile(true);
                     rightCannonShooting.StartCoolDownTimer(NormalAttackCoolDownTime);
                 }
                 else
@@ -164,7 +164,7 @@ public class EnemyShipAttackController : MonoBehaviour
             case 0:
                 if (!leftCannonShooting.IsShooting)
                 {
-                    leftCannon.ShootCannonBall(true);
+                    leftCannon.ShootNormalProjectile(true);
                     leftCannonShooting.StartCoolDownTimer(NormalAttackCoolDownTime);
                 }
                 else
@@ -173,7 +173,7 @@ public class EnemyShipAttackController : MonoBehaviour
             case 1:
                 if (!rightCannonShooting.IsShooting)
                 {
-                    rightCannon.ShootCannonBall(true);
+                    rightCannon.ShootNormalProjectile(true);
                     rightCannonShooting.StartCoolDownTimer(NormalAttackCoolDownTime);
                 }
                 else
@@ -186,7 +186,7 @@ public class EnemyShipAttackController : MonoBehaviour
     {
         if (!middleCannonShooting.IsShooting)
         {
-            middleCannon.ShootCannonBall(true);
+            middleCannon.ShootNormalProjectile(true);
             middleCannonShooting.StartCoolDownTimer(NormalAttackCoolDownTime);
         }
     }

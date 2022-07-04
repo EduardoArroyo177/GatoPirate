@@ -61,6 +61,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
         InstantiateSpecialProjectiles();
 
     }
+
     #region Basic projectile
     private void InstantiateBasicProjectiles()
     {

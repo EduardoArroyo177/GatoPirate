@@ -7,13 +7,19 @@ using UnityEngine;
 
 public class PlayerShipAttackController : MonoBehaviour
 {
-    [Header("Cannons")]
+    [Header("Basic cannon")]
+    [SerializeField]
+    private CannonShotController middleCannon;
+
+    [Header("Normal cannons")]
     [SerializeField]
     private CannonShotController leftCannon;
     [SerializeField]
-    private CannonShotController middleCannon;
-    [SerializeField]
     private CannonShotController rightCannon;
+
+    [Header("Automatic cannons")]
+    [SerializeField]
+    private CannonShotController automaticCannon;
 
     [Header("Special cannon")]
     [SerializeField]
@@ -65,9 +71,9 @@ public class PlayerShipAttackController : MonoBehaviour
         // TODO: Automatic attack
 
         // Special attack
-        specialCannon.SetSpecialDamageValue(SpecialAttackDamage * ShipLevelSpecialAttackMultiplier);
+        specialCannon.SetDamageValue(SpecialAttackDamage * ShipLevelSpecialAttackMultiplier);
         // TODO: Create special attack movement speed if needed
-        specialCannon.SetSpecialMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+        specialCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
     }
 
@@ -83,14 +89,14 @@ public class PlayerShipAttackController : MonoBehaviour
         {
             case CannonSide.LEFT:
                 StartCoolDownTimerAnimationEvent.Raise(CannonSide.LEFT, currentCountDown);
-                leftCannon.ShootCannonBall();
+                leftCannon.ShootNormalProjectile();
                 break;
             case CannonSide.MIDDLE: // This is basic attack cannon
-                middleCannon.ShootCannonBall();
+                middleCannon.ShootBasicProjectile();
                 break;
             case CannonSide.RIGHT:
                 StartCoolDownTimerAnimationEvent.Raise(CannonSide.RIGHT, currentCountDown);
-                rightCannon.ShootCannonBall();
+                rightCannon.ShootNormalProjectile();
                 break;
         }
         HapticController.fallbackPreset = HapticPatterns.PresetType.LightImpact;

@@ -26,7 +26,7 @@ public class CannonShotController : MonoBehaviour
 
     public void ShootCannonBall(bool _isEnemy = false)
     {
-        GameObject newCannonBall = ObjectPooling.Instance.GetCannonBall();
+        GameObject newCannonBall = ObjectPooling.Instance.GetNormalProjectile();
         if (!newCannonBall)
             return;
         newCannonBall.transform.rotation = transform.rotation;
@@ -35,7 +35,7 @@ public class CannonShotController : MonoBehaviour
         cannonBallHelper.SetDamageAndSpeed(damage, movementSpeed);
         cannonBallHelper.IsShotByEnemy = _isEnemy;
         newCannonBall.SetActive(true);
-        GameObject cannonBallShotParticle = ObjectPooling.Instance.GetCannonBallShotParticle();
+        GameObject cannonBallShotParticle = ObjectPooling.Instance.GetNormalProjectileShotParticle();
         if (cannonBallShotParticle)
         {
             cannonBallShotParticle.transform.position = transform.position;

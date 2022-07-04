@@ -4,11 +4,33 @@ using UnityEngine;
 
 public class ObjectPooling : SceneSingleton<ObjectPooling>
 {
-    [Header("Cannon balls")]
+    [Header("Basic attack projectile")]
     [SerializeField]
-    private GameObject cannonBall;
+    private GameObject basicProjectile;
     [SerializeField]
-    private int cannonBallInstanceAmnt;
+    private int basicProjectileInstanceAmnt;
+
+    [Header("Normal attack projectile")]
+    [SerializeField]
+    private GameObject normalProjectile;
+    [SerializeField]
+    private int normalProjectileInstanceAmnt;
+
+    [Header("Normal attack particles")]
+    [SerializeField]
+    private GameObject normalShotParticles;
+    [SerializeField]
+    private int normalShotParticlesInstanceAmnt;
+    [SerializeField]
+    private GameObject normalExplosionParticles;
+    [SerializeField]
+    private int normalExplosionInstanceAmnt;
+
+    [Header("Automatic attack projectile")]
+    [SerializeField]
+    private GameObject automaticProjectile;
+    [SerializeField]
+    private int automaticProjectileInstanceAmnt;
 
     [Header("Special attack projectile")]
     [SerializeField]
@@ -16,48 +38,155 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     [SerializeField]
     private int specialProjectileAmnt;
 
-    [Header("Particles")]
-    [SerializeField]
-    private GameObject cannonBallShotParticles;
-    [SerializeField]
-    private int cannonBallShotParticlesInstanceAmnt;
-    [SerializeField]
-    private GameObject cannonBallExplosionParticles;
-    [SerializeField]
-    private int cannonBallExplosionInstanceAmnt;
+    private List<GameObject> basicProjectileList = new();
 
-    private List<GameObject> cannonBallList = new();
+    private List<GameObject> normalProjectileList = new();
+    private List<GameObject> normalProjectileShotParticleList = new();
+    private List<GameObject> normalProjectileExplosionParticleList = new();
+
+    private List<GameObject> automaticProjectileList = new();
+
     private List<GameObject> specialProjectileList = new();
-    private List<GameObject> cannonBallShotParticleList = new();
-    private List<GameObject> cannonBallExplosionParticleList = new();
 
     public void Initialize()
     {
-        InstantiateCannonBalls();
+        InstantiateBasicProjectiles();
+
+        InstantiateNormalProjectiles();
+        InstantiateNormalProjectileParticles();
+        InstantiateNormalProjectileExplosionParticles();
+
+        InstantiateAutomaticProjectiles();
+
         InstantiateSpecialProjectiles();
-        InstantiateCannonBallShotParticles();
-        InstantiateCannonBallExplosionParticles();
+
     }
-    #region Cannon ball
-    private void InstantiateCannonBalls()
+    #region Basic projectile
+    private void InstantiateBasicProjectiles()
     {
-        GameObject cannonBallParent = new GameObject("CannonBallParent");
+        GameObject cannonBallParent = new GameObject("BasicProjectileParent");
         GameObject objectHelper;
-        for (int index = 0; index < cannonBallInstanceAmnt; index++)
+        for (int index = 0; index < basicProjectileInstanceAmnt; index++)
         {
-            objectHelper = Instantiate(cannonBall, cannonBallParent.transform);
+            objectHelper = Instantiate(basicProjectile, cannonBallParent.transform);
             objectHelper.SetActive(false);
-            cannonBallList.Add(objectHelper);
+            basicProjectileList.Add(objectHelper);
         }
     }
 
-    public GameObject GetCannonBall()
+    public GameObject GetBasicProjectile()
     {
-        for (int index = 0; index < cannonBallList.Count; index++)
+        for (int index = 0; index < basicProjectileList.Count; index++)
         {
-            if (!cannonBallList[index].activeInHierarchy)
+            if (!basicProjectileList[index].activeInHierarchy)
             {
-                return cannonBallList[index];
+                return basicProjectileList[index];
+            }
+        }
+
+        return null;
+    }
+    #endregion
+
+    #region Normal projectile
+    private void InstantiateNormalProjectiles()
+    {
+        GameObject cannonBallParent = new GameObject("NormalProjectileParent");
+        GameObject objectHelper;
+        for (int index = 0; index < normalProjectileInstanceAmnt; index++)
+        {
+            objectHelper = Instantiate(normalProjectile, cannonBallParent.transform);
+            objectHelper.SetActive(false);
+            normalProjectileList.Add(objectHelper);
+        }
+    }
+
+    public GameObject GetNormalProjectile()
+    {
+        for (int index = 0; index < normalProjectileList.Count; index++)
+        {
+            if (!normalProjectileList[index].activeInHierarchy)
+            {
+                return normalProjectileList[index];
+            }
+        }
+
+        return null;
+    }
+    #endregion
+
+    #region Normal projectile particles
+    private void InstantiateNormalProjectileParticles()
+    {
+        GameObject cannonBallShotParticlesParent = new GameObject("CannonBallShotParticlesParent");
+        GameObject objectHelper;
+        for (int index = 0; index < normalShotParticlesInstanceAmnt; index++)
+        {
+            objectHelper = Instantiate(normalShotParticles, cannonBallShotParticlesParent.transform);
+            objectHelper.SetActive(false);
+            normalProjectileShotParticleList.Add(objectHelper);
+        }
+    }
+
+    public GameObject GetNormalProjectileShotParticle()
+    {
+        for (int index = 0; index < normalProjectileShotParticleList.Count; index++)
+        {
+            if (!normalProjectileShotParticleList[index].activeInHierarchy)
+            {
+                return normalProjectileShotParticleList[index];
+            }
+        }
+
+        return null;
+    }
+
+    private void InstantiateNormalProjectileExplosionParticles()
+    {
+        GameObject cannonBallExplosionParticlesParent = new GameObject("CannonBallExplosionParticlesParent");
+        GameObject objectHelper;
+        for (int index = 0; index < normalExplosionInstanceAmnt; index++)
+        {
+            objectHelper = Instantiate(normalExplosionParticles, cannonBallExplosionParticlesParent.transform);
+            objectHelper.SetActive(false);
+            normalProjectileExplosionParticleList.Add(objectHelper);
+        }
+    }
+
+    public GameObject GetNormalProjectileExplosionParticle()
+    {
+        for (int index = 0; index < normalProjectileExplosionParticleList.Count; index++)
+        {
+            if (!normalProjectileExplosionParticleList[index].activeInHierarchy)
+            {
+                return normalProjectileExplosionParticleList[index];
+            }
+        }
+
+        return null;
+    }
+    #endregion
+
+    #region Automatic projectile
+    private void InstantiateAutomaticProjectiles()
+    {
+        GameObject cannonBallParent = new GameObject("AutomaticProjectileParent");
+        GameObject objectHelper;
+        for (int index = 0; index < automaticProjectileInstanceAmnt; index++)
+        {
+            objectHelper = Instantiate(automaticProjectile, cannonBallParent.transform);
+            objectHelper.SetActive(false);
+            automaticProjectileList.Add(objectHelper);
+        }
+    }
+
+    public GameObject GetAutomaticProjectile()
+    {
+        for (int index = 0; index < automaticProjectileList.Count; index++)
+        {
+            if (!automaticProjectileList[index].activeInHierarchy)
+            {
+                return automaticProjectileList[index];
             }
         }
 
@@ -92,55 +221,5 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     }
     #endregion
 
-    #region Cannon ball particles
-    private void InstantiateCannonBallShotParticles()
-    {
-        GameObject cannonBallShotParticlesParent = new GameObject("CannonBallShotParticlesParent");
-        GameObject objectHelper;
-        for (int index = 0; index < cannonBallShotParticlesInstanceAmnt; index++)
-        {
-            objectHelper = Instantiate(cannonBallShotParticles, cannonBallShotParticlesParent.transform);
-            objectHelper.SetActive(false);
-            cannonBallShotParticleList.Add(objectHelper);
-        }
-    }
 
-    public GameObject GetCannonBallShotParticle()
-    {
-        for (int index = 0; index < cannonBallShotParticleList.Count; index++)
-        {
-            if (!cannonBallShotParticleList[index].activeInHierarchy)
-            {
-                return cannonBallShotParticleList[index];
-            }
-        }
-
-        return null;
-    }
-
-    private void InstantiateCannonBallExplosionParticles()
-    {
-        GameObject cannonBallExplosionParticlesParent = new GameObject("CannonBallExplosionParticlesParent");
-        GameObject objectHelper;
-        for (int index = 0; index < cannonBallExplosionInstanceAmnt; index++)
-        {
-            objectHelper = Instantiate(cannonBallExplosionParticles, cannonBallExplosionParticlesParent.transform);
-            objectHelper.SetActive(false);
-            cannonBallExplosionParticleList.Add(objectHelper);
-        }
-    }
-
-    public GameObject GetCannonBallExplosionParticle()
-    {
-        for (int index = 0; index < cannonBallExplosionParticleList.Count; index++)
-        {
-            if (!cannonBallExplosionParticleList[index].activeInHierarchy)
-            {
-                return cannonBallExplosionParticleList[index];
-            }
-        }
-
-        return null;
-    }
-    #endregion
 }

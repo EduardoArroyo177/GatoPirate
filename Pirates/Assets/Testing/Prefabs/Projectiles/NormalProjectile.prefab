@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ad6f8b1f9bd63a24bae2dc6a5ae3d2e6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: -2759961269428065499}
   - component: {fileID: -6139438991843948586}
   m_Layer: 0
-  m_Name: CannonBall
+  m_Name: NormalProjectile
   m_TagString: CannonBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,8 +135,7 @@ MonoBehaviour:
   ballDamage: 0
   destroyTime: 5
   cannonBallSprite: {fileID: 7591324267630941804}
-  particlesOffset: {x: 0, y: 0, z: -2}
-  IsEnemy: 0
+  IsShotByEnemy: 0
 --- !u!54 &-2759961269428065499
 Rigidbody:
   m_ObjectHideFlags: 0

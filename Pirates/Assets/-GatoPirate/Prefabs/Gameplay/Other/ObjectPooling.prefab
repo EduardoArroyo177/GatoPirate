@@ -44,11 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f7a9f73a086ac4d8246cf9fadac776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonBall: {fileID: 5587535167352711626, guid: e75308ea180c58a4098baef8a7bc7b80, type: 3}
-  cannonBallInstanceAmnt: 50
+  basicProjectile: {fileID: 5587535167352711626, guid: 96805dbfb030c594f90668b6b9bc6e18, type: 3}
+  basicProjectileInstanceAmnt: 35
+  normalProjectile: {fileID: 5587535167352711626, guid: e75308ea180c58a4098baef8a7bc7b80, type: 3}
+  normalProjectileInstanceAmnt: 25
+  normalShotParticles: {fileID: 193574, guid: 5c2bdcf6f0badc34f9f192b0995e4a79, type: 3}
+  normalShotParticlesInstanceAmnt: 25
+  normalExplosionParticles: {fileID: 1198724786340194, guid: 0898b572f28fb32439fbe4be9a9beb52, type: 3}
+  normalExplosionInstanceAmnt: 25
+  automaticProjectile: {fileID: 5587535167352711626, guid: 57b74d7934ba22147a328652eb652f70, type: 3}
+  automaticProjectileInstanceAmnt: 10
   specialAttackProjectile: {fileID: 2452222041959279251, guid: a082131442f611a43a2ef1b907915905, type: 3}
   specialProjectileAmnt: 10
-  cannonBallShotParticles: {fileID: 193574, guid: 5c2bdcf6f0badc34f9f192b0995e4a79, type: 3}
-  cannonBallShotParticlesInstanceAmnt: 25
-  cannonBallExplosionParticles: {fileID: 1198724786340194, guid: 0898b572f28fb32439fbe4be9a9beb52, type: 3}
-  cannonBallExplosionInstanceAmnt: 25

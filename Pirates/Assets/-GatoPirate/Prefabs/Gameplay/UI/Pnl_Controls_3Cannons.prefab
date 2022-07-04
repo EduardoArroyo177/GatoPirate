@@ -819,7 +819,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2178504744793821665}
         m_TargetAssemblyTypeName: PlayerCannonShootButtonController, Assembly-CSharp
-        m_MethodName: ShootCannon
+        m_MethodName: ShootBasicCannon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

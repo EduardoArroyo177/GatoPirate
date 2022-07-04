@@ -64,7 +64,7 @@ public class CannonBall : MonoBehaviour
 
     private void ShowExplosionParticle(bool _isEnemy)
     {
-        GameObject explosionParticle = ObjectPooling.Instance.GetCannonBallExplosionParticle();
+        GameObject explosionParticle = ObjectPooling.Instance.GetNormalProjectileExplosionParticle();
         if (explosionParticle)
         {
             explosionParticle.transform.position = transform.position;

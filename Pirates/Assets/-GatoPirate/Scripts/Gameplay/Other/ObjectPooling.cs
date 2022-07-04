@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 public class ObjectPooling : SceneSingleton<ObjectPooling>
@@ -48,6 +49,8 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
 
     private List<GameObject> specialProjectileList = new();
 
+    public VoidEvent StopCombatEvent { get; set; }
+
     public void Initialize()
     {
         InstantiateBasicProjectiles();
@@ -59,7 +62,6 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
         InstantiateAutomaticProjectiles();
 
         InstantiateSpecialProjectiles();
-
     }
 
     #region Basic projectile
@@ -70,6 +72,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
         for (int index = 0; index < basicProjectileInstanceAmnt; index++)
         {
             objectHelper = Instantiate(basicProjectile, cannonBallParent.transform);
+            objectHelper.GetComponent<Projectile>().StopCombatEvent = StopCombatEvent;
             objectHelper.SetActive(false);
             basicProjectileList.Add(objectHelper);
         }
@@ -97,6 +100,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
         for (int index = 0; index < normalProjectileInstanceAmnt; index++)
         {
             objectHelper = Instantiate(normalProjectile, cannonBallParent.transform);
+            objectHelper.GetComponent<Projectile>().StopCombatEvent = StopCombatEvent;
             objectHelper.SetActive(false);
             normalProjectileList.Add(objectHelper);
         }
@@ -176,6 +180,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
         for (int index = 0; index < automaticProjectileInstanceAmnt; index++)
         {
             objectHelper = Instantiate(automaticProjectile, cannonBallParent.transform);
+            objectHelper.GetComponent<Projectile>().StopCombatEvent = StopCombatEvent;
             objectHelper.SetActive(false);
             automaticProjectileList.Add(objectHelper);
         }
@@ -203,6 +208,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
         for (int index = 0; index < specialProjectileAmnt; index++)
         {
             objectHelper = Instantiate(specialAttackProjectile, specialProjectileParent.transform);
+            objectHelper.GetComponent<Projectile>().StopCombatEvent = StopCombatEvent;
             objectHelper.SetActive(false);
             specialProjectileList.Add(objectHelper);
         }

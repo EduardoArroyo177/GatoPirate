@@ -11,15 +11,15 @@ public class EnemyWeakSpot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("CannonBall"))
+        if (other.CompareTag("Projectile"))
         {
-            ballDamage = other.GetComponent<CannonBall>().BallDamage * WeakSpotPlayerDamageMultiplier;
+            ballDamage = other.GetComponent<Projectile>().BallDamage * WeakSpotPlayerDamageMultiplier;
             CauseDamage();
         }
         else if (other.CompareTag("SpecialAttack"))
         {
             // TODO: Update this with correct script
-            ballDamage = other.GetComponent<CannonBall>().BallDamage * WeakSpotPlayerDamageMultiplier;
+            ballDamage = other.GetComponent<Projectile>().BallDamage * WeakSpotPlayerDamageMultiplier;
             CauseDamage();
         }
     }

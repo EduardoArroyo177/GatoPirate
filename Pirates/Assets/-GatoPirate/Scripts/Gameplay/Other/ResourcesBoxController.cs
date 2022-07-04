@@ -26,9 +26,9 @@ public class ResourcesBoxController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("CannonBall"))
+        if (other.CompareTag("Projectile"))
         {
-            if (!other.GetComponent<CannonBall>().IsShotByEnemy)
+            if (!other.GetComponent<Projectile>().IsShotByEnemy)
             {
                 CalculateEarnedResources();
                 DestroyResourcesBox();
@@ -37,7 +37,7 @@ public class ResourcesBoxController : MonoBehaviour
         else if (other.CompareTag("SpecialAttack"))
         {
             // TODO: Update with correct script
-            if (!other.GetComponent<CannonBall>().IsShotByEnemy)
+            if (!other.GetComponent<Projectile>().IsShotByEnemy)
             {
                 CalculateEarnedResources();
                 DestroyResourcesBox();

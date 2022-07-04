@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: -6139438991843948586}
   m_Layer: 0
   m_Name: NormalProjectile
-  m_TagString: CannonBall
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   ballDamage: 0
   destroyTime: 5
   cannonBallSprite: {fileID: 7591324267630941804}
-  IsShotByEnemy: 0
+  projectileType: 0
 --- !u!54 &-2759961269428065499
 Rigidbody:
   m_ObjectHideFlags: 0

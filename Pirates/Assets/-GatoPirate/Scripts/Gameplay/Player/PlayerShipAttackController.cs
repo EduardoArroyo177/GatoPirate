@@ -59,6 +59,7 @@ public class PlayerShipAttackController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<CannonSide>.BuildEventHandler(ShootCannonEvent, ShootCannonEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ShootSpecialAttackEvent, ShootSpecialAttackEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartCombatEvent, StartCombatEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StopCombatEvent, StopCombatEventCallback));
 
         // Basic attack
         middleCannon.SetDamageValue(BasicAttackDamage * ShipLevelAttackMultiplier);
@@ -94,6 +95,12 @@ public class PlayerShipAttackController : MonoBehaviour
         // Special attack
         InitializeSpecialAttackEvent.Raise(SpecialAttackChargeTime);
         StartCoroutine(AutomaticAttack());
+    }
+
+    private void StopCombatEventCallback(Void _item)
+    {
+        Debug.Log("STOPPING COMBAT");
+        StopAllCoroutines();
     }
 
     private void ShootCannonEventCallback(CannonSide _side)

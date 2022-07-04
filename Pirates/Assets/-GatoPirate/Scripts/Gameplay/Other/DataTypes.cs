@@ -27,3 +27,11 @@ public enum CurrencyType
     GOLDEN_COINS,
     WOOD
 }
+
+public enum ProjectileType
+{ 
+    BASIC,
+    NORMAL,
+    AUTOMATIC,
+    SPECIAL
+}

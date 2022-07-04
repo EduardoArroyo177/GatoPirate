@@ -58,6 +58,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 
     private void InitializePoolingSystem()
     {
+        ObjectPooling.Instance.StopCombatEvent = StopCombatEvent;
         ObjectPooling.Instance.Initialize();
     }
 

@@ -29,7 +29,7 @@ public class CannonShotController : MonoBehaviour
         newCannonBall.transform.rotation = transform.rotation;
         newCannonBall.transform.position = transform.position;
 
-        CannonBall cannonBallHelper = newCannonBall.GetComponent<CannonBall>();
+        Projectile cannonBallHelper = newCannonBall.GetComponent<Projectile>();
         cannonBallHelper.SetDamageAndSpeed(damage, movementSpeed);
         cannonBallHelper.IsShotByEnemy = _isEnemy;
         newCannonBall.SetActive(true);
@@ -52,7 +52,7 @@ public class CannonShotController : MonoBehaviour
             return;
         newCannonBall.transform.rotation = transform.rotation;
         newCannonBall.transform.position = transform.position;
-        CannonBall cannonBallHelper = newCannonBall.GetComponent<CannonBall>();
+        Projectile cannonBallHelper = newCannonBall.GetComponent<Projectile>();
         cannonBallHelper.SetDamageAndSpeed(damage, movementSpeed);
         cannonBallHelper.IsShotByEnemy = _isEnemy;
         newCannonBall.SetActive(true);
@@ -73,7 +73,7 @@ public class CannonShotController : MonoBehaviour
             return;
         newCannonBall.transform.rotation = transform.rotation;
         newCannonBall.transform.position = transform.position;
-        CannonBall cannonBallHelper = newCannonBall.GetComponent<CannonBall>();
+        Projectile cannonBallHelper = newCannonBall.GetComponent<Projectile>();
         cannonBallHelper.SetDamageAndSpeed(damage, movementSpeed);
         cannonBallHelper.IsShotByEnemy = _isEnemy;
         newCannonBall.SetActive(true);
@@ -96,7 +96,7 @@ public class CannonShotController : MonoBehaviour
         newSpecialAttackProjectile.transform.rotation = transform.rotation;
         newSpecialAttackProjectile.transform.position = transform.position;
         // TODO: Update movement speed if needed
-        CannonBall cannonBallHelper = newSpecialAttackProjectile.GetComponent<CannonBall>();
+        Projectile cannonBallHelper = newSpecialAttackProjectile.GetComponent<Projectile>();
         cannonBallHelper.SetDamageAndSpeed(damage, movementSpeed);
         cannonBallHelper.IsShotByEnemy = _isEnemy;
         newSpecialAttackProjectile.SetActive(true);

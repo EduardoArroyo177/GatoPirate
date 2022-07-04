@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
-public class CannonBall : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     [SerializeField]
     private float movementSpeed;
@@ -12,12 +14,17 @@ public class CannonBall : MonoBehaviour
     private float destroyTime;
     [SerializeField]
     private Transform cannonBallSprite;
+    [SerializeField]
+    private ProjectileType projectileType;
 
     public Vector3 Direction { get; set; }
     public float BallDamage { get => ballDamage; set => ballDamage = value; }
+    public ProjectileType ProjectileType { get => projectileType; set => projectileType = value; }
+    public bool IsShotByEnemy { get; set; }
 
-    public bool IsShotByEnemy;// { get; set; }
+    public VoidEvent StopCombatEvent { get; set; }
 
+    private List<IAtomEventHandler> _eventHandlers = new();
     private Vector3 currentRotationEuler;
 
     private void OnEnable()
@@ -38,6 +45,16 @@ public class CannonBall : MonoBehaviour
     private void Awake()
     {
         currentRotationEuler = cannonBallSprite.eulerAngles;
+    }
+
+    private void Start()
+    {
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StopCombatEvent, StopCombatEventCallback));
+    }
+
+    private void StopCombatEventCallback(Void _item)
+    {
+        DestroyCannonBall(false);
     }
 
     void Update()
@@ -64,7 +81,22 @@ public class CannonBall : MonoBehaviour
 
     private void ShowExplosionParticle(bool _isEnemy)
     {
-        GameObject explosionParticle = ObjectPooling.Instance.GetNormalProjectileExplosionParticle();
+        GameObject explosionParticle = null;
+        switch (projectileType)
+        {
+            case ProjectileType.BASIC:
+                explosionParticle = ObjectPooling.Instance.GetNormalProjectileExplosionParticle();
+                break;
+            case ProjectileType.NORMAL:
+                explosionParticle = ObjectPooling.Instance.GetNormalProjectileExplosionParticle();
+                break;
+            case ProjectileType.AUTOMATIC:
+                explosionParticle = ObjectPooling.Instance.GetNormalProjectileExplosionParticle();
+                break;
+            case ProjectileType.SPECIAL:
+                explosionParticle = ObjectPooling.Instance.GetNormalProjectileExplosionParticle();
+                break;
+        }
         if (explosionParticle)
         {
             explosionParticle.transform.position = transform.position;
@@ -86,5 +118,14 @@ public class CannonBall : MonoBehaviour
     public void SetDamage(float _damage)
     {
         BallDamage = _damage;
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var item in _eventHandlers)
+        {
+            item.UnregisterListener();
+        }
+        _eventHandlers.Clear();
     }
 }

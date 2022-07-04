@@ -37,15 +37,15 @@ public class ShipHealthController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("CannonBall"))
+        if (other.CompareTag("Projectile"))
         {
-            ballDamage = other.GetComponent<CannonBall>().BallDamage;
+            ballDamage = other.GetComponent<Projectile>().BallDamage;
             CauseDamage();
         }
         else if (other.CompareTag("SpecialAttack"))
         {
             // TODO: Get correct component based on whatever projectile special attack is
-            ballDamage = other.GetComponent<CannonBall>().BallDamage;
+            ballDamage = other.GetComponent<Projectile>().BallDamage;
             CauseDamage();
             if (!enemyResourcesDrop)
             {

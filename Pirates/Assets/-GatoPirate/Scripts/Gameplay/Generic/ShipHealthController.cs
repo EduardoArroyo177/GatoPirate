@@ -50,8 +50,7 @@ public class ShipHealthController : MonoBehaviour
             if (!enemyResourcesDrop)
             {
                 TriggerShakingCameraEvent.Raise(_cameraShakeDuration);
-                HapticController.fallbackPreset = HapticPatterns.PresetType.HeavyImpact;
-                HapticPatterns.PlayConstant(0.85f, 0.5f, _cameraShakeDuration);
+                VibrationController.Instance.TriggerReceiveSpecialAttackVibration(_cameraShakeDuration);
             }
         }
     }

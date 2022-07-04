@@ -110,24 +110,25 @@ public class PlayerShipAttackController : MonoBehaviour
             case CannonSide.LEFT:
                 StartCoolDownTimerAnimationEvent.Raise(CannonSide.LEFT, currentCountDown);
                 leftCannon.ShootNormalProjectile();
+                VibrationController.Instance.TriggerNormalAttackVibration();
                 break;
             case CannonSide.MIDDLE: // This is basic attack cannon
                 middleCannon.ShootBasicProjectile();
+                VibrationController.Instance.TriggerBasicAttackVibration();
                 break;
             case CannonSide.RIGHT:
                 StartCoolDownTimerAnimationEvent.Raise(CannonSide.RIGHT, currentCountDown);
                 rightCannon.ShootNormalProjectile();
+                VibrationController.Instance.TriggerNormalAttackVibration();
                 break;
         }
-        HapticController.fallbackPreset = HapticPatterns.PresetType.LightImpact;
-        HapticPatterns.PlayEmphasis(0.05f, 0.05f);
+        
     }
 
     private void ShootSpecialAttackEventCallback(Void _item)
     {
         specialCannon.ShootSpecialAttack();
-        HapticController.fallbackPreset = HapticPatterns.PresetType.HeavyImpact;
-        HapticPatterns.PlayEmphasis(0.05f, 0.05f);
+        VibrationController.Instance.TriggerSpecialAttackVibration();
     }
 
     private IEnumerator AutomaticAttack()

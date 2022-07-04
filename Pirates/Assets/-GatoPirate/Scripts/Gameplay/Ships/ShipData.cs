@@ -16,33 +16,42 @@ public class ShipData : ScriptableObject
 
     [Header("Multipliers")]
     [SerializeField]
-    private float shipLevelAttackMultiplier; // Used
+    private float shipLevelAttackMultiplier; 
     [SerializeField]
-    private float shipLevelCoolDownMultiplier; // Used
+    private float shipLevelCoolDownMultiplier; 
     [SerializeField]
-    private float shipLevelBallSpeedMultiplier; // Used
+    private float shipLevelBallSpeedMultiplier; 
     [SerializeField]
-    private float shipLevelHealthMultiplier;
+    private float shipLevelHealthMultiplier; 
     [SerializeField]
-    private float shipLevelSpecialAttackMultiplier; // Used
+    private float shipLevelSpecialAttackMultiplier; 
 
     [Header("Health")]
     [SerializeField]
     private int shipHealth;
 
-    [Header("Cannon balls")]
+    [Header("Cannon ball")]
     [SerializeField]
-    private int cannonBallSpeed; // Used
-    [SerializeField]
-    private int cannonBallDamage; // Used
-    [SerializeField]
-    private float cannonCoolDownTime;
+    private int cannonBallSpeed; 
 
-    [Header("Attacks")]
+    // Attacks
+    [Header("Basic attack")]
     [SerializeField]
     private int basicAttackDamage;
+
+    [Header("Normal attack")]
     [SerializeField]
-    private float basicAttackCoolDownTime;
+    private int normalAttackDamage; 
+    [SerializeField]
+    private float normalAttackCoolDownTime;
+
+    [Header("Automatic attack")]
+    [SerializeField]
+    private int automaticAttackDamage;
+    [SerializeField]
+    private float automaticAttackCoolDownTime;
+
+    [Header("Special attack")]
     [SerializeField]
     private int specialAttackDamage;
     [SerializeField]
@@ -59,10 +68,12 @@ public class ShipData : ScriptableObject
     public float ShipLevelSpecialAttackMultiplier { get => shipLevelSpecialAttackMultiplier; set => shipLevelSpecialAttackMultiplier = value; }
     public int ShipHealth { get => shipHealth; set => shipHealth = value; }
     public int CannonBallSpeed { get => cannonBallSpeed; set => cannonBallSpeed = value; }
-    public int CannonBallDamage { get => cannonBallDamage; set => cannonBallDamage = value; }
-    public float CannonCoolDownTime { get => cannonCoolDownTime; set => cannonCoolDownTime = value; }
+    // Attacks
     public int BasicAttackDamage { get => basicAttackDamage; set => basicAttackDamage = value; }
-    public float BasicAttackCoolDownTime { get => basicAttackCoolDownTime; set => basicAttackCoolDownTime = value; }
+    public int NormalAttackDamage { get => normalAttackDamage; set => normalAttackDamage = value; }
+    public float NormalAttackCoolDownTime { get => normalAttackCoolDownTime; set => normalAttackCoolDownTime = value; }
+    public int AutomaticAttackDamage { get => automaticAttackDamage; set => automaticAttackDamage = value; }
+    public float AutomaticAttackCoolDownTime { get => automaticAttackCoolDownTime; set => automaticAttackCoolDownTime = value; }
     public int SpecialAttackDamage { get => specialAttackDamage; set => specialAttackDamage = value; }
     public float SpecialAttackChargeTime { get => specialAttackChargeTime; set => specialAttackChargeTime = value; }
 }

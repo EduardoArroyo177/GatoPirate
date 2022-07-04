@@ -87,10 +87,11 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipAttackController.ShipLevelSpecialAttackMultiplier = PlayerShipData.ShipLevelSpecialAttackMultiplier;
 
         playerShipAttackController.CannonBallSpeed = PlayerShipData.CannonBallSpeed;
-        playerShipAttackController.CannonBallDamage = PlayerShipData.CannonBallDamage;
-        playerShipAttackController.CannonCoolDownTime = PlayerShipData.CannonCoolDownTime;
         playerShipAttackController.BasicAttackDamage = PlayerShipData.BasicAttackDamage;
-        playerShipAttackController.BasicAttackCoolDownTime = PlayerShipData.BasicAttackCoolDownTime;
+        playerShipAttackController.NormalAttackDamage = PlayerShipData.NormalAttackDamage;
+        playerShipAttackController.NormalAttackCoolDownTime = PlayerShipData.NormalAttackCoolDownTime;
+        playerShipAttackController.AutomaticAttackDamage = PlayerShipData.AutomaticAttackDamage;
+        playerShipAttackController.AutomaticAttackCoolDownTime = PlayerShipData.AutomaticAttackCoolDownTime;
         playerShipAttackController.SpecialAttackDamage = PlayerShipData.SpecialAttackDamage;
         playerShipAttackController.SpecialAttackChargeTime = PlayerShipData.SpecialAttackChargeTime;
 

@@ -32,10 +32,11 @@ public class EnemyShipAttackController : MonoBehaviour
     public float ShipLevelCoolDownMultiplier { get; set; } //
     public float ShipLevelSpecialAttackMultiplier { get; set; }
     public int CannonBallSpeed { get; set; } //
-    public int CannonBallDamage { get; set; } //
-    public float CannonCoolDownTime { get; set; } //
     public int BasicAttackDamage { get; set; }
-    public float BasicAttackCoolDownTime { get; set; }
+    public int NormalAttackDamage { get; set; } //
+    public float NormalAttackCoolDownTime { get; set; } //
+    public int AutomaticAttackDamage { get; set; }
+    public float AutomaticAttackCoolDownTime { get; set; }
     public int SpecialAttackDamage { get; set; }
     public float SpecialAttackChargeTime { get; set; }
     public float CannonAttackRateMin { get; set; }
@@ -58,13 +59,13 @@ public class EnemyShipAttackController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StopCombatEvent, StopCombatEventCallback));
 
         // Cannon ball
-        leftCannon.SetDamageValue(CannonBallDamage * ShipLevelAttackMultiplier);
+        leftCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         leftCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
-        middleCannon.SetDamageValue(CannonBallDamage * ShipLevelAttackMultiplier);
+        middleCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         middleCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
-        rightCannon.SetDamageValue(CannonBallDamage * ShipLevelAttackMultiplier);
+        rightCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         rightCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
         // Special attack
@@ -73,7 +74,7 @@ public class EnemyShipAttackController : MonoBehaviour
         specialCannon.SetSpecialMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
         // Ship
-        currentCountDown = CannonCoolDownTime * ShipLevelCoolDownMultiplier;
+        currentCountDown = NormalAttackCoolDownTime * ShipLevelCoolDownMultiplier;
     }
 
     private void StartCombatEventCallback(Void _item)
@@ -130,7 +131,7 @@ public class EnemyShipAttackController : MonoBehaviour
                 if (!leftCannonShooting.IsShooting)
                 {
                     leftCannon.ShootCannonBall(true);
-                    leftCannonShooting.StartCoolDownTimer(CannonCoolDownTime);
+                    leftCannonShooting.StartCoolDownTimer(NormalAttackCoolDownTime);
                 }
                 else
                     ShootWithThreeCannons();
@@ -139,7 +140,7 @@ public class EnemyShipAttackController : MonoBehaviour
                 if (!middleCannonShooting.IsShooting)
                 {
                     middleCannon.ShootCannonBall(true);
-                    middleCannonShooting.StartCoolDownTimer(CannonCoolDownTime);
+                    middleCannonShooting.StartCoolDownTimer(NormalAttackCoolDownTime);
                 }
                 else
                     ShootWithThreeCannons();
@@ -148,7 +149,7 @@ public class EnemyShipAttackController : MonoBehaviour
                 if (!rightCannonShooting.IsShooting)
                 {
                     rightCannon.ShootCannonBall(true);
-                    rightCannonShooting.StartCoolDownTimer(CannonCoolDownTime);
+                    rightCannonShooting.StartCoolDownTimer(NormalAttackCoolDownTime);
                 }
                 else
                     ShootWithThreeCannons();
@@ -164,7 +165,7 @@ public class EnemyShipAttackController : MonoBehaviour
                 if (!leftCannonShooting.IsShooting)
                 {
                     leftCannon.ShootCannonBall(true);
-                    leftCannonShooting.StartCoolDownTimer(CannonCoolDownTime);
+                    leftCannonShooting.StartCoolDownTimer(NormalAttackCoolDownTime);
                 }
                 else
                     ShootWithTwoCannons();
@@ -173,7 +174,7 @@ public class EnemyShipAttackController : MonoBehaviour
                 if (!rightCannonShooting.IsShooting)
                 {
                     rightCannon.ShootCannonBall(true);
-                    rightCannonShooting.StartCoolDownTimer(CannonCoolDownTime);
+                    rightCannonShooting.StartCoolDownTimer(NormalAttackCoolDownTime);
                 }
                 else
                     ShootWithThreeCannons();
@@ -186,7 +187,7 @@ public class EnemyShipAttackController : MonoBehaviour
         if (!middleCannonShooting.IsShooting)
         {
             middleCannon.ShootCannonBall(true);
-            middleCannonShooting.StartCoolDownTimer(CannonCoolDownTime);
+            middleCannonShooting.StartCoolDownTimer(NormalAttackCoolDownTime);
         }
     }
 

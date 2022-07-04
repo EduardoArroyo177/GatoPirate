@@ -25,10 +25,11 @@ public class PlayerShipAttackController : MonoBehaviour
     public float ShipLevelCoolDownMultiplier { get; set; } //
     public float ShipLevelSpecialAttackMultiplier { get; set; }
     public int CannonBallSpeed { get; set; } //
-    public int CannonBallDamage { get; set; } //
-    public float CannonCoolDownTime { get; set; } //
     public int BasicAttackDamage { get; set; }
-    public float BasicAttackCoolDownTime { get; set; }
+    public int NormalAttackDamage { get; set; } //
+    public float NormalAttackCoolDownTime { get; set; } //
+    public int AutomaticAttackDamage { get; set; }
+    public float AutomaticAttackCoolDownTime { get; set; }
     public int SpecialAttackDamage { get; set; }
     public float SpecialAttackChargeTime { get; set; }
 
@@ -49,13 +50,13 @@ public class PlayerShipAttackController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartCombatEvent, StartCombatEventCallback));
 
         // Cannon ball
-        leftCannon.SetDamageValue(CannonBallDamage * ShipLevelAttackMultiplier);
+        leftCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         leftCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
-        middleCannon.SetDamageValue(CannonBallDamage * ShipLevelAttackMultiplier);
+        middleCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         middleCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
-        rightCannon.SetDamageValue(CannonBallDamage * ShipLevelAttackMultiplier);
+        rightCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         rightCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
         specialCannon.SetSpecialDamageValue(SpecialAttackDamage * ShipLevelSpecialAttackMultiplier);
@@ -63,7 +64,7 @@ public class PlayerShipAttackController : MonoBehaviour
         specialCannon.SetSpecialMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
         // Ship
-        currentCountDown = CannonCoolDownTime * ShipLevelCoolDownMultiplier;
+        currentCountDown = NormalAttackCoolDownTime * ShipLevelCoolDownMultiplier;
     }
 
     private void StartCombatEventCallback(Void _item)

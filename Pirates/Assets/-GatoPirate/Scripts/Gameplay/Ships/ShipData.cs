@@ -50,6 +50,8 @@ public class ShipData : ScriptableObject
     private int automaticAttackDamage;
     [SerializeField]
     private float automaticAttackCoolDownTime;
+    [SerializeField]
+    private float automaticAttackFireRate;
 
     [Header("Special attack")]
     [SerializeField]
@@ -74,6 +76,7 @@ public class ShipData : ScriptableObject
     public float NormalAttackCoolDownTime { get => normalAttackCoolDownTime; set => normalAttackCoolDownTime = value; }
     public int AutomaticAttackDamage { get => automaticAttackDamage; set => automaticAttackDamage = value; }
     public float AutomaticAttackCoolDownTime { get => automaticAttackCoolDownTime; set => automaticAttackCoolDownTime = value; }
+    public float AutomaticAttackFireRate { get => automaticAttackFireRate; set => automaticAttackFireRate = value; }
     public int SpecialAttackDamage { get => specialAttackDamage; set => specialAttackDamage = value; }
     public float SpecialAttackChargeTime { get => specialAttackChargeTime; set => specialAttackChargeTime = value; }
 }

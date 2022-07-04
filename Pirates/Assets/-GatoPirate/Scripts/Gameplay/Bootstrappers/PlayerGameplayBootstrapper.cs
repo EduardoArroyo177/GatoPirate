@@ -92,6 +92,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipAttackController.NormalAttackCoolDownTime = PlayerShipData.NormalAttackCoolDownTime;
         playerShipAttackController.AutomaticAttackDamage = PlayerShipData.AutomaticAttackDamage;
         playerShipAttackController.AutomaticAttackCoolDownTime = PlayerShipData.AutomaticAttackCoolDownTime;
+        playerShipAttackController.AutomaticAttackFireRate = PlayerShipData.AutomaticAttackFireRate;
         playerShipAttackController.SpecialAttackDamage = PlayerShipData.SpecialAttackDamage;
         playerShipAttackController.SpecialAttackChargeTime = PlayerShipData.SpecialAttackChargeTime;
 
@@ -101,6 +102,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipAttackController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
         playerShipAttackController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
         playerShipAttackController.StartCombatEvent = StartCombatEvent;
+        playerShipAttackController.StopCombatEvent = StopCombatEvent;
         playerShipAttackController.Initialize();
 
         // Player ship health controller

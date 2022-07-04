@@ -28,5 +28,6 @@ MonoBehaviour:
   normalAttackCoolDownTime: 1.3
   automaticAttackDamage: 10
   automaticAttackCoolDownTime: 2.5
+  automaticAttackFireRate: 0.8
   specialAttackDamage: 25
   specialAttackChargeTime: 5

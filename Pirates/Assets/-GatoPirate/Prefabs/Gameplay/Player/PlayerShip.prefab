@@ -1,5 +1,97 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1517868122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1517868123}
+  - component: {fileID: 1517868124}
+  m_Layer: 0
+  m_Name: AutomaticAttackOriginLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1517868123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517868122}
+  m_LocalRotation: {x: 0.25881916, y: -0, z: -0, w: -0.9659258}
+  m_LocalPosition: {x: -2, y: -0.73, z: 0.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2016877617512351853}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 330, y: 0, z: 0}
+--- !u!114 &1517868124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517868122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2182b96141cd62b4eb212fa81f402b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  movementSpeed: 0
+--- !u!1 &1873256668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1873256669}
+  - component: {fileID: 1873256670}
+  m_Layer: 0
+  m_Name: AutomaticAttackOriginRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1873256669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873256668}
+  m_LocalRotation: {x: 0.25881916, y: -0, z: -0, w: -0.9659258}
+  m_LocalPosition: {x: 2, y: -0.73, z: 0.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2016877617512351853}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 330, y: 0, z: 0}
+--- !u!114 &1873256670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873256668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2182b96141cd62b4eb212fa81f402b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  movementSpeed: 0
 --- !u!1 &2016877616070313727
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,9 +231,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   movementSpeed: 0
-  specialDamage: 0
-  specialMovementSpeed: 0
-  isShooting: 0
 --- !u!1 &2016877617234046680
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,9 +277,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   movementSpeed: 0
-  specialDamage: 0
-  specialMovementSpeed: 0
-  isShooting: 0
 --- !u!1 &2016877617390568095
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,9 +323,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   movementSpeed: 0
-  specialDamage: 0
-  specialMovementSpeed: 0
-  isShooting: 0
 --- !u!1 &2016877617512351859
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +361,8 @@ Transform:
   - {fileID: 2016877617234046681}
   - {fileID: 2016877617390568089}
   - {fileID: 2016877617863237744}
+  - {fileID: 1517868123}
+  - {fileID: 1873256669}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -358,9 +443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e15b040d3866bc4293edf43bc7ea13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftCannon: {fileID: 2016877617129984140}
   middleCannon: {fileID: 2016877617234046682}
+  leftCannon: {fileID: 2016877617129984140}
   rightCannon: {fileID: 2016877617390568088}
+  automaticCannonLeft: {fileID: 1517868124}
+  automaticCannonRight: {fileID: 1873256670}
   specialCannon: {fileID: 2016877617863237751}
 --- !u!114 &2016877617512351848
 MonoBehaviour:
@@ -421,7 +508,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016877617863237750}
   m_LocalRotation: {x: 0.25881916, y: -0, z: -0, w: -0.9659258}
-  m_LocalPosition: {x: -0.3, y: -0.73, z: 0.45}
+  m_LocalPosition: {x: 0, y: -0.73, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -442,9 +529,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   movementSpeed: 0
-  specialDamage: 0
-  specialMovementSpeed: 0
-  isShooting: 0
 --- !u!1 &3842604710943999733
 GameObject:
   m_ObjectHideFlags: 0

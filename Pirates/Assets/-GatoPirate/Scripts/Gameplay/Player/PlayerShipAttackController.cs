@@ -19,7 +19,9 @@ public class PlayerShipAttackController : MonoBehaviour
 
     [Header("Automatic cannons")]
     [SerializeField]
-    private CannonShotController automaticCannon;
+    private CannonShotController automaticCannonLeft;
+    [SerializeField]
+    private CannonShotController automaticCannonRight;
 
     [Header("Special cannon")]
     [SerializeField]
@@ -36,6 +38,7 @@ public class PlayerShipAttackController : MonoBehaviour
     public float NormalAttackCoolDownTime { get; set; } //
     public int AutomaticAttackDamage { get; set; }
     public float AutomaticAttackCoolDownTime { get; set; }
+    public float AutomaticAttackFireRate { get; set; }
     public int SpecialAttackDamage { get; set; }
     public float SpecialAttackChargeTime { get; set; }
 
@@ -45,6 +48,8 @@ public class PlayerShipAttackController : MonoBehaviour
     public FloatEvent InitializeSpecialAttackEvent { get; set; }
     public VoidEvent ShootSpecialAttackEvent { get; set; }
     public VoidEvent StartCombatEvent { get; set; }
+    public VoidEvent StopCombatEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private float currentCountDown;
@@ -68,7 +73,14 @@ public class PlayerShipAttackController : MonoBehaviour
 
         currentCountDown = NormalAttackCoolDownTime * ShipLevelCoolDownMultiplier;
 
-        // TODO: Automatic attack
+        // Automatic attack
+        automaticCannonLeft.SetDamageValue(AutomaticAttackDamage * ShipLevelAttackMultiplier);
+        // TODO: Create special attack movement speed if needed
+        automaticCannonLeft.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+
+        automaticCannonRight.SetDamageValue(AutomaticAttackDamage * ShipLevelAttackMultiplier);
+        // TODO: Create special attack movement speed if needed
+        automaticCannonRight.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
         // Special attack
         specialCannon.SetDamageValue(SpecialAttackDamage * ShipLevelSpecialAttackMultiplier);
@@ -81,6 +93,7 @@ public class PlayerShipAttackController : MonoBehaviour
     {
         // Special attack
         InitializeSpecialAttackEvent.Raise(SpecialAttackChargeTime);
+        StartCoroutine(AutomaticAttack());
     }
 
     private void ShootCannonEventCallback(CannonSide _side)
@@ -108,6 +121,20 @@ public class PlayerShipAttackController : MonoBehaviour
         specialCannon.ShootSpecialAttack();
         HapticController.fallbackPreset = HapticPatterns.PresetType.HeavyImpact;
         HapticPatterns.PlayEmphasis(0.05f, 0.05f);
+    }
+
+    private IEnumerator AutomaticAttack()
+    {
+        // Automatic attack starts after 3 seconds of play
+
+        yield return new WaitForSeconds(3.0f);
+        while (true)
+        {
+            yield return new WaitForSeconds(AutomaticAttackCoolDownTime);
+            automaticCannonLeft.ShootAutomaticProjectile();
+            yield return new WaitForSeconds(AutomaticAttackFireRate);
+            automaticCannonRight.ShootAutomaticProjectile();
+        }
     }
 
     private void OnDestroy()

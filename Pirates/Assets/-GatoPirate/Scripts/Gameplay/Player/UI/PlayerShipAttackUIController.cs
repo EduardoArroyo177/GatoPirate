@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShipAttackUIController : MonoBehaviour
 {
@@ -53,12 +54,12 @@ public class PlayerShipAttackUIController : MonoBehaviour
         switch (NumberOfActiveCannons)
         {
             case 1:
-                btn_leftCannon.gameObject.SetActive(false);
-                btn_rightCannon.gameObject.SetActive(false);
+                btn_leftCannon.GetComponent<Button>().interactable = false;
+                btn_rightCannon.GetComponent<Button>().interactable = false;
                 specialAttackButtonController.gameObject.SetActive(false);
                 break;
             case 2:
-                btn_middleCannon.gameObject.SetActive(false);
+                btn_leftCannon.GetComponent<Button>().interactable = false;
                 specialAttackButtonController.gameObject.SetActive(false);
                 break;
             case 3:

@@ -49,22 +49,26 @@ public class PlayerShipAttackController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ShootSpecialAttackEvent, ShootSpecialAttackEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartCombatEvent, StartCombatEventCallback));
 
-        // Cannon ball
+        // Basic attack
+        middleCannon.SetDamageValue(BasicAttackDamage * ShipLevelAttackMultiplier);
+        middleCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+
+        // Normal attack
         leftCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         leftCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
-
-        middleCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
-        middleCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
         rightCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         rightCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
+        currentCountDown = NormalAttackCoolDownTime * ShipLevelCoolDownMultiplier;
+
+        // TODO: Automatic attack
+
+        // Special attack
         specialCannon.SetSpecialDamageValue(SpecialAttackDamage * ShipLevelSpecialAttackMultiplier);
         // TODO: Create special attack movement speed if needed
         specialCannon.SetSpecialMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
 
-        // Ship
-        currentCountDown = NormalAttackCoolDownTime * ShipLevelCoolDownMultiplier;
     }
 
     private void StartCombatEventCallback(Void _item)
@@ -81,8 +85,7 @@ public class PlayerShipAttackController : MonoBehaviour
                 StartCoolDownTimerAnimationEvent.Raise(CannonSide.LEFT, currentCountDown);
                 leftCannon.ShootCannonBall();
                 break;
-            case CannonSide.MIDDLE:
-                StartCoolDownTimerAnimationEvent.Raise(CannonSide.MIDDLE, currentCountDown);
+            case CannonSide.MIDDLE: // This is basic attack cannon
                 middleCannon.ShootCannonBall();
                 break;
             case CannonSide.RIGHT:

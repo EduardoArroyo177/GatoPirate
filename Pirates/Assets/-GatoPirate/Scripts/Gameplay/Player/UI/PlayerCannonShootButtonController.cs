@@ -20,6 +20,11 @@ public class PlayerCannonShootButtonController : MonoBehaviour
         coolDownTimerUIController.CannonShootBtnController = this;
     }
 
+    public void ShootBasicCannon()
+    {
+        ShootCannonEvent.Raise(cannonSide);
+    }
+
     public void ShootCannon()
     {
         ShootCannonEvent.Raise(cannonSide);

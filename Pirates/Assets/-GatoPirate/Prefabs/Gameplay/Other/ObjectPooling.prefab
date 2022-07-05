@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicProjectile: {fileID: 5587535167352711626, guid: 96805dbfb030c594f90668b6b9bc6e18, type: 3}
-  basicProjectileInstanceAmnt: 35
+  basicProjectileInstanceAmnt: 50
   normalProjectile: {fileID: 5587535167352711626, guid: e75308ea180c58a4098baef8a7bc7b80, type: 3}
   normalProjectileInstanceAmnt: 25
   normalShotParticles: {fileID: 193574, guid: 5c2bdcf6f0badc34f9f192b0995e4a79, type: 3}

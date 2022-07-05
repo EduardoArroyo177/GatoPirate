@@ -14,8 +14,10 @@ public class EnemyResourcesDrop : MonoBehaviour
 
     // Resources
     public float ChanceToDropResources { get; set; }
-    public int ResourcesDroppedAmntMin { get; set; }
-    public int ResourcesDroppedAmntMax { get; set; }
+    public int BasicResourcesDroppedAmntMin { get; set; }
+    public int BasicResourcesDroppedAmntMax { get; set; }
+    public int NormalResourcesDroppedAmntMin { get; set; }
+    public int NormalResourcesDroppedAmntMax { get; set; }
 
     // Resources box
     public float ChanceToDropResourcesBox { get; set; }
@@ -56,9 +58,8 @@ public class EnemyResourcesDrop : MonoBehaviour
         rightResourcesBox.WoodResourcesDroppedEvent = WoodResourcesDroppedEvent;
     }
 
-    public void DropResources()
+    public void DropBasicResources()
     {
-        // Basic resources
         float decimalPercentage = ChanceToDropResources / 100;
 
         if (Random.value > (1.0 - decimalPercentage))
@@ -66,11 +67,30 @@ public class EnemyResourcesDrop : MonoBehaviour
             // Give resources
             if (Random.Range(0, 2) == 0)
             {
-                GoldResourcesDroppedEvent.Raise(Random.Range(ResourcesDroppedAmntMin, ResourcesDroppedAmntMax));
+                GoldResourcesDroppedEvent.Raise(Random.Range(BasicResourcesDroppedAmntMin, BasicResourcesDroppedAmntMax));
             }
             else
             {
-                WoodResourcesDroppedEvent.Raise(Random.Range(ResourcesDroppedAmntMin, ResourcesDroppedAmntMax));
+                WoodResourcesDroppedEvent.Raise(Random.Range(BasicResourcesDroppedAmntMin, BasicResourcesDroppedAmntMax));
+            }
+        }
+    }
+
+    public void DropNormalResources()
+    {
+        // Resources
+        float decimalPercentage = ChanceToDropResources / 100;
+
+        if (Random.value > (1.0 - decimalPercentage))
+        {
+            // Give resources
+            if (Random.Range(0, 2) == 0)
+            {
+                GoldResourcesDroppedEvent.Raise(Random.Range(NormalResourcesDroppedAmntMin, NormalResourcesDroppedAmntMax));
+            }
+            else
+            {
+                WoodResourcesDroppedEvent.Raise(Random.Range(NormalResourcesDroppedAmntMin, NormalResourcesDroppedAmntMax));
             }
         }
 

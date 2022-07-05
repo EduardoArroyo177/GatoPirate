@@ -28,6 +28,7 @@ MonoBehaviour:
   normalAttackCoolDownTime: 1.3
   automaticAttackDamage: 10
   automaticAttackCoolDownTime: 2.5
+  automaticAttackFireRate: 0
   specialAttackDamage: 25
   specialAttackChargeTime: 10
   cannonAttackRateMin: 1.3
@@ -37,8 +38,10 @@ MonoBehaviour:
   weakSpotCoolDownTime: 3.2
   weakSpotPlayerDamageMultiplier: 1.75
   chanceToDropResources: 60
-  resourcesDroppedAmntMin: 10
-  resourcesDroppedAmntMax: 20
+  basicResourcesDroppedAmntMin: 1
+  basicResourcesDroppedAmntMax: 3
+  normalResourcesDroppedAmntMin: 25
+  normalResourcesDroppedAmntMax: 40
   chanceToDropResourcesBox: 30
   resourcesBoxesPerCombat: 3
   resourcesBoxAmntMin: 100

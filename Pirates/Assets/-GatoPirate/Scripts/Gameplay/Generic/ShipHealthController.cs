@@ -24,7 +24,8 @@ public class ShipHealthController : MonoBehaviour
     public VoidEvent StopCombatEvent { get; set; }
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
 
-    private float ballDamage;
+    private float projectileDamage;
+    private ProjectileType projectileType;
     private EnemyResourcesDrop enemyResourcesDrop;
 
     public void Initialize()
@@ -39,13 +40,15 @@ public class ShipHealthController : MonoBehaviour
     {
         if (other.CompareTag("Projectile"))
         {
-            ballDamage = other.GetComponent<Projectile>().BallDamage;
+            projectileDamage = other.GetComponent<Projectile>().ProjectileDamage;
+            projectileType = other.GetComponent<Projectile>().ProjectileType;
             CauseDamage();
         }
         else if (other.CompareTag("SpecialAttack"))
         {
             // TODO: Get correct component based on whatever projectile special attack is
-            ballDamage = other.GetComponent<Projectile>().BallDamage;
+            projectileDamage = other.GetComponent<Projectile>().ProjectileDamage;
+            projectileType = other.GetComponent<Projectile>().ProjectileType;
             CauseDamage();
             if (!enemyResourcesDrop)
             {
@@ -57,20 +60,29 @@ public class ShipHealthController : MonoBehaviour
 
     private void CauseDamage()
     {
-        if ((CurrentHealth - ballDamage) <= 0)
+        if ((CurrentHealth - projectileDamage) <= 0)
         {
             CurrentHealth = 0;
             CombatOver();
         }
         else
-            CurrentHealth -= (int)ballDamage;
+            CurrentHealth -= (int)projectileDamage;
 
         // Calculate percentage and send it to UI
         CurrentHealthUIEvent.Raise(CurrentHealth / ShipHealth);
 
         if (enemyResourcesDrop)
         {
-            enemyResourcesDrop.DropResources();
+            if (projectileType.Equals(ProjectileType.BASIC))
+                enemyResourcesDrop.DropBasicResources();
+            else if(!projectileType.Equals(ProjectileType.AUTOMATIC))
+                enemyResourcesDrop.DropNormalResources();
+            
+            //if (!projectileType.Equals(ProjectileType.AUTOMATIC)
+            //&& !projectileType.Equals(ProjectileType.BASIC))
+            //    enemyResourcesDrop.DropNormalResources();
+            //else if (projectileType.Equals(ProjectileType.BASIC))
+            //    enemyResourcesDrop.DropBasicResources();
         }
     }
 

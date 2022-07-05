@@ -25,9 +25,13 @@ public class EnemyShipData : ShipData
     [SerializeField]
     private float chanceToDropResources;
     [SerializeField]
-    private int resourcesDroppedAmntMin;
+    private int basicResourcesDroppedAmntMin;
     [SerializeField]
-    private int resourcesDroppedAmntMax;
+    private int basicResourcesDroppedAmntMax;
+    [SerializeField]
+    private int normalResourcesDroppedAmntMin;
+    [SerializeField]
+    private int normalResourcesDroppedAmntMax;
 
     [Header("Resources box")]
     [SerializeField]
@@ -48,11 +52,13 @@ public class EnemyShipData : ShipData
     public float WeakSpotCoolDownTime { get => weakSpotCoolDownTime; set => weakSpotCoolDownTime = value; }
     public float WeakSpotPlayerDamageMultiplier { get => weakSpotPlayerDamageMultiplier; set => weakSpotPlayerDamageMultiplier = value; }
     public float ChanceToDropResources { get => chanceToDropResources; set => chanceToDropResources = value; }
-    public int ResourcesDroppedAmntMin { get => resourcesDroppedAmntMin; set => resourcesDroppedAmntMin = value; }
-    public int ResourcesDroppedAmntMax { get => resourcesDroppedAmntMax; set => resourcesDroppedAmntMax = value; }
+    public int BasicResourcesDroppedAmntMin { get => basicResourcesDroppedAmntMin; set => basicResourcesDroppedAmntMin = value; }
+    public int BasicResourcesDroppedAmntMax { get => basicResourcesDroppedAmntMax; set => basicResourcesDroppedAmntMax = value; }
+    public int NormalResourcesDroppedAmntMin { get => normalResourcesDroppedAmntMin; set => normalResourcesDroppedAmntMin = value; }
+    public int NormalResourcesDroppedAmntMax { get => normalResourcesDroppedAmntMax; set => normalResourcesDroppedAmntMax = value; }
     public float ChanceToDropResourcesBox { get => chanceToDropResourcesBox; set => chanceToDropResourcesBox = value; }
     public int ResourcesBoxesPerCombat { get => resourcesBoxesPerCombat; set => resourcesBoxesPerCombat = value; }
     public int ResourcesBoxAmntMin { get => resourcesBoxAmntMin; set => resourcesBoxAmntMin = value; }
     public int ResourcesBoxAmntMax { get => resourcesBoxAmntMax; set => resourcesBoxAmntMax = value; }
     public float ResourcesBoxTimeToDestroy { get => resourcesBoxTimeToDestroy; set => resourcesBoxTimeToDestroy = value; }
-}
+    }

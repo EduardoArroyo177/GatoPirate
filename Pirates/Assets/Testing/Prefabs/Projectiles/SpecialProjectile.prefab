@@ -48,10 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
-  ballDamage: 0
+  projectileDamage: 0
   destroyTime: 5
   cannonBallSprite: {fileID: 494039601755968821}
-  IsShotByEnemy: 0
+  projectileType: 3
 --- !u!54 &3904698444856780924
 Rigidbody:
   m_ObjectHideFlags: 0

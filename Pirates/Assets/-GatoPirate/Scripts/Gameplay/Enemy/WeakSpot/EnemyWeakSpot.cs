@@ -7,32 +7,32 @@ public class EnemyWeakSpot : MonoBehaviour
     public ShipHealthController EnemyShipHealthController { get; set; }
     public float WeakSpotPlayerDamageMultiplier { get; set; }
 
-    private float ballDamage;
+    private float projectileDamage;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Projectile"))
         {
-            ballDamage = other.GetComponent<Projectile>().BallDamage * WeakSpotPlayerDamageMultiplier;
+            projectileDamage = other.GetComponent<Projectile>().ProjectileDamage * WeakSpotPlayerDamageMultiplier;
             CauseDamage();
         }
         else if (other.CompareTag("SpecialAttack"))
         {
             // TODO: Update this with correct script
-            ballDamage = other.GetComponent<Projectile>().BallDamage * WeakSpotPlayerDamageMultiplier;
+            projectileDamage = other.GetComponent<Projectile>().ProjectileDamage * WeakSpotPlayerDamageMultiplier;
             CauseDamage();
         }
     }
 
     private void CauseDamage()
     {
-        if ((EnemyShipHealthController.CurrentHealth - ballDamage) <= 0)
+        if ((EnemyShipHealthController.CurrentHealth - projectileDamage) <= 0)
         {
             EnemyShipHealthController.CurrentHealth = 0;
             EnemyShipHealthController.CombatOver();
         }
         else
-            EnemyShipHealthController.CurrentHealth -= (int)ballDamage;
+            EnemyShipHealthController.CurrentHealth -= (int)projectileDamage;
 
         // Calculate percentage and send it to UI
         EnemyShipHealthController.CurrentHealthUIEvent

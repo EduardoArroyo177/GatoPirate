@@ -7,18 +7,18 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
+    private ProjectileType projectileType;
+    [SerializeField]
     private float movementSpeed;
     [SerializeField]
-    private float ballDamage;
+    private float projectileDamage;
     [SerializeField]
     private float destroyTime;
     [SerializeField]
     private Transform cannonBallSprite;
-    [SerializeField]
-    private ProjectileType projectileType;
 
     public Vector3 Direction { get; set; }
-    public float BallDamage { get => ballDamage; set => ballDamage = value; }
+    public float ProjectileDamage { get => projectileDamage; set => projectileDamage = value; }
     public ProjectileType ProjectileType { get => projectileType; set => projectileType = value; }
     public bool IsShotByEnemy { get; set; }
 
@@ -111,13 +111,8 @@ public class Projectile : MonoBehaviour
 
     public void SetDamageAndSpeed(float _damage, float _speed)
     {
-        BallDamage = _damage;
+        ProjectileDamage = _damage;
         movementSpeed = _speed;
-    }
-
-    public void SetDamage(float _damage)
-    {
-        BallDamage = _damage;
     }
 
     private void OnDestroy()

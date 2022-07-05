@@ -35,7 +35,7 @@ public class CannonShotController : MonoBehaviour
         newCannonBall.SetActive(true);
 
         // TODO: Update call with correct particles
-        GameObject cannonBallShotParticle = ObjectPooling.Instance.GetNormalProjectileShotParticle();
+        GameObject cannonBallShotParticle = ObjectPooling.Instance.GetBasicProjectileShotParticle();
         if (cannonBallShotParticle)
         {
             cannonBallShotParticle.transform.position = transform.position;
@@ -78,7 +78,7 @@ public class CannonShotController : MonoBehaviour
         cannonBallHelper.IsShotByEnemy = _isEnemy;
         newCannonBall.SetActive(true);
         // TODO: Update call with correct particles
-        GameObject cannonBallShotParticle = ObjectPooling.Instance.GetNormalProjectileShotParticle();
+        GameObject cannonBallShotParticle = ObjectPooling.Instance.GetAutomaticProjectileShotParticle();
         if (cannonBallShotParticle)
         {
             cannonBallShotParticle.transform.position = transform.position;
@@ -101,7 +101,7 @@ public class CannonShotController : MonoBehaviour
         cannonBallHelper.IsShotByEnemy = _isEnemy;
         newSpecialAttackProjectile.SetActive(true);
         // TODO: Update call with correct particles
-        GameObject cannonBallShotParticle = ObjectPooling.Instance.GetNormalProjectileShotParticle();
+        GameObject cannonBallShotParticle = ObjectPooling.Instance.GetSpecialProjectileShotParticle();
         if (cannonBallShotParticle)
         {
             cannonBallShotParticle.transform.position = transform.position;

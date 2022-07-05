@@ -46,13 +46,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicProjectile: {fileID: 5587535167352711626, guid: 96805dbfb030c594f90668b6b9bc6e18, type: 3}
   basicProjectileInstanceAmnt: 50
+  basicShotParticles: {fileID: 117382, guid: f6fd7c6469f235a4595c9be5430ef7d9, type: 3}
+  basicExplosionParticles: {fileID: 132352, guid: 71b02155078e4bf4e962f302d3675af2, type: 3}
   normalProjectile: {fileID: 5587535167352711626, guid: e75308ea180c58a4098baef8a7bc7b80, type: 3}
   normalProjectileInstanceAmnt: 25
   normalShotParticles: {fileID: 193574, guid: 5c2bdcf6f0badc34f9f192b0995e4a79, type: 3}
-  normalShotParticlesInstanceAmnt: 25
-  normalExplosionParticles: {fileID: 1198724786340194, guid: 0898b572f28fb32439fbe4be9a9beb52, type: 3}
-  normalExplosionInstanceAmnt: 25
+  normalExplosionParticles: {fileID: 130848, guid: d16221e794fe16e4e8994a7f8c770561, type: 3}
   automaticProjectile: {fileID: 5587535167352711626, guid: 57b74d7934ba22147a328652eb652f70, type: 3}
   automaticProjectileInstanceAmnt: 10
+  automaticShotParticles: {fileID: 132130, guid: db3d9495050fd0541a5cf71c72d85e54, type: 3}
+  automaticExplosionParticles: {fileID: 195742, guid: c83fb3ef04bb383408bb2064b89690b2, type: 3}
   specialAttackProjectile: {fileID: 2452222041959279251, guid: a082131442f611a43a2ef1b907915905, type: 3}
   specialProjectileAmnt: 10
+  specialShotParticles: {fileID: 113646, guid: 512bd2deb75bf0140b908d937524f690, type: 3}
+  specialExplosionParticles: {fileID: 1198724786340194, guid: 0898b572f28fb32439fbe4be9a9beb52, type: 3}

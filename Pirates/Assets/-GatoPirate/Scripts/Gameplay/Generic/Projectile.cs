@@ -85,16 +85,16 @@ public class Projectile : MonoBehaviour
         switch (projectileType)
         {
             case ProjectileType.BASIC:
-                explosionParticle = ObjectPooling.Instance.GetNormalProjectileExplosionParticle();
+                explosionParticle = ObjectPooling.Instance.GetBasicProjectileExplosionParticle();
                 break;
             case ProjectileType.NORMAL:
                 explosionParticle = ObjectPooling.Instance.GetNormalProjectileExplosionParticle();
                 break;
             case ProjectileType.AUTOMATIC:
-                explosionParticle = ObjectPooling.Instance.GetNormalProjectileExplosionParticle();
+                explosionParticle = ObjectPooling.Instance.GetAutomaticProjectileExplosionParticle();
                 break;
             case ProjectileType.SPECIAL:
-                explosionParticle = ObjectPooling.Instance.GetNormalProjectileExplosionParticle();
+                explosionParticle = ObjectPooling.Instance.GetSpecialProjectileExplosionParticle();
                 break;
         }
         if (explosionParticle)

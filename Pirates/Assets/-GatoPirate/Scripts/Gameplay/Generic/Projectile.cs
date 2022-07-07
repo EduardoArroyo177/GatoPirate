@@ -34,12 +34,12 @@ public class Projectile : MonoBehaviour
         else
             cannonBallSprite.localEulerAngles = new Vector3(30, currentRotationEuler.y, currentRotationEuler.z);
        
-        Invoke(nameof(DestroyCannonBall), destroyTime);
+        Invoke(nameof(DestroyProjectile), destroyTime);
     }
 
     private void OnDisable()
     {
-        CancelInvoke(nameof(DestroyCannonBall));
+        CancelInvoke(nameof(DestroyProjectile));
     }
 
     private void Awake()
@@ -54,7 +54,7 @@ public class Projectile : MonoBehaviour
 
     private void StopCombatEventCallback(Void _item)
     {
-        DestroyCannonBall(false);
+        DestroyProjectile(false);
     }
 
     void Update()
@@ -67,20 +67,21 @@ public class Projectile : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             // Hit enemy
-            DestroyCannonBall(true);
+            DestroyProjectile(true);
         }
         else if (other.CompareTag("Player"))
         {
             // Hit player
-            DestroyCannonBall(false);
+            DestroyProjectile(false);
         }
         else if (!IsShotByEnemy && other.CompareTag("ResourcesBox"))
-        { 
+        {
             // Player hit resources box
+            DestroyProjectileWithResourcesBox();
         }
     }
 
-    private void DestroyCannonBall(bool _hitEnemy)
+    private void DestroyProjectile(bool _hitEnemy)
     {
         ShowExplosionParticle(_hitEnemy);
         gameObject.SetActive(false);
@@ -106,6 +107,7 @@ public class Projectile : MonoBehaviour
                 explosionParticle = ObjectPooling.Instance.GetSpecialProjectileExplosionParticle();
                 break;
         }
+
         if (explosionParticle)
         {
             explosionParticle.transform.position = transform.position;
@@ -124,6 +126,16 @@ public class Projectile : MonoBehaviour
             damageTextHelper.transform.position = transform.position;
             damageTextHelper.GetComponent<DamageTextParticleController>().ShowTextParticle(projectileType, (int)projectileDamage, _hitEnemy);
         }
+    }
+
+    private void DestroyProjectileWithResourcesBox()
+    {
+        GameObject resourcesBoxParticles = ObjectPooling.Instance.GetResourcesBoxParticle();
+        if (!resourcesBoxParticles)
+            return;
+        resourcesBoxParticles.transform.position = transform.position;
+        resourcesBoxParticles.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void SetDamageAndSpeed(float _damage, float _speed)

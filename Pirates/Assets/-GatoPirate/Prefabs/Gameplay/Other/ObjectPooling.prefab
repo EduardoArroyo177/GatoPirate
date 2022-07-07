@@ -60,3 +60,8 @@ MonoBehaviour:
   specialProjectileAmnt: 10
   specialShotParticles: {fileID: 113646, guid: 512bd2deb75bf0140b908d937524f690, type: 3}
   specialExplosionParticles: {fileID: 1198724786340194, guid: 0898b572f28fb32439fbe4be9a9beb52, type: 3}
+  playerDamageTextParticles: {fileID: 4199737987502452825, guid: 7c22b6aec282cdf4e999e1e34e2b8581, type: 3}
+  enemyDamageTextParticles: {fileID: 4199737987502452825, guid: c35c694f4e1efa742a44ec3a8dfcfc0d, type: 3}
+  damageTextParticleAmnt: 50
+  resourcesBoxParticles: {fileID: 143964, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+  resourcesBoxParticleAmnt: 5

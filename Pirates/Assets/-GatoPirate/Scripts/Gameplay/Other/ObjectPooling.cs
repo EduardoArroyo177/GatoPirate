@@ -69,6 +69,10 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     private GameObject enemyDamageTextParticles;
     [SerializeField]
     private int damageTextParticleAmnt;
+    [SerializeField]
+    private GameObject resourcesBoxParticles;
+    [SerializeField]
+    private int resourcesBoxParticleAmnt;
 
     // Basic
     private List<GameObject> basicProjectileList = new();
@@ -93,6 +97,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     // Damage text 
     private List<GameObject> playerDamageTextParticleList = new();
     private List<GameObject> enemyDamageTextParticleList = new();
+    private List<GameObject> resourcesBoxParticleList = new();
 
     public VoidEvent StopCombatEvent { get; set; }
 
@@ -103,6 +108,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
         InstantiateAutomaticProjectiles();
         InstantiateSpecialProjectiles();
         InstantiateDamageTextParticles();
+        InstantiateResourcesBoxParticles();
     }
 
     #region Basic projectile
@@ -428,5 +434,33 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
 
         return null;
     }
+
+    private void InstantiateResourcesBoxParticles()
+    {
+        GameObject resourcesBoxParticlesParent = new GameObject("ResourcesBoxParticlesParent");
+        GameObject resourcesBoxHelper;
+
+        for (int index = 0; index < resourcesBoxParticleAmnt; index++)
+        {
+            // Player damage text
+            resourcesBoxHelper = Instantiate(resourcesBoxParticles, resourcesBoxParticlesParent.transform);
+            resourcesBoxHelper.SetActive(false);
+            resourcesBoxParticleList.Add(resourcesBoxHelper);
+        }
+    }
+
+    public GameObject GetResourcesBoxParticle()
+    {
+        for (int index = 0; index < resourcesBoxParticleList.Count; index++)
+        {
+            if (!resourcesBoxParticleList[index].activeInHierarchy)
+            {
+                return resourcesBoxParticleList[index];
+            }
+        }
+
+        return null;
+    }
+
     #endregion
 }

@@ -4195,22 +4195,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8726472688203369360, guid: 2672f8cff8d14864e980d91543f35174, type: 3}
-      propertyPath: damageTextParticles
-      value: 
-      objectReference: {fileID: 4199737987502452825, guid: 7c22b6aec282cdf4e999e1e34e2b8581, type: 3}
-    - target: {fileID: 8726472688203369360, guid: 2672f8cff8d14864e980d91543f35174, type: 3}
-      propertyPath: damageTextParticleAmnt
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8726472688203369360, guid: 2672f8cff8d14864e980d91543f35174, type: 3}
-      propertyPath: enemyDamageTextParticles
-      value: 
-      objectReference: {fileID: 4199737987502452825, guid: c35c694f4e1efa742a44ec3a8dfcfc0d, type: 3}
-    - target: {fileID: 8726472688203369360, guid: 2672f8cff8d14864e980d91543f35174, type: 3}
-      propertyPath: playerDamageTextParticles
-      value: 
-      objectReference: {fileID: 4199737987502452825, guid: 7c22b6aec282cdf4e999e1e34e2b8581, type: 3}
     - target: {fileID: 8726472688203369361, guid: 2672f8cff8d14864e980d91543f35174, type: 3}
       propertyPath: m_Name
       value: ObjectPooling

@@ -6,56 +6,69 @@ using UnityEngine;
 public class ObjectPooling : SceneSingleton<ObjectPooling>
 {
     // Basic
-    [Header("Basic attack projectile")]
+    [Header("Basic attack")]
+    [Header("Projectile")]
     [SerializeField]
     private GameObject basicProjectile;
     [SerializeField]
     private int basicProjectileInstanceAmnt;
 
-    [Header("Basic attack particles")]
+    [Header("Particles")]
     [SerializeField]
     private GameObject basicShotParticles;
     [SerializeField]
     private GameObject basicExplosionParticles;
 
     // Normal
-    [Header("Normal attack projectile")]
+    [Header("Normal attack")]
+    [Header("Projectile")]
     [SerializeField]
     private GameObject normalProjectile;
     [SerializeField]
     private int normalProjectileInstanceAmnt;
 
-    [Header("Normal attack particles")]
+    [Header("Particles")]
     [SerializeField]
     private GameObject normalShotParticles;
     [SerializeField]
     private GameObject normalExplosionParticles;
 
     // Automatic
-    [Header("Automatic attack projectile")]
+    [Header("Automatic attack")]
+    [Header("Projectile")]
     [SerializeField]
     private GameObject automaticProjectile;
     [SerializeField]
     private int automaticProjectileInstanceAmnt;
 
-    [Header("Automatic attack particles")]
+    [Header("Particles")]
     [SerializeField]
     private GameObject automaticShotParticles;
     [SerializeField]
     private GameObject automaticExplosionParticles;
 
     // Special
-    [Header("Special attack projectile")]
+    [Header("Special attack")]
+    [Header("Projectile")]
     [SerializeField]
     private GameObject specialAttackProjectile;
     [SerializeField]
     private int specialProjectileAmnt;
 
-    [Header("Special attack particles")]
+    [Header("Particles")]
     [SerializeField]
     private GameObject specialShotParticles;
     [SerializeField]
     private GameObject specialExplosionParticles;
+
+    [Header("Other")]
+    [Header("Particles")]
+    [SerializeField]
+    private GameObject playerDamageTextParticles;
+    [SerializeField]
+    private GameObject enemyDamageTextParticles;
+    [SerializeField]
+    private int damageTextParticleAmnt;
 
     // Basic
     private List<GameObject> basicProjectileList = new();
@@ -77,6 +90,10 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     private List<GameObject> specialProjectileShotParticleList = new();
     private List<GameObject> specialProjectileExplosionParticleList = new();
 
+    // Damage text 
+    private List<GameObject> playerDamageTextParticleList = new();
+    private List<GameObject> enemyDamageTextParticleList = new();
+
     public VoidEvent StopCombatEvent { get; set; }
 
     public void Initialize()
@@ -85,6 +102,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
         InstantiateNormalProjectiles();
         InstantiateAutomaticProjectiles();
         InstantiateSpecialProjectiles();
+        InstantiateDamageTextParticles();
     }
 
     #region Basic projectile
@@ -364,5 +382,51 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     }
     #endregion
 
+    #region Other
+    private void InstantiateDamageTextParticles()
+    {
+        GameObject damageTextParticlesParent = new GameObject("DamageTextParticlesParent");
+        GameObject playerDamageTextHelper;
+        GameObject enemyDamageTextHelper;
 
+        for (int index = 0; index < damageTextParticleAmnt; index++)
+        {
+            // Player damage text
+            playerDamageTextHelper = Instantiate(playerDamageTextParticles, damageTextParticlesParent.transform);
+            playerDamageTextHelper.SetActive(false);
+            playerDamageTextParticleList.Add(playerDamageTextHelper);
+
+            // Enemy damage text
+            enemyDamageTextHelper = Instantiate(enemyDamageTextParticles, damageTextParticlesParent.transform);
+            enemyDamageTextHelper.SetActive(false);
+            enemyDamageTextParticleList.Add(enemyDamageTextHelper);
+        }
+    }
+
+    public GameObject GetPlayerDamageTextParticle()
+    {
+        for (int index = 0; index < playerDamageTextParticleList.Count; index++)
+        {
+            if (!playerDamageTextParticleList[index].activeInHierarchy)
+            {
+                return playerDamageTextParticleList[index];
+            }
+        }
+
+        return null;
+    }
+
+    public GameObject GetEnemyDamageTextParticle()
+    {
+        for (int index = 0; index < enemyDamageTextParticleList.Count; index++)
+        {
+            if (!enemyDamageTextParticleList[index].activeInHierarchy)
+            {
+                return enemyDamageTextParticleList[index];
+            }
+        }
+
+        return null;
+    }
+    #endregion
 }

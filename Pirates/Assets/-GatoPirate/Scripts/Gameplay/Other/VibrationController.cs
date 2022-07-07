@@ -30,6 +30,7 @@ public class VibrationController : SceneSingleton<VibrationController>
 
     public void TriggerReceiveSpecialAttackVibration(float _duration)
     {
+        HapticController.Stop();
         HapticController.fallbackPreset = HapticPatterns.PresetType.HeavyImpact;
         HapticPatterns.PlayConstant(0.85f, 0.5f, _duration);
     }

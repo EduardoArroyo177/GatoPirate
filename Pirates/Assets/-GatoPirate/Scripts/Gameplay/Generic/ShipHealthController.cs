@@ -77,12 +77,6 @@ public class ShipHealthController : MonoBehaviour
                 enemyResourcesDrop.DropBasicResources();
             else if(!projectileType.Equals(ProjectileType.AUTOMATIC))
                 enemyResourcesDrop.DropNormalResources();
-            
-            //if (!projectileType.Equals(ProjectileType.AUTOMATIC)
-            //&& !projectileType.Equals(ProjectileType.BASIC))
-            //    enemyResourcesDrop.DropNormalResources();
-            //else if (projectileType.Equals(ProjectileType.BASIC))
-            //    enemyResourcesDrop.DropBasicResources();
         }
     }
 

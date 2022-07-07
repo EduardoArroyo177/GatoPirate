@@ -64,12 +64,19 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") || other.CompareTag("Player"))
-            DestroyCannonBall(true);
-        else
+        if (other.CompareTag("Enemy"))
         {
-            if(!IsShotByEnemy && other.CompareTag("ResourcesBox"))
-                DestroyCannonBall(false);
+            // Hit enemy
+            DestroyCannonBall(true);
+        }
+        else if (other.CompareTag("Player"))
+        {
+            // Hit player
+            DestroyCannonBall(false);
+        }
+        else if (!IsShotByEnemy && other.CompareTag("ResourcesBox"))
+        { 
+            // Player hit resources box
         }
     }
 
@@ -79,9 +86,11 @@ public class Projectile : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void ShowExplosionParticle(bool _isEnemy)
+    private void ShowExplosionParticle(bool _hitEnemy)
     {
         GameObject explosionParticle = null;
+        GameObject damageTextHelper = null;
+
         switch (projectileType)
         {
             case ProjectileType.BASIC:
@@ -101,11 +110,19 @@ public class Projectile : MonoBehaviour
         {
             explosionParticle.transform.position = transform.position;
 
-            if (_isEnemy)
+            if (_hitEnemy)
+            {
                 explosionParticle.transform.localScale = new Vector3(2, 2, 2);
+                damageTextHelper = ObjectPooling.Instance.GetEnemyDamageTextParticle();
+            }
             else
+            {
                 explosionParticle.transform.localScale = Vector3.one;
+                damageTextHelper = ObjectPooling.Instance.GetPlayerDamageTextParticle();
+            }
             explosionParticle.SetActive(true);
+            damageTextHelper.transform.position = transform.position;
+            damageTextHelper.GetComponent<DamageTextParticleController>().ShowTextParticle(projectileType, (int)projectileDamage, _hitEnemy);
         }
     }
 

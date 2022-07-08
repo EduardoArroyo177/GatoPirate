@@ -47,3 +47,4 @@ MonoBehaviour:
   resourcesBoxAmntMin: 100
   resourcesBoxAmntMax: 250
   resourcesBoxTimeToDestroy: 5
+  chanceToGiveChest: 50

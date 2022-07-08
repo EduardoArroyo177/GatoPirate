@@ -82,7 +82,6 @@ public class ShipHealthController : MonoBehaviour
 
     public void CombatOver()
     {
-        Debug.Log("Combat over");
         StopCombatEvent.Raise();
         // TODO: Trigger destroy animation
         // DestroyAnim();

@@ -94,12 +94,11 @@ public class PlayerShipAttackController : MonoBehaviour
     {
         // Special attack
         InitializeSpecialAttackEvent.Raise(SpecialAttackChargeTime);
-        //StartCoroutine(AutomaticAttack());
+        StartCoroutine(AutomaticAttack());
     }
 
     private void StopCombatEventCallback(Void _item)
     {
-        Debug.Log("STOPPING COMBAT");
         StopAllCoroutines();
     }
 

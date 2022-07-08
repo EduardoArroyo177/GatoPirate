@@ -33,6 +33,8 @@ public class StartCombatBootstrapper : MonoBehaviour
     private CharacterTypeEvent ShowResultScreenEvent;
     [SerializeField]
     private FloatEvent TriggerShakingCameraEvent;
+    [SerializeField]
+    private BoolEvent WinChestEvent;
 
     private int activeCannons;
 
@@ -46,6 +48,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         virtualCameraController.Initialize();
 
         uiCanvasBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
+        uiCanvasBootstrapper.WinChestEvent = WinChestEvent;
         uiCanvasBootstrapper.Initialize();
 
         // Player
@@ -69,6 +72,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         enemyGameplayBootstrapper.StartCombatEvent = StartCombatEvent;
         enemyGameplayBootstrapper.StopCombatEvent = StopCombatEvent;
         enemyGameplayBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
+        enemyGameplayBootstrapper.WinChestEvent = WinChestEvent;
         enemyGameplayBootstrapper.InitializeBootstrapper();
     }
 }

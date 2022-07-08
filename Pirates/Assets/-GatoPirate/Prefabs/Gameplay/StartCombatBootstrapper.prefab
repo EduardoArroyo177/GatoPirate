@@ -54,3 +54,4 @@ MonoBehaviour:
   StopCombatEvent: {fileID: 11400000, guid: cefadfdde67a02d4c9e08b95c5783ca0, type: 2}
   ShowResultScreenEvent: {fileID: 11400000, guid: c10eeb6d9b8ff214e8a5c79a89d8db35, type: 2}
   TriggerShakingCameraEvent: {fileID: 11400000, guid: d22614e6bf7d44447a7a6ca5dbd86781, type: 2}
+  WinChestEvent: {fileID: 11400000, guid: efb8b85d1073bb645a2e832e31eb5713, type: 2}

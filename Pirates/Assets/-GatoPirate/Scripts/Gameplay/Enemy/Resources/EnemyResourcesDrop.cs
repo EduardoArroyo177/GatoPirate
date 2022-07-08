@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class EnemyResourcesDrop : MonoBehaviour
 {
+    [Header("Resources box")]
     [SerializeField]
     private ResourcesBoxController leftResourcesBox;
     [SerializeField]
     private ResourcesBoxController middleResourcesBox;
     [SerializeField]
     private ResourcesBoxController rightResourcesBox;
+
+    [Header("Chest")]
+    [SerializeField]
+    private GameObject chest;
 
     // Resources
     public float ChanceToDropResources { get; set; }
@@ -29,6 +34,10 @@ public class EnemyResourcesDrop : MonoBehaviour
 
     public IntEvent GoldResourcesDroppedEvent { get; set; }
     public IntEvent WoodResourcesDroppedEvent { get; set; }
+
+    // Chest
+    public float ChanceToGiveChest { get; set; }
+    public BoolEvent WinChestEvent { get; set; }
 
     private int currentAvailableResourcesBoxes;
 
@@ -56,6 +65,21 @@ public class EnemyResourcesDrop : MonoBehaviour
 
         rightResourcesBox.GoldResourcesDroppedEvent = GoldResourcesDroppedEvent;
         rightResourcesBox.WoodResourcesDroppedEvent = WoodResourcesDroppedEvent;
+
+        CalculateChest();
+    }
+
+    private void CalculateChest()
+    {
+        float decimalPercentage = ChanceToGiveChest / 100;
+
+        if (Random.value > (1.0 - decimalPercentage))
+        {
+            chest.SetActive(true);
+            WinChestEvent.Raise(true);
+        }
+        else
+            WinChestEvent.Raise(false);
     }
 
     public void DropBasicResources()

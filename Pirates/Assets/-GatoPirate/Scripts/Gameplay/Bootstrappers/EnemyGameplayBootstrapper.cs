@@ -34,10 +34,12 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private IntEvent WoodResourcesDroppedEvent;
 
+
     // Events
     public VoidEvent StartCombatEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
+    public BoolEvent WinChestEvent { get; set; }
 
     // Properties
     public EnemyShipData EnemyShipData { get => enemyShipData; set => enemyShipData = value; }
@@ -125,9 +127,11 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyResourcesDrop.ResourcesBoxAmntMax = EnemyShipData.ResourcesBoxAmntMax;
         enemyResourcesDrop.ResourcesBoxTimeToDestroy = EnemyShipData.ResourcesBoxTimeToDestroy;
 
+        enemyResourcesDrop.ChanceToGiveChest = EnemyShipData.ChanceToGiveChest;
         // Events
         enemyResourcesDrop.GoldResourcesDroppedEvent = GoldResourcesDroppedEvent;
         enemyResourcesDrop.WoodResourcesDroppedEvent = WoodResourcesDroppedEvent;
+        enemyResourcesDrop.WinChestEvent = WinChestEvent;
 
         enemyResourcesDrop.Initialize();
     }

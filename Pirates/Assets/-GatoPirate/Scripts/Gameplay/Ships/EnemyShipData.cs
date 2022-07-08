@@ -45,6 +45,10 @@ public class EnemyShipData : ShipData
     [SerializeField]
     private float resourcesBoxTimeToDestroy;
 
+    [Header("Chest")]
+    [SerializeField]
+    private float chanceToGiveChest;
+
     public float CannonAttackRateMin { get => cannonAttackRateMin; set => cannonAttackRateMin = value; }
     public float CannonAttackRateMax { get => cannonAttackRateMax; set => cannonAttackRateMax = value; }
     public float WeakSpotAppearanceRateMin { get => weakSpotAppearanceRateMin; set => weakSpotAppearanceRateMin = value; }
@@ -61,4 +65,5 @@ public class EnemyShipData : ShipData
     public int ResourcesBoxAmntMin { get => resourcesBoxAmntMin; set => resourcesBoxAmntMin = value; }
     public int ResourcesBoxAmntMax { get => resourcesBoxAmntMax; set => resourcesBoxAmntMax = value; }
     public float ResourcesBoxTimeToDestroy { get => resourcesBoxTimeToDestroy; set => resourcesBoxTimeToDestroy = value; }
-    }
+    public float ChanceToGiveChest { get => chanceToGiveChest; set => chanceToGiveChest = value; }
+}

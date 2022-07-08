@@ -11,7 +11,9 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
     private Image img_fillBar;
     // TODO: Remove or hide after testing
     [SerializeField]
-    private float animationDuration;
+    private float fillAnimationDuration;
+    [SerializeField]
+    private ShineSpriteEffectAnimation shineSpriteEffectAnimation;
 
     public FloatEvent InitializeSpecialAttackEvent { get; set; }
     public VoidEvent ShootSpecialAttackEvent { get; set; }
@@ -41,12 +43,13 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
     {
         img_fillBar.fillAmount = 0;
         btn_specialAttack.interactable = false;
+        shineSpriteEffectAnimation.StopAnimation();
         StartCoroutine(CircleFillAnimation());
     }
 
     private void StartChargeAttackTimerAnimation(float _duration)
     {
-        animationDuration = _duration;
+        fillAnimationDuration = _duration;
         img_fillBar.fillAmount = 0;
         btn_specialAttack.interactable = false;
         if(gameObject.activeInHierarchy)
@@ -61,11 +64,12 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
         while (img_fillBar.fillAmount < 1)
         {
             activeTimer += Time.deltaTime;
-            percentage = activeTimer / animationDuration;
+            percentage = activeTimer / fillAnimationDuration;
             img_fillBar.fillAmount = Mathf.Lerp(0, 1, percentage);
             yield return null;
         }
         btn_specialAttack.interactable = true;
+        shineSpriteEffectAnimation.StartShineAnimation();
     }
 
     public void StopAnimation()

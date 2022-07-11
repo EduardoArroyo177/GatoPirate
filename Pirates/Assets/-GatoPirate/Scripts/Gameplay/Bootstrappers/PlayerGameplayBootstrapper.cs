@@ -46,7 +46,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 
 
     // Properties
-    public CatCrewController[] CatCrewControllerObjectsList { get; set; }
+    public CatData[] CatCrewDataList { get; set; }
     public ShipData PlayerShipData { get => playerShipData; set => playerShipData = value; }
     public int NumberOfActiveCannons { get; set; }
 
@@ -77,7 +77,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipHealthUIController.Initialize();
 
         // Player build ship controller
-        playerBuildShipController.CatCrewControllerObjectsList = CatCrewControllerObjectsList;
+        playerBuildShipController.CatCrewDataList = CatCrewDataList;
         playerBuildShipController.Initialize();
 
         // Player ship attack controller

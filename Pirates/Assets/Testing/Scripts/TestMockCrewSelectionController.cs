@@ -7,35 +7,35 @@ public class TestMockCrewSelectionController : MonoBehaviour
     [SerializeField]
     private CombatData combatData;
     [SerializeField]
-    private CatCrewController[] oneCrew;
+    private CatData[] oneCrew;
     [SerializeField]
-    private CatCrewController[] twoCrew;
+    private CatData[] twoCrew;
     [SerializeField]
-    private CatCrewController[] threeCrew;
+    private CatData[] threeCrew;
     [SerializeField]
-    private CatCrewController[] fourCrew;
+    private CatData[] fourCrew;
 
     public void StartWithOneCannon()
     {
-        combatData.CatCrewControllerList = oneCrew;
+        combatData.CatCrewDataList = oneCrew;
         LoadCombatScene();
     }
 
     public void StartWithTwoCannons()
     {
-        combatData.CatCrewControllerList = twoCrew;
+        combatData.CatCrewDataList = twoCrew;
         LoadCombatScene();
     }
 
     public void StartWithThreeCannons()
     {
-        combatData.CatCrewControllerList = threeCrew;
+        combatData.CatCrewDataList = threeCrew;
         LoadCombatScene();
     }
 
     public void StartWithFourCannons()
     {
-        combatData.CatCrewControllerList = fourCrew;
+        combatData.CatCrewDataList = fourCrew;
         LoadCombatScene();
     }
 

@@ -4,38 +4,18 @@ using UnityEngine;
 
 public class PlayerBuildShipController : MonoBehaviour
 {
+    [Header("Cat Crew")]
     [SerializeField]
-    private GameObject[] crewSlotList;
-    [SerializeField]
-    private GameObject catGeneric;
+    private CatBodyBuilder[] catBodyBuilderList;
 
-    public CatCrewController[] CatCrewControllerObjectsList { get; set; }
-
-    // TODO: Make this as property after testing
-    public List<GameObject> crewMembersList;// { get; set; }
+    public CatData[] CatCrewDataList { get; set; }
 
     public void Initialize()
     {
-        crewMembersList = new List<GameObject>();
-        SetCrewCats();
-    }
-
-    private void SetCrewCats()
-    {
-        GameObject crewCatHelper;
-
-        for (int index = 0; index < CatCrewControllerObjectsList.Length; index++)
+        for (int index = 0; index < CatCrewDataList.Length; index++)
         {
-            crewCatHelper = Instantiate(catGeneric);
-            crewCatHelper.transform.position = crewSlotList[index].transform.position;
-            crewCatHelper.transform.SetParent(crewSlotList[index].transform);
-
-            CatCrewController catControllerHelper = crewCatHelper.GetComponent<CatCrewController>();
-            catControllerHelper.CatSprite = CatCrewControllerObjectsList[index].CatSprite;
-            catControllerHelper.CatSkinSprite = CatCrewControllerObjectsList[index].CatSkinSprite;
-            catControllerHelper.CatSpriteColor = CatCrewControllerObjectsList[index].CatSpriteColor;
-            catControllerHelper.InitializeCat();
-            crewMembersList.Add(crewCatHelper);
+            catBodyBuilderList[index].CatData = CatCrewDataList[index];
+            catBodyBuilderList[index].InitializeCat();
         }
     }
 }

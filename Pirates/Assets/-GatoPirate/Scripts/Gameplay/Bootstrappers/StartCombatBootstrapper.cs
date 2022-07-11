@@ -36,11 +36,11 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private BoolEvent WinChestEvent;
 
-    private int activeCannons;
+    private int playerActiveCannons;
 
     private void Awake()
     {
-        activeCannons = combatData.CatCrewControllerList.Length;
+        playerActiveCannons = combatData.CatCrewDataList.Length;
 
         startCombatController.StartCombatEvent = StartCombatEvent;
 
@@ -53,9 +53,9 @@ public class StartCombatBootstrapper : MonoBehaviour
 
         // Player
         // Properties
-        playerGameplayBootstrapper.NumberOfActiveCannons = activeCannons;
+        playerGameplayBootstrapper.NumberOfActiveCannons = playerActiveCannons;
         playerGameplayBootstrapper.PlayerShipData = combatData.PlayerShipData;
-        playerGameplayBootstrapper.CatCrewControllerObjectsList = combatData.CatCrewControllerList;
+        playerGameplayBootstrapper.CatCrewDataList = combatData.CatCrewDataList;
         // Events
         playerGameplayBootstrapper.StartCombatEvent = StartCombatEvent;
         playerGameplayBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
@@ -66,7 +66,7 @@ public class StartCombatBootstrapper : MonoBehaviour
 
         // Enemy
         // Properties
-        enemyGameplayBootstrapper.NumberOfActiveCannons = activeCannons;
+        enemyGameplayBootstrapper.NumberOfActiveCannons = playerActiveCannons;
         enemyGameplayBootstrapper.EnemyShipData = combatData.EnemyShipData;
         // Events
         enemyGameplayBootstrapper.StartCombatEvent = StartCombatEvent;

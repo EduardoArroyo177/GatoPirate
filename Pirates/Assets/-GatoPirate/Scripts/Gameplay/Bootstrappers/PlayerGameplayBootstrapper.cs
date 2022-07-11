@@ -43,7 +43,8 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     public VoidEvent StartCombatEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
-
+    public VoidEvent TriggerPlayerStartingAnimationEvent { get; set; }
+    public VoidEvent TriggerEnemyStartingAnimationEvent { get; set; }
 
     // Properties
     public CatData[] CatCrewDataList { get; set; }
@@ -78,6 +79,8 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 
         // Player build ship controller
         playerBuildShipController.CatCrewDataList = CatCrewDataList;
+        playerBuildShipController.TriggerPlayerStartingAnimationEvent = TriggerPlayerStartingAnimationEvent;
+        playerBuildShipController.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         playerBuildShipController.Initialize();
 
         // Player ship attack controller
@@ -117,5 +120,14 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipHealthController.StopCombatEvent = StopCombatEvent;
         playerShipHealthController.ShowResultScreenEvent = ShowResultScreenEvent;
         playerShipHealthController.Initialize();
+
+        // Trigger game init
+        //TriggerPlayerStartingAnimationEvent.Raise();
+        Invoke("StartingAnimation", 0.1f);
+    }
+
+    private void StartingAnimation()
+    {
+        TriggerPlayerStartingAnimationEvent.Raise();
     }
 }

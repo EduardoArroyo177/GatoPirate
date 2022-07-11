@@ -24,7 +24,15 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private UICanvasBootstrapper uiCanvasBootstrapper;
 
-    [Header("Events")]
+    [Header("Starting animations events")]
+    [SerializeField]
+    private VoidEvent TriggerPlayerStartingAnimationEvent;
+    [SerializeField]
+    private VoidEvent TriggerEnemyStartingAnimationEvent;
+    [SerializeField]
+    private VoidEvent StartingAnimationsFinishedEvent;
+
+    [Header("Combat flow events")]
     [SerializeField]
     private VoidEvent StartCombatEvent;
     [SerializeField]
@@ -32,9 +40,11 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private CharacterTypeEvent ShowResultScreenEvent;
     [SerializeField]
-    private FloatEvent TriggerShakingCameraEvent;
-    [SerializeField]
     private BoolEvent WinChestEvent;
+
+    [Header("Other events")]
+    [SerializeField]
+    private FloatEvent TriggerShakingCameraEvent;
 
     private int playerActiveCannons;
 
@@ -43,8 +53,13 @@ public class StartCombatBootstrapper : MonoBehaviour
         playerActiveCannons = combatData.CatCrewDataList.Length;
 
         startCombatController.StartCombatEvent = StartCombatEvent;
+        startCombatController.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
+        startCombatController.Initialize();
 
         virtualCameraController.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
+        virtualCameraController.TriggerPlayerStartingAnimationEvent = TriggerPlayerStartingAnimationEvent;
+        virtualCameraController.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
+        virtualCameraController.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
         virtualCameraController.Initialize();
 
         uiCanvasBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
@@ -62,6 +77,8 @@ public class StartCombatBootstrapper : MonoBehaviour
         playerGameplayBootstrapper.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
         playerGameplayBootstrapper.StopCombatEvent = StopCombatEvent;
 
+        playerGameplayBootstrapper.TriggerPlayerStartingAnimationEvent = TriggerPlayerStartingAnimationEvent;
+        playerGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         playerGameplayBootstrapper.InitializeBootstrapper();
 
         // Enemy
@@ -72,6 +89,9 @@ public class StartCombatBootstrapper : MonoBehaviour
         enemyGameplayBootstrapper.StopCombatEvent = StopCombatEvent;
         enemyGameplayBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         enemyGameplayBootstrapper.WinChestEvent = WinChestEvent;
+
+        enemyGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
+        enemyGameplayBootstrapper.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
         enemyGameplayBootstrapper.InitializeBootstrapper();
     }
 }

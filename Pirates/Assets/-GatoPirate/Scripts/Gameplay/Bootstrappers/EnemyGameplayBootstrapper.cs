@@ -17,6 +17,8 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     private EnemyShipWeakSpotController enemyShipWeakSpotController;
     [SerializeField]
     private EnemyResourcesDrop enemyResourcesDrop;
+    [SerializeField]
+    private EnemyBuildShipController enemyBuildShipController;
 
     [Header("UI")]
     [SerializeField]
@@ -40,6 +42,8 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     public VoidEvent StopCombatEvent { get; set; }
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
     public BoolEvent WinChestEvent { get; set; }
+    public VoidEvent TriggerEnemyStartingAnimationEvent { get; set; }
+    public VoidEvent StartingAnimationsFinishedEvent { get; set; }
 
     // Properties
     public EnemyShipData EnemyShipData { get => enemyShipData; set => enemyShipData = value; }
@@ -60,6 +64,11 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyResourcesDropUIController.GoldResourcesDroppedEvent = GoldResourcesDroppedEvent;
         enemyResourcesDropUIController.WoodResourcesDroppedEvent = WoodResourcesDroppedEvent;
         enemyResourcesDropUIController.Initialize();
+
+        // Enemy build ship controller
+        enemyBuildShipController.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
+        enemyBuildShipController.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
+        enemyBuildShipController.Initialize();
 
         // Enemy ship attack controller
         // Controller Properties

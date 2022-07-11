@@ -50,8 +50,11 @@ MonoBehaviour:
   enemyGameplayBootstrapper: {fileID: 0}
   virtualCameraController: {fileID: 0}
   uiCanvasBootstrapper: {fileID: 0}
+  TriggerPlayerStartingAnimationEvent: {fileID: 11400000, guid: 8cdce201dda29a6458a7936bf41dc226, type: 2}
+  TriggerEnemyStartingAnimationEvent: {fileID: 11400000, guid: 9636546a6dde715419a86f6c27bff2c7, type: 2}
+  StartingAnimationsFinishedEvent: {fileID: 11400000, guid: 20c09da1367f8954ebdac5dfd0f44a95, type: 2}
   StartCombatEvent: {fileID: 11400000, guid: a014a61bd5d2b3349b01e4bb9b126113, type: 2}
   StopCombatEvent: {fileID: 11400000, guid: cefadfdde67a02d4c9e08b95c5783ca0, type: 2}
   ShowResultScreenEvent: {fileID: 11400000, guid: c10eeb6d9b8ff214e8a5c79a89d8db35, type: 2}
-  TriggerShakingCameraEvent: {fileID: 11400000, guid: d22614e6bf7d44447a7a6ca5dbd86781, type: 2}
   WinChestEvent: {fileID: 11400000, guid: efb8b85d1073bb645a2e832e31eb5713, type: 2}
+  TriggerShakingCameraEvent: {fileID: 11400000, guid: d22614e6bf7d44447a7a6ca5dbd86781, type: 2}

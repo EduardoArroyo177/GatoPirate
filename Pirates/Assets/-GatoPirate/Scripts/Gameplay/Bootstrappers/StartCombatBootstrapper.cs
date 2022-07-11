@@ -66,7 +66,6 @@ public class StartCombatBootstrapper : MonoBehaviour
 
         // Enemy
         // Properties
-        enemyGameplayBootstrapper.NumberOfActiveCannons = playerActiveCannons;
         enemyGameplayBootstrapper.EnemyShipData = combatData.EnemyShipData;
         // Events
         enemyGameplayBootstrapper.StartCombatEvent = StartCombatEvent;

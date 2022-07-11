@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyShip", menuName = "Gato Pirate/Ship data/Create enemy's ship data", order = 1)]
 public class EnemyShipData : ShipData
 {
+    [Header("Number of active attacks")]
+    [SerializeField]
+    private int numberOfActiveCannons;
+
     [Header("Enemy attack")]
     [SerializeField]
     private float cannonAttackRateMin;
@@ -66,4 +70,5 @@ public class EnemyShipData : ShipData
     public int ResourcesBoxAmntMax { get => resourcesBoxAmntMax; set => resourcesBoxAmntMax = value; }
     public float ResourcesBoxTimeToDestroy { get => resourcesBoxTimeToDestroy; set => resourcesBoxTimeToDestroy = value; }
     public float ChanceToGiveChest { get => chanceToGiveChest; set => chanceToGiveChest = value; }
+    public int NumberOfActiveCannons { get => numberOfActiveCannons; set => numberOfActiveCannons = value; }
 }

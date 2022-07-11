@@ -47,13 +47,9 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
 
     public void InitializeBootstrapper()
     {
+        NumberOfActiveCannons = enemyShipData.NumberOfActiveCannons;
         InitializeEnemy();
     }
-
-    //private void Awake()
-    //{
-    //    InitializeEnemy();
-    //}
 
     private void InitializeEnemy()
     {

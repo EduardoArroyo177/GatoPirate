@@ -34,7 +34,6 @@ public class VirtualCameraController : MonoBehaviour
     #region Starting camera animation
     private void TriggerPlayerStartingAnimationEventCallback(Void _item)
     {
-        //virtualCamera1.SetActive(false);
         startingCameraPlayer.SetActive(true);
     }
 
@@ -46,7 +45,7 @@ public class VirtualCameraController : MonoBehaviour
 
     private void StartingAnimationsFinishedEventCallback(Void _item)
     {
-        //virtualCamera1.SetActive(true);
+        startingCameraPlayer.SetActive(false);
         startingCameraEnemy.SetActive(false);
     }
     #endregion

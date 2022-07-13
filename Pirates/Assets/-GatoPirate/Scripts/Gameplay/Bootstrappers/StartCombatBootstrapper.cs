@@ -31,6 +31,8 @@ public class StartCombatBootstrapper : MonoBehaviour
     private VoidEvent TriggerEnemyStartingAnimationEvent;
     [SerializeField]
     private VoidEvent StartingAnimationsFinishedEvent;
+    [SerializeField]
+    private VoidEvent SkipInitialAnimationsEvent;
 
     [Header("Combat flow events")]
     [SerializeField]
@@ -80,6 +82,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         playerGameplayBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         playerGameplayBootstrapper.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
         playerGameplayBootstrapper.StopCombatEvent = StopCombatEvent;
+        playerGameplayBootstrapper.SkipInitialAnimationsEvent = SkipInitialAnimationsEvent;
 
         playerGameplayBootstrapper.TriggerPlayerStartingAnimationEvent = TriggerPlayerStartingAnimationEvent;
         playerGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
@@ -95,6 +98,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         enemyGameplayBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         enemyGameplayBootstrapper.WinChestEvent = WinChestEvent;
         enemyGameplayBootstrapper.TriggerEnemyLostAnimationEvent = TriggerEnemyLostAnimationEvent;
+        enemyGameplayBootstrapper.SkipInitialAnimationsEvent = SkipInitialAnimationsEvent;
 
         enemyGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         enemyGameplayBootstrapper.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;

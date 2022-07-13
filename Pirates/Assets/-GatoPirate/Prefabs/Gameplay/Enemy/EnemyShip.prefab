@@ -2194,6 +2194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6c914ea1c52d54287cb0b854b850f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doTweenAnimation: {fileID: 1412328200}
 --- !u!114 &1412328201
 MonoBehaviour:
   m_ObjectHideFlags: 0

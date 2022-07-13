@@ -7,16 +7,20 @@ using UnityEngine;
 
 public class EnemyBuildShipController : MonoBehaviour
 {
+    [SerializeField]
+    private DOTweenAnimation doTweenAnimation;
+
     public VoidEvent TriggerEnemyStartingAnimationEvent { get; set; }
     public VoidEvent StartingAnimationsFinishedEvent { get; set; }
+    public VoidEvent SkipInitialAnimationsEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
-    private DOTweenAnimation doTweenAnimation;
+    
 
     public void Initialize()
     {
-        doTweenAnimation = GetComponent<DOTweenAnimation>();
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerEnemyStartingAnimationEvent, TriggerEnemyStartingAnimationEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(SkipInitialAnimationsEvent, SkipInitialAnimationsEventCallback));
     }
 
     public void TriggerStartingAnimationsFinished()
@@ -32,6 +36,11 @@ public class EnemyBuildShipController : MonoBehaviour
     private void TriggerEnemyStartingAnimationEventCallback(Void _item)
     {
         doTweenAnimation.DOPlay();
+    }
+
+    private void SkipInitialAnimationsEventCallback(Void _item)
+    {
+        doTweenAnimation.DOComplete();
     }
 
     // On destroy

@@ -48,6 +48,7 @@ MonoBehaviour:
   playerShipAttackController: {fileID: 0}
   playerShipHealthController: {fileID: 0}
   playerBuildShipController: {fileID: 0}
+  playerDefeatedController: {fileID: 0}
   playerShipAttackUIController: {fileID: 0}
   playerShipHealthUIController: {fileID: 0}
   ShootCannonEvent: {fileID: 11400000, guid: f3af0f4e971701e46b5d47b20fbadca7, type: 2}

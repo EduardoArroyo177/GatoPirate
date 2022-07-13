@@ -16,6 +16,7 @@ public class PlayerBuildShipController : MonoBehaviour
 
     public VoidEvent TriggerPlayerStartingAnimationEvent { get; set; }
     public VoidEvent TriggerEnemyStartingAnimationEvent { get; set; }
+    public VoidEvent SkipInitialAnimationsEvent { get; set; }
 
     public CatData[] CatCrewDataList { get; set; }
 
@@ -26,6 +27,7 @@ public class PlayerBuildShipController : MonoBehaviour
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerPlayerStartingAnimationEvent, TriggerPlayerStartingAnimationEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(SkipInitialAnimationsEvent, SkipInitialAnimationsEventCallback));
 
         for (int index = 0; index < CatCrewDataList.Length; index++)
         {
@@ -49,6 +51,11 @@ public class PlayerBuildShipController : MonoBehaviour
     private void TriggerPlayerStartingAnimationEventCallback(Void _item)
     {
         doTweenAnimation.DOPlayById("StartingAnimation");
+    }
+
+    private void SkipInitialAnimationsEventCallback(Void _item)
+    {
+        doTweenAnimation.DOComplete();
     }
 
     // On destroy

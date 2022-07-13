@@ -18,4 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d4111847cca992f45962a5ba830f29d6, type: 2}
   - {fileID: 11400000, guid: d4111847cca992f45962a5ba830f29d6, type: 2}
   - {fileID: 11400000, guid: d4111847cca992f45962a5ba830f29d6, type: 2}
-  enemyShipData: {fileID: 11400000, guid: 98208653d6ef88a45b7194246016b992, type: 2}
+  enemyShipData: {fileID: 11400000, guid: c6424596538fe354f92e9deb4a2733b3, type: 2}

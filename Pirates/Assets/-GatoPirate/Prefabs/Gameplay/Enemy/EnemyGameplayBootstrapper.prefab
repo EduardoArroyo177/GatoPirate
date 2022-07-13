@@ -49,6 +49,8 @@ MonoBehaviour:
   enemyShipHealthController: {fileID: 0}
   enemyShipWeakSpotController: {fileID: 0}
   enemyResourcesDrop: {fileID: 0}
+  enemyBuildShipController: {fileID: 0}
+  enemyDestroyedController: {fileID: 0}
   enemyShipHealthUIController: {fileID: 0}
   enemyResourcesDropUIController: {fileID: 0}
   CurrentEnemyHealthUIEvent: {fileID: 11400000, guid: 3f32ac08d3caef14a8605b00df6eb57b, type: 2}

@@ -19,6 +19,8 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     private EnemyResourcesDrop enemyResourcesDrop;
     [SerializeField]
     private EnemyBuildShipController enemyBuildShipController;
+    [SerializeField]
+    private EnemyDefeatedController enemyDestroyedController;
 
     [Header("UI")]
     [SerializeField]
@@ -44,6 +46,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     public BoolEvent WinChestEvent { get; set; }
     public VoidEvent TriggerEnemyStartingAnimationEvent { get; set; }
     public VoidEvent StartingAnimationsFinishedEvent { get; set; }
+    public VoidEvent TriggerEnemyLostAnimationEvent { get; set; }
 
     // Properties
     public EnemyShipData EnemyShipData { get => enemyShipData; set => enemyShipData = value; }
@@ -104,6 +107,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyShipHealthController.CurrentHealthUIEvent = CurrentEnemyHealthUIEvent;
         enemyShipHealthController.StopCombatEvent = StopCombatEvent;
         enemyShipHealthController.ShowResultScreenEvent = ShowResultScreenEvent;
+        enemyShipHealthController.TriggerEnemyLostAnimationEvent = TriggerEnemyLostAnimationEvent;
         enemyShipHealthController.Initialize();
 
         // Enemy ship weak spot controller
@@ -139,6 +143,11 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyResourcesDrop.WinChestEvent = WinChestEvent;
 
         enemyResourcesDrop.Initialize();
+
+        // Enemy destroyed
+        enemyDestroyedController.ShowResultScreenEvent = ShowResultScreenEvent;
+        enemyDestroyedController.TriggerEnemyLostAnimationEvent = TriggerEnemyLostAnimationEvent;
+        enemyDestroyedController.Initialize();
     }
 }
 

@@ -10,6 +10,9 @@ public class PlayerBuildShipController : MonoBehaviour
     [Header("Cat Crew")]
     [SerializeField]
     private CatBodyBuilder[] catBodyBuilderList;
+    [Header("Tween animation")]
+    [SerializeField]
+    private DOTweenAnimation doTweenAnimation;
 
     public VoidEvent TriggerPlayerStartingAnimationEvent { get; set; }
     public VoidEvent TriggerEnemyStartingAnimationEvent { get; set; }
@@ -17,13 +20,11 @@ public class PlayerBuildShipController : MonoBehaviour
     public CatData[] CatCrewDataList { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
-    private DOTweenAnimation doTweenAnimation; 
+    
 
     // Crew members
     public void Initialize()
     {
-        doTweenAnimation = GetComponent<DOTweenAnimation>();
-
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerPlayerStartingAnimationEvent, TriggerPlayerStartingAnimationEventCallback));
 
         for (int index = 0; index < CatCrewDataList.Length; index++)
@@ -47,7 +48,7 @@ public class PlayerBuildShipController : MonoBehaviour
 
     private void TriggerPlayerStartingAnimationEventCallback(Void _item)
     {
-        doTweenAnimation.DOPlay();
+        doTweenAnimation.DOPlayById("StartingAnimation");
     }
 
     // On destroy

@@ -41,6 +41,10 @@ public class StartCombatBootstrapper : MonoBehaviour
     private CharacterTypeEvent ShowResultScreenEvent;
     [SerializeField]
     private BoolEvent WinChestEvent;
+    [SerializeField]
+    private VoidEvent TriggerEnemyLostAnimationEvent;
+    [SerializeField]
+    private VoidEvent TriggerPlayerLostAnimationEvent;
 
     [Header("Other events")]
     [SerializeField]
@@ -79,6 +83,7 @@ public class StartCombatBootstrapper : MonoBehaviour
 
         playerGameplayBootstrapper.TriggerPlayerStartingAnimationEvent = TriggerPlayerStartingAnimationEvent;
         playerGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
+        playerGameplayBootstrapper.TriggerPlayerLostAnimationEvent = TriggerPlayerLostAnimationEvent;
         playerGameplayBootstrapper.InitializeBootstrapper();
 
         // Enemy
@@ -89,6 +94,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         enemyGameplayBootstrapper.StopCombatEvent = StopCombatEvent;
         enemyGameplayBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         enemyGameplayBootstrapper.WinChestEvent = WinChestEvent;
+        enemyGameplayBootstrapper.TriggerEnemyLostAnimationEvent = TriggerEnemyLostAnimationEvent;
 
         enemyGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         enemyGameplayBootstrapper.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;

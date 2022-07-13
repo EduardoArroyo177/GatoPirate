@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
         else
             cannonBallSprite.localEulerAngles = new Vector3(30, currentRotationEuler.y, currentRotationEuler.z);
        
-        Invoke(nameof(DestroyProjectile), destroyTime);
+        Invoke("DestroyProjectileByTime", destroyTime);
     }
 
     private void OnDisable()
@@ -135,6 +135,11 @@ public class Projectile : MonoBehaviour
             return;
         resourcesBoxParticles.transform.position = transform.position;
         resourcesBoxParticles.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    private void DestroyProjectileByTime()
+    {
         gameObject.SetActive(false);
     }
 

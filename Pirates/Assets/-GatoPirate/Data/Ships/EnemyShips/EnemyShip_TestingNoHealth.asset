@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ec1541b2bc8d543903c638515f2085, type: 3}
+  m_Name: EnemyShip_TestingNoHealth
+  m_EditorClassIdentifier: 
+  shipID: 
+  shipLevelType: 0
+  shipLevel: 0
+  shipName: 
+  shipLevelAttackMultiplier: 1
+  shipLevelCoolDownMultiplier: 1
+  shipLevelBallSpeedMultiplier: 1
+  shipLevelHealthMultiplier: 1
+  shipLevelSpecialAttackMultiplier: 1
+  shipHealth: 50
+  cannonBallSpeed: 20
+  basicAttackDamage: 5
+  normalAttackDamage: 30
+  normalAttackCoolDownTime: 1.3
+  automaticAttackDamage: 10
+  automaticAttackCoolDownTime: 2.5
+  automaticAttackFireRate: 0
+  specialAttackDamage: 25
+  specialAttackChargeTime: 10
+  numberOfActiveCannons: 4
+  cannonAttackRateMin: 1.3
+  cannonAttackRateMax: 1.8
+  weakSpotAppearanceRateMin: 3.7
+  weakSpotAppearanceRateMax: 6.1
+  weakSpotCoolDownTime: 3.2
+  weakSpotPlayerDamageMultiplier: 1.75
+  chanceToDropResources: 60
+  basicResourcesDroppedAmntMin: 1
+  basicResourcesDroppedAmntMax: 3
+  normalResourcesDroppedAmntMin: 25
+  normalResourcesDroppedAmntMax: 40
+  chanceToDropResourcesBox: 30
+  resourcesBoxesPerCombat: 3
+  resourcesBoxAmntMin: 100
+  resourcesBoxAmntMax: 250
+  resourcesBoxTimeToDestroy: 5
+  chanceToGiveChest: 50

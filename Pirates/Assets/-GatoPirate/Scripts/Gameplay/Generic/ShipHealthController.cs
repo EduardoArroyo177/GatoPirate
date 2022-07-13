@@ -23,6 +23,8 @@ public class ShipHealthController : MonoBehaviour
     public FloatEvent TriggerShakingCameraEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
+    public VoidEvent TriggerEnemyLostAnimationEvent { get; set; }
+    public VoidEvent TriggerPlayerLostAnimationEvent { get; set; }
 
     private float projectileDamage;
     private ProjectileType projectileType;
@@ -83,12 +85,11 @@ public class ShipHealthController : MonoBehaviour
     public void CombatOver()
     {
         StopCombatEvent.Raise();
-        // TODO: Trigger destroy animation
-        // DestroyAnim();
-        // TODO: This should be called after previous anim is completed
         if (shipType.Equals(CharacterType.ENEMY))
-            ShowResultScreenEvent.Raise(CharacterType.PLAYER);
+        {
+            TriggerEnemyLostAnimationEvent.Raise();
+        }
         else
-            ShowResultScreenEvent.Raise(CharacterType.ENEMY);
+            TriggerPlayerLostAnimationEvent.Raise();
     }
 }

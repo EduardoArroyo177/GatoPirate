@@ -15,6 +15,8 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     private ShipHealthController playerShipHealthController;
     [SerializeField]
     private PlayerBuildShipController playerBuildShipController;
+    [SerializeField]
+    private PlayerDefeatedController playerDefeatedController;
 
     [Header("UI")]
     [SerializeField]
@@ -45,6 +47,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
     public VoidEvent TriggerPlayerStartingAnimationEvent { get; set; }
     public VoidEvent TriggerEnemyStartingAnimationEvent { get; set; }
+    public VoidEvent TriggerPlayerLostAnimationEvent { get; set; }
 
     // Properties
     public CatData[] CatCrewDataList { get; set; }
@@ -119,7 +122,14 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipHealthController.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
         playerShipHealthController.StopCombatEvent = StopCombatEvent;
         playerShipHealthController.ShowResultScreenEvent = ShowResultScreenEvent;
+        playerShipHealthController.TriggerPlayerLostAnimationEvent = TriggerPlayerLostAnimationEvent;
         playerShipHealthController.Initialize();
+
+        // Player defeated
+        playerDefeatedController.ShowResultScreenEvent = ShowResultScreenEvent;
+        playerDefeatedController.TriggerPlayerLostAnimationEvent = TriggerPlayerLostAnimationEvent;
+        playerDefeatedController.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
+        playerDefeatedController.Initialize();
 
         // Trigger game init
         //TriggerPlayerStartingAnimationEvent.Raise();

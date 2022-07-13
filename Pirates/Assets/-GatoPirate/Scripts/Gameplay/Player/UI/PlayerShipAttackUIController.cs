@@ -46,7 +46,11 @@ public class PlayerShipAttackUIController : MonoBehaviour
 
     private void StopCombatEventCallback(Void _item)
     {
+        btn_leftCannon.GetComponent<Button>().interactable = false;
+        btn_rightCannon.GetComponent<Button>().interactable = false;
+        btn_middleCannon.GetComponent<Button>().interactable = false;
         specialAttackButtonController.StopAnimation();
+        specialAttackButtonController.gameObject.SetActive(false);
     }
 
     private void SetCannons()

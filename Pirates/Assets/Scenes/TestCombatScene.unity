@@ -6573,6 +6573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startCombatDelay: 0
+  btn_skipIntro: {fileID: 0}
 --- !u!1 &1971723542
 GameObject:
   m_ObjectHideFlags: 0
@@ -7344,6 +7345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startCombatDelay: 0.5
+  btn_skipIntro: {fileID: 1031926691}
 --- !u!114 &2141316434
 MonoBehaviour:
   m_ObjectHideFlags: 0

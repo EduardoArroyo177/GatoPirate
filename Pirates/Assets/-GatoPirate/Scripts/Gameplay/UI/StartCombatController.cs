@@ -8,6 +8,8 @@ public class StartCombatController : MonoBehaviour
 {
     [SerializeField]
     private float startCombatDelay;
+    [SerializeField]
+    private GameObject btn_skipIntro;
     public VoidEvent StartCombatEvent { get; set; }
     public VoidEvent StartingAnimationsFinishedEvent { get; set; }
 
@@ -31,6 +33,7 @@ public class StartCombatController : MonoBehaviour
     private void StartCombatDelayed()
     {
         StartCombatEvent.Raise();
+        btn_skipIntro.SetActive(false);
         gameObject.SetActive(false);
     }
 

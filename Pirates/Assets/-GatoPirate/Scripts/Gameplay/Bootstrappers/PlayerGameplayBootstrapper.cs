@@ -135,11 +135,11 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 
         // Trigger game init
         //TriggerPlayerStartingAnimationEvent.Raise();
-        Invoke("StartingAnimation", 0.1f);
+        
     }
 
-    private void StartingAnimation()
-    {
-        TriggerPlayerStartingAnimationEvent.Raise();
-    }
+    //private void StartingAnimation()
+    //{
+    //    TriggerPlayerStartingAnimationEvent.Raise();
+    //}
 }

@@ -103,5 +103,12 @@ public class StartCombatBootstrapper : MonoBehaviour
         enemyGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         enemyGameplayBootstrapper.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
         enemyGameplayBootstrapper.InitializeBootstrapper();
+
+        Invoke("StartingAnimation", 0.5f);
+    }
+
+    private void StartingAnimation()
+    {
+        TriggerPlayerStartingAnimationEvent.Raise();
     }
 }

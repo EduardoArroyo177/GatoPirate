@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 8037121780802702605}
   - component: {fileID: 1063966822606354075}
   m_Layer: 0
-  m_Name: GatoZero
+  m_Name: GatoMesias
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -20,6 +20,8 @@ public class CatData : ScriptableObject
     private Sprite catRightBottomPawSprite;
     [SerializeField]
     private Sprite catTailSprite;
+    [SerializeField]
+    private bool isTailInC;
 
     [Header("Cat color")]
     [SerializeField]
@@ -33,4 +35,5 @@ public class CatData : ScriptableObject
     public Sprite CatRightBottomPawSprite { get => catRightBottomPawSprite; set => catRightBottomPawSprite = value; }
     public Sprite CatTailSprite { get => catTailSprite; set => catTailSprite = value; }
     public Color CatColor { get => catColor; set => catColor = value; }
+    public bool IsTailInC { get => isTailInC; set => isTailInC = value; }
 }

@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Cat", menuName = "Gato Pirate/Cat data/Create new cat data", order = 1)]
 public class CatData : ScriptableObject
 {
+    [SerializeField]
+    private string catID;
+
     [Header("Cat sprites")]
     [SerializeField]
     private Sprite catHeadSprite;

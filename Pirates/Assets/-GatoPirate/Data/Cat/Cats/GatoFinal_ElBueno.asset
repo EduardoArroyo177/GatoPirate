@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
+  m_Name: GatoFinal_ElBueno
+  m_EditorClassIdentifier: 
+  catID: 
+  catName: 
+  catSprite: {fileID: 0}
+  catHeadSprite: {fileID: 21300000, guid: 693144cb4c2ab69479190cbb210ea772, type: 3}
+  catBodySprite: {fileID: 21300000, guid: 6560a3a11bf06c540a91f59f909fecbf, type: 3}
+  catLeftPawSprite: {fileID: 21300000, guid: 55b5aa4e79a9d7a479e2ee33b5027254, type: 3}
+  catRightPawSprite: {fileID: 21300000, guid: 58a4d956d5365154c82a372089e219db, type: 3}
+  catLeftBottomPawSprite: {fileID: 21300000, guid: 390ebc5f59fc24242a728adb9019bda8, type: 3}
+  catRightBottomPawSprite: {fileID: 21300000, guid: 4a1704287657fab459eed6da2e157e86, type: 3}
+  catTailSprite: {fileID: 21300000, guid: 7a3b642e54290314a8f6fe2790d00b3d, type: 3}
+  catColor: {r: 1, g: 1, b: 1, a: 1}

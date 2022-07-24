@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class MetaGameBootstrapper : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private CatRecruitmentController catRecruitmentController;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        catRecruitmentController.Initialize();
     }
 }

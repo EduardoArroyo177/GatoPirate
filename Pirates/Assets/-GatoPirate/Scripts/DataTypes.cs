@@ -35,3 +35,10 @@ public enum ProjectileType
     AUTOMATIC,
     SPECIAL
 }
+
+public enum Island
+{ 
+    ISLAND1,
+    ISLAND2,
+    ISLAND3
+}

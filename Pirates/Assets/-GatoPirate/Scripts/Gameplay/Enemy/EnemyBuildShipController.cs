@@ -16,7 +16,6 @@ public class EnemyBuildShipController : MonoBehaviour
 
     private List<IAtomEventHandler> _eventHandlers = new();
     
-
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerEnemyStartingAnimationEvent, TriggerEnemyStartingAnimationEventCallback));

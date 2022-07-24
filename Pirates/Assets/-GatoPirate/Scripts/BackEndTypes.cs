@@ -1,18 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class BackEndTypes : MonoBehaviour
+#region Cat management
+[Serializable]
+public class DataSaveCatStructure
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string CatID;
+    public string CatName;
+    public int IslandSlot;
+    public Island CurrentIsland;
+    public string SkinID;
+}
 
-    // Update is called once per frame
-    void Update()
+[Serializable]
+public class DataSaveCatCrewStructure
+{
+    public List<DataSaveCatStructure> DataSaveCatCrewList;
+
+    public DataSaveCatCrewStructure()
     {
-        
+        DataSaveCatCrewList = new List<DataSaveCatStructure>();
     }
 }
+
+[Serializable]
+public class DataSaveCatAmountStructure
+{
+    public string CatName;
+    public int CatsOwnedAmount;
+}
+
+public class DataSaveCatCrewAmountStructure
+{
+    public List<DataSaveCatAmountStructure> DataSaveCatCrewAmountList;
+
+    public DataSaveCatCrewAmountStructure()
+    {
+        DataSaveCatCrewAmountList = new List<DataSaveCatAmountStructure>();
+    }
+       
+}
+#endregion

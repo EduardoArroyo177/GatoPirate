@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityAtoms;
 
 public class CatalogueItemView : MonoBehaviour
 {
     [SerializeField]
-    private string itemID;
+    private string itemName;
 
     [Header("Item references")]
     [SerializeField]
@@ -27,11 +28,16 @@ public class CatalogueItemView : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI lbl_purchasePrice2;
 
+    // Events
+    public StringIntEvent PurchaseItemEvent { get; set; }
+
+    private int itemPrice;
+
     #region Data set
-    public void SetIDAndName(string _itemID, string itemName)
+    public void SetName(string _itemName)
     {
-        itemID = _itemID;
-        lbl_itemName.text = itemName;
+        itemName = _itemName; 
+        lbl_itemName.text = _itemName;
     }
 
     public void SetSprite(Sprite _itemSprite)
@@ -41,6 +47,7 @@ public class CatalogueItemView : MonoBehaviour
 
     public void SetPurchasePrice(int _price)
     {
+        itemPrice = _price;
         lbl_purchasePrice.text = _price.ToString();
         lbl_purchasePrice2.text = _price.ToString();
     }
@@ -63,7 +70,7 @@ public class CatalogueItemView : MonoBehaviour
     #region Buttons
     public void PurchaseItem()
     {
-        Debug.Log($"PURCHASING {itemID}");
+        PurchaseItemEvent.Raise(itemName, itemPrice);
     }
 
     public void GoToStore()

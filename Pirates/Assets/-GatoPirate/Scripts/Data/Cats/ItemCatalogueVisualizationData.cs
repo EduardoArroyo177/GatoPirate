@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ItemVisualization", menuName = "Gato Pirate/Cat data/Create new item visualization data", order = 1)]
-public class CatCatalogueVisualizationData : ScriptableObject
+[CreateAssetMenu(fileName = "ItemVisualization", menuName = "Gato Pirate/Cat data/Create new catalog item visualization data", order = 1)]
+public class ItemCatalogueVisualizationData : ScriptableObject
 {
     [Header("Cat store data")]
     [SerializeField]

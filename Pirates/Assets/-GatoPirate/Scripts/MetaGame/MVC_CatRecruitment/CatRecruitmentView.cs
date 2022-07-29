@@ -10,11 +10,13 @@ public class CatRecruitmentView : MonoBehaviour
     [SerializeField]
     private GameObject catSkinCatalogueItemView;
 
-    [Header("UI references")]
+    [Header("Cats UI references")]
     [SerializeField]
-    private Transform basicCatCatalogueContent;
+    private Transform catBasicCatalogueContent;
+    [SerializeField]
+    private Transform catSpecialCatalogueContent;
 
     public GameObject CatCatalogueItemView { get => catCatalogueItemView; set => catCatalogueItemView = value; }
-    public Transform BasicCatCatalogueContent { get => basicCatCatalogueContent; set => basicCatCatalogueContent = value; }
-
+    public Transform CatBasicCatalogueContent { get => catBasicCatalogueContent; set => catBasicCatalogueContent = value; }
+    public Transform CatSpecialCatalogueContent { get => catSpecialCatalogueContent; set => catSpecialCatalogueContent = value; }
 }

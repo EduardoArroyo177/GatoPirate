@@ -30,7 +30,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure.CurrentIsland = Island.ISLAND1;
             initialCatStructure.SkinID = "none"; // TODO: Check if first cat will have a special skin by default
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
-
+            // Captain amount
             DataSaveCatCrewAmountStructure = new DataSaveCatCrewAmountStructure();
             DataSaveCatAmountStructure initialCatAmountStructure = new DataSaveCatAmountStructure();
             initialCatAmountStructure.CatName = "Captain";
@@ -61,18 +61,21 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure.CurrentIsland = Island.ISLAND1;
             initialCatStructure.SkinID = "none";
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
-
+            // Sailors amount
             initialCatAmountStructure = new DataSaveCatAmountStructure();
             initialCatAmountStructure.CatName = "Sailor";
             initialCatAmountStructure.CatsOwnedAmount = 3;
             DataSaveCatCrewAmountStructure.DataSaveCatCrewAmountList.Add(initialCatAmountStructure);
-
+            
             SaveCatData();
         }
         else
         {
             // Load saved data
             DataSaveCatCrewStructure = JsonUtility.FromJson<DataSaveCatCrewStructure>(dataSave);
+            string dataAmountSave = PlayerPrefs.GetString(CAT_SAVING_AMOUNT_DATA_KEY);
+            DataSaveCatCrewAmountStructure = JsonUtility.FromJson<DataSaveCatCrewAmountStructure>(dataAmountSave);
+
         }
     }
 

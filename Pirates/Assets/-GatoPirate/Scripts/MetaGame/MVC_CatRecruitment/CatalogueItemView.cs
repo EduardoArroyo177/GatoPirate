@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 
 public class CatalogueItemView : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class CatalogueItemView : MonoBehaviour
 
     // Events
     public StringIntEvent PurchaseItemEvent { get; set; }
+    public VoidEvent OpenGoToStorePopUpEvent { get; set; }
 
     private int itemPrice;
 
@@ -75,7 +77,7 @@ public class CatalogueItemView : MonoBehaviour
 
     public void GoToStore()
     {
-        Debug.Log("NOT ENOUGH MONEY, GO TO STORE");
+        OpenGoToStorePopUpEvent.Raise();
     }
 
     public void ShowItemInfo()

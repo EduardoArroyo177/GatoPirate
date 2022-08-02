@@ -1652,7 +1652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &341178933
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5636,10 +5636,10 @@ RectTransform:
   m_Father: {fileID: 1803441686}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 85.2999}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 492.3185, y: -42.64995}
+  m_SizeDelta: {x: 328.21234, y: 85.2999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885158721
 MonoBehaviour:
@@ -8407,10 +8407,10 @@ RectTransform:
   m_Father: {fileID: 1803441686}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 85.2999}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 820.5309, y: -42.64995}
+  m_SizeDelta: {x: 328.21234, y: 85.2999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1192991932
 MonoBehaviour:
@@ -9264,10 +9264,10 @@ RectTransform:
   m_Father: {fileID: 1803441686}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 85.2999}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 164.10617, y: -42.64995}
+  m_SizeDelta: {x: 328.21234, y: 85.2999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1275240227
 MonoBehaviour:
@@ -10252,7 +10252,7 @@ MonoBehaviour:
   catRecruitmentView: {fileID: 1695264038}
   catCatalogueNavigationView: {fileID: 1579097287}
   catRecruitmentPopUpsView: {fileID: 1142412191}
-  catRecruitmentSelectedItemView: {fileID: 0}
+  catRecruitmentSelectedItemView: {fileID: 341178937}
 --- !u!1 &1498952271
 GameObject:
   m_ObjectHideFlags: 0
@@ -12065,7 +12065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1695264035
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13145,10 +13145,10 @@ RectTransform:
   m_Father: {fileID: 1908598524}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 85.2999}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 492.3185, y: -42.64995}
+  m_SizeDelta: {x: 328.21234, y: 85.2999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1869433340
 MonoBehaviour:
@@ -13971,10 +13971,10 @@ RectTransform:
   m_Father: {fileID: 1908598524}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 85.2999}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 164.10617, y: -42.64995}
+  m_SizeDelta: {x: 328.21234, y: 85.2999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1961181958
 MonoBehaviour:
@@ -15029,7 +15029,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2106915649}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 341178937}
+        m_TargetAssemblyTypeName: CatRecruitmentSelectedItemView, Assembly-CSharp
+        m_MethodName: PurchaseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2106915649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15180,10 +15192,10 @@ RectTransform:
   m_Father: {fileID: 1908598524}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 85.2999}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 820.5309, y: -42.64995}
+  m_SizeDelta: {x: 328.21234, y: 85.2999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2124153682
 MonoBehaviour:

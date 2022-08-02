@@ -5,9 +5,11 @@ using UnityEngine.EventSystems;
 
 public class IslandScrollController : MonoBehaviour
 {
-    // TODO: For testing only, make private when release
-    public Vector3 offset;
-    public float objectDepth;
+    [SerializeField]
+    private float scrollLimit;
+
+    private Vector3 offset;
+    private float objectDepth;
 
     void OnMouseDown()
     {
@@ -25,6 +27,7 @@ public class IslandScrollController : MonoBehaviour
     void OnMouseDrag()
     {
         Vector3 mouseWorldPoint = GetMouseAsWorldPoint();
-        transform.position = new Vector3(mouseWorldPoint.x + offset.x, transform.position.y, transform.position.z);
+        float valueClamp = Mathf.Clamp(mouseWorldPoint.x + offset.x, -scrollLimit, scrollLimit);
+        transform.position = new Vector3(valueClamp, transform.position.y, transform.position.z);
     }
 }

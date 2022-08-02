@@ -9,6 +9,8 @@ public class ItemCatalogueVisualizationData : ScriptableObject
     [SerializeField]
     private string itemName;
     [SerializeField]
+    private string itemDescription;
+    [SerializeField]
     private Sprite itemSprite;
     [SerializeField]
     private int itemPrice;
@@ -20,6 +22,7 @@ public class ItemCatalogueVisualizationData : ScriptableObject
     private bool isUnlocked;
 
     public string ItemName { get => itemName; set => itemName = value; }
+    public string ItemDescription { get => itemDescription; set => itemDescription = value; }
     public Sprite ItemSprite { get => itemSprite; set => itemSprite = value; }
     public int ItemPrice { get => itemPrice; set => itemPrice = value; }
 

@@ -7,16 +7,19 @@ public class CatRecruitmentController : MonoBehaviour
 {
     [SerializeField]
     private CatRecruitmentModel catRecruitmentModel;
+
+    [Header("View references")]
     [SerializeField]
     private CatRecruitmentView catRecruitmentView;
     [SerializeField]
     private CatalogueNavigationView catCatalogueNavigationView;
     [SerializeField]
     private CatRecruitmentPopUpsView catRecruitmentPopUpsView;
+    [SerializeField]
+    private CatRecruitmentSelectedItemView catRecruitmentSelectedItemView;
 
-
-    // Events
-    public StringIntEvent PurchaseCatEvent { get; set; }
+    #region Events
+    public IntCatalogueTypeEvent PurchaseCatalogueItemEvent { get; set; }
     
     // Pop ups
     public VoidEvent OpenGoToStorePopUpEvent { get; set; }
@@ -25,23 +28,34 @@ public class CatRecruitmentController : MonoBehaviour
     // Close view
     public VoidEvent CloseRecruitmentViewEvent { get; set; }
 
+    // Information view
+    public IntCatalogueTypeEvent ShowSelectedItemEvent { get; set; }
+    #endregion
+
     private List<IAtomEventHandler> _eventHandlers = new();
     private bool inventoryChanged;
+    private List<CatalogueItemView> catBasicItemList = new List<CatalogueItemView>();
+    private List<CatalogueItemView> catSpecialItemList = new List<CatalogueItemView>();
 
     public void Initialize()
     {
-        _eventHandlers.Add(EventHandlerFactory<string, int>.BuildEventHandler(PurchaseCatEvent, PurchaseCatEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<int, ItemCatalogueType>.BuildEventHandler(PurchaseCatalogueItemEvent, PurchaseCatalogueItemEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CloseRecruitmentViewEvent, CloseRecruitmentViewEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<int, ItemCatalogueType>.BuildEventHandler(ShowSelectedItemEvent, ShowSelectedItemEventCallback));
+
 
         catRecruitmentPopUpsView.CloseRecruitmentViewEvent = CloseRecruitmentViewEvent;
         catRecruitmentPopUpsView.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
         catRecruitmentPopUpsView.OpenCrewManagementPopUpEvent = OpenCrewManagementPopUpEvent;
         catRecruitmentPopUpsView.Initialize();
 
+        catRecruitmentSelectedItemView.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
+
         FillCatCatalogueData();
         // Fill Cat Skins catalogue data
     }
 
+    #region Data initialization
     private void FillCatCatalogueData()
     {
         // Basic Cats
@@ -53,12 +67,17 @@ public class CatRecruitmentController : MonoBehaviour
             catVisualizationHelper = catRecruitmentModel.CatBasicCatalogueList[index];
             catItemViewHelper = Instantiate(catRecruitmentView.CatCatalogueItemView);
             catItemViewHelper.transform.SetParent(catRecruitmentView.CatBasicCatalogueContent);
+            
             catalogueCatItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
+
             // Events
-            catalogueCatItemViewHelper.PurchaseItemEvent = PurchaseCatEvent;
+            catalogueCatItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
+            catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
             catalogueCatItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
             // Setting data
+            catalogueCatItemViewHelper.SetIndexAndType(index, ItemCatalogueType.CAT_BASIC);
             catalogueCatItemViewHelper.SetName(catVisualizationHelper.ItemName);
+            catalogueCatItemViewHelper.SetDescription(catVisualizationHelper.ItemDescription);
             catalogueCatItemViewHelper.SetSprite(catVisualizationHelper.ItemSprite);
             catalogueCatItemViewHelper.SetPurchasePrice(catVisualizationHelper.ItemPrice);
 
@@ -67,7 +86,8 @@ public class CatRecruitmentController : MonoBehaviour
                 catalogueCatItemViewHelper.SetItemUnlocked();
             else
                 catalogueCatItemViewHelper.SetItemLocked();
-            // TODO: Add view helper to a list if needed
+
+            catBasicItemList.Add(catalogueCatItemViewHelper);
         }
 
         // Premium cats
@@ -76,12 +96,16 @@ public class CatRecruitmentController : MonoBehaviour
             catVisualizationHelper = catRecruitmentModel.CatSpecialCatalogueList[index];
             catItemViewHelper = Instantiate(catRecruitmentView.CatCatalogueItemView);
             catItemViewHelper.transform.SetParent(catRecruitmentView.CatSpecialCatalogueContent);
+            
             catalogueCatItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
             // Events
-            catalogueCatItemViewHelper.PurchaseItemEvent = PurchaseCatEvent;
+            catalogueCatItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
+            catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
             catalogueCatItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
             // Setting data
+            catalogueCatItemViewHelper.SetIndexAndType(index, ItemCatalogueType.CAT_SPECIAL);
             catalogueCatItemViewHelper.SetName(catVisualizationHelper.ItemName);
+            catalogueCatItemViewHelper.SetDescription(catVisualizationHelper.ItemDescription);
             catalogueCatItemViewHelper.SetSprite(catVisualizationHelper.ItemSprite);
             catalogueCatItemViewHelper.SetPurchasePrice(catVisualizationHelper.ItemPrice);
 
@@ -90,23 +114,100 @@ public class CatRecruitmentController : MonoBehaviour
                 catalogueCatItemViewHelper.SetItemUnlocked();
             else
                 catalogueCatItemViewHelper.SetItemLocked();
-            // TODO: Add view helper to a list if needed
+
+            catSpecialItemList.Add(catalogueCatItemViewHelper);
         }
 
         catCatalogueNavigationView.Initialize();
     }
+    #endregion
 
     #region Event callbacks
-    private void PurchaseCatEventCallback(string _catName, int _catPrice)
+    private void PurchaseCatalogueItemEventCallback(int _itemIndex, ItemCatalogueType _itemType)
     {
         inventoryChanged = true;
-        // Set inventory changed to move to crew management
-        Debug.Log($"Purchasing product {_catName} with price {_catPrice}");
+        string itemName = "";
+        int index;
+        switch (_itemType)
+        {
+            case ItemCatalogueType.CAT_BASIC:
+                index = catBasicItemList.FindIndex(x => x.ItemIndex == _itemIndex);
+                if (index < 0)
+                    return;
+                itemName = catBasicItemList[index].ItemName;
+                break;
+            case ItemCatalogueType.CAT_SPECIAL:
+                index = catSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
+                if (index < 0)
+                    return;
+                itemName = catSpecialItemList[index].ItemName;
+                break;
+            case ItemCatalogueType.SKIN_BASIC:
+                break;
+            case ItemCatalogueType.SKIN_SPECIAL:
+                break;
+            case ItemCatalogueType.SKIN_PREMIUM:
+                break;
+        }
+
+        if (string.IsNullOrEmpty(itemName))
+        {
+            Debug.LogError("There was a problem with the item purchase");
+            return;
+        }
         // TODO: (if needed) Get island and its slot to save it, then call event to place it there
         // TODO: Reduce currency amount with item price
         // Save cat data
-        CatsDataSaveManager.Instance.SaveNewCat(IDGenerator.Instance.GetGeneratedID(_catName), _catName);
+        CatsDataSaveManager.Instance.SaveNewCat(IDGenerator.Instance.GetGeneratedID(itemName), itemName);
         // TODO: Update cat island event
+        // TODO: Show purchased animation
+    }
+
+    private void ShowSelectedItemEventCallback(int _itemIndex, ItemCatalogueType _itemType)
+    {
+        catRecruitmentSelectedItemView.SetItemData(_itemIndex, _itemType);
+
+        int index;
+        string itemName = "";
+        Sprite itemSprite = null;
+        string itemDescription = "";
+        int itemPrice = -1;
+
+        switch (_itemType)
+        {
+            case ItemCatalogueType.CAT_BASIC:
+                index = catBasicItemList.FindIndex(x => x.ItemIndex == _itemIndex);
+                if (index < 0)
+                    return;
+                itemName = catBasicItemList[index].ItemName;
+                itemSprite = catBasicItemList[index].ItemSprite;
+                itemDescription = catBasicItemList[index].ItemDescription;
+                itemPrice = catBasicItemList[index].ItemPrice;
+                break;
+            case ItemCatalogueType.CAT_SPECIAL:
+                index = catSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
+                if (index < 0)
+                    return;
+                itemName = catSpecialItemList[index].ItemName;
+                itemSprite = catSpecialItemList[index].ItemSprite;
+                itemDescription = catSpecialItemList[index].ItemDescription;
+                itemPrice = catSpecialItemList[index].ItemPrice;
+                break;
+            case ItemCatalogueType.SKIN_BASIC:
+                break;
+            case ItemCatalogueType.SKIN_SPECIAL:
+                break;
+            case ItemCatalogueType.SKIN_PREMIUM:
+                break;
+        }
+
+        if (string.IsNullOrEmpty(itemName))
+        {
+            Debug.LogError("There was a problem with the item information display");
+            return;
+        }
+
+        catRecruitmentSelectedItemView.ShowSelectedCatInfo(itemName, itemSprite, itemDescription, itemPrice);
     }
 
     private void CloseRecruitmentViewEventCallback(Void _item)
@@ -125,7 +226,7 @@ public class CatRecruitmentController : MonoBehaviour
     }
     #endregion
 
-    // On destroy
+    #region OnDestroy
     private void OnDestroy()
     {
         foreach (var item in _eventHandlers)
@@ -134,4 +235,5 @@ public class CatRecruitmentController : MonoBehaviour
         }
         _eventHandlers.Clear();
     }
+    #endregion
 }

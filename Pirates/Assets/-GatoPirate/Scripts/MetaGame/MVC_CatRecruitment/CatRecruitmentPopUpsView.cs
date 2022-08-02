@@ -28,6 +28,7 @@ public class CatRecruitmentPopUpsView : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(OpenCrewManagementPopUpEvent, OpenCrewManagementPopUpEventCallback));
     }
 
+    #region Event callbacks
     private void OpenGoToStorePopUpEventCallback(Void _item)
     {
         popup_notEnoughResources.SetActive(true);
@@ -39,8 +40,9 @@ public class CatRecruitmentPopUpsView : MonoBehaviour
         popup_crewManagement.SetActive(true);
         gameObject.SetActive(true);
     }
+    #endregion
 
-    #region Not enough resources pop up
+    #region Not enough resources pop up buttons
     public void OpenStore()
     {
         OpenStoreEvent.Raise();
@@ -51,9 +53,9 @@ public class CatRecruitmentPopUpsView : MonoBehaviour
         // TODO: Check if we need to create an enum for knowing what type of ad to show
         WatchAdForCoinsEvent.Raise(); 
     }
-    #endregion
+    #endregion buttons
 
-    #region Crew management pop up
+    #region Crew management pop up buttons
     public void GoToCrewManagement()
     {
         Debug.Log("GO TO CREW MANAGEMENT");
@@ -65,7 +67,7 @@ public class CatRecruitmentPopUpsView : MonoBehaviour
         popup_crewManagement.SetActive(false);
         gameObject.SetActive(false);
     }
-    #endregion
+    #endregion buttons
 
 
     // On destroy

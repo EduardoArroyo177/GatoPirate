@@ -42,3 +42,12 @@ public enum Island
     ISLAND2,
     ISLAND3
 }
+
+public enum ItemCatalogueType
+{ 
+    CAT_BASIC,
+    CAT_SPECIAL,
+    SKIN_BASIC,
+    SKIN_SPECIAL,
+    SKIN_PREMIUM
+}

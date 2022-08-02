@@ -8,8 +8,7 @@ using UnityAtoms.BaseAtoms;
 
 public class CatalogueItemView : MonoBehaviour
 {
-    [SerializeField]
-    private string itemName;
+    
 
     [Header("Item references")]
     [SerializeField]
@@ -30,26 +29,44 @@ public class CatalogueItemView : MonoBehaviour
     private TextMeshProUGUI lbl_purchasePrice2;
 
     // Events
-    public StringIntEvent PurchaseItemEvent { get; set; }
+    public IntCatalogueTypeEvent PurchaseCatalogueItemEvent { get; set; }
     public VoidEvent OpenGoToStorePopUpEvent { get; set; }
+    public IntCatalogueTypeEvent ShowSelectedItemEvent { get; set; }
 
-    private int itemPrice;
+    // Set item catalogue type
+    public int ItemIndex { get; set; }
+    public ItemCatalogueType ItemType { get; set; }
+    public string ItemName { get; set; }
+    public string ItemDescription { get; set; }
+    public int ItemPrice { get; set; }
+    public Sprite ItemSprite { get; set; }
 
     #region Data set
+    public void SetIndexAndType(int _itemIndex, ItemCatalogueType _itemType)
+    {
+        ItemIndex = _itemIndex;
+        ItemType = _itemType;
+    }
     public void SetName(string _itemName)
     {
-        itemName = _itemName; 
+        ItemName = _itemName; 
         lbl_itemName.text = _itemName;
+    }
+
+    public void SetDescription(string _itemDescription)
+    {
+        ItemDescription = _itemDescription;
     }
 
     public void SetSprite(Sprite _itemSprite)
     {
+        ItemSprite = _itemSprite;
         img_item.sprite = _itemSprite;
     }
 
     public void SetPurchasePrice(int _price)
     {
-        itemPrice = _price;
+        ItemPrice = _price;
         lbl_purchasePrice.text = _price.ToString();
         lbl_purchasePrice2.text = _price.ToString();
     }
@@ -72,7 +89,7 @@ public class CatalogueItemView : MonoBehaviour
     #region Buttons
     public void PurchaseItem()
     {
-        PurchaseItemEvent.Raise(itemName, itemPrice);
+        PurchaseCatalogueItemEvent.Raise(ItemIndex, ItemType);
     }
 
     public void GoToStore()
@@ -82,7 +99,7 @@ public class CatalogueItemView : MonoBehaviour
 
     public void ShowItemInfo()
     {
-        Debug.Log("OPEN INFO SCREEN");
+        ShowSelectedItemEvent.Raise(ItemIndex, ItemType);
     }
     #endregion
 }

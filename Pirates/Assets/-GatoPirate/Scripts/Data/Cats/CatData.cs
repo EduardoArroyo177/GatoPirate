@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Cat", menuName = "Gato Pirate/Cat data/Create new cat data", order = 1)]
 public class CatData : ScriptableObject
 {
+    [Header("Cat data")]
+    [SerializeField]
+    private Cats catType;
     [SerializeField]
     private string catID;
     [SerializeField]
@@ -27,11 +30,14 @@ public class CatData : ScriptableObject
     private Sprite catRightBottomPawSprite;
     [SerializeField]
     private Sprite catTailSprite;
+    [SerializeField]
+    private Sprite catEyesSprite;
 
-    [Header("Cat color")]
+    [Header("Color")]
     [SerializeField]
     private Color catColor;
 
+    public Cats CatType { get => catType; set => catType = value; }
     public string CatID { get => catID; set => catID = value; }
     public string CatName { get => catName; set => catName = value; }
     public Sprite CatSprite { get => catSprite; set => catSprite = value; }
@@ -43,7 +49,7 @@ public class CatData : ScriptableObject
     public Sprite CatLeftBottomPawSprite { get => catLeftBottomPawSprite; set => catLeftBottomPawSprite = value; }
     public Sprite CatRightBottomPawSprite { get => catRightBottomPawSprite; set => catRightBottomPawSprite = value; }
     public Sprite CatTailSprite { get => catTailSprite; set => catTailSprite = value; }
-    
+    public Sprite CatEyesSprite { get => catEyesSprite; set => catEyesSprite = value; }
     public Color CatColor { get => catColor; set => catColor = value; }
-    
+
 }

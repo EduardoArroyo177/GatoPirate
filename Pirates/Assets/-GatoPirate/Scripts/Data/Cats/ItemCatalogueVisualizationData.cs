@@ -7,6 +7,8 @@ public class ItemCatalogueVisualizationData : ScriptableObject
 {
     [Header("Cat store data")]
     [SerializeField]
+    private Cats catType;
+    [SerializeField]
     private string itemName;
     [SerializeField]
     private string itemDescription;
@@ -21,6 +23,7 @@ public class ItemCatalogueVisualizationData : ScriptableObject
     [SerializeField]
     private bool isUnlocked;
 
+    public Cats CatType { get => catType; set => catType = value; }
     public string ItemName { get => itemName; set => itemName = value; }
     public string ItemDescription { get => itemDescription; set => itemDescription = value; }
     public Sprite ItemSprite { get => itemSprite; set => itemSprite = value; }

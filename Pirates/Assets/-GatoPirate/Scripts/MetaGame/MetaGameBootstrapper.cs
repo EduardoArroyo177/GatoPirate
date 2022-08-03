@@ -6,6 +6,12 @@ using UnityEngine;
 
 public class MetaGameBootstrapper : MonoBehaviour
 {
+    [Header("Island")]
+    [SerializeField]
+    private IslandCatsController islandCatsController;
+    [SerializeField]
+    private VoidEvent UpdateIslandCatsEvent;
+
     [Header("Cat recruitment")]
     [SerializeField]
     private CatRecruitmentController catRecruitmentController;
@@ -25,12 +31,17 @@ public class MetaGameBootstrapper : MonoBehaviour
         // First loading data
         CatsDataSaveManager.Instance.LoadCatsSavedData();
 
+        // Island
+        islandCatsController.UpdateIslandCatsEvent = UpdateIslandCatsEvent;
+        islandCatsController.Initialize();
+
         // Everything else
         catRecruitmentController.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
         catRecruitmentController.ShowSelectedItemEvent = ShowSelectedItemEvent;
         catRecruitmentController.CloseRecruitmentViewEvent = CloseRecruitmentViewEvent;
         catRecruitmentController.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
         catRecruitmentController.OpenCrewManagementPopUpEvent = OpenCrewManagementPopUpEvent;
+        catRecruitmentController.UpdateIslandCatsEvent = UpdateIslandCatsEvent;
         catRecruitmentController.Initialize();
     }
 }

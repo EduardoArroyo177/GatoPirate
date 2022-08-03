@@ -30,6 +30,9 @@ public class CatRecruitmentController : MonoBehaviour
 
     // Information view
     public IntCatalogueTypeEvent ShowSelectedItemEvent { get; set; }
+
+    // Island update
+    public VoidEvent UpdateIslandCatsEvent { get; set; }
     #endregion
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -75,7 +78,7 @@ public class CatRecruitmentController : MonoBehaviour
             catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
             catalogueCatItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
             // Setting data
-            catalogueCatItemViewHelper.SetIndexAndType(index, ItemCatalogueType.CAT_BASIC);
+            catalogueCatItemViewHelper.SetIndexAndTypes(index, ItemCatalogueType.CAT_BASIC, catVisualizationHelper.CatType);
             catalogueCatItemViewHelper.SetName(catVisualizationHelper.ItemName);
             catalogueCatItemViewHelper.SetDescription(catVisualizationHelper.ItemDescription);
             catalogueCatItemViewHelper.SetSprite(catVisualizationHelper.ItemSprite);
@@ -103,7 +106,7 @@ public class CatRecruitmentController : MonoBehaviour
             catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
             catalogueCatItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
             // Setting data
-            catalogueCatItemViewHelper.SetIndexAndType(index, ItemCatalogueType.CAT_SPECIAL);
+            catalogueCatItemViewHelper.SetIndexAndTypes(index, ItemCatalogueType.CAT_SPECIAL, catVisualizationHelper.CatType);
             catalogueCatItemViewHelper.SetName(catVisualizationHelper.ItemName);
             catalogueCatItemViewHelper.SetDescription(catVisualizationHelper.ItemDescription);
             catalogueCatItemViewHelper.SetSprite(catVisualizationHelper.ItemSprite);
@@ -127,6 +130,7 @@ public class CatRecruitmentController : MonoBehaviour
     {
         inventoryChanged = true;
         string itemName = "";
+        Cats catType = Cats.GENERIC;
         int index;
         switch (_itemType)
         {
@@ -135,12 +139,14 @@ public class CatRecruitmentController : MonoBehaviour
                 if (index < 0)
                     return;
                 itemName = catBasicItemList[index].ItemName;
+                catType = catBasicItemList[index].CatType;
                 break;
             case ItemCatalogueType.CAT_SPECIAL:
                 index = catSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
                 itemName = catSpecialItemList[index].ItemName;
+                catType = catSpecialItemList[index].CatType;
                 break;
             case ItemCatalogueType.SKIN_BASIC:
                 break;
@@ -158,8 +164,12 @@ public class CatRecruitmentController : MonoBehaviour
         // TODO: (if needed) Get island and its slot to save it, then call event to place it there
         // TODO: Reduce currency amount with item price
         // Save cat data
-        CatsDataSaveManager.Instance.SaveNewCat(IDGenerator.Instance.GetGeneratedID(itemName), itemName);
+        if(!catType.Equals(Cats.GENERIC)) // This is a cat
+            CatsDataSaveManager.Instance.SaveNewCat(catType, IDGenerator.Instance.GetGeneratedID(itemName), itemName);
+        // else save skin purchased
+            
         // TODO: Update cat island event
+        UpdateIslandCatsEvent.Raise();
         // TODO: Show purchased animation
     }
 

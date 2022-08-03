@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#region Combat
 public enum ShipLevelType
 { 
     WOOD,
@@ -22,18 +23,31 @@ public enum CharacterType
     ENEMY
 }
 
+public enum ProjectileType
+{
+    BASIC,
+    NORMAL,
+    AUTOMATIC,
+    SPECIAL
+}
+#endregion
+
 public enum CurrencyType
 { 
     GOLDEN_COINS,
     WOOD
 }
 
-public enum ProjectileType
+public enum Cats
+{
+    GENERIC,
+    CAPTAIN,
+    ORANGE
+}
+
+public enum Skins
 { 
-    BASIC,
-    NORMAL,
-    AUTOMATIC,
-    SPECIAL
+    GANDALF
 }
 
 public enum Island

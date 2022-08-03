@@ -7,10 +7,11 @@ using System;
 [Serializable]
 public class DataSaveCatStructure
 {
+    public string CatType;
     public string CatID;
     public string CatName;
     public int IslandSlot;
-    public Island CurrentIsland;
+    public string CurrentIsland;
     public string SkinID;
 }
 
@@ -28,7 +29,7 @@ public class DataSaveCatCrewStructure
 [Serializable]
 public class DataSaveCatAmountStructure
 {
-    public string CatName;
+    public string CatType;
     public int CatsOwnedAmount;
 }
 

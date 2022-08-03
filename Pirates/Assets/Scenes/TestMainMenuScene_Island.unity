@@ -1634,6 +1634,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250192310}
   m_CullTransparentMesh: 1
+--- !u!1 &339897479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 339897480}
+  - component: {fileID: 339897481}
+  m_Layer: 0
+  m_Name: CatBodyBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &339897480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339897479}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1018628214}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &339897481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339897479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fb3df2b9a752e4788c84334853e99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catData: {fileID: 11400000, guid: 97fe5d65ca78816478c95a8b3def7291, type: 2}
+  catHeadRenderer: {fileID: 0}
+  catBodyRenderer: {fileID: 0}
+  catLeftPawRenderer: {fileID: 0}
+  catRightPawRenderer: {fileID: 0}
+  catLeftBottomPawRenderer: {fileID: 0}
+  catRightBottomPawRenderer: {fileID: 0}
+  catTailRenderer: {fileID: 0}
+  catSkinData: {fileID: 0}
+  catHeadSkinRenderer: {fileID: 0}
+  catBodySkinRenderer: {fileID: 0}
+  catLeftPawSkinRenderer: {fileID: 0}
+  catRightPawSkinRenderer: {fileID: 0}
+  catLeftBottomPawSkinRenderer: {fileID: 0}
+  catRightBottomPawSkinRenderer: {fileID: 0}
+  catTailSkinRenderer: {fileID: 0}
 --- !u!1 &341178932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4015,7 +4075,7 @@ GameObject:
   - component: {fileID: 642665901}
   - component: {fileID: 642665902}
   m_Layer: 0
-  m_Name: Island_Sand
+  m_Name: IslandController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4118,8 +4178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445c3584945982142a1e681bb1508cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
-  objectDepth: 0
+  scrollLimit: 12
 --- !u!1 &648524292
 GameObject:
   m_ObjectHideFlags: 0
@@ -7059,7 +7118,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 339897480}
   m_Father: {fileID: 1230081798}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 285, y: 0, z: 0}
@@ -12177,6 +12237,56 @@ Transform:
   m_Father: {fileID: 1230081798}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 285, y: 0, z: 0}
+--- !u!1 &1738529648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1738529650}
+  - component: {fileID: 1738529649}
+  m_Layer: 0
+  m_Name: CatsModel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1738529649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738529648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656ba737bc9556d4094d745e8547cb46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catsDataList:
+  - {fileID: 11400000, guid: 97fe5d65ca78816478c95a8b3def7291, type: 2}
+  - {fileID: 11400000, guid: d4111847cca992f45962a5ba830f29d6, type: 2}
+  - {fileID: 11400000, guid: 97fe5d65ca78816478c95a8b3def7291, type: 2}
+  - {fileID: 11400000, guid: 97fe5d65ca78816478c95a8b3def7291, type: 2}
+  - {fileID: 11400000, guid: 97fe5d65ca78816478c95a8b3def7291, type: 2}
+--- !u!4 &1738529650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738529648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.7954383, y: -1.6128001, z: -0.059452873}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1803441685
 GameObject:
   m_ObjectHideFlags: 0
@@ -14816,6 +14926,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a8fc8a3462a934baeddc5d0b4638da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  islandCatsController: {fileID: 0}
+  UpdateIslandCatsEvent: {fileID: 0}
   catRecruitmentController: {fileID: 1486632027}
   PurchaseCatalogueItemEvent: {fileID: 11400000, guid: 12e5c35bdf1640c4ea2ceb190d06e2d8, type: 2}
   ShowSelectedItemEvent: {fileID: 11400000, guid: 1d6d158a4d3aec740ac0cb7eff37f0ad, type: 2}

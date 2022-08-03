@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: GatoZero
   m_EditorClassIdentifier: 
+  catType: 1
+  catID: 
+  catName: 
+  catSprite: {fileID: 0}
   catHeadSprite: {fileID: 21300000, guid: a6a10632be5b5b5438c35305470f3c80, type: 3}
   catBodySprite: {fileID: 21300000, guid: 84fade571210cf54591e3ec165cdeb6c, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: bb143a0bceec3c842aa435592c112a54, type: 3}

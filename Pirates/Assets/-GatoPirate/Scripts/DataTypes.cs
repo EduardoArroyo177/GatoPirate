@@ -47,6 +47,7 @@ public enum Cats
 
 public enum Skins
 { 
+    NONE,
     GANDALF
 }
 

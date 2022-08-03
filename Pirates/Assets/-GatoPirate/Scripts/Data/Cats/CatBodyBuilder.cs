@@ -55,18 +55,19 @@ public class CatBodyBuilder : MonoBehaviour
     private SpriteRenderer catTailSkinRenderer;
 
     public CatData CatData { get => catData; set => catData = value; }
+    public CatSkinData CatSkinData { get => catSkinData; set => catSkinData = value; }
 
     private void Awake()
     {
-        if(CatData)
-            InitializeCat();
-
-        if (catSkinData)
-            InitializeSkin();
+        InitializeCat();
+        InitializeSkin();
     }
 
     public void InitializeCat()
     {
+        if (!CatData)
+            return;
+
         // Cat body 
         catHeadRenderer.sprite = CatData.CatHeadSprite;
         catHeadRenderer.color = CatData.CatColor;
@@ -96,88 +97,91 @@ public class CatBodyBuilder : MonoBehaviour
 
     public void InitializeSkin()
     {
+        if (!catSkinData)
+            return;
+
         // Head
-        if (catSkinData.CatHeadFrontSkinSprite)
+        if (CatSkinData.CatHeadFrontSkinSprite)
         {
-            catHeadFrontSkinRenderer.sprite = catSkinData.CatHeadFrontSkinSprite;
-            catHeadFrontSkinRenderer.color = catSkinData.SkinColor;
+            catHeadFrontSkinRenderer.sprite = CatSkinData.CatHeadFrontSkinSprite;
+            catHeadFrontSkinRenderer.color = CatSkinData.SkinColor;
         }
 
-        if (catSkinData.CatHeadBackSkinSprite)
+        if (CatSkinData.CatHeadBackSkinSprite)
         {
-            catHeadBackSkinRenderer.sprite = catSkinData.CatHeadBackSkinSprite;
-            catHeadBackSkinRenderer.color = catSkinData.SkinColor;
+            catHeadBackSkinRenderer.sprite = CatSkinData.CatHeadBackSkinSprite;
+            catHeadBackSkinRenderer.color = CatSkinData.SkinColor;
         }
 
         // Body
-        if (catSkinData.CatBodyFrontSkinSprite)
+        if (CatSkinData.CatBodyFrontSkinSprite)
         {
-            catBodyFrontSkinRenderer.sprite = catSkinData.CatBodyFrontSkinSprite;
-            catBodyFrontSkinRenderer.color = catSkinData.SkinColor;
+            catBodyFrontSkinRenderer.sprite = CatSkinData.CatBodyFrontSkinSprite;
+            catBodyFrontSkinRenderer.color = CatSkinData.SkinColor;
         }
 
-        if (catSkinData.CatBodyBackSkinSprite)
+        if (CatSkinData.CatBodyBackSkinSprite)
         {
-            catBodyBackSkinRenderer.sprite = catSkinData.CatBodyBackSkinSprite;
-            catBodyBackSkinRenderer.color = catSkinData.SkinColor;
+            catBodyBackSkinRenderer.sprite = CatSkinData.CatBodyBackSkinSprite;
+            catBodyBackSkinRenderer.color = CatSkinData.SkinColor;
         }
 
         // Left paw
-        if (catSkinData.CatLeftPawSkinSprite)
+        if (CatSkinData.CatLeftPawSkinSprite)
         {
-            catLeftPawSkinRenderer.sprite = catSkinData.CatLeftPawSkinSprite;
-            catLeftPawSkinRenderer.color = catSkinData.SkinColor;
+            catLeftPawSkinRenderer.sprite = CatSkinData.CatLeftPawSkinSprite;
+            catLeftPawSkinRenderer.color = CatSkinData.SkinColor;
         }
 
-        if (catSkinData.CatLeftPawAccesorySkinSprite)
+        if (CatSkinData.CatLeftPawAccesorySkinSprite)
         {
-            catLeftPawAccesorySkinRenderer.sprite = catSkinData.CatLeftPawAccesorySkinSprite;
-            catLeftPawAccesorySkinRenderer.color = catSkinData.SkinColor;
+            catLeftPawAccesorySkinRenderer.sprite = CatSkinData.CatLeftPawAccesorySkinSprite;
+            catLeftPawAccesorySkinRenderer.color = CatSkinData.SkinColor;
         }
 
         // Right paw
-        if (catSkinData.CatRightPawSkinSprite)
+        if (CatSkinData.CatRightPawSkinSprite)
         {
-            catRightPawSkinRenderer.sprite = catSkinData.CatRightPawSkinSprite;
-            catRightPawSkinRenderer.color = catSkinData.SkinColor;
+            catRightPawSkinRenderer.sprite = CatSkinData.CatRightPawSkinSprite;
+            catRightPawSkinRenderer.color = CatSkinData.SkinColor;
         }
 
-        if (catSkinData.CatRightPawAccesorySkinSprite)
+        if (CatSkinData.CatRightPawAccesorySkinSprite)
         {
-            catRightPawAccesorySkinRenderer.sprite = catSkinData.CatRightPawAccesorySkinSprite;
-            catRightPawAccesorySkinRenderer.color = catSkinData.SkinColor;
+            catRightPawAccesorySkinRenderer.sprite = CatSkinData.CatRightPawAccesorySkinSprite;
+            catRightPawAccesorySkinRenderer.color = CatSkinData.SkinColor;
         }
 
         // Bottom paws 
-        if (catSkinData.CatLeftBottomPawSkinSprite)
+        if (CatSkinData.CatLeftBottomPawSkinSprite)
         {
-            catLeftBottomPawSkinRenderer.sprite = catSkinData.CatLeftBottomPawSkinSprite;
-            catLeftBottomPawSkinRenderer.color = catSkinData.SkinColor;
+            catLeftBottomPawSkinRenderer.sprite = CatSkinData.CatLeftBottomPawSkinSprite;
+            catLeftBottomPawSkinRenderer.color = CatSkinData.SkinColor;
         }
 
-        if (catSkinData.CatRightBottomPawSkinSprite)
+        if (CatSkinData.CatRightBottomPawSkinSprite)
         {
-            catRightBottomPawSkinRenderer.sprite = catSkinData.CatRightBottomPawSkinSprite;
-            catRightBottomPawSkinRenderer.color = catSkinData.SkinColor;
+            catRightBottomPawSkinRenderer.sprite = CatSkinData.CatRightBottomPawSkinSprite;
+            catRightBottomPawSkinRenderer.color = CatSkinData.SkinColor;
         }
 
         // Tail
-        if (catSkinData.NoTail)
+        if (CatSkinData.NoTail)
         {
             catTailRenderer.gameObject.SetActive(false);
         }
         else
         {
-            if (catSkinData.CatTailSkinSprite)
+            if (CatSkinData.CatTailSkinSprite)
             {
-                catTailSkinRenderer.sprite = catSkinData.CatTailSkinSprite;
-                catTailSkinRenderer.color = catSkinData.SkinColor;
+                catTailSkinRenderer.sprite = CatSkinData.CatTailSkinSprite;
+                catTailSkinRenderer.color = CatSkinData.SkinColor;
             }
 
-            if (catSkinData.CatTailSpecialSkinSprite)
+            if (CatSkinData.CatTailSpecialSkinSprite)
             {
-                catTailSkinRenderer.sprite = catSkinData.CatTailSpecialSkinSprite;
-                catTailSkinRenderer.color = catSkinData.SkinColor;
+                catTailSkinRenderer.sprite = CatSkinData.CatTailSpecialSkinSprite;
+                catTailSkinRenderer.color = CatSkinData.SkinColor;
             }
         }
     }

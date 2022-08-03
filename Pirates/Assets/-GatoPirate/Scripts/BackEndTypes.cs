@@ -12,7 +12,7 @@ public class DataSaveCatStructure
     public string CatName;
     public int IslandSlot;
     public string CurrentIsland;
-    public string SkinID;
+    public string SkinType;
 }
 
 [Serializable]

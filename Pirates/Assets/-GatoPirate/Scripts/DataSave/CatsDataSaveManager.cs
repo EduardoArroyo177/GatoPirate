@@ -29,7 +29,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure.CatName = "Captain"; // TODO: Update with final name
             initialCatStructure.IslandSlot = 0;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
-            initialCatStructure.SkinID = "none"; // TODO: Check if first cat will have a special skin by default
+            initialCatStructure.SkinType = Skins.NONE.ToString(); // TODO: Check if first cat will have a special skin by default
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
             // Captain amount
             DataSaveCatCrewAmountStructure = new DataSaveCatCrewAmountStructure();
@@ -45,7 +45,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure.CatName = "Sailor";
             initialCatStructure.IslandSlot = -1;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
-            initialCatStructure.SkinID = "none";
+            initialCatStructure.SkinType = Skins.NONE.ToString();
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
             // Sailor cat 2
             initialCatStructure = new DataSaveCatStructure();
@@ -54,7 +54,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure.CatName = "Sailor";
             initialCatStructure.IslandSlot = -1;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
-            initialCatStructure.SkinID = "none";
+            initialCatStructure.SkinType = Skins.NONE.ToString();
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
             // Sailor cat 3
             initialCatStructure = new DataSaveCatStructure();
@@ -63,7 +63,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure.CatName = "Sailor";
             initialCatStructure.IslandSlot = -1;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
-            initialCatStructure.SkinID = "none";
+            initialCatStructure.SkinType = Skins.NONE.ToString();
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
             // Sailors amount
             initialCatAmountStructure = new DataSaveCatAmountStructure();
@@ -91,7 +91,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
         newCatStructure.CatName = _catName;
         newCatStructure.IslandSlot = _islandSlot;
         newCatStructure.CurrentIsland = _island.ToString();
-        newCatStructure.SkinID = "none"; 
+        newCatStructure.SkinType = "none"; 
         DataSaveCatCrewStructure.DataSaveCatCrewList.Add(newCatStructure);
 
         // Set amount

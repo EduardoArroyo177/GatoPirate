@@ -42,6 +42,7 @@ public class IslandCatsController : MonoBehaviour
                     {
                         islandSlot.CatData = catData;
                         islandSlot.IsOccupied = true;
+                        // TODO: Get Cat Skin Data
                         islandSlot.InitializeCat();
                     }
                 }

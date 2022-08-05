@@ -26,19 +26,20 @@ public class IslandCatsController : MonoBehaviour
     {
         CatData catData;
         IslandSlot islandSlot;
-
+        CleanSlots();
         // Get island slots
         for (int index = 0; index < CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList.Count; index++)
         {
             if (CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot == -1)
             {
+                Debug.Log($"CAT TYPE {CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatType}");
                 // Find cat by type in cats model
                 catData = CatsModel.Instance.GetCatData(CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatType);
                 if (catData)
                 {
                     // Get random slot
                     islandSlot = GetEmptySlot();
-                    if (islandSlot) // If not, means there is nno empty space, so we do nothing
+                    if (islandSlot) // If not, means there is no empty space, so we do nothing
                     {
                         islandSlot.CatData = catData;
                         islandSlot.IsOccupied = true;
@@ -71,5 +72,14 @@ public class IslandCatsController : MonoBehaviour
         }
         else
             return null;
+    }
+
+    public void CleanSlots()
+    {
+        // TODO: Update for special slots (if it is only the first, or the first 4)
+        for (int index = 1; index < slotList.Count; index++)
+        {
+            slotList[index].CleanSlot();
+        }
     }
 }

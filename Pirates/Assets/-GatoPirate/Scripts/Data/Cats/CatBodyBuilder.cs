@@ -185,4 +185,28 @@ public class CatBodyBuilder : MonoBehaviour
             }
         }
     }
+
+    public void RestartData()
+    {
+        catHeadRenderer.sprite = null;
+        catBodyRenderer.sprite = null;
+        catLeftPawRenderer.sprite = null;
+        catRightPawRenderer.sprite = null;
+        catLeftBottomPawRenderer.sprite = null;
+        catRightBottomPawRenderer.sprite = null;
+        catTailRenderer.sprite = null;
+        catFaceRenderer.sprite = null;
+
+        catHeadFrontSkinRenderer.sprite = null;
+        catHeadBackSkinRenderer.sprite = null;
+        catBodyFrontSkinRenderer.sprite = null;
+        catBodyBackSkinRenderer.sprite = null;
+        catLeftPawSkinRenderer.sprite = null;
+        catLeftPawAccesorySkinRenderer.sprite = null;
+        catRightPawSkinRenderer.sprite = null;
+        catRightPawAccesorySkinRenderer.sprite = null;
+        catLeftBottomPawSkinRenderer.sprite = null;
+        catRightBottomPawSkinRenderer = null;
+        catTailSkinRenderer.sprite = null;
+    }
 }

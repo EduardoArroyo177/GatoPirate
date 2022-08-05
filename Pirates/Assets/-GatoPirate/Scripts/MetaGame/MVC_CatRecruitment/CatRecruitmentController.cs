@@ -169,7 +169,6 @@ public class CatRecruitmentController : MonoBehaviour
         // else save skin purchased
             
         // TODO: Update cat island event
-        UpdateIslandCatsEvent.Raise();
         // TODO: Show purchased animation
     }
 
@@ -230,7 +229,7 @@ public class CatRecruitmentController : MonoBehaviour
         }
         else
         {
-            // Close
+            UpdateIslandCatsEvent.Raise();
             catRecruitmentView.gameObject.SetActive(false);
         }
     }

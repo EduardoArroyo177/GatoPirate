@@ -14,7 +14,6 @@ public class CatsModel : SceneSingleton<CatsModel>
 
     public CatData GetCatData(string _catType)
     {
-        Debug.Log($"CAT TYPE TO FIND {_catType}");
         int index = CatsDataList.FindIndex(x => x.CatType.ToString().Equals(_catType));
         if (index < 0)
             return null;

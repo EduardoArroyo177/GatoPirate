@@ -20,4 +20,10 @@ public class IslandSlot : MonoBehaviour
         catBodyBuilder.CatSkinData = SkinData;
         catBodyBuilder.InitializeSkin();
     }
+
+    public void CleanSlot()
+    {
+        isOccupied = false;
+        catBodyBuilder.RestartData();
+    }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38800bf8d13bd674cb190b56e1fdd336, type: 3}
-  m_Name: CatOrangeCatalogueItem
+  m_Name: CatCaptainCatalogueItem
   m_EditorClassIdentifier: 
   catType: 2
   itemName: Naranja

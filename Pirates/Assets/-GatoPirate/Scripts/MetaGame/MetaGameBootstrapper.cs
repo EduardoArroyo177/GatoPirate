@@ -12,7 +12,11 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField]
     private CatTypeEvent NewCatPurchasedEvent;
 
-    [Header("Cat recruitment")]
+    [Header("Cat Crew Management")]
+    [SerializeField]
+    private CatCrewManagementController catCrewManagementController;
+
+    [Header("Cat Recruitment")]
     [SerializeField]
     private CatRecruitmentController catRecruitmentController;
     [SerializeField]
@@ -37,7 +41,10 @@ public class MetaGameBootstrapper : MonoBehaviour
         islandCatsController.NewCatPurchasedEvent = NewCatPurchasedEvent;
         islandCatsController.Initialize();
 
-        // Everything else
+        // Cat crew management
+        catCrewManagementController.Initialize();
+
+        // Cat recruitment
         catRecruitmentController.PurchaseCatalogueCatEvent = PurchaseCatalogueCatEvent;
         catRecruitmentController.ShowSelectedItemEvent = ShowSelectedItemEvent;
         catRecruitmentController.CloseRecruitmentViewEvent = CloseRecruitmentViewEvent;

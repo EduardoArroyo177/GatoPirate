@@ -16,9 +16,8 @@ public class IslandSlot : MonoBehaviour
     public void InitializeCat()
     {
         catBodyBuilder.CatData = CatData;
-        catBodyBuilder.InitializeCat();
         catBodyBuilder.CatSkinData = SkinData;
-        catBodyBuilder.InitializeSkin();
+        catBodyBuilder.InitializeData();
     }
 
     public void CleanSlot()

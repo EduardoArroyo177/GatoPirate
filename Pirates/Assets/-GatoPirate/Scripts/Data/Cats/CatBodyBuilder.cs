@@ -59,6 +59,11 @@ public class CatBodyBuilder : MonoBehaviour
 
     private void Awake()
     {
+        InitializeData();
+    }
+
+    public void InitializeData()
+    {
         InitializeCat();
         InitializeSkin();
     }

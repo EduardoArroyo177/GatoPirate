@@ -8,8 +8,6 @@ using UnityAtoms.BaseAtoms;
 
 public class CatalogueItemView : MonoBehaviour
 {
-    
-
     [Header("Item references")]
     [SerializeField]
     private Image img_item;

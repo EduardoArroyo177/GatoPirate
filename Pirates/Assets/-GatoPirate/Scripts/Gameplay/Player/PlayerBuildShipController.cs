@@ -32,7 +32,7 @@ public class PlayerBuildShipController : MonoBehaviour
         for (int index = 0; index < CatCrewDataList.Length; index++)
         {
             catBodyBuilderList[index].CatData = CatCrewDataList[index];
-            catBodyBuilderList[index].InitializeCat();
+            catBodyBuilderList[index].InitializeData();
         }
     }
 

@@ -60,11 +60,16 @@ public class CatBodyBuilderUI : MonoBehaviour
 
     private void Awake()
     {
+        InitializeData();
+    }
+
+    public void InitializeData()
+    {
         InitializeCat();
         InitializeSkin();
     }
 
-    public void InitializeCat()
+    private void InitializeCat()
     {
         if (!CatData)
             return;
@@ -104,7 +109,7 @@ public class CatBodyBuilderUI : MonoBehaviour
         catFaceImage.gameObject.SetActive(true);
     }
 
-    public void InitializeSkin()
+    private void InitializeSkin()
     {
         if (!catSkinData)
             return;

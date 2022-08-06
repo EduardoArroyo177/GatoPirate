@@ -42,9 +42,9 @@ public class CatRecruitmentController : MonoBehaviour
 
     public void Initialize()
     {
-        _eventHandlers.Add(EventHandlerFactory<int, ItemCatalogueType>.BuildEventHandler(PurchaseCatalogueItemEvent, PurchaseCatalogueItemEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueItemEvent, PurchaseCatalogueItemEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CloseRecruitmentViewEvent, CloseRecruitmentViewEventCallback));
-        _eventHandlers.Add(EventHandlerFactory<int, ItemCatalogueType>.BuildEventHandler(ShowSelectedItemEvent, ShowSelectedItemEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedItemEvent, ShowSelectedItemEventCallback));
 
 
         catRecruitmentPopUpsView.CloseRecruitmentViewEvent = CloseRecruitmentViewEvent;
@@ -61,72 +61,108 @@ public class CatRecruitmentController : MonoBehaviour
     #region Data initialization
     private void FillCatCatalogueData()
     {
-        // Basic Cats
         GameObject catItemViewHelper;
         CatalogueItemView catalogueCatItemViewHelper;
-        ItemCatalogueVisualizationData catVisualizationHelper;
-        for (int index = 0; index < catRecruitmentModel.CatBasicCatalogueList.Length; index++)
+        CatData catDataHelper;
+
+        for (int index = 0; index < CatsModel.Instance.CatsDataList.Count; index++)
         {
-            catVisualizationHelper = catRecruitmentModel.CatBasicCatalogueList[index];
+            catDataHelper = CatsModel.Instance.CatsDataList[index];
             catItemViewHelper = Instantiate(catRecruitmentView.CatCatalogueItemView);
-            catItemViewHelper.transform.SetParent(catRecruitmentView.CatBasicCatalogueContent);
-            
-            catalogueCatItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
 
-            // Events
-            catalogueCatItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
-            catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
-            catalogueCatItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
-            // Setting data
-            catalogueCatItemViewHelper.SetIndexAndTypes(index, ItemCatalogueType.CAT_BASIC, catVisualizationHelper.CatType);
-            catalogueCatItemViewHelper.SetName(catVisualizationHelper.ItemName);
-            catalogueCatItemViewHelper.SetDescription(catVisualizationHelper.ItemDescription);
-            catalogueCatItemViewHelper.SetSprite(catVisualizationHelper.ItemSprite);
-            catalogueCatItemViewHelper.SetPurchasePrice(catVisualizationHelper.ItemPrice);
-
-            // TODO: Check if currency is enough to buy
-            if (catVisualizationHelper.IsUnlocked)
-                catalogueCatItemViewHelper.SetItemUnlocked();
-            else
-                catalogueCatItemViewHelper.SetItemLocked();
-
-            catBasicItemList.Add(catalogueCatItemViewHelper);
-        }
-
-        // Premium cats
-        for (int index = 0; index < catRecruitmentModel.CatSpecialCatalogueList.Length; index++)
-        {
-            catVisualizationHelper = catRecruitmentModel.CatSpecialCatalogueList[index];
-            catItemViewHelper = Instantiate(catRecruitmentView.CatCatalogueItemView);
-            catItemViewHelper.transform.SetParent(catRecruitmentView.CatSpecialCatalogueContent);
-            
             catalogueCatItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
             // Events
             catalogueCatItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
             catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
             catalogueCatItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
             // Setting data
-            catalogueCatItemViewHelper.SetIndexAndTypes(index, ItemCatalogueType.CAT_SPECIAL, catVisualizationHelper.CatType);
-            catalogueCatItemViewHelper.SetName(catVisualizationHelper.ItemName);
-            catalogueCatItemViewHelper.SetDescription(catVisualizationHelper.ItemDescription);
-            catalogueCatItemViewHelper.SetSprite(catVisualizationHelper.ItemSprite);
-            catalogueCatItemViewHelper.SetPurchasePrice(catVisualizationHelper.ItemPrice);
-
+            catalogueCatItemViewHelper.SetIndexAndTypes(index, catDataHelper.CatTier, catDataHelper.CatType);
+            catalogueCatItemViewHelper.SetName(catDataHelper.CatName);
+            catalogueCatItemViewHelper.SetDescription(catDataHelper.CatDescription);
+            catalogueCatItemViewHelper.SetSprite(catDataHelper.CatPreviewSprite);
+            catalogueCatItemViewHelper.SetPurchasePrice(catDataHelper.CatPrice);
             // TODO: Check if currency is enough to buy
-            if (catVisualizationHelper.IsUnlocked)
-                catalogueCatItemViewHelper.SetItemUnlocked();
-            else
-                catalogueCatItemViewHelper.SetItemLocked();
+            //if (catDataHelper.IsUnlocked)
+            //    catalogueCatItemViewHelper.SetItemUnlocked();
+            //else
+            //    catalogueCatItemViewHelper.SetItemLocked();
+            catalogueCatItemViewHelper.SetItemUnlocked();
 
-            catSpecialItemList.Add(catalogueCatItemViewHelper);
+            if (catDataHelper.CatTier.Equals(ItemTier.BASIC))
+            {
+                catItemViewHelper.transform.SetParent(catRecruitmentView.CatBasicCatalogueContent);
+                catBasicItemList.Add(catalogueCatItemViewHelper);
+            }
+            else if (catDataHelper.CatTier.Equals(ItemTier.SPECIAL))
+            {
+                catItemViewHelper.transform.SetParent(catRecruitmentView.CatSpecialCatalogueContent);
+                catSpecialItemList.Add(catalogueCatItemViewHelper);
+            }
         }
 
         catCatalogueNavigationView.Initialize();
+
+        //for (int index = 0; index < catRecruitmentModel.CatBasicCatalogueList.Length; index++)
+        //{
+        //    catVisualizationHelper = catRecruitmentModel.CatBasicCatalogueList[index];
+        //    catItemViewHelper = Instantiate(catRecruitmentView.CatCatalogueItemView);
+        //    catItemViewHelper.transform.SetParent(catRecruitmentView.CatBasicCatalogueContent);
+
+        //    catalogueCatItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
+
+        //    // Events
+        //    catalogueCatItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
+        //    catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
+        //    catalogueCatItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
+        //    // Setting data
+        //    catalogueCatItemViewHelper.SetIndexAndTypes(index, ItemTier.CAT_BASIC, catVisualizationHelper.CatType);
+        //    catalogueCatItemViewHelper.SetName(catVisualizationHelper.ItemName);
+        //    catalogueCatItemViewHelper.SetDescription(catVisualizationHelper.ItemDescription);
+        //    catalogueCatItemViewHelper.SetSprite(catVisualizationHelper.ItemSprite);
+        //    catalogueCatItemViewHelper.SetPurchasePrice(catVisualizationHelper.ItemPrice);
+
+        //    // TODO: Check if currency is enough to buy
+        //    if (catVisualizationHelper.IsUnlocked)
+        //        catalogueCatItemViewHelper.SetItemUnlocked();
+        //    else
+        //        catalogueCatItemViewHelper.SetItemLocked();
+
+        //    catBasicItemList.Add(catalogueCatItemViewHelper);
+        //}
+
+        //// Premium cats
+        //for (int index = 0; index < catRecruitmentModel.CatSpecialCatalogueList.Length; index++)
+        //{
+        //    catVisualizationHelper = catRecruitmentModel.CatSpecialCatalogueList[index];
+        //    catItemViewHelper = Instantiate(catRecruitmentView.CatCatalogueItemView);
+        //    catItemViewHelper.transform.SetParent(catRecruitmentView.CatSpecialCatalogueContent);
+
+        //    catalogueCatItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
+        //    // Events
+        //    catalogueCatItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
+        //    catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
+        //    catalogueCatItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
+        //    // Setting data
+        //    catalogueCatItemViewHelper.SetIndexAndTypes(index, ItemTier.CAT_SPECIAL, catVisualizationHelper.CatType);
+        //    catalogueCatItemViewHelper.SetName(catVisualizationHelper.ItemName);
+        //    catalogueCatItemViewHelper.SetDescription(catVisualizationHelper.ItemDescription);
+        //    catalogueCatItemViewHelper.SetSprite(catVisualizationHelper.ItemSprite);
+        //    catalogueCatItemViewHelper.SetPurchasePrice(catVisualizationHelper.ItemPrice);
+
+        //    // TODO: Check if currency is enough to buy
+        //    if (catVisualizationHelper.IsUnlocked)
+        //        catalogueCatItemViewHelper.SetItemUnlocked();
+        //    else
+        //        catalogueCatItemViewHelper.SetItemLocked();
+
+        //    catSpecialItemList.Add(catalogueCatItemViewHelper);
+        //}
+
     }
     #endregion
 
     #region Event callbacks
-    private void PurchaseCatalogueItemEventCallback(int _itemIndex, ItemCatalogueType _itemType)
+    private void PurchaseCatalogueItemEventCallback(int _itemIndex, ItemTier _itemType)
     {
         inventoryChanged = true;
         string itemName = "";
@@ -134,25 +170,25 @@ public class CatRecruitmentController : MonoBehaviour
         int index;
         switch (_itemType)
         {
-            case ItemCatalogueType.CAT_BASIC:
+            case ItemTier.BASIC:
                 index = catBasicItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
                 itemName = catBasicItemList[index].ItemName;
                 catType = catBasicItemList[index].CatType;
                 break;
-            case ItemCatalogueType.CAT_SPECIAL:
+            case ItemTier.SPECIAL:
                 index = catSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
                 itemName = catSpecialItemList[index].ItemName;
                 catType = catSpecialItemList[index].CatType;
                 break;
-            case ItemCatalogueType.SKIN_BASIC:
+            case ItemTier.SKIN_BASIC:
                 break;
-            case ItemCatalogueType.SKIN_SPECIAL:
+            case ItemTier.SKIN_SPECIAL:
                 break;
-            case ItemCatalogueType.SKIN_PREMIUM:
+            case ItemTier.SKIN_PREMIUM:
                 break;
         }
 
@@ -172,7 +208,7 @@ public class CatRecruitmentController : MonoBehaviour
         // TODO: Show purchased animation
     }
 
-    private void ShowSelectedItemEventCallback(int _itemIndex, ItemCatalogueType _itemType)
+    private void ShowSelectedItemEventCallback(int _itemIndex, ItemTier _itemType)
     {
         catRecruitmentSelectedItemView.SetItemData(_itemIndex, _itemType);
 
@@ -184,7 +220,7 @@ public class CatRecruitmentController : MonoBehaviour
 
         switch (_itemType)
         {
-            case ItemCatalogueType.CAT_BASIC:
+            case ItemTier.BASIC:
                 index = catBasicItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
@@ -193,7 +229,7 @@ public class CatRecruitmentController : MonoBehaviour
                 itemDescription = catBasicItemList[index].ItemDescription;
                 itemPrice = catBasicItemList[index].ItemPrice;
                 break;
-            case ItemCatalogueType.CAT_SPECIAL:
+            case ItemTier.SPECIAL:
                 index = catSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
@@ -202,11 +238,11 @@ public class CatRecruitmentController : MonoBehaviour
                 itemDescription = catSpecialItemList[index].ItemDescription;
                 itemPrice = catSpecialItemList[index].ItemPrice;
                 break;
-            case ItemCatalogueType.SKIN_BASIC:
+            case ItemTier.SKIN_BASIC:
                 break;
-            case ItemCatalogueType.SKIN_SPECIAL:
+            case ItemTier.SKIN_SPECIAL:
                 break;
-            case ItemCatalogueType.SKIN_PREMIUM:
+            case ItemTier.SKIN_PREMIUM:
                 break;
         }
 

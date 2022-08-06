@@ -19,10 +19,10 @@ public class CatRecruitmentSelectedItemView : MonoBehaviour
     public IntCatalogueTypeEvent PurchaseCatalogueItemEvent { get; set; }
 
     public int ItemIndex { get; set; }
-    public ItemCatalogueType ItemType { get; set; }
+    public ItemTier ItemType { get; set; }
 
     #region Data set
-    public void SetItemData(int _itemIndex, ItemCatalogueType _itemType)
+    public void SetItemData(int _itemIndex, ItemTier _itemType)
     {
         ItemIndex = _itemIndex;
         ItemType = _itemType;

@@ -72,28 +72,36 @@ public class CatBodyBuilderUI : MonoBehaviour
         // Cat body 
         catHeadImage.sprite = CatData.CatHeadSprite;
         catHeadImage.color = CatData.CatColor;
+        catHeadImage.gameObject.SetActive(true);
 
         catBodyImage.sprite = CatData.CatBodySprite;
         catBodyImage.color = CatData.CatColor;
+        catBodyImage.gameObject.SetActive(true);
 
         catLeftPawImage.sprite = CatData.CatLeftPawSprite;
         catLeftPawImage.color = CatData.CatColor;
+        catLeftPawImage.gameObject.SetActive(true);
 
         catRightPawImage.sprite = CatData.CatRightPawSprite;
         catRightPawImage.color = CatData.CatColor;
+        catRightPawImage.gameObject.SetActive(true);
 
         catLeftBottomPawImage.sprite = CatData.CatLeftBottomPawSprite;
         catLeftBottomPawImage.color = CatData.CatColor;
+        catLeftBottomPawImage.gameObject.SetActive(true);
 
         catRightBottomPawImage.sprite = CatData.CatRightBottomPawSprite;
         catRightBottomPawImage.color = CatData.CatColor;
+        catRightBottomPawImage.gameObject.SetActive(true);
 
         catTailImage.sprite = CatData.CatTailSprite;
         catTailImage.color = CatData.CatColor;
+        catTailImage.gameObject.SetActive(true);
 
         // TODO: Select random eyes?
         catFaceImage.sprite = CatData.CatEyesSprite;
         catFaceImage.color = CatData.CatColor;
+        catFaceImage.gameObject.SetActive(true);
     }
 
     public void InitializeSkin()

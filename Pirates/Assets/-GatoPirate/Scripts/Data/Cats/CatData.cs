@@ -9,11 +9,9 @@ public class CatData : ScriptableObject
     [SerializeField]
     private Cats catType;
     [SerializeField]
-    private string catID;
+    private ItemTier catTier;
     [SerializeField]
     private string catName;
-    [SerializeField]
-    private Sprite catSprite;
 
     [Header("Cat sprites")]
     [SerializeField]
@@ -37,11 +35,28 @@ public class CatData : ScriptableObject
     [SerializeField]
     private Color catColor;
 
-    public Cats CatType { get => catType; set => catType = value; }
-    public string CatID { get => catID; set => catID = value; }
-    public string CatName { get => catName; set => catName = value; }
-    public Sprite CatSprite { get => catSprite; set => catSprite = value; }
+    [Header("Catalogue data")]
+    [Header("Cat data")]
+    [SerializeField]
+    private string catDescription;
+    [SerializeField]
+    private Sprite catPreviewSprite;
+    [SerializeField]
+    private int catPrice;
 
+    [Header("Unlock data")]
+    [SerializeField]
+    private Island islandToUnlock;
+    [SerializeField]
+    private bool isUnlocked;
+
+
+    // Cat data
+    public Cats CatType { get => catType; set => catType = value; }
+    public ItemTier CatTier { get => catTier; set => catTier = value; }
+    public string CatName { get => catName; set => catName = value; }
+
+    // Cat sprites
     public Sprite CatHeadSprite { get => catHeadSprite; set => catHeadSprite = value; }
     public Sprite CatBodySprite { get => catBodySprite; set => catBodySprite = value; }
     public Sprite CatLeftPawSprite { get => catLeftPawSprite; set => catLeftPawSprite = value; }
@@ -52,4 +67,10 @@ public class CatData : ScriptableObject
     public Sprite CatEyesSprite { get => catEyesSprite; set => catEyesSprite = value; }
     public Color CatColor { get => catColor; set => catColor = value; }
 
+    // Catalogue data
+    public string CatDescription { get => catDescription; set => catDescription = value; }
+    public Sprite CatPreviewSprite { get => catPreviewSprite; set => catPreviewSprite = value; }
+    public int CatPrice { get => catPrice; set => catPrice = value; }
+    public Island IslandToUnlock { get => islandToUnlock; set => islandToUnlock = value; }
+    public bool IsUnlocked { get => isUnlocked; set => isUnlocked = value; }
 }

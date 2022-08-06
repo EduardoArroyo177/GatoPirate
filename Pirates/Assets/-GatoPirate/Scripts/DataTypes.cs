@@ -38,6 +38,7 @@ public enum CurrencyType
     WOOD
 }
 
+#region Cats
 public enum Cats
 {
     GENERIC,
@@ -51,18 +52,23 @@ public enum Skins
     GANDALF
 }
 
+// TODO: Update tier to be generic
+public enum ItemTier
+{
+    CAT_BASIC,
+    CAT_SPECIAL,
+    SKIN_BASIC,
+    SKIN_SPECIAL,
+    SKIN_PREMIUM,
+    BASIC,
+    SPECIAL,
+    PREMIUM
+}
+#endregion
+
 public enum Island
 { 
     ISLAND1,
     ISLAND2,
     ISLAND3
-}
-
-public enum ItemCatalogueType
-{ 
-    CAT_BASIC,
-    CAT_SPECIAL,
-    SKIN_BASIC,
-    SKIN_SPECIAL,
-    SKIN_PREMIUM
 }

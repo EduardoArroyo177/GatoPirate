@@ -39,14 +39,14 @@ public enum CurrencyType
 }
 
 #region Cats
-public enum Cats
+public enum CatType
 {
     GENERIC,
     CAPTAIN,
     ORANGE
 }
 
-public enum Skins
+public enum SkinType
 { 
     NONE,
     GANDALF

@@ -11,45 +11,41 @@ public class IslandCatsController : MonoBehaviour
     [SerializeField]
     private List<IslandSlot> slotList;
 
-    public VoidEvent UpdateIslandCatsEvent { get; set; }
+    public CatTypeEvent NewCatPurchasedEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
-
     public void Initialize()
     {
-        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UpdateIslandCatsEvent, UpdateIslandCatsEventCallback));
-        UpdateIslandCatsEventCallback(new Void());
+        _eventHandlers.Add(EventHandlerFactory<CatType>.BuildEventHandler(NewCatPurchasedEvent, NewCatPurchasedEventCallback));
+        SetIslandCats();
     }
 
-    private void UpdateIslandCatsEventCallback(Void _item)
+    private void SetIslandCats()
     {
         CatData catData;
         IslandSlot islandSlot;
-        CleanSlots();
+
         // Get island slots
         for (int index = 0; index < CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList.Count; index++)
         {
             if (CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot == -1)
             {
-                Debug.Log($"CAT TYPE {CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatType}");
-                // Find cat by type in cats model
-                catData = CatsModel.Instance.GetCatData(CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatType);
-                if (catData)
+                islandSlot = GetEmptySlot();
+                if (islandSlot) // If not, means there is no empty space, so we do nothing
                 {
-                    // Get random slot
-                    islandSlot = GetEmptySlot();
-                    if (islandSlot) // If not, means there is no empty space, so we do nothing
+                    catData = CatsModel.Instance.GetCatData(CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatType);
+                    if (catData)
                     {
                         islandSlot.CatData = catData;
                         islandSlot.IsOccupied = true;
                         // TODO: Get Cat Skin Data
                         islandSlot.InitializeCat();
                     }
-                }
-                else
-                {
-                    Debug.LogError("Cat type not found in Cats Model");
+                    else
+                    {
+                        Debug.LogError("Cat type not found in CatType Model");
+                    }
                 }
                     
             }
@@ -59,6 +55,24 @@ public class IslandCatsController : MonoBehaviour
             }
         }
         // Get saved data
+    }
+
+    private void NewCatPurchasedEventCallback(CatType _catType)
+    {
+
+        IslandSlot islandSlot = GetEmptySlot();
+        CatData catData;
+
+        if (islandSlot)
+        {
+            catData = CatsModel.Instance.GetCatData(_catType.ToString());
+            if (catData)
+            {
+                islandSlot.CatData = catData;
+                islandSlot.IsOccupied = true;
+                islandSlot.InitializeCat();
+            }
+        }
     }
 
     public IslandSlot GetEmptySlot()

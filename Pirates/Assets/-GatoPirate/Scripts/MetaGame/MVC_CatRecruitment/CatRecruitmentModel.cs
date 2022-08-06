@@ -5,13 +5,13 @@ using UnityEngine;
 public class CatRecruitmentModel : MonoBehaviour
 {
     // TODO: Add a list per each catalogue type
-    //[Header("Cats")]
+    //[Header("CatType")]
     //[SerializeField]
     //private ItemCatalogueVisualizationData[] catBasicCatalogueList;
     //[SerializeField]
     //private ItemCatalogueVisualizationData[] catSpecialCatalogueList;
 
-    //[Header("Skins")]
+    //[Header("SkinType")]
     //[SerializeField]
     //private ItemCatalogueVisualizationData[] catBasicSkinCatalogueList;
     //[SerializeField]

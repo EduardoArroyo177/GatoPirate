@@ -24,50 +24,50 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             // Captain Cat
             DataSaveCatCrewStructure = new DataSaveCatCrewStructure();
             DataSaveCatStructure initialCatStructure = new DataSaveCatStructure();
-            initialCatStructure.CatType = Cats.CAPTAIN.ToString();
+            initialCatStructure.CatType = CatType.CAPTAIN.ToString();
             initialCatStructure.CatID = "captain01";
             initialCatStructure.CatName = "Captain"; // TODO: Update with final name
             initialCatStructure.IslandSlot = 0;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
-            initialCatStructure.SkinType = Skins.NONE.ToString(); // TODO: Check if first cat will have a special skin by default
+            initialCatStructure.SkinType = SkinType.NONE.ToString(); // TODO: Check if first cat will have a special skin by default
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
             // Captain amount
             DataSaveCatCrewAmountStructure = new DataSaveCatCrewAmountStructure();
             DataSaveCatAmountStructure initialCatAmountStructure = new DataSaveCatAmountStructure();
-            initialCatAmountStructure.CatType = Cats.CAPTAIN.ToString();
+            initialCatAmountStructure.CatType = CatType.CAPTAIN.ToString();
             initialCatAmountStructure.CatsOwnedAmount = 1;
             DataSaveCatCrewAmountStructure.DataSaveCatCrewAmountList.Add(initialCatAmountStructure);
 
             // Sailor cat 1
             initialCatStructure = new DataSaveCatStructure();
-            initialCatStructure.CatType = Cats.ORANGE.ToString();
+            initialCatStructure.CatType = CatType.ORANGE.ToString();
             initialCatStructure.CatID = "catsailor01";
             initialCatStructure.CatName = "Sailor";
             initialCatStructure.IslandSlot = -1;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
-            initialCatStructure.SkinType = Skins.NONE.ToString();
+            initialCatStructure.SkinType = SkinType.NONE.ToString();
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
             // Sailor cat 2
             initialCatStructure = new DataSaveCatStructure();
-            initialCatStructure.CatType = Cats.ORANGE.ToString();
+            initialCatStructure.CatType = CatType.ORANGE.ToString();
             initialCatStructure.CatID = "catsailor02";
             initialCatStructure.CatName = "Sailor";
             initialCatStructure.IslandSlot = -1;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
-            initialCatStructure.SkinType = Skins.NONE.ToString();
+            initialCatStructure.SkinType = SkinType.NONE.ToString();
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
             // Sailor cat 3
             initialCatStructure = new DataSaveCatStructure();
-            initialCatStructure.CatType = Cats.ORANGE.ToString();
+            initialCatStructure.CatType = CatType.ORANGE.ToString();
             initialCatStructure.CatID = "catsailor03";
             initialCatStructure.CatName = "Sailor";
             initialCatStructure.IslandSlot = -1;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
-            initialCatStructure.SkinType = Skins.NONE.ToString();
+            initialCatStructure.SkinType = SkinType.NONE.ToString();
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
             // Sailors amount
             initialCatAmountStructure = new DataSaveCatAmountStructure();
-            initialCatAmountStructure.CatType = Cats.ORANGE.ToString();
+            initialCatAmountStructure.CatType = CatType.ORANGE.ToString();
             initialCatAmountStructure.CatsOwnedAmount = 3;
             DataSaveCatCrewAmountStructure.DataSaveCatCrewAmountList.Add(initialCatAmountStructure);
             
@@ -83,7 +83,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
         }
     }
 
-    public void SaveNewCat(Cats _catType, string _catID, string _catName, int _islandSlot = -1, Island _island = Island.ISLAND1)
+    public void SaveNewCat(CatType _catType, string _catID, string _catName, int _islandSlot = -1, Island _island = Island.ISLAND1)
     {
         DataSaveCatStructure newCatStructure = new DataSaveCatStructure();
         newCatStructure.CatType = _catType.ToString();

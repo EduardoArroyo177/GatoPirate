@@ -7,7 +7,7 @@ public class CatSkinData : ScriptableObject
 {
     [Header("Skin data")]
     [SerializeField]
-    private Skins skinType;
+    private SkinType skinType;
     [SerializeField]
     private string skinID;
     [SerializeField]

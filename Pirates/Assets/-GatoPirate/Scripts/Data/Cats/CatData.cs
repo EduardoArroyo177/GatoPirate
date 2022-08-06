@@ -7,7 +7,7 @@ public class CatData : ScriptableObject
 {
     [Header("Cat data")]
     [SerializeField]
-    private Cats catType;
+    private CatType catType;
     [SerializeField]
     private ItemTier catTier;
     [SerializeField]
@@ -52,7 +52,7 @@ public class CatData : ScriptableObject
 
 
     // Cat data
-    public Cats CatType { get => catType; set => catType = value; }
+    public CatType CatType { get => catType; set => catType = value; }
     public ItemTier CatTier { get => catTier; set => catTier = value; }
     public string CatName { get => catName; set => catName = value; }
 

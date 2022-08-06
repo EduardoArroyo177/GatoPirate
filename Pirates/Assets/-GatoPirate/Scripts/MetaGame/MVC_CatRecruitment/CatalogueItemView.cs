@@ -36,14 +36,14 @@ public class CatalogueItemView : MonoBehaviour
     // Set item catalogue type
     public int ItemIndex { get; set; }
     public ItemTier ItemType { get; set; }
-    public Cats CatType { get; set; }
+    public CatType CatType { get; set; }
     public string ItemName { get; set; }
     public string ItemDescription { get; set; }
     public int ItemPrice { get; set; }
     public Sprite ItemSprite { get; set; }
 
     #region Data set
-    public void SetIndexAndTypes(int _itemIndex, ItemTier _itemType, Cats _catType = Cats.GENERIC)
+    public void SetIndexAndTypes(int _itemIndex, ItemTier _itemType, CatType _catType = CatType.GENERIC)
     {
         ItemIndex = _itemIndex;
         ItemType = _itemType;

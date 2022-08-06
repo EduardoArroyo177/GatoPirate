@@ -19,8 +19,10 @@ public class CatRecruitmentController : MonoBehaviour
     private CatRecruitmentSelectedItemView catRecruitmentSelectedItemView;
 
     #region Events
-    public IntCatalogueTypeEvent PurchaseCatalogueItemEvent { get; set; }
-    
+    public IntCatalogueTypeEvent PurchaseCatalogueCatEvent { get; set; }
+    public IntCatalogueTypeEvent PurchasecatalogueSkinEvent { get; set; }
+
+
     // Pop ups
     public VoidEvent OpenGoToStorePopUpEvent { get; set; }
     public VoidEvent OpenCrewManagementPopUpEvent { get; set; }
@@ -32,7 +34,7 @@ public class CatRecruitmentController : MonoBehaviour
     public IntCatalogueTypeEvent ShowSelectedItemEvent { get; set; }
 
     // Island update
-    public VoidEvent UpdateIslandCatsEvent { get; set; }
+    public CatTypeEvent NewCatPurchasedEvent { get; set; }
     #endregion
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -42,7 +44,8 @@ public class CatRecruitmentController : MonoBehaviour
 
     public void Initialize()
     {
-        _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueItemEvent, PurchaseCatalogueItemEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueCatEvent, PurchaseCatalogueCatEventCallback));
+        //_eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchasecatalogueSkinEvent, PurchasecatalogueSkinEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CloseRecruitmentViewEvent, CloseRecruitmentViewEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedItemEvent, ShowSelectedItemEventCallback));
 
@@ -52,10 +55,10 @@ public class CatRecruitmentController : MonoBehaviour
         catRecruitmentPopUpsView.OpenCrewManagementPopUpEvent = OpenCrewManagementPopUpEvent;
         catRecruitmentPopUpsView.Initialize();
 
-        catRecruitmentSelectedItemView.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
+        catRecruitmentSelectedItemView.PurchaseCatalogueItemEvent = PurchaseCatalogueCatEvent;
 
         FillCatCatalogueData();
-        // Fill Cat Skins catalogue data
+        // Fill Cat SkinType catalogue data
     }
 
     #region Data initialization
@@ -72,7 +75,7 @@ public class CatRecruitmentController : MonoBehaviour
 
             catalogueCatItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
             // Events
-            catalogueCatItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
+            catalogueCatItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueCatEvent;
             catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
             catalogueCatItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
             // Setting data
@@ -101,72 +104,15 @@ public class CatRecruitmentController : MonoBehaviour
         }
 
         catCatalogueNavigationView.Initialize();
-
-        //for (int index = 0; index < catRecruitmentModel.CatBasicCatalogueList.Length; index++)
-        //{
-        //    catVisualizationHelper = catRecruitmentModel.CatBasicCatalogueList[index];
-        //    catItemViewHelper = Instantiate(catRecruitmentView.CatCatalogueItemView);
-        //    catItemViewHelper.transform.SetParent(catRecruitmentView.CatBasicCatalogueContent);
-
-        //    catalogueCatItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
-
-        //    // Events
-        //    catalogueCatItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
-        //    catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
-        //    catalogueCatItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
-        //    // Setting data
-        //    catalogueCatItemViewHelper.SetIndexAndTypes(index, ItemTier.CAT_BASIC, catVisualizationHelper.CatType);
-        //    catalogueCatItemViewHelper.SetName(catVisualizationHelper.ItemName);
-        //    catalogueCatItemViewHelper.SetDescription(catVisualizationHelper.ItemDescription);
-        //    catalogueCatItemViewHelper.SetSprite(catVisualizationHelper.ItemSprite);
-        //    catalogueCatItemViewHelper.SetPurchasePrice(catVisualizationHelper.ItemPrice);
-
-        //    // TODO: Check if currency is enough to buy
-        //    if (catVisualizationHelper.IsUnlocked)
-        //        catalogueCatItemViewHelper.SetItemUnlocked();
-        //    else
-        //        catalogueCatItemViewHelper.SetItemLocked();
-
-        //    catBasicItemList.Add(catalogueCatItemViewHelper);
-        //}
-
-        //// Premium cats
-        //for (int index = 0; index < catRecruitmentModel.CatSpecialCatalogueList.Length; index++)
-        //{
-        //    catVisualizationHelper = catRecruitmentModel.CatSpecialCatalogueList[index];
-        //    catItemViewHelper = Instantiate(catRecruitmentView.CatCatalogueItemView);
-        //    catItemViewHelper.transform.SetParent(catRecruitmentView.CatSpecialCatalogueContent);
-
-        //    catalogueCatItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
-        //    // Events
-        //    catalogueCatItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
-        //    catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
-        //    catalogueCatItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
-        //    // Setting data
-        //    catalogueCatItemViewHelper.SetIndexAndTypes(index, ItemTier.CAT_SPECIAL, catVisualizationHelper.CatType);
-        //    catalogueCatItemViewHelper.SetName(catVisualizationHelper.ItemName);
-        //    catalogueCatItemViewHelper.SetDescription(catVisualizationHelper.ItemDescription);
-        //    catalogueCatItemViewHelper.SetSprite(catVisualizationHelper.ItemSprite);
-        //    catalogueCatItemViewHelper.SetPurchasePrice(catVisualizationHelper.ItemPrice);
-
-        //    // TODO: Check if currency is enough to buy
-        //    if (catVisualizationHelper.IsUnlocked)
-        //        catalogueCatItemViewHelper.SetItemUnlocked();
-        //    else
-        //        catalogueCatItemViewHelper.SetItemLocked();
-
-        //    catSpecialItemList.Add(catalogueCatItemViewHelper);
-        //}
-
     }
     #endregion
 
     #region Event callbacks
-    private void PurchaseCatalogueItemEventCallback(int _itemIndex, ItemTier _itemType)
+    private void PurchaseCatalogueCatEventCallback(int _itemIndex, ItemTier _itemType)
     {
         inventoryChanged = true;
         string itemName = "";
-        Cats catType = Cats.GENERIC;
+        CatType catType = CatType.GENERIC;
         int index;
         switch (_itemType)
         {
@@ -184,12 +130,6 @@ public class CatRecruitmentController : MonoBehaviour
                 itemName = catSpecialItemList[index].ItemName;
                 catType = catSpecialItemList[index].CatType;
                 break;
-            case ItemTier.SKIN_BASIC:
-                break;
-            case ItemTier.SKIN_SPECIAL:
-                break;
-            case ItemTier.SKIN_PREMIUM:
-                break;
         }
 
         if (string.IsNullOrEmpty(itemName))
@@ -200,12 +140,15 @@ public class CatRecruitmentController : MonoBehaviour
         // TODO: (if needed) Get island and its slot to save it, then call event to place it there
         // TODO: Reduce currency amount with item price
         // Save cat data
-        if(!catType.Equals(Cats.GENERIC)) // This is a cat
-            CatsDataSaveManager.Instance.SaveNewCat(catType, IDGenerator.Instance.GetGeneratedID(itemName), itemName);
-        // else save skin purchased
-            
-        // TODO: Update cat island event
+        CatsDataSaveManager.Instance.SaveNewCat(catType, IDGenerator.Instance.GetGeneratedID(itemName), itemName);
+        //  Update cat island event
+        NewCatPurchasedEvent.Raise(catType);
         // TODO: Show purchased animation
+    }
+
+    private void PurchasecatalogueSkinEventCallback(int _itemIndex, ItemTier _itemType)
+    { 
+    
     }
 
     private void ShowSelectedItemEventCallback(int _itemIndex, ItemTier _itemType)
@@ -265,7 +208,6 @@ public class CatRecruitmentController : MonoBehaviour
         }
         else
         {
-            UpdateIslandCatsEvent.Raise();
             catRecruitmentView.gameObject.SetActive(false);
         }
     }

@@ -10,7 +10,7 @@ public class CatRecruitmentView : MonoBehaviour
     [SerializeField]
     private GameObject catSkinCatalogueItemView;
 
-    [Header("Cats UI references")]
+    [Header("CatType UI references")]
     [SerializeField]
     private Transform catBasicCatalogueContent;
     [SerializeField]

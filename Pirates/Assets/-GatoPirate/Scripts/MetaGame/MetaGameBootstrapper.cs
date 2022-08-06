@@ -10,13 +10,15 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField]
     private IslandCatsController islandCatsController;
     [SerializeField]
-    private VoidEvent UpdateIslandCatsEvent;
+    private CatTypeEvent NewCatPurchasedEvent;
 
     [Header("Cat recruitment")]
     [SerializeField]
     private CatRecruitmentController catRecruitmentController;
     [SerializeField]
-    private IntCatalogueTypeEvent PurchaseCatalogueItemEvent;
+    private IntCatalogueTypeEvent PurchaseCatalogueCatEvent;
+    [SerializeField]
+    private IntCatalogueTypeEvent PurchaseCatalogueSkinEvent;
     [SerializeField]
     private IntCatalogueTypeEvent ShowSelectedItemEvent;
     [SerializeField]
@@ -32,16 +34,16 @@ public class MetaGameBootstrapper : MonoBehaviour
         CatsDataSaveManager.Instance.LoadCatsSavedData();
 
         // Island
-        islandCatsController.UpdateIslandCatsEvent = UpdateIslandCatsEvent;
+        islandCatsController.NewCatPurchasedEvent = NewCatPurchasedEvent;
         islandCatsController.Initialize();
 
         // Everything else
-        catRecruitmentController.PurchaseCatalogueItemEvent = PurchaseCatalogueItemEvent;
+        catRecruitmentController.PurchaseCatalogueCatEvent = PurchaseCatalogueCatEvent;
         catRecruitmentController.ShowSelectedItemEvent = ShowSelectedItemEvent;
         catRecruitmentController.CloseRecruitmentViewEvent = CloseRecruitmentViewEvent;
         catRecruitmentController.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
         catRecruitmentController.OpenCrewManagementPopUpEvent = OpenCrewManagementPopUpEvent;
-        catRecruitmentController.UpdateIslandCatsEvent = UpdateIslandCatsEvent;
+        catRecruitmentController.NewCatPurchasedEvent = NewCatPurchasedEvent;
         catRecruitmentController.Initialize();
     }
 }

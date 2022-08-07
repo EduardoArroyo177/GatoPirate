@@ -34,7 +34,7 @@ public class CatRecruitmentController : MonoBehaviour
     public IntCatalogueTypeEvent ShowSelectedItemEvent { get; set; }
 
     // Island update
-    public CatTypeEvent NewCatPurchasedEvent { get; set; }
+    public CatTypeIDEvent NewCatPurchasedEvent { get; set; }
     #endregion
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -140,9 +140,10 @@ public class CatRecruitmentController : MonoBehaviour
         // TODO: (if needed) Get island and its slot to save it, then call event to place it there
         // TODO: Reduce currency amount with item price
         // Save cat data
-        CatsDataSaveManager.Instance.SaveNewCat(catType, IDGenerator.Instance.GetGeneratedID(itemName), itemName);
+        string catID = IDGenerator.Instance.GetGeneratedID(itemName);
+        CatsDataSaveManager.Instance.SaveNewCat(catType, catID, itemName);
         //  Update cat island event
-        NewCatPurchasedEvent.Raise(catType);
+        NewCatPurchasedEvent.Raise(catType, catID);
         // TODO: Show purchased animation
     }
 

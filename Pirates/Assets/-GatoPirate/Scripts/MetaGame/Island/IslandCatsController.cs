@@ -11,13 +11,13 @@ public class IslandCatsController : MonoBehaviour
     [SerializeField]
     private List<IslandSlot> slotList;
 
-    public CatTypeEvent NewCatPurchasedEvent { get; set; }
+    public CatTypeIDEvent NewCatPurchasedEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
     public void Initialize()
     {
-        _eventHandlers.Add(EventHandlerFactory<CatType>.BuildEventHandler(NewCatPurchasedEvent, NewCatPurchasedEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<CatType, string>.BuildEventHandler(NewCatPurchasedEvent, NewCatPurchasedEventCallback));
         SetIslandCats();
     }
 
@@ -57,7 +57,7 @@ public class IslandCatsController : MonoBehaviour
         // Get saved data
     }
 
-    private void NewCatPurchasedEventCallback(CatType _catType)
+    private void NewCatPurchasedEventCallback(CatType _catType, string _catID)
     {
 
         IslandSlot islandSlot = GetEmptySlot();

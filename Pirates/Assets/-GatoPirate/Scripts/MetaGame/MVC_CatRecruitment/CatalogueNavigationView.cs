@@ -68,4 +68,18 @@ public class CatalogueNavigationView : MonoBehaviour
             btn_arrowPrevious.SetActive(false);
         }
     }
+
+    public void RestartCatalogue()
+    {
+        currentCatalogIndex = 0;
+        // Restart arrows
+        btn_arrowPrevious.SetActive(false);
+        btn_arrowNext.SetActive(true);
+        // Restart circle indicators
+        img_circleIndicators[0].SetAsActive();
+        for (int index = 1; index < pnl_catalogues.Length; index++)
+        {
+            img_circleIndicators[index].SetAsInactive();
+        }
+    }
 }

@@ -14,6 +14,7 @@ public class CircleIndicatorView : MonoBehaviour
 
     public void Initialize()
     {
+        Debug.Log("CIRCLE INITIALIZED");
         image = GetComponent<Image>();
     }
 

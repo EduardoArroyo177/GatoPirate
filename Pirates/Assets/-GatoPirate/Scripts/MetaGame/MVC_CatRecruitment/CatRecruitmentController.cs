@@ -14,6 +14,8 @@ public class CatRecruitmentController : MonoBehaviour
     [SerializeField]
     private CatalogueNavigationView catCatalogueNavigationView;
     [SerializeField]
+    private CatalogueNavigationView skinCatalogueNavigationView;
+    [SerializeField]
     private CatRecruitmentPopUpsView catRecruitmentPopUpsView;
     [SerializeField]
     private CatRecruitmentSelectedItemView catRecruitmentSelectedItemView;
@@ -58,7 +60,7 @@ public class CatRecruitmentController : MonoBehaviour
         catRecruitmentSelectedItemView.PurchaseCatalogueItemEvent = PurchaseCatalogueCatEvent;
 
         FillCatCatalogueData();
-        // Fill Cat SkinType catalogue data
+        FillSkinCatalogueData();
     }
 
     #region Data initialization
@@ -104,6 +106,11 @@ public class CatRecruitmentController : MonoBehaviour
         }
 
         catCatalogueNavigationView.Initialize();
+    }
+
+    private void FillSkinCatalogueData()
+    {
+        skinCatalogueNavigationView.Initialize();
     }
     #endregion
 

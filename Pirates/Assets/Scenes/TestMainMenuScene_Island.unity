@@ -37183,10 +37183,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1035045328709589750, guid: 717701dd242141343b5a46ded4ceae3d, type: 3}
-      propertyPath: m_text
-      value: Recluta Gatos
-      objectReference: {fileID: 0}
     - target: {fileID: 1035045328725707530, guid: 717701dd242141343b5a46ded4ceae3d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

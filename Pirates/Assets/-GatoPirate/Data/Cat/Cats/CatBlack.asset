@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
+  m_Name: CatBlack
+  m_EditorClassIdentifier: 
+  catType: 3
+  catTier: 5
+  catName: Negro
+  catHeadSprite: {fileID: 21300000, guid: c9bc6e6810fd44949a15d076813e4bc9, type: 3}
+  catBodySprite: {fileID: 21300000, guid: 634f9c52c67e9bb45b735bc6f2fcb304, type: 3}
+  catLeftPawSprite: {fileID: 21300000, guid: aaa5477b7ab771b418c3577c32e8f516, type: 3}
+  catRightPawSprite: {fileID: 21300000, guid: b043ca6ba36e948459048b24b4a57418, type: 3}
+  catLeftBottomPawSprite: {fileID: 21300000, guid: 0dce8eae80708074a9d1aab5de3bb93f, type: 3}
+  catRightBottomPawSprite: {fileID: 21300000, guid: 525809c75ae3ab44593e4eb90a513b55, type: 3}
+  catTailSprite: {fileID: 21300000, guid: d48f650a14c74ef49a38bb035ce7e576, type: 3}
+  catEyesSprite: {fileID: 21300000, guid: c778bfdc8c1abf447995579f0d511f9a, type: 3}
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: Gato negro
+  catPreviewSprite: {fileID: 21300000, guid: 7f660bfa0b10711499c6bda1657c9ba7, type: 3}
+  catPrice: 100
+  islandToUnlock: 0
+  isUnlocked: 0

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
-  m_Name: CatCaptain
+  m_Name: 0CatCaptain
   m_EditorClassIdentifier: 
   catType: 1
   catTier: 6

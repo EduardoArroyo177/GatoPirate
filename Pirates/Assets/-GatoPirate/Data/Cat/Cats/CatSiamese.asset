@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
+  m_Name: CatSiamese
+  m_EditorClassIdentifier: 
+  catType: 5
+  catTier: 5
+  catName: "Siam\xE9s"
+  catHeadSprite: {fileID: 21300000, guid: 9d69be54ba9c49942a500d920835b09f, type: 3}
+  catBodySprite: {fileID: 21300000, guid: 5ecad0a7f3d229a4f81efceb0870f868, type: 3}
+  catLeftPawSprite: {fileID: 21300000, guid: d8d0bd847058a1743bad05a7e8240a4d, type: 3}
+  catRightPawSprite: {fileID: 21300000, guid: 249bbfe987f97394dae7d9cc3cac9bce, type: 3}
+  catLeftBottomPawSprite: {fileID: 21300000, guid: ada5743c354a6cd468aa4914ab2dccaf, type: 3}
+  catRightBottomPawSprite: {fileID: 21300000, guid: 58d456847c65a5c46842dba5df1eb1ed, type: 3}
+  catTailSprite: {fileID: 21300000, guid: 7b35564b9316b6f4992e50cad41bc65c, type: 3}
+  catEyesSprite: {fileID: 21300000, guid: ecfa942489356144c96e875e4b18dfa9, type: 3}
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: "Gato siam\xE9s"
+  catPreviewSprite: {fileID: 21300000, guid: acb436ce602576f49976c803f4ae273d, type: 3}
+  catPrice: 100
+  islandToUnlock: 0
+  isUnlocked: 0

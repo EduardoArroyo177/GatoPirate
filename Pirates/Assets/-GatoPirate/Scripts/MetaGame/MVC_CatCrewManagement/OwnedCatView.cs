@@ -12,10 +12,12 @@ public class OwnedCatView : MonoBehaviour
     private CatBodyBuilderUI catBodyBuilderUI;
     [SerializeField]
     private GameObject img_selectedCat;
+    [SerializeField]
+    private GameObject img_unavailableCat;
 
     public IntEvent SelectCatEvent { get; set; }
 
-    public int CatIndex { get; set; }
+    public int CatIndex;// { get; set; }
     public CatType CatType { get; set; }
     public string CatID { get; set; }
     public string CatName { get; set; }
@@ -55,5 +57,15 @@ public class OwnedCatView : MonoBehaviour
     public void Deselect()
     {
         img_selectedCat.SetActive(false);
+    }
+
+    public void SetAsAvailable()
+    {
+        img_unavailableCat.SetActive(false);
+    }
+
+    public void SetAsUnavailable()
+    {
+        img_unavailableCat.SetActive(true);
     }
 }

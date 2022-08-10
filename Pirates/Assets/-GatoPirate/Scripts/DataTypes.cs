@@ -43,7 +43,10 @@ public enum CatType
 {
     GENERIC,
     CAPTAIN,
-    ORANGE
+    ORANGE,
+    BLACK,
+    WHITE,
+    SIAMESE
 }
 
 public enum SkinType

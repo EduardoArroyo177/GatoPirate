@@ -83,11 +83,7 @@ public class CatCrewManagementController : MonoBehaviour
     {
         if (_catIndex == selectedCatIndex)
         {
-            // Deselect
-            ownedCatsList[_catIndex].Deselect();
-            selectedCatIndex = -1;
-            selectedCatData = null;
-            selectedSkinData = null;
+            RestartSelectedData();
             return;
         }
         else if (_catIndex != selectedCatIndex && selectedCatIndex != -1)
@@ -114,19 +110,28 @@ public class CatCrewManagementController : MonoBehaviour
             selectedSlot.CatData = selectedCatData;
             selectedSlot.SkinData = selectedSkinData;
             selectedSlot.InitializeCat();
-            
-            RestartSelectedData();
+            selectedSlot.CurrentCatIndex = selectedCatIndex;
+
             // TODO: Save new cat crew here?
-            // TODO: Remove selected cat from list
+            // Remove selected cat from list
+            ownedCatsList[selectedCatIndex].SetAsUnavailable();
+            // TODO: If there was a selected cat before, free it now
+            RestartSelectedData();
         }
         else
         {
-            ownedCatsList[_catIndex].SetAsSelected();
+            ownedCatsList[selectedCatIndex].SetAsSelected();
         }
     }
 
     private void SelectShipSlotEventCallback(ShipSlotView _selectedSlot)
     {
+        if (_selectedSlot.Equals(selectedSlot))
+        {
+            RestartSelectedData();
+            return;
+        }
+
         isSlotSelected = true;
         selectedSlot = _selectedSlot;
 
@@ -136,10 +141,12 @@ public class CatCrewManagementController : MonoBehaviour
             _selectedSlot.CatData = selectedCatData;
             _selectedSlot.SkinData = selectedSkinData;
             _selectedSlot.InitializeCat();
-
-            RestartSelectedData();
+            _selectedSlot.CurrentCatIndex = selectedCatIndex;
             // TODO: Save new cat crew here?
-            // TODO: Remove selected cat from list
+            // TODO: Remove selected cat from list -> Deactivate cat from list (not remove), add selected cat index to selected slot (to recover selected cat when changed)
+            ownedCatsList[selectedCatIndex].SetAsUnavailable();
+            // TODO: If there was a selected cat before, free it now
+            RestartSelectedData();
         }
         else
         {
@@ -149,15 +156,19 @@ public class CatCrewManagementController : MonoBehaviour
 
     private void RestartSelectedData()
     {
-        ownedCatsList[selectedCatIndex].Deselect();
+        if (selectedCatIndex >= 0)
+            ownedCatsList[selectedCatIndex].Deselect();
         selectedCatIndex = -1;
         selectedCatData = null;
         selectedSkinData = null;
         isCatDataSelected = false;
 
         isSlotSelected = false;
-        selectedSlot.Deselect();
-        selectedSlot = null;
+        if (selectedSlot)
+        {
+            selectedSlot.Deselect();
+            selectedSlot = null;
+        }
     }
     private void NewCatPurchasedEventCallback(CatType _catType, string _catID)
     {

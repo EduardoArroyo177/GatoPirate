@@ -8,11 +8,14 @@ public class ShipSlotView : MonoBehaviour
 {
     [SerializeField]
     private CatBodyBuilderUI catBodyBuilderUI;
+    [SerializeField]
+    private GameObject img_emptySlot;
 
     public ShipSlotViewEvent SelectShipSlotEvent { get; set; }
 
     public CatData CatData { get; set; }
     public CatSkinData SkinData { get; set; }
+    public int CurrentCatIndex { get; set; }
 
     private Material currentMaterial;
 
@@ -26,6 +29,9 @@ public class ShipSlotView : MonoBehaviour
         catBodyBuilderUI.CatData = CatData;
         catBodyBuilderUI.CatSkinData = SkinData;
         catBodyBuilderUI.InitializeData();
+
+        // TODO: Hide empty slot image
+        img_emptySlot.SetActive(true);
     }
 
     public void SelectSlot()

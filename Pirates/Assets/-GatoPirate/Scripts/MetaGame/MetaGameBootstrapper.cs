@@ -15,6 +15,10 @@ public class MetaGameBootstrapper : MonoBehaviour
     [Header("Cat Crew Management")]
     [SerializeField]
     private CatCrewManagementController catCrewManagementController;
+    [SerializeField]
+    private IntEvent SelectCatEvent;
+    [SerializeField]
+    private ShipSlotViewEvent SelectShipSlotEvent;
 
     [Header("Cat Recruitment")]
     [SerializeField]
@@ -42,6 +46,8 @@ public class MetaGameBootstrapper : MonoBehaviour
         islandCatsController.Initialize();
 
         // Cat crew management
+        catCrewManagementController.SelectCatEvent = SelectCatEvent;
+        catCrewManagementController.SelectShipSlotEvent = SelectShipSlotEvent;
         catCrewManagementController.NewCatPurchasedEvent = NewCatPurchasedEvent;
         catCrewManagementController.Initialize();
 

@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityAtoms;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ShipSlotView : MonoBehaviour
+{
+    [SerializeField]
+    private CatBodyBuilderUI catBodyBuilderUI;
+
+    public ShipSlotViewEvent SelectShipSlotEvent { get; set; }
+
+    public CatData CatData { get; set; }
+    public CatSkinData SkinData { get; set; }
+
+    private Material currentMaterial;
+
+    public void Initialize()
+    {
+        currentMaterial = GetComponent<Image>().material;
+    }
+
+    public void InitializeCat()
+    {
+        catBodyBuilderUI.CatData = CatData;
+        catBodyBuilderUI.CatSkinData = SkinData;
+        catBodyBuilderUI.InitializeData();
+    }
+
+    public void SelectSlot()
+    {
+        SelectShipSlotEvent.Raise(this);
+    }
+
+    public void SetAsSelected()
+    {
+        currentMaterial.SetFloat("_OutlineAlpha", 1f);
+    }
+
+    public void Deselect()
+    {
+        currentMaterial.SetFloat("_OutlineAlpha", 0f);
+    }
+}

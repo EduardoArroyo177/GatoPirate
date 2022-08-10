@@ -114,18 +114,13 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
         SaveCatData();
     }
 
-    public void GetCaptainCat()
+    public DataSaveCatStructure GetCatStructureData(string _catID)
     {
-        int index = DataSaveCatCrewStructure.DataSaveCatCrewList.FindIndex(x => x.IslandSlot == 0);
-        if (index < 0)
-        {
-            Debug.Log("CAT NOT FOUND; SEND RANDOM CAT");
-        }
-        else
-        { 
-            // return cat
-        }
+        int catIndex = DataSaveCatCrewStructure.DataSaveCatCrewList.FindIndex(x => x.CatID.Equals(_catID));
+        if (catIndex < 0)
+            return null;
 
+        return DataSaveCatCrewStructure.DataSaveCatCrewList[catIndex];
     }
 
     private void SaveCatData()

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
+  m_Name: CatOrangeToulouse
+  m_EditorClassIdentifier: 
+  catType: 6
+  catTier: 0
+  catName: Tulus
+  catHeadSprite: {fileID: 21300000, guid: bc3e506d5f553b54888268c039a91c30, type: 3}
+  catBodySprite: {fileID: 21300000, guid: 71db4b099d6b0d640b77da0e5b2100d2, type: 3}
+  catLeftPawSprite: {fileID: 21300000, guid: c76df101109bfb946b69ad0089acf93d, type: 3}
+  catRightPawSprite: {fileID: 21300000, guid: bb1d1974328dfa945830324a46c0501e, type: 3}
+  catLeftBottomPawSprite: {fileID: 21300000, guid: 062bc21bd65aa6447b85c6a30e62520a, type: 3}
+  catRightBottomPawSprite: {fileID: 21300000, guid: 5f541a1f8f7c4f043896ca396e600760, type: 3}
+  catTailSprite: {fileID: 21300000, guid: 66565c9177da788499c2e12a5fa4bf1d, type: 3}
+  catEyesSprite: {fileID: 21300000, guid: 144abb7f82e4fd24bbe8b234705bc190, type: 3}
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: Tulus
+  catPreviewSprite: {fileID: 21300000, guid: 39c15ee05c7023548b97ebf5188d1e4e, type: 3}
+  catPrice: 100
+  islandToUnlock: 0
+  isUnlocked: 0

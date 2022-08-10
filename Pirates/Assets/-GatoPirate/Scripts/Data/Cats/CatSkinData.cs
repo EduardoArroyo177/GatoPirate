@@ -9,11 +9,9 @@ public class CatSkinData : ScriptableObject
     [SerializeField]
     private SkinType skinType;
     [SerializeField]
-    private string skinID;
-    [SerializeField]
     private string skinName;
     [SerializeField]
-    private Sprite skinSprite;
+    private Sprite skinPreviewSprite;
 
     [Header("Cat skin sprites")]
     [Header("Head")]

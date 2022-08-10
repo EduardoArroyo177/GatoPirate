@@ -46,23 +46,24 @@ public enum CatType
     ORANGE,
     BLACK,
     WHITE,
-    SIAMESE
+    SIAMESE,
+    ORANGE_TOULOUSE
 }
 
 public enum SkinType
 { 
     NONE,
-    GANDALF
+    GANDALF,
+    ARISTOCATS_MARIE,
+    ARISTOCATS_TOULOUSE,
+    BATMAN,
+    PANDA,
+    SUPERMAN
 }
 
 // TODO: Update tier to be generic
 public enum ItemTier
 {
-    CAT_BASIC,
-    CAT_SPECIAL,
-    SKIN_BASIC,
-    SKIN_SPECIAL,
-    SKIN_PREMIUM,
     BASIC,
     SPECIAL,
     PREMIUM

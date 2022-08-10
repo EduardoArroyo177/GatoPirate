@@ -189,12 +189,12 @@ public class CatRecruitmentController : MonoBehaviour
                 itemDescription = catSpecialItemList[index].ItemDescription;
                 itemPrice = catSpecialItemList[index].ItemPrice;
                 break;
-            case ItemTier.SKIN_BASIC:
-                break;
-            case ItemTier.SKIN_SPECIAL:
-                break;
-            case ItemTier.SKIN_PREMIUM:
-                break;
+            //case ItemTier.SKIN_BASIC:
+            //    break;
+            //case ItemTier.SKIN_SPECIAL:
+            //    break;
+            //case ItemTier.SKIN_PREMIUM:
+            //    break;
         }
 
         if (string.IsNullOrEmpty(itemName))

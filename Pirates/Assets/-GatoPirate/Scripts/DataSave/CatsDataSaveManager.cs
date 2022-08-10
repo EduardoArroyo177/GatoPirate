@@ -16,6 +16,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
     public DataSaveCatCrewStructure DataSaveCatCrewStructure { get => dataSaveCatCrewStructure; set => dataSaveCatCrewStructure = value; }
     public DataSaveCatCrewAmountStructure DataSaveCatCrewAmountStructure { get => dataSaveCatCrewAmountStructure; set => dataSaveCatCrewAmountStructure = value; }
 
+    #region Initialization
     public void LoadCatsSavedData()
     {
         string dataSave = PlayerPrefs.GetString(CAT_SAVING_DATA_KEY);
@@ -24,7 +25,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             // Captain Cat
             DataSaveCatCrewStructure = new DataSaveCatCrewStructure();
             DataSaveCatStructure initialCatStructure = new DataSaveCatStructure();
-            initialCatStructure.CatType = CatType.CAPTAIN.ToString();
+            initialCatStructure.CatType = CatType.ORANGE.ToString();
             initialCatStructure.CatID = "captain01";
             initialCatStructure.CatName = "Captain"; // TODO: Update with final name
             initialCatStructure.IslandSlot = 0;
@@ -43,7 +44,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure.CatType = CatType.ORANGE.ToString();
             initialCatStructure.CatID = "catsailor01";
             initialCatStructure.CatName = "Sailor";
-            initialCatStructure.IslandSlot = -1;
+            initialCatStructure.IslandSlot = 1;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
             initialCatStructure.SkinType = SkinType.NONE.ToString();
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
@@ -52,7 +53,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure.CatType = CatType.ORANGE.ToString();
             initialCatStructure.CatID = "catsailor02";
             initialCatStructure.CatName = "Sailor";
-            initialCatStructure.IslandSlot = -1;
+            initialCatStructure.IslandSlot = 2;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
             initialCatStructure.SkinType = SkinType.NONE.ToString();
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
@@ -61,7 +62,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure.CatType = CatType.ORANGE.ToString();
             initialCatStructure.CatID = "catsailor03";
             initialCatStructure.CatName = "Sailor";
-            initialCatStructure.IslandSlot = -1;
+            initialCatStructure.IslandSlot = 3;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
             initialCatStructure.SkinType = SkinType.NONE.ToString();
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
@@ -82,7 +83,9 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
 
         }
     }
+    #endregion
 
+    #region Update data
     public void SaveNewCat(CatType _catType, string _catID, string _catName, int _islandSlot = -1, Island _island = Island.ISLAND1)
     {
         DataSaveCatStructure newCatStructure = new DataSaveCatStructure();
@@ -113,7 +116,9 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
 
         SaveCatData();
     }
+    #endregion
 
+    #region Get data
     public DataSaveCatStructure GetCatStructureData(string _catID)
     {
         int catIndex = DataSaveCatCrewStructure.DataSaveCatCrewList.FindIndex(x => x.CatID.Equals(_catID));
@@ -122,6 +127,12 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
 
         return DataSaveCatCrewStructure.DataSaveCatCrewList[catIndex];
     }
+
+    public List<DataSaveCatStructure> GetCatShipCrewStructureData()
+    {
+        return DataSaveCatCrewStructure.DataSaveCatCrewList.FindAll(x => x.IslandSlot != -1);
+    }
+    #endregion
 
     private void SaveCatData()
     {

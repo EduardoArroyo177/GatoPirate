@@ -7,8 +7,6 @@ using UnityEngine;
 public class IslandCatsController : MonoBehaviour
 {
     [SerializeField]
-    private IslandSlot captainSlot;
-    [SerializeField]
     private List<IslandSlot> slotList;
 
     public CatTypeIDEvent NewCatPurchasedEvent { get; set; }
@@ -49,12 +47,24 @@ public class IslandCatsController : MonoBehaviour
                 }
                     
             }
-            else if (CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot == 0)
-            { 
-                // Captain cat, set in slot 0
+            // Current crew cats
+            else if (CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot != -1)
+            {
+                catData = CatsModel.Instance.GetCatData(CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatType);
+                if (catData)
+                {
+                    slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CatData = catData;
+                    slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].IsOccupied = true;
+                    // TODO: Get and set Skin data
+                    slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].InitializeCat();
+                }
+                else
+                {
+                    Debug.LogError("Cat type not found in CatType Model");
+
+                }
             }
         }
-        // Get saved data
     }
 
     private void NewCatPurchasedEventCallback(CatType _catType, string _catID)

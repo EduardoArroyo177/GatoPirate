@@ -26,6 +26,7 @@ public class CatCrewManagementController : MonoBehaviour
     private CatSkinData selectedSkinData;
     private int selectedCatIndex = -1;
     private ShipSlotView selectedSlot;
+    private string selectedCatID;
 
     public void Initialize()
     {
@@ -33,22 +34,11 @@ public class CatCrewManagementController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<ShipSlotView>.BuildEventHandler(SelectShipSlotEvent, SelectShipSlotEventCallback));
         _eventHandlers.Add(EventHandlerFactory<CatType, string>.BuildEventHandler(NewCatPurchasedEvent, NewCatPurchasedEventCallback));
 
-        FillCurrentShipCatData();
         FillCatInventoryData();
+        FillCurrentShipCatData();
     }
 
     #region Initialization
-    private void FillCurrentShipCatData()
-    {
-        // Need to initialize current saved cats inside ship
-        // Then initialize slot data
-        for (int index = 0; index < shipSlotViewList.Length; index++)
-        {
-            shipSlotViewList[index].SelectShipSlotEvent = SelectShipSlotEvent;
-            shipSlotViewList[index].Initialize();
-        }
-    }
-
     private void FillCatInventoryData()
     {
         GameObject catViewHelper;
@@ -76,6 +66,47 @@ public class CatCrewManagementController : MonoBehaviour
             ownedCatsList.Add(ownedCatViewHelper);
         }
     }
+
+    private void FillCurrentShipCatData()
+    {
+        CatData catDataHelper;
+        // Need to initialize current saved cats inside ship
+        List<DataSaveCatStructure> catDataSaveListHelper = CatsDataSaveManager.Instance.GetCatShipCrewStructureData();
+        if (catDataSaveListHelper != null || catDataSaveListHelper.Count > 0)
+        {
+            for (int index = 0; index < shipSlotViewList.Length; index++)
+            {
+                shipSlotViewList[index].SelectShipSlotEvent = SelectShipSlotEvent;
+                shipSlotViewList[index].Initialize();
+
+                // Add cat data
+                if (index < catDataSaveListHelper.Count)
+                {
+                    // Set cat data
+                    shipSlotViewList[index].CatID = catDataSaveListHelper[index].CatID;
+                    catDataHelper = CatsModel.Instance.GetCatData(catDataSaveListHelper[index].CatType);
+                    shipSlotViewList[index].CatData = catDataHelper;
+                    // TODO: Add skin data
+                    shipSlotViewList[index].InitializeCat();
+
+                    // Find cat in owned cat list and mark it as selected
+                    int catIndex = ownedCatsList.FindIndex(x => x.CatID.Equals(catDataSaveListHelper[index].CatID));
+                    if (catIndex >= 0)
+                    {
+                        ownedCatsList[catIndex].SetAsUnavailable();
+                    }
+                }
+            }
+        }
+        else
+        {
+            for (int index = 0; index < shipSlotViewList.Length; index++)
+            {
+                shipSlotViewList[index].SelectShipSlotEvent = SelectShipSlotEvent;
+                shipSlotViewList[index].Initialize();
+            }
+        }
+    }
     #endregion
 
     #region Event callbacks
@@ -93,10 +124,10 @@ public class CatCrewManagementController : MonoBehaviour
         }
 
         selectedCatIndex = _catIndex;
-        string catID = ownedCatsList[_catIndex].CatID;
+        selectedCatID = ownedCatsList[_catIndex].CatID;
         
         // Get cat data structure
-        DataSaveCatStructure selectedCat = CatsDataSaveManager.Instance.GetCatStructureData(catID);
+        DataSaveCatStructure selectedCat = CatsDataSaveManager.Instance.GetCatStructureData(selectedCatID);
         // Get cat data
         selectedCatData = CatsModel.Instance.GetCatData(selectedCat.CatType);
         // Get skin data
@@ -106,7 +137,14 @@ public class CatCrewManagementController : MonoBehaviour
         // Check if slot is already selected
         if (isSlotSelected)
         {
-            // Set cat data and skin data to slot
+            // TODO: If there was a selected cat before, free it now
+            int ownedCatIndex = ownedCatsList.FindIndex(x => x.CatID.Equals(selectedSlot.CatID));
+            if (ownedCatIndex >= 0)
+            {
+                ownedCatsList[ownedCatIndex].SetAsAvailable();
+            }
+            // Switch
+            selectedSlot.CatID = selectedCatID;
             selectedSlot.CatData = selectedCatData;
             selectedSlot.SkinData = selectedSkinData;
             selectedSlot.InitializeCat();
@@ -115,7 +153,8 @@ public class CatCrewManagementController : MonoBehaviour
             // TODO: Save new cat crew here?
             // Remove selected cat from list
             ownedCatsList[selectedCatIndex].SetAsUnavailable();
-            // TODO: If there was a selected cat before, free it now
+
+            // Restart everything
             RestartSelectedData();
         }
         else
@@ -137,15 +176,22 @@ public class CatCrewManagementController : MonoBehaviour
 
         if (isCatDataSelected)
         {
+            // TODO: If there was a selected cat before, free it now
+            int ownedCatIndex = ownedCatsList.FindIndex(x => x.CatID.Equals(_selectedSlot.CatID));
+            if (ownedCatIndex >= 0)
+            {
+                ownedCatsList[ownedCatIndex].SetAsAvailable();
+            }
             // Switch 
+            _selectedSlot.CatID = selectedCatID;
             _selectedSlot.CatData = selectedCatData;
             _selectedSlot.SkinData = selectedSkinData;
             _selectedSlot.InitializeCat();
             _selectedSlot.CurrentCatIndex = selectedCatIndex;
             // TODO: Save new cat crew here?
-            // TODO: Remove selected cat from list -> Deactivate cat from list (not remove), add selected cat index to selected slot (to recover selected cat when changed)
+            // Remove selected cat from list
             ownedCatsList[selectedCatIndex].SetAsUnavailable();
-            // TODO: If there was a selected cat before, free it now
+            // Restart everything
             RestartSelectedData();
         }
         else

@@ -15,7 +15,8 @@ public class ShipSlotView : MonoBehaviour
 
     public CatData CatData { get; set; }
     public CatSkinData SkinData { get; set; }
-    public int CurrentCatIndex { get; set; }
+    public int CurrentCatIndex;// { get; set; }
+    public string CatID { get; set; }
 
     private Material currentMaterial;
 

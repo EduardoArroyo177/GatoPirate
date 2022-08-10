@@ -20,8 +20,10 @@ public class CatCrewManagementController : MonoBehaviour
     private List<OwnedCatView> ownedCatsList = new();
 
     private int lastIndex = 0;
-    private bool isSlotSelected;
-    private bool isCatDataSelected;
+
+    private bool isShipSlotCatSelected;
+    private bool isInventoryCatSelected;
+
     private CatData selectedCatData;
     private CatSkinData selectedSkinData;
     private int selectedCatIndex = -1;
@@ -70,8 +72,8 @@ public class CatCrewManagementController : MonoBehaviour
     private void FillCurrentShipCatData()
     {
         CatData catDataHelper;
-        // Need to initialize current saved cats inside ship
         List<DataSaveCatStructure> catDataSaveListHelper = CatsDataSaveManager.Instance.GetCatShipCrewStructureData();
+        
         if (catDataSaveListHelper != null || catDataSaveListHelper.Count > 0)
         {
             for (int index = 0; index < shipSlotViewList.Length; index++)
@@ -79,14 +81,16 @@ public class CatCrewManagementController : MonoBehaviour
                 shipSlotViewList[index].SelectShipSlotEvent = SelectShipSlotEvent;
                 shipSlotViewList[index].Initialize();
 
-                // Add cat data
                 if (index < catDataSaveListHelper.Count)
                 {
                     // Set cat data
                     shipSlotViewList[index].CatID = catDataSaveListHelper[index].CatID;
+                    
                     catDataHelper = CatsModel.Instance.GetCatData(catDataSaveListHelper[index].CatType);
                     shipSlotViewList[index].CatData = catDataHelper;
+                    
                     // TODO: Add skin data
+
                     shipSlotViewList[index].InitializeCat();
 
                     // Find cat in owned cat list and mark it as selected
@@ -119,31 +123,33 @@ public class CatCrewManagementController : MonoBehaviour
         }
         else if (_catIndex != selectedCatIndex && selectedCatIndex != -1)
         {
-            // De select previous selected cat
+            // Deselect previous selected cat
             ownedCatsList[selectedCatIndex].Deselect();
         }
 
-        selectedCatIndex = _catIndex;
-        selectedCatID = ownedCatsList[_catIndex].CatID;
-        
+        isInventoryCatSelected = true;
+
         // Get cat data structure
         DataSaveCatStructure selectedCat = CatsDataSaveManager.Instance.GetCatStructureData(selectedCatID);
-        // Get cat data
+
+        selectedCatIndex = _catIndex;
+        selectedCatID = ownedCatsList[_catIndex].CatID;
+         // Get cat data
         selectedCatData = CatsModel.Instance.GetCatData(selectedCat.CatType);
-        // Get skin data
+        // TODO: Get skin data
         //CatSkinData skinData = CatsModel.Instance.GetSkinData();
-        isCatDataSelected = true;
 
         // Check if slot is already selected
-        if (isSlotSelected)
+        if (isShipSlotCatSelected)
         {
-            // TODO: If there was a selected cat before, free it now
+            // If there was a selected cat before, free it now
             int ownedCatIndex = ownedCatsList.FindIndex(x => x.CatID.Equals(selectedSlot.CatID));
             if (ownedCatIndex >= 0)
             {
                 ownedCatsList[ownedCatIndex].SetAsAvailable();
             }
-            // Switch
+
+            // Switch cat data
             selectedSlot.CatID = selectedCatID;
             selectedSlot.CatData = selectedCatData;
             selectedSlot.SkinData = selectedSkinData;
@@ -151,6 +157,7 @@ public class CatCrewManagementController : MonoBehaviour
             selectedSlot.CurrentCatIndex = selectedCatIndex;
 
             // TODO: Save new cat crew here?
+
             // Remove selected cat from list
             ownedCatsList[selectedCatIndex].SetAsUnavailable();
 
@@ -171,32 +178,36 @@ public class CatCrewManagementController : MonoBehaviour
             return;
         }
 
-        isSlotSelected = true;
+        isShipSlotCatSelected = true;
         selectedSlot = _selectedSlot;
 
-        if (isCatDataSelected)
+        if (isInventoryCatSelected)
         {
-            // TODO: If there was a selected cat before, free it now
-            int ownedCatIndex = ownedCatsList.FindIndex(x => x.CatID.Equals(_selectedSlot.CatID));
+            // If there was a selected cat before, free it now
+            int ownedCatIndex = ownedCatsList.FindIndex(x => x.CatID.Equals(selectedSlot.CatID));
             if (ownedCatIndex >= 0)
             {
                 ownedCatsList[ownedCatIndex].SetAsAvailable();
             }
-            // Switch 
-            _selectedSlot.CatID = selectedCatID;
-            _selectedSlot.CatData = selectedCatData;
-            _selectedSlot.SkinData = selectedSkinData;
-            _selectedSlot.InitializeCat();
-            _selectedSlot.CurrentCatIndex = selectedCatIndex;
+
+            // Switch cat data
+            selectedSlot.CatID = selectedCatID;
+            selectedSlot.CatData = selectedCatData;
+            selectedSlot.SkinData = selectedSkinData;
+            selectedSlot.InitializeCat();
+            selectedSlot.CurrentCatIndex = selectedCatIndex;
+
             // TODO: Save new cat crew here?
+
             // Remove selected cat from list
             ownedCatsList[selectedCatIndex].SetAsUnavailable();
+
             // Restart everything
             RestartSelectedData();
         }
         else
         {
-            _selectedSlot.SetAsSelected();
+            selectedSlot.SetAsSelected();
         }
     }
 
@@ -207,15 +218,16 @@ public class CatCrewManagementController : MonoBehaviour
         selectedCatIndex = -1;
         selectedCatData = null;
         selectedSkinData = null;
-        isCatDataSelected = false;
+        isInventoryCatSelected = false;
 
-        isSlotSelected = false;
+        isShipSlotCatSelected = false;
         if (selectedSlot)
         {
             selectedSlot.Deselect();
             selectedSlot = null;
         }
     }
+
     private void NewCatPurchasedEventCallback(CatType _catType, string _catID)
     {
         GameObject catViewHelper = Instantiate(catCrewManagementView.CatView);

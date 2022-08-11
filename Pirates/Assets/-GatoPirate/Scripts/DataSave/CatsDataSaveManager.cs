@@ -116,6 +116,19 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
 
         SaveCatData();
     }
+
+    public void UpdateCatIslandSlot(string _catID, int _newSlotIndex)
+    {
+        int catIndex = DataSaveCatCrewStructure.DataSaveCatCrewList.FindIndex(x => x.CatID.Equals(_catID));
+        if (catIndex < 0)
+        {
+            Debug.LogError("Cat ID Not found");
+            return;
+        }
+
+        DataSaveCatCrewStructure.DataSaveCatCrewList[catIndex].IslandSlot = _newSlotIndex;
+        SaveCatData();
+    }
     #endregion
 
     #region Get data

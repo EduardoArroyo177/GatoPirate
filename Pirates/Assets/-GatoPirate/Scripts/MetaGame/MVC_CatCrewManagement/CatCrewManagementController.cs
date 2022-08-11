@@ -71,45 +71,70 @@ public class CatCrewManagementController : MonoBehaviour
 
     private void FillCurrentShipCatData()
     {
+        for (int index = 0; index < shipSlotViewList.Length; index++)
+        {
+            shipSlotViewList[index].SelectShipSlotEvent = SelectShipSlotEvent;
+            shipSlotViewList[index].Initialize();
+        }
+
         CatData catDataHelper;
         List<DataSaveCatStructure> catDataSaveListHelper = CatsDataSaveManager.Instance.GetCatShipCrewStructureData();
-        
+        int slotIndexHelper = 0;
         if (catDataSaveListHelper != null || catDataSaveListHelper.Count > 0)
         {
-            for (int index = 0; index < shipSlotViewList.Length; index++)
+            for (int index = 0; index < catDataSaveListHelper.Count; index++)
             {
-                shipSlotViewList[index].SelectShipSlotEvent = SelectShipSlotEvent;
-                shipSlotViewList[index].Initialize();
+                slotIndexHelper = catDataSaveListHelper[index].IslandSlot;
+                shipSlotViewList[slotIndexHelper].CatID = catDataSaveListHelper[index].CatID;
+                // Cat data
+                catDataHelper = CatsModel.Instance.GetCatData(catDataSaveListHelper[index].CatType);
+                shipSlotViewList[slotIndexHelper].CatData = catDataHelper;
+                // TODO: Get skin data
 
-                if (index < catDataSaveListHelper.Count)
+                shipSlotViewList[slotIndexHelper].InitializeCat();
+
+                // Find cat in owned cat list and mark it as selected
+                int catIndex = ownedCatsList.FindIndex(x => x.CatID.Equals(catDataSaveListHelper[index].CatID));
+                if (catIndex >= 0)
                 {
-                    // Set cat data
-                    shipSlotViewList[index].CatID = catDataSaveListHelper[index].CatID;
-                    
-                    catDataHelper = CatsModel.Instance.GetCatData(catDataSaveListHelper[index].CatType);
-                    shipSlotViewList[index].CatData = catDataHelper;
-                    
-                    // TODO: Add skin data
-
-                    shipSlotViewList[index].InitializeCat();
-
-                    // Find cat in owned cat list and mark it as selected
-                    int catIndex = ownedCatsList.FindIndex(x => x.CatID.Equals(catDataSaveListHelper[index].CatID));
-                    if (catIndex >= 0)
-                    {
-                        ownedCatsList[catIndex].SetAsUnavailable();
-                    }
+                    ownedCatsList[catIndex].SetAsUnavailable();
                 }
             }
+
+            //for (int index = 0; index < shipSlotViewList.Length; index++)
+            //{
+            //    shipSlotViewList[index].SelectShipSlotEvent = SelectShipSlotEvent;
+            //    shipSlotViewList[index].Initialize();
+
+            //    if (index < catDataSaveListHelper.Count)
+            //    {
+            //        // Set cat data
+            //        shipSlotViewList[catDataSaveListHelper[index].IslandSlot].CatID = catDataSaveListHelper[index].CatID;
+                    
+            //        catDataHelper = CatsModel.Instance.GetCatData(catDataSaveListHelper[index].CatType);
+            //        shipSlotViewList[catDataSaveListHelper[index].IslandSlot].CatData = catDataHelper;
+                    
+            //        // TODO: Add skin data
+
+            //        shipSlotViewList[index].InitializeCat();
+
+            //        // Find cat in owned cat list and mark it as selected
+            //        int catIndex = ownedCatsList.FindIndex(x => x.CatID.Equals(catDataSaveListHelper[catDataSaveListHelper[index].IslandSlot].CatID));
+            //        if (catIndex >= 0)
+            //        {
+            //            ownedCatsList[catIndex].SetAsUnavailable();
+            //        }
+            //    }
+            //}
         }
-        else
-        {
-            for (int index = 0; index < shipSlotViewList.Length; index++)
-            {
-                shipSlotViewList[index].SelectShipSlotEvent = SelectShipSlotEvent;
-                shipSlotViewList[index].Initialize();
-            }
-        }
+        //else
+        //{
+        //    for (int index = 0; index < shipSlotViewList.Length; index++)
+        //    {
+        //        shipSlotViewList[index].SelectShipSlotEvent = SelectShipSlotEvent;
+        //        shipSlotViewList[index].Initialize();
+        //    }
+        //}
     }
     #endregion
 
@@ -129,11 +154,11 @@ public class CatCrewManagementController : MonoBehaviour
 
         isInventoryCatSelected = true;
 
-        // Get cat data structure
-        DataSaveCatStructure selectedCat = CatsDataSaveManager.Instance.GetCatStructureData(selectedCatID);
-
         selectedCatIndex = _catIndex;
         selectedCatID = ownedCatsList[_catIndex].CatID;
+        // Get cat data structure
+        DataSaveCatStructure selectedCat = CatsDataSaveManager.Instance.GetCatStructureData(selectedCatID);
+        
          // Get cat data
         selectedCatData = CatsModel.Instance.GetCatData(selectedCat.CatType);
         // TODO: Get skin data
@@ -147,6 +172,7 @@ public class CatCrewManagementController : MonoBehaviour
             if (ownedCatIndex >= 0)
             {
                 ownedCatsList[ownedCatIndex].SetAsAvailable();
+                CatsDataSaveManager.Instance.UpdateCatIslandSlot(ownedCatsList[ownedCatIndex].CatID, -1);
             }
 
             // Switch cat data
@@ -157,6 +183,7 @@ public class CatCrewManagementController : MonoBehaviour
             selectedSlot.CurrentCatIndex = selectedCatIndex;
 
             // TODO: Save new cat crew here?
+            CatsDataSaveManager.Instance.UpdateCatIslandSlot(selectedSlot.CatID, selectedSlot.SlotIndex);
 
             // Remove selected cat from list
             ownedCatsList[selectedCatIndex].SetAsUnavailable();
@@ -188,6 +215,8 @@ public class CatCrewManagementController : MonoBehaviour
             if (ownedCatIndex >= 0)
             {
                 ownedCatsList[ownedCatIndex].SetAsAvailable();
+                CatsDataSaveManager.Instance.UpdateCatIslandSlot(ownedCatsList[ownedCatIndex].CatID, -1);
+
             }
 
             // Switch cat data
@@ -198,6 +227,7 @@ public class CatCrewManagementController : MonoBehaviour
             selectedSlot.CurrentCatIndex = selectedCatIndex;
 
             // TODO: Save new cat crew here?
+            CatsDataSaveManager.Instance.UpdateCatIslandSlot(selectedSlot.CatID, selectedSlot.SlotIndex);
 
             // Remove selected cat from list
             ownedCatsList[selectedCatIndex].SetAsUnavailable();

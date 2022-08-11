@@ -10,13 +10,16 @@ public class ShipSlotView : MonoBehaviour
     private CatBodyBuilderUI catBodyBuilderUI;
     [SerializeField]
     private GameObject img_emptySlot;
+    [SerializeField]
+    private int slotIndex;
 
     public ShipSlotViewEvent SelectShipSlotEvent { get; set; }
 
     public CatData CatData { get; set; }
     public CatSkinData SkinData { get; set; }
-    public int CurrentCatIndex;// { get; set; }
+    public int CurrentCatIndex { get; set; }
     public string CatID { get; set; }
+    public int SlotIndex { get => slotIndex; set => slotIndex = value; }
 
     private Material currentMaterial;
 

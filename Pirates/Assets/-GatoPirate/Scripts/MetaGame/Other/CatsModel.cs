@@ -16,7 +16,10 @@ public class CatsModel : SceneSingleton<CatsModel>
     {
         int index = CatsDataList.FindIndex(x => x.CatType.ToString().Equals(_catType));
         if (index < 0)
+        {
+            Debug.LogError($"Error. Cat type {_catType} not found");
             return null;
+        }
         else
             return CatsDataList[index];
     }

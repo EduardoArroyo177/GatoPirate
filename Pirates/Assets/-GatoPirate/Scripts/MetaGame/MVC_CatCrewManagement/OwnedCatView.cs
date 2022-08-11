@@ -17,7 +17,7 @@ public class OwnedCatView : MonoBehaviour
 
     public IntEvent SelectCatEvent { get; set; }
 
-    public int CatIndex;// { get; set; }
+    public int CatIndex { get; set; }
     public CatType CatType { get; set; }
     public string CatID { get; set; }
     public string CatName { get; set; }

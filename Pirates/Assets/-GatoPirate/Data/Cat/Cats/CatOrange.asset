@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CatOrange
   m_EditorClassIdentifier: 
   catType: 2
-  catTier: 5
+  catTier: 0
   catName: Naranja
   catHeadSprite: {fileID: 21300000, guid: 693144cb4c2ab69479190cbb210ea772, type: 3}
   catBodySprite: {fileID: 21300000, guid: 6560a3a11bf06c540a91f59f909fecbf, type: 3}

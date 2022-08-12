@@ -89,7 +89,7 @@ public class IslandCatsController : MonoBehaviour
     {
         List<IslandSlot> emptySlotList = slotList.FindAll(x => x.IsOccupied == false);
 
-        if (emptySlotList.Count >= 0)
+        if (emptySlotList.Count > 0)
         {
             int index = Random.Range(0, emptySlotList.Count);
             return emptySlotList[index];
@@ -101,7 +101,7 @@ public class IslandCatsController : MonoBehaviour
     public void CleanSlots()
     {
         // TODO: Update for special slots (if it is only the first, or the first 4)
-        for (int index = 1; index < slotList.Count; index++)
+        for (int index = 4; index < slotList.Count; index++)
         {
             slotList[index].CleanSlot();
         }

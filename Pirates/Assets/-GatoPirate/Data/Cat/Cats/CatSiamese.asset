@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CatSiamese
   m_EditorClassIdentifier: 
   catType: 5
-  catTier: 5
+  catTier: 0
   catName: "Siam\xE9s"
   catHeadSprite: {fileID: 21300000, guid: 9d69be54ba9c49942a500d920835b09f, type: 3}
   catBodySprite: {fileID: 21300000, guid: 5ecad0a7f3d229a4f81efceb0870f868, type: 3}

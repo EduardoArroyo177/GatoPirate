@@ -10,24 +10,14 @@ public class CatCrewManagementView : MonoBehaviour
 
     [Header("UI references")]
     [SerializeField]
-    private Transform ownedCatsContent1;
+    private Transform[] ownedCatsContentList;
     [SerializeField]
-    private Transform ownedCatsContent2;
+    private int catalogueSizePerPage;
     [SerializeField]
-    private Transform ownedCatsContent3;
-    [SerializeField]
-    private Transform ownedCatsContent4;
-    [SerializeField]
-    private Transform ownedCatsContent5;
-    [SerializeField]
-    private Transform ownedCatsContent6;
-    [SerializeField]
-    private Transform ownedCatsContent7;
-    [SerializeField]
-    private Transform ownedCatsContent8;
-    [SerializeField]
-    private Transform ownedCatsContent9;
+    private int enabledCatalogues;
 
     public GameObject CatView { get => catView; set => catView = value; }
-    public Transform OwnedCatsContent1 { get => ownedCatsContent1; set => ownedCatsContent1 = value; }
+    public Transform[] OwnedCatsContentList { get => ownedCatsContentList; set => ownedCatsContentList = value; }
+    public int CatalogueSizePerPage { get => catalogueSizePerPage; set => catalogueSizePerPage = value; }
+    public int EnabledCatalogues { get => enabledCatalogues; set => enabledCatalogues = value; }
 }

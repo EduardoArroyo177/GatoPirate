@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
+  m_Name: SkinPanda
+  m_EditorClassIdentifier: 
+  skinType: 5
+  skinName: Panda
+  skinPreviewSprite: {fileID: 21300000, guid: 03616d9253b5b1447ae1764096bef66a, type: 3}
+  catHeadFrontSkinSprite: {fileID: 21300000, guid: 175d64d23a07db3499c47cf393010756, type: 3}
+  catHeadBackSkinSprite: {fileID: 0}
+  catBodyFrontSkinSprite: {fileID: 21300000, guid: 7eb6fb158a9177f42a4f77e5ef5793e2, type: 3}
+  catBodyBackSkinSprite: {fileID: 0}
+  catLeftPawSkinSprite: {fileID: 21300000, guid: 13510ee24f51dc940af47e97c781197c, type: 3}
+  catLeftPawAccesorySkinSprite: {fileID: 0}
+  catRightPawSkinSprite: {fileID: 21300000, guid: 1e3cb5edd926cd44cb25d643d9d85059, type: 3}
+  catRightPawAccesorySkinSprite: {fileID: 0}
+  catLeftBottomPawSkinSprite: {fileID: 21300000, guid: fc1628a4f9533464ba30af1a774513fc, type: 3}
+  catRightBottomPawSkinSprite: {fileID: 21300000, guid: 76c285f1547990543ae7a50946967164, type: 3}
+  catTailSkinSprite: {fileID: 0}
+  catTailSpecialSkinSprite: {fileID: 21300000, guid: 6b45f77e795efcc4cb3f5bd5b0546e6b, type: 3}
+  noTail: 0
+  skinColor: {r: 0, g: 0, b: 0, a: 0}

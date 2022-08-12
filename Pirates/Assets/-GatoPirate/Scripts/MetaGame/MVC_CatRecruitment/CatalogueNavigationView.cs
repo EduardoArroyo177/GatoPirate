@@ -17,10 +17,25 @@ public class CatalogueNavigationView : MonoBehaviour
     private CircleIndicatorView[] img_circleIndicators;
 
     public int currentCatalogIndex = 0;
+    public int CatalogueListLength { get; set; }
 
     public void Initialize()
     {
-        for (int index = 0; index < pnl_catalogues.Length; index++)
+        CatalogueListLength = pnl_catalogues.Length;
+        for (int index = 0; index < CatalogueListLength; index++)
+        {
+            img_circleIndicators[index].gameObject.SetActive(true);
+            img_circleIndicators[index].Initialize();
+        }
+    }
+
+    public void Initialize(int _catalogueSize)
+    {
+        CatalogueListLength = _catalogueSize;
+        if (CatalogueListLength > 1)
+            btn_arrowNext.SetActive(true);
+
+        for (int index = 0; index < CatalogueListLength; index++)
         {
             img_circleIndicators[index].gameObject.SetActive(true);
             img_circleIndicators[index].Initialize();
@@ -31,7 +46,7 @@ public class CatalogueNavigationView : MonoBehaviour
     {
         currentCatalogIndex++;
 
-        if (currentCatalogIndex < pnl_catalogues.Length)
+        if (currentCatalogIndex < CatalogueListLength)
         {
             btn_arrowPrevious.SetActive(true);
 
@@ -42,7 +57,7 @@ public class CatalogueNavigationView : MonoBehaviour
             img_circleIndicators[currentCatalogIndex].SetAsActive();
         }
 
-        if (currentCatalogIndex + 1 >= pnl_catalogues.Length) // Last item
+        if (currentCatalogIndex + 1 >= CatalogueListLength) // Last item
         {
             btn_arrowNext.SetActive(false);
         }
@@ -77,7 +92,7 @@ public class CatalogueNavigationView : MonoBehaviour
         btn_arrowNext.SetActive(true);
         // Restart circle indicators
         img_circleIndicators[0].SetAsActive();
-        for (int index = 1; index < pnl_catalogues.Length; index++)
+        for (int index = 1; index < CatalogueListLength; index++)
         {
             img_circleIndicators[index].SetAsInactive();
         }

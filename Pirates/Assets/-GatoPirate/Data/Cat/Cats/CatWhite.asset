@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CatWhite
   m_EditorClassIdentifier: 
   catType: 4
-  catTier: 5
+  catTier: 0
   catName: Blanco
   catHeadSprite: {fileID: 21300000, guid: b9918b4af97d8e74cbbd598e44963f80, type: 3}
   catBodySprite: {fileID: 21300000, guid: f3bf5c342f94206439b9f0736429e683, type: 3}

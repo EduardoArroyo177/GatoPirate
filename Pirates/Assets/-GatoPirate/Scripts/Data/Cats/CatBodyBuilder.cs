@@ -185,6 +185,7 @@ public class CatBodyBuilder : MonoBehaviour
 
             if (CatSkinData.CatTailSpecialSkinSprite)
             {
+                catTailRenderer.sprite = null;
                 catTailSkinRenderer.sprite = CatSkinData.CatTailSpecialSkinSprite;
                 catTailSkinRenderer.color = CatSkinData.SkinColor;
             }

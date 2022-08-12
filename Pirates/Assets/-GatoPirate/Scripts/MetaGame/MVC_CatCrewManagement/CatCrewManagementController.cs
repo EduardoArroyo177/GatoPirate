@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;
@@ -22,7 +23,6 @@ public class CatCrewManagementController : MonoBehaviour
     private List<OwnedCatView> ownedCatsList = new();
 
     private int currentContentIndex = 0;
-    private int lastIndex = 0;
 
     private bool isShipSlotCatSelected;
     private bool isInventoryCatSelected;
@@ -50,7 +50,6 @@ public class CatCrewManagementController : MonoBehaviour
         OwnedCatView ownedCatViewHelper;
         CatData catDataHelper;
         List<DataSaveCatStructure> catDataSaveListHelper = CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList;
-        int enabledCatalogues = 0;
         for (int index = 0; index < catDataSaveListHelper.Count; index++)
         {
             catDataHelper = CatsModel.Instance.GetCatData(catDataSaveListHelper[index].CatType);
@@ -65,65 +64,67 @@ public class CatCrewManagementController : MonoBehaviour
             ownedCatViewHelper.SetName(catDataSaveListHelper[index].CatName);
             ownedCatViewHelper.SetCatAndSkinData(catDataHelper);
 
-            // TODO: Divide by 10 (variable) to show in different catalogue pages
-            if (index < catCrewManagementView.CatalogueSizePerPage)
-            {
-                enabledCatalogues = 1;
-                currentContentIndex = 0;
-            }
-            else if (index < catCrewManagementView.CatalogueSizePerPage * 2)
-            {
-                enabledCatalogues = 2;
-                currentContentIndex = 1;
-            }
-            else if (index < catCrewManagementView.CatalogueSizePerPage * 3)
-            {
-                enabledCatalogues = 3;
-                currentContentIndex = 2;
-            }
-            else if (index < catCrewManagementView.CatalogueSizePerPage * 4)
-            {
-                enabledCatalogues = 4;
-                currentContentIndex = 3;
-            }
-            else if (index < catCrewManagementView.CatalogueSizePerPage * 5)
-            {
-                enabledCatalogues = 5;
-                currentContentIndex = 4;
-            }
-            else if (index < catCrewManagementView.CatalogueSizePerPage * 6)
-            {
-                enabledCatalogues = 6;
-                currentContentIndex = 5;
-            }
-            else if (index < catCrewManagementView.CatalogueSizePerPage * 7)
-            {
-                enabledCatalogues = 7;
-                currentContentIndex = 6;
-            }
-            else if (index < catCrewManagementView.CatalogueSizePerPage * 8)
-            {
-                enabledCatalogues = 8;
-                currentContentIndex = 7;
-            }
-            else if (index < catCrewManagementView.CatalogueSizePerPage * 9)
-            {
-                enabledCatalogues = 9;
-                currentContentIndex = 8;
-            }
-            else
-            {
-                enabledCatalogues = 10;
-                currentContentIndex = 9;
-            }
-
-            catCrewManagementView.EnabledCatalogues = enabledCatalogues;
+            // Set catalogues
+            catCrewManagementView.EnabledCatalogues = SetEnabledCatalogues(index);
             ownedCatViewHelper.transform.SetParent(catCrewManagementView.OwnedCatsContentList[currentContentIndex]);
-            lastIndex = index;
             ownedCatsList.Add(ownedCatViewHelper);
         }
 
-        catalogueNavigationView.Initialize(enabledCatalogues);
+        catalogueNavigationView.Initialize(catCrewManagementView.EnabledCatalogues);
+    }
+
+    private int SetEnabledCatalogues(int _catsAmount)
+    {
+        if (_catsAmount < catCrewManagementView.CatalogueSizePerPage)
+        {
+            currentContentIndex = 0;
+            return 1;
+        }
+        else if (_catsAmount < catCrewManagementView.CatalogueSizePerPage * 2)
+        {
+            currentContentIndex = 1;
+            return 2;
+        }
+        else if (_catsAmount < catCrewManagementView.CatalogueSizePerPage * 3)
+        {
+            currentContentIndex = 2;
+            return 3;
+        }
+        else if (_catsAmount < catCrewManagementView.CatalogueSizePerPage * 4)
+        {
+            currentContentIndex = 3;
+            return 4;
+        }
+        else if (_catsAmount < catCrewManagementView.CatalogueSizePerPage * 5)
+        {
+            currentContentIndex = 4;
+            return 5;
+        }
+        else if (_catsAmount < catCrewManagementView.CatalogueSizePerPage * 6)
+        {
+            currentContentIndex = 5;
+            return 6;
+        }
+        else if (_catsAmount < catCrewManagementView.CatalogueSizePerPage * 7)
+        {
+            currentContentIndex = 6;
+            return 7;
+        }
+        else if (_catsAmount < catCrewManagementView.CatalogueSizePerPage * 8)
+        {
+            currentContentIndex = 7;
+            return 8;
+        }
+        else if (_catsAmount < catCrewManagementView.CatalogueSizePerPage * 9)
+        {
+            currentContentIndex = 8;
+            return 9;
+        }
+        else
+        {
+            currentContentIndex = 9;
+            return 10;
+        }
     }
 
     private void FillCurrentShipCatData()
@@ -264,6 +265,29 @@ public class CatCrewManagementController : MonoBehaviour
         }
     }
 
+    private void NewCatPurchasedEventCallback(CatType _catType, string _catID)
+    {
+        GameObject catViewHelper = Instantiate(catCrewManagementView.CatView);
+        OwnedCatView ownedCatViewHelper = catViewHelper.GetComponent<OwnedCatView>();
+        CatData catDataHelper = CatsModel.Instance.GetCatData(_catType.ToString());
+
+        ownedCatViewHelper = catViewHelper.GetComponent<OwnedCatView>();
+        // Events
+        ownedCatViewHelper.SelectCatEvent = SelectCatEvent;
+        // Setting data
+        ownedCatViewHelper.SetIndexAndID(ownedCatsList.Count, _catID);
+        ownedCatViewHelper.SetName(catDataHelper.CatName);
+        ownedCatViewHelper.SetCatAndSkinData(catDataHelper);
+        ownedCatsList.Add(ownedCatViewHelper);
+
+        // Update catalogues
+        catCrewManagementView.EnabledCatalogues = SetEnabledCatalogues(ownedCatsList.Count - 1);
+        ownedCatViewHelper.transform.SetParent(catCrewManagementView.OwnedCatsContentList[currentContentIndex]);
+        catalogueNavigationView.Initialize(catCrewManagementView.EnabledCatalogues);
+    }
+    #endregion
+
+    #region Helper methods
     private void RestartSelectedData()
     {
         if (selectedCatIndex >= 0)
@@ -279,27 +303,6 @@ public class CatCrewManagementController : MonoBehaviour
             selectedSlot.Deselect();
             selectedSlot = null;
         }
-    }
-
-    private void NewCatPurchasedEventCallback(CatType _catType, string _catID)
-    {
-        GameObject catViewHelper = Instantiate(catCrewManagementView.CatView);
-        OwnedCatView ownedCatViewHelper = catViewHelper.GetComponent<OwnedCatView>();
-        CatData catDataHelper = CatsModel.Instance.GetCatData(_catType.ToString());
-
-        ownedCatViewHelper = catViewHelper.GetComponent<OwnedCatView>();
-        // Events
-        ownedCatViewHelper.SelectCatEvent = SelectCatEvent;
-        // Setting data
-        // TODO: Get cat id
-        ownedCatViewHelper.SetIndexAndID(lastIndex + 1, _catID);
-        ownedCatViewHelper.SetName(catDataHelper.CatName);
-        ownedCatViewHelper.SetCatAndSkinData(catDataHelper);
-
-        // TODO: Get correct content page
-        ownedCatViewHelper.transform.SetParent(catCrewManagementView.OwnedCatsContentList[currentContentIndex]);
-
-        ownedCatsList.Add(ownedCatViewHelper);
     }
     #endregion
 

@@ -32,14 +32,14 @@ public class CatalogueNavigationView : MonoBehaviour
     public void Initialize(int _catalogueSize)
     {
         CatalogueListLength = _catalogueSize;
-        if (CatalogueListLength > 1)
-            btn_arrowNext.SetActive(true);
 
         for (int index = 0; index < CatalogueListLength; index++)
         {
             img_circleIndicators[index].gameObject.SetActive(true);
             img_circleIndicators[index].Initialize();
         }
+
+        RestartCatalogue();
     }
 
     public void NextCatalogue()

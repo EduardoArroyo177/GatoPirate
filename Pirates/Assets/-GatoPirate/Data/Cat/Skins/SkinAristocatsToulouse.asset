@@ -28,4 +28,4 @@ MonoBehaviour:
   catTailSkinSprite: {fileID: 0}
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
-  skinColor: {r: 0, g: 0, b: 0, a: 0}
+  skinColor: {r: 1, g: 1, b: 1, a: 1}

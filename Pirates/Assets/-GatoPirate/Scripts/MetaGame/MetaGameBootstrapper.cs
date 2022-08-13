@@ -53,6 +53,7 @@ public class MetaGameBootstrapper : MonoBehaviour
 
         // Cat recruitment
         catRecruitmentController.PurchaseCatalogueCatEvent = PurchaseCatalogueCatEvent;
+        catRecruitmentController.PurchaseCatalogueSkinEvent = PurchaseCatalogueSkinEvent;
         catRecruitmentController.ShowSelectedItemEvent = ShowSelectedItemEvent;
         catRecruitmentController.CloseRecruitmentViewEvent = CloseRecruitmentViewEvent;
         catRecruitmentController.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;

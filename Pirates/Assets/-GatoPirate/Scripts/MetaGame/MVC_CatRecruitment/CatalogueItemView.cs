@@ -35,18 +35,28 @@ public class CatalogueItemView : MonoBehaviour
     public int ItemIndex { get; set; }
     public ItemTier ItemType { get; set; }
     public CatType CatType { get; set; }
+    public SkinType SkinType { get; set; }
     public string ItemName { get; set; }
     public string ItemDescription { get; set; }
     public int ItemPrice { get; set; }
     public Sprite ItemSprite { get; set; }
 
     #region Data set
+    // For cats
     public void SetIndexAndTypes(int _itemIndex, ItemTier _itemType, CatType _catType = CatType.GENERIC)
     {
         ItemIndex = _itemIndex;
         ItemType = _itemType;
         CatType = _catType;
     }
+    // For skins
+    public void SetIndexAndTypes(int _itemIndex, ItemTier _itemType, SkinType _skinType = SkinType.NONE)
+    {
+        ItemIndex = _itemIndex;
+        ItemType = _itemType;
+        SkinType = _skinType;
+    }
+
     public void SetName(string _itemName)
     {
         ItemName = _itemName; 

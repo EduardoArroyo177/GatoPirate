@@ -22,7 +22,7 @@ public class CatRecruitmentController : MonoBehaviour
 
     #region Events
     public IntCatalogueTypeEvent PurchaseCatalogueCatEvent { get; set; }
-    public IntCatalogueTypeEvent PurchasecatalogueSkinEvent { get; set; }
+    public IntCatalogueTypeEvent PurchaseCatalogueSkinEvent { get; set; }
 
 
     // Pop ups
@@ -41,13 +41,17 @@ public class CatRecruitmentController : MonoBehaviour
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private bool inventoryChanged;
+    // Cat catalogues
     private List<CatalogueItemView> catBasicItemList = new List<CatalogueItemView>();
     private List<CatalogueItemView> catSpecialItemList = new List<CatalogueItemView>();
-
+    // Skin catalogues
+    private List<CatalogueItemView> skinBasicItemList = new List<CatalogueItemView>();
+    private List<CatalogueItemView> skinSpecialItemList = new List<CatalogueItemView>(); 
+    private List<CatalogueItemView> skinPremiumItemList = new List<CatalogueItemView>();
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueCatEvent, PurchaseCatalogueCatEventCallback));
-        //_eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchasecatalogueSkinEvent, PurchasecatalogueSkinEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueSkinEvent, PurchaseCatalogueSkinEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CloseRecruitmentViewEvent, CloseRecruitmentViewEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedItemEvent, ShowSelectedItemEventCallback));
 
@@ -73,7 +77,7 @@ public class CatRecruitmentController : MonoBehaviour
         for (int index = 0; index < CatsModel.Instance.CatsDataList.Count; index++)
         {
             catDataHelper = CatsModel.Instance.CatsDataList[index];
-            catItemViewHelper = Instantiate(catRecruitmentView.CatCatalogueItemView);
+            catItemViewHelper = Instantiate(catRecruitmentView.CatalogueItemView);
 
             catalogueCatItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
             // Events
@@ -87,10 +91,10 @@ public class CatRecruitmentController : MonoBehaviour
             catalogueCatItemViewHelper.SetSprite(catDataHelper.CatPreviewSprite);
             catalogueCatItemViewHelper.SetPurchasePrice(catDataHelper.CatPrice);
             // TODO: Check if currency is enough to buy
-            //if (catDataHelper.IsUnlocked)
-            //    catalogueCatItemViewHelper.SetItemUnlocked();
+            //if (skinDataHelper.IsUnlocked)
+            //    catalogueSkinItemViewHelper.SetItemUnlocked();
             //else
-            //    catalogueCatItemViewHelper.SetItemLocked();
+            //    catalogueSkinItemViewHelper.SetItemLocked();
             catalogueCatItemViewHelper.SetItemUnlocked();
 
             if (catDataHelper.CatTier.Equals(ItemTier.BASIC))
@@ -110,18 +114,65 @@ public class CatRecruitmentController : MonoBehaviour
 
     private void FillSkinCatalogueData()
     {
+        // TODO: Check for skins that are already purchased
+        GameObject catItemViewHelper;
+        CatalogueItemView catalogueSkinItemViewHelper;
+        CatSkinData skinDataHelper;
+
+        for (int index = 0; index < CatsModel.Instance.CatsSkinDataList.Count; index++)
+        {
+            skinDataHelper = CatsModel.Instance.CatsSkinDataList[index];
+            catItemViewHelper = Instantiate(catRecruitmentView.CatalogueItemView);
+
+            catalogueSkinItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
+            // Events
+            catalogueSkinItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueSkinEvent;
+            catalogueSkinItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
+            catalogueSkinItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
+            // Setting data
+            catalogueSkinItemViewHelper.SetIndexAndTypes(index, skinDataHelper.SkinTier, skinDataHelper.SkinType);
+            catalogueSkinItemViewHelper.SetName(skinDataHelper.SkinName);
+            catalogueSkinItemViewHelper.SetDescription(skinDataHelper.SkinDescription);
+            catalogueSkinItemViewHelper.SetSprite(skinDataHelper.SkinPreviewSprite);
+            catalogueSkinItemViewHelper.SetPurchasePrice(skinDataHelper.SkinPrice);
+            // TODO: Check if currency is enough to buy
+            //if (skinDataHelper.IsUnlocked)
+            //    catalogueSkinItemViewHelper.SetItemUnlocked();
+            //else
+            //    catalogueSkinItemViewHelper.SetItemLocked();
+            catalogueSkinItemViewHelper.SetItemUnlocked();
+
+            if (skinDataHelper.SkinTier.Equals(ItemTier.BASIC))
+            {
+                catItemViewHelper.transform.SetParent(catRecruitmentView.SkinBasicCatalogueContent);
+                skinBasicItemList.Add(catalogueSkinItemViewHelper);
+            }
+            else if (skinDataHelper.SkinTier.Equals(ItemTier.SPECIAL))
+            {
+                catItemViewHelper.transform.SetParent(catRecruitmentView.SkinSpecialCatalogueContent);
+                skinSpecialItemList.Add(catalogueSkinItemViewHelper);
+            }
+            else if (skinDataHelper.SkinTier.Equals(ItemTier.PREMIUM))
+            {
+                catItemViewHelper.transform.SetParent(catRecruitmentView.SkinPremiumCatalogueContent);
+                skinPremiumItemList.Add(catalogueSkinItemViewHelper);
+            }
+        }
+
+        catCatalogueNavigationView.Initialize();
+
         skinCatalogueNavigationView.Initialize();
     }
     #endregion
 
     #region Event callbacks
-    private void PurchaseCatalogueCatEventCallback(int _itemIndex, ItemTier _itemType)
+    private void PurchaseCatalogueCatEventCallback(int _itemIndex, ItemTier _itemTier)
     {
         inventoryChanged = true;
         string itemName = "";
         CatType catType = CatType.GENERIC;
         int index;
-        switch (_itemType)
+        switch (_itemTier)
         {
             case ItemTier.BASIC:
                 index = catBasicItemList.FindIndex(x => x.ItemIndex == _itemIndex);
@@ -154,9 +205,47 @@ public class CatRecruitmentController : MonoBehaviour
         // TODO: Show purchased animation
     }
 
-    private void PurchasecatalogueSkinEventCallback(int _itemIndex, ItemTier _itemType)
-    { 
-    
+    private void PurchaseCatalogueSkinEventCallback(int _itemIndex, ItemTier _itemTier)
+    {
+        string itemName = "";
+        SkinType skinType = SkinType.NONE;
+        int index;
+        switch (_itemTier)
+        {
+            case ItemTier.BASIC:
+                index = skinBasicItemList.FindIndex(x => x.ItemIndex == _itemIndex);
+                if (index < 0)
+                    return;
+                itemName = skinBasicItemList[index].ItemName;
+                skinType = skinBasicItemList[index].SkinType;
+                break;
+            case ItemTier.SPECIAL:
+                index = skinSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
+                if (index < 0)
+                    return;
+                itemName = skinSpecialItemList[index].ItemName;
+                skinType = skinSpecialItemList[index].SkinType;
+                break;
+            case ItemTier.PREMIUM:
+                index = skinPremiumItemList.FindIndex(x => x.ItemIndex == _itemIndex);
+                if (index < 0)
+                    return;
+                itemName = skinPremiumItemList[index].ItemName;
+                skinType = skinPremiumItemList[index].SkinType;
+                break;
+        }
+
+        if (string.IsNullOrEmpty(itemName))
+        {
+            Debug.LogError("There was a problem with the item purchase");
+            return;
+        }
+        // TODO: (if needed) Get island and its slot to save it, then call event to place it there
+        // TODO: Reduce currency amount with item price
+        // Save skin data
+        CatsDataSaveManager.Instance.UnlockSkin(skinType);
+        // TODO: Update catalogue to show this as skin purchased
+        // TODO: Show purchased animation
     }
 
     private void ShowSelectedItemEventCallback(int _itemIndex, ItemTier _itemType)

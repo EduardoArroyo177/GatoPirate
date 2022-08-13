@@ -9,9 +9,9 @@ public class CatSkinData : ScriptableObject
     [SerializeField]
     private SkinType skinType;
     [SerializeField]
-    private string skinName;
+    private ItemTier skinTier;
     [SerializeField]
-    private Sprite skinPreviewSprite;
+    private string skinName;
 
     [Header("Cat skin sprites")]
     [Header("Head")]
@@ -56,6 +56,27 @@ public class CatSkinData : ScriptableObject
     [SerializeField]
     private Color skinColor;
 
+    [Header("Catalogue data")]
+    [Header("Cat data")]
+    [SerializeField]
+    private string skinDescription;
+    [SerializeField]
+    private Sprite skinPreviewSprite;
+    [SerializeField]
+    private int skinPrice;
+
+    [Header("Unlock data")]
+    [SerializeField]
+    private Island islandToUnlock;
+    [SerializeField]
+    private bool isUnlocked;
+
+    // Skin data
+    public SkinType SkinType { get => skinType; set => skinType = value; }
+    public ItemTier SkinTier { get => skinTier; set => skinTier = value; }
+    public string SkinName { get => skinName; set => skinName = value; }
+
+    // Skin sprites
     public Sprite CatHeadFrontSkinSprite { get => catHeadFrontSkinSprite; set => catHeadFrontSkinSprite = value; }
     public Sprite CatHeadBackSkinSprite { get => catHeadBackSkinSprite; set => catHeadBackSkinSprite = value; }
     
@@ -76,4 +97,11 @@ public class CatSkinData : ScriptableObject
     public bool NoTail { get => noTail; set => noTail = value; }
 
     public Color SkinColor { get => skinColor; set => skinColor = value; }
+    public string SkinDescription { get => skinDescription; set => skinDescription = value; }
+    public Sprite SkinPreviewSprite { get => skinPreviewSprite; set => skinPreviewSprite = value; }
+    public int SkinPrice { get => skinPrice; set => skinPrice = value; }
+    public Island IslandToUnlock { get => islandToUnlock; set => islandToUnlock = value; }
+    public bool IsUnlocked { get => isUnlocked; set => isUnlocked = value; }
+
+    // Catalogue data
 }

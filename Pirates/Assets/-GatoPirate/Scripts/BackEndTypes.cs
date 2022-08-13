@@ -44,3 +44,23 @@ public class DataSaveCatCrewAmountStructure
        
 }
 #endregion
+
+#region Skin management
+
+[Serializable]
+public class DataSaveSkinStructure
+{
+    public string SkinType;
+}
+
+[Serializable]
+public class DataSaveSkinPurchasedStructure
+{
+    public List<DataSaveSkinStructure> purchasedSkinList;
+
+    public DataSaveSkinPurchasedStructure()
+    {
+        purchasedSkinList = new List<DataSaveSkinStructure>();
+    }
+}
+#endregion

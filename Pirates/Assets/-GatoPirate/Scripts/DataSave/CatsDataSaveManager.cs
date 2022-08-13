@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
 {
+    [Header("Cats")]
     [SerializeField]
     private DataSaveCatCrewStructure dataSaveCatCrewStructure;
     [SerializeField]
     private DataSaveCatCrewAmountStructure dataSaveCatCrewAmountStructure;
 
+    [Header("Skins")]
+    [SerializeField]
+    private DataSaveSkinPurchasedStructure dataSaveSkinPurchasedStructure;
+
+
     public const string CAT_SAVING_DATA_KEY = "CATS_OWNED";
     public const string CAT_SAVING_AMOUNT_DATA_KEY = "CATS_OWNED_AMOUNT";
+    public const string SKIN_SAVING_DATA_KEY = "SKINS_OWNED";
 
     // Properties
+    // Cats
     public DataSaveCatCrewStructure DataSaveCatCrewStructure { get => dataSaveCatCrewStructure; set => dataSaveCatCrewStructure = value; }
     public DataSaveCatCrewAmountStructure DataSaveCatCrewAmountStructure { get => dataSaveCatCrewAmountStructure; set => dataSaveCatCrewAmountStructure = value; }
-
+    // Skins
+    public DataSaveSkinPurchasedStructure DataSaveSkinPurchasedStructure { get => dataSaveSkinPurchasedStructure; set => dataSaveSkinPurchasedStructure = value; }
+    
+    
     #region Initialization
     public void LoadCatsSavedData()
     {
@@ -80,12 +91,14 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             DataSaveCatCrewStructure = JsonUtility.FromJson<DataSaveCatCrewStructure>(dataSave);
             string dataAmountSave = PlayerPrefs.GetString(CAT_SAVING_AMOUNT_DATA_KEY);
             DataSaveCatCrewAmountStructure = JsonUtility.FromJson<DataSaveCatCrewAmountStructure>(dataAmountSave);
-
+            string skinDataSave = PlayerPrefs.GetString(SKIN_SAVING_DATA_KEY);
+            DataSaveSkinPurchasedStructure = JsonUtility.FromJson<DataSaveSkinPurchasedStructure>(skinDataSave);
         }
     }
     #endregion
 
     #region Update data
+    // Cats
     public void SaveNewCat(CatType _catType, string _catID, string _catName, int _islandSlot = -1, Island _island = Island.ISLAND1)
     {
         DataSaveCatStructure newCatStructure = new DataSaveCatStructure();
@@ -129,6 +142,18 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
         DataSaveCatCrewStructure.DataSaveCatCrewList[catIndex].IslandSlot = _newSlotIndex;
         SaveCatData();
     }
+
+    // Skins
+    public void UnlockSkin(SkinType _skinType)
+    {
+        if (DataSaveSkinPurchasedStructure == null)
+            DataSaveSkinPurchasedStructure = new DataSaveSkinPurchasedStructure();
+
+        DataSaveSkinStructure dataSaveSkinStructure = new DataSaveSkinStructure();
+        dataSaveSkinStructure.SkinType = _skinType.ToString();
+        DataSaveSkinPurchasedStructure.purchasedSkinList.Add(dataSaveSkinStructure);
+        SaveSkinData();
+    }
     #endregion
 
     #region Get data
@@ -151,5 +176,10 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
     {
         PlayerPrefs.SetString(CAT_SAVING_DATA_KEY, JsonUtility.ToJson(DataSaveCatCrewStructure));
         PlayerPrefs.SetString(CAT_SAVING_AMOUNT_DATA_KEY, JsonUtility.ToJson(DataSaveCatCrewAmountStructure));
+    }
+
+    private void SaveSkinData()
+    {
+        PlayerPrefs.SetString(SKIN_SAVING_DATA_KEY, JsonUtility.ToJson(DataSaveSkinPurchasedStructure));
     }
 }

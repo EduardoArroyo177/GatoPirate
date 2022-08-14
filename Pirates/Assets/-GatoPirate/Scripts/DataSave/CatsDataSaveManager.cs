@@ -151,12 +151,13 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
 
         DataSaveSkinStructure dataSaveSkinStructure = new DataSaveSkinStructure();
         dataSaveSkinStructure.SkinType = _skinType.ToString();
-        DataSaveSkinPurchasedStructure.purchasedSkinList.Add(dataSaveSkinStructure);
+        DataSaveSkinPurchasedStructure.PurchasedSkinList.Add(dataSaveSkinStructure);
         SaveSkinData();
     }
     #endregion
 
     #region Get data
+    // Cats
     public DataSaveCatStructure GetCatStructureData(string _catID)
     {
         int catIndex = DataSaveCatCrewStructure.DataSaveCatCrewList.FindIndex(x => x.CatID.Equals(_catID));
@@ -169,6 +170,21 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
     public List<DataSaveCatStructure> GetCatShipCrewStructureData()
     {
         return DataSaveCatCrewStructure.DataSaveCatCrewList.FindAll(x => x.IslandSlot != -1);
+    }
+
+    // Skins
+    public List<DataSaveSkinStructure> GetPurchasedSkins()
+    {
+        return DataSaveSkinPurchasedStructure.PurchasedSkinList;
+    }
+
+    public bool IsSkingPurchased(string _skinType)
+    {
+        int skinIndex = DataSaveSkinPurchasedStructure.PurchasedSkinList.FindIndex(x => x.SkinType.Equals(_skinType));
+        if (skinIndex < 0)
+            return false;
+        else
+            return true;
     }
     #endregion
 

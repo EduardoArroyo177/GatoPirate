@@ -10,6 +10,7 @@ public class IslandCatsController : MonoBehaviour
     private List<IslandSlot> slotList;
 
     public CatTypeIDEvent NewCatPurchasedEvent { get; set; }
+    public GameObjectEvent TriggerSelectedCatCameraEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -37,6 +38,8 @@ public class IslandCatsController : MonoBehaviour
                     {
                         islandSlot.CatData = catData;
                         islandSlot.IsOccupied = true;
+                        islandSlot.CatID = CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatID;
+                        islandSlot.TriggerSelectedCatCameraEvent = TriggerSelectedCatCameraEvent;
                         // TODO: Get Cat Skin Data
                         islandSlot.InitializeCat();
                     }
@@ -55,6 +58,9 @@ public class IslandCatsController : MonoBehaviour
                 {
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CatData = catData;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].IsOccupied = true;
+                    slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CatID =
+                        CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatID;
+                    slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].TriggerSelectedCatCameraEvent = TriggerSelectedCatCameraEvent;
                     // TODO: Get and set Skin data
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].InitializeCat();
                 }
@@ -80,6 +86,8 @@ public class IslandCatsController : MonoBehaviour
             {
                 islandSlot.CatData = catData;
                 islandSlot.IsOccupied = true;
+                islandSlot.CatID = _catID;
+                islandSlot.TriggerSelectedCatCameraEvent = TriggerSelectedCatCameraEvent;
                 islandSlot.InitializeCat();
             }
         }
@@ -105,5 +113,14 @@ public class IslandCatsController : MonoBehaviour
         {
             slotList[index].CleanSlot();
         }
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var item in _eventHandlers)
+        {
+            item.UnregisterListener();
+        }
+        _eventHandlers.Clear();
     }
 }

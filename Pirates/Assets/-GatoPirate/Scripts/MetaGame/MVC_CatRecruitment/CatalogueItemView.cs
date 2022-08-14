@@ -17,6 +17,8 @@ public class CatalogueItemView : MonoBehaviour
     private Button btn_purchaseItem;
     [SerializeField]
     private TextMeshProUGUI lbl_purchasePrice;
+    [SerializeField]
+    private GameObject pnl_purchasedItem;
 
     [Header("Item locked")]
     [SerializeField]
@@ -93,6 +95,12 @@ public class CatalogueItemView : MonoBehaviour
         btn_purchaseItem.gameObject.SetActive(true);
         btn_goToStore.SetActive(false);
         img_lockedOverlay.SetActive(false);
+    }
+
+    public void SetAsPurchased()
+    {
+        btn_purchaseItem.gameObject.SetActive(false);
+        pnl_purchasedItem.SetActive(true);
     }
     #endregion
 

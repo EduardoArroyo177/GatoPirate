@@ -33,7 +33,8 @@ public class CatRecruitmentController : MonoBehaviour
     public VoidEvent CloseRecruitmentViewEvent { get; set; }
 
     // Information view
-    public IntCatalogueTypeEvent ShowSelectedItemEvent { get; set; }
+    public IntCatalogueTypeEvent ShowSelectedCatInfoEvent { get; set; }
+    public IntCatalogueTypeEvent ShowSelectedSkinInfoEvent { get; set; }
 
     // Island update
     public CatTypeIDEvent NewCatPurchasedEvent { get; set; }
@@ -53,8 +54,8 @@ public class CatRecruitmentController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueCatEvent, PurchaseCatalogueCatEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueSkinEvent, PurchaseCatalogueSkinEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CloseRecruitmentViewEvent, CloseRecruitmentViewEventCallback));
-        _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedItemEvent, ShowSelectedItemEventCallback));
-
+        _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedCatInfoEvent, ShowSelectedItemEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedSkinInfoEvent, ShowSelectedSkinInfoEventCallback));
 
         catRecruitmentPopUpsView.CloseRecruitmentViewEvent = CloseRecruitmentViewEvent;
         catRecruitmentPopUpsView.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
@@ -82,7 +83,7 @@ public class CatRecruitmentController : MonoBehaviour
             catalogueCatItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
             // Events
             catalogueCatItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueCatEvent;
-            catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
+            catalogueCatItemViewHelper.ShowSelectedItemEvent = ShowSelectedCatInfoEvent;
             catalogueCatItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
             // Setting data
             catalogueCatItemViewHelper.SetIndexAndTypes(index, catDataHelper.CatTier, catDataHelper.CatType);
@@ -127,7 +128,7 @@ public class CatRecruitmentController : MonoBehaviour
             catalogueSkinItemViewHelper = catItemViewHelper.GetComponent<CatalogueItemView>();
             // Events
             catalogueSkinItemViewHelper.PurchaseCatalogueItemEvent = PurchaseCatalogueSkinEvent;
-            catalogueSkinItemViewHelper.ShowSelectedItemEvent = ShowSelectedItemEvent;
+            catalogueSkinItemViewHelper.ShowSelectedItemEvent = ShowSelectedSkinInfoEvent;
             catalogueSkinItemViewHelper.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
             // Setting data
             catalogueSkinItemViewHelper.SetIndexAndTypes(index, skinDataHelper.SkinTier, skinDataHelper.SkinType);
@@ -135,12 +136,16 @@ public class CatRecruitmentController : MonoBehaviour
             catalogueSkinItemViewHelper.SetDescription(skinDataHelper.SkinDescription);
             catalogueSkinItemViewHelper.SetSprite(skinDataHelper.SkinPreviewSprite);
             catalogueSkinItemViewHelper.SetPurchasePrice(skinDataHelper.SkinPrice);
+            
             // TODO: Check if currency is enough to buy
             //if (skinDataHelper.IsUnlocked)
             //    catalogueSkinItemViewHelper.SetItemUnlocked();
             //else
             //    catalogueSkinItemViewHelper.SetItemLocked();
             catalogueSkinItemViewHelper.SetItemUnlocked();
+
+            if (CatsDataSaveManager.Instance.IsSkingPurchased(skinDataHelper.SkinType.ToString()))
+                catalogueSkinItemViewHelper.SetAsPurchased();
 
             if (skinDataHelper.SkinTier.Equals(ItemTier.BASIC))
             {
@@ -218,6 +223,7 @@ public class CatRecruitmentController : MonoBehaviour
                     return;
                 itemName = skinBasicItemList[index].ItemName;
                 skinType = skinBasicItemList[index].SkinType;
+                skinBasicItemList[index].SetAsPurchased();
                 break;
             case ItemTier.SPECIAL:
                 index = skinSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
@@ -225,6 +231,7 @@ public class CatRecruitmentController : MonoBehaviour
                     return;
                 itemName = skinSpecialItemList[index].ItemName;
                 skinType = skinSpecialItemList[index].SkinType;
+                skinSpecialItemList[index].SetAsPurchased();
                 break;
             case ItemTier.PREMIUM:
                 index = skinPremiumItemList.FindIndex(x => x.ItemIndex == _itemIndex);
@@ -232,6 +239,7 @@ public class CatRecruitmentController : MonoBehaviour
                     return;
                 itemName = skinPremiumItemList[index].ItemName;
                 skinType = skinPremiumItemList[index].SkinType;
+                skinPremiumItemList[index].SetAsPurchased();
                 break;
         }
 
@@ -244,7 +252,6 @@ public class CatRecruitmentController : MonoBehaviour
         // TODO: Reduce currency amount with item price
         // Save skin data
         CatsDataSaveManager.Instance.UnlockSkin(skinType);
-        // TODO: Update catalogue to show this as skin purchased
         // TODO: Show purchased animation
     }
 
@@ -278,12 +285,56 @@ public class CatRecruitmentController : MonoBehaviour
                 itemDescription = catSpecialItemList[index].ItemDescription;
                 itemPrice = catSpecialItemList[index].ItemPrice;
                 break;
-            //case ItemTier.SKIN_BASIC:
-            //    break;
-            //case ItemTier.SKIN_SPECIAL:
-            //    break;
-            //case ItemTier.SKIN_PREMIUM:
-            //    break;
+        }
+
+        if (string.IsNullOrEmpty(itemName))
+        {
+            Debug.LogError("There was a problem with the item information display");
+            return;
+        }
+
+        catRecruitmentSelectedItemView.ShowSelectedCatInfo(itemName, itemSprite, itemDescription, itemPrice);
+    }
+
+    private void ShowSelectedSkinInfoEventCallback(int _itemIndex, ItemTier _itemType)
+    {
+        catRecruitmentSelectedItemView.SetItemData(_itemIndex, _itemType);
+
+        int index;
+        string itemName = "";
+        Sprite itemSprite = null;
+        string itemDescription = "";
+        int itemPrice = -1;
+
+        switch (_itemType)
+        {
+            case ItemTier.BASIC:
+                index = skinBasicItemList.FindIndex(x => x.ItemIndex == _itemIndex);
+                if (index < 0)
+                    return;
+                itemName = skinBasicItemList[index].ItemName;
+                itemSprite = skinBasicItemList[index].ItemSprite;
+                itemDescription = skinBasicItemList[index].ItemDescription;
+                itemPrice = skinBasicItemList[index].ItemPrice;
+                break;
+            case ItemTier.SPECIAL:
+                index = skinSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
+                if (index < 0)
+                    return;
+                itemName = skinSpecialItemList[index].ItemName;
+                itemSprite = skinSpecialItemList[index].ItemSprite;
+                itemDescription = skinSpecialItemList[index].ItemDescription;
+                itemPrice = skinSpecialItemList[index].ItemPrice;
+                break;
+            case ItemTier.PREMIUM:
+                index = skinPremiumItemList.FindIndex(x => x.ItemIndex == _itemIndex);
+                if (index < 0)
+                    return;
+                itemName = skinPremiumItemList[index].ItemName;
+                itemSprite = skinPremiumItemList[index].ItemSprite;
+                itemDescription = skinPremiumItemList[index].ItemDescription;
+                itemPrice = skinPremiumItemList[index].ItemPrice;
+                break;
         }
 
         if (string.IsNullOrEmpty(itemName))

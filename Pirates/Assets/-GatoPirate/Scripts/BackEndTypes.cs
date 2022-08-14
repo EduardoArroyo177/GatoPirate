@@ -56,11 +56,11 @@ public class DataSaveSkinStructure
 [Serializable]
 public class DataSaveSkinPurchasedStructure
 {
-    public List<DataSaveSkinStructure> purchasedSkinList;
+    public List<DataSaveSkinStructure> PurchasedSkinList;
 
     public DataSaveSkinPurchasedStructure()
     {
-        purchasedSkinList = new List<DataSaveSkinStructure>();
+        PurchasedSkinList = new List<DataSaveSkinStructure>();
     }
 }
 #endregion

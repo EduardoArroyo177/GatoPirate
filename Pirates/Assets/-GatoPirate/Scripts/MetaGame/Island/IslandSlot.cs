@@ -19,6 +19,9 @@ public class IslandSlot : MonoBehaviour
 
     // Events
     public GameObjectEvent TriggerSelectedCatCameraEvent { get; set; }
+    public StringEvent OpenSelectedCatOptionsEvent { get; set; }
+    public VoidEvent CloseSelectedCatCameraEvent { get; set; }
+    public VoidEvent CatSelectedEvent { get; set; }
 
     private IslandSlotButton islandSlotButton;
 
@@ -32,6 +35,9 @@ public class IslandSlot : MonoBehaviour
         if (islandSlotButton)
         {
             islandSlotButton.TriggerSelectedCatCameraEvent = TriggerSelectedCatCameraEvent;
+            islandSlotButton.OpenSelectedCatOptionsEvent = OpenSelectedCatOptionsEvent;
+            islandSlotButton.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
+            islandSlotButton.CatSelectedEvent = CatSelectedEvent;
             islandSlotButton.Initialize(CatID);
         }
     }

@@ -5,18 +5,21 @@ using UnityEngine;
 
 public class CatOptionsView : MonoBehaviour
 {
-    public VoidEvent CloseSelectedCatCameraEvent { get; set; }
+    public CatOptionsController catOptionsController;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void ClosePopUp()
     {
-        
+        catOptionsController.CloseSelectedCamera();
+        gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OpenCatCrew()
     {
-        
+        catOptionsController.OpenCatCrewManagement();
+    }
+
+    public void ChangeSkin()
+    { 
+    
     }
 }

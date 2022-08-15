@@ -19,6 +19,8 @@ public class MetaGameBootstrapper : MonoBehaviour
     private IslandCatsController islandCatsController;
     [SerializeField]
     private CatTypeIDEvent NewCatPurchasedEvent;
+    [SerializeField]
+    private VoidEvent CatSelectedEvent;
 
     [Header("Cat Crew Management")]
     [SerializeField]
@@ -27,6 +29,8 @@ public class MetaGameBootstrapper : MonoBehaviour
     private IntEvent SelectCatEvent;
     [SerializeField]
     private ShipSlotViewEvent SelectShipSlotEvent;
+    [SerializeField]
+    private StringEvent OpenCatCrewManagementEvent;
 
     [Header("Cat Recruitment")]
     [SerializeField]
@@ -46,12 +50,19 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField]
     private VoidEvent OpenCrewManagementPopUpEvent;
 
+    [Header("Cat options")]
+    [SerializeField]
+    private CatOptionsController catOptionsController;
+    [SerializeField]
+    private StringEvent OpenSelectedCatOptionsEvent;
+    
+
     private void Awake()
     {
         // First loading data
         CatsDataSaveManager.Instance.LoadCatsSavedData();
 
-        // Vritual cameras
+        // Virtual cameras
         virtualCameraControllerMainMenu.TriggerSelectedCatCameraEvent = TriggerSelectedCatCameraEvent;
         virtualCameraControllerMainMenu.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
         virtualCameraControllerMainMenu.Initialize();
@@ -59,12 +70,16 @@ public class MetaGameBootstrapper : MonoBehaviour
         // Island
         islandCatsController.NewCatPurchasedEvent = NewCatPurchasedEvent;
         islandCatsController.TriggerSelectedCatCameraEvent = TriggerSelectedCatCameraEvent;
+        islandCatsController.OpenSelectedCatOptionsEvent = OpenSelectedCatOptionsEvent;
+        islandCatsController.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
+        islandCatsController.CatSelectedEvent = CatSelectedEvent;
         islandCatsController.Initialize();
 
         // Cat crew management
         catCrewManagementController.SelectCatEvent = SelectCatEvent;
         catCrewManagementController.SelectShipSlotEvent = SelectShipSlotEvent;
         catCrewManagementController.NewCatPurchasedEvent = NewCatPurchasedEvent;
+        catCrewManagementController.OpenCatCrewManagementEvent = OpenCatCrewManagementEvent;
         catCrewManagementController.Initialize();
 
         // Cat recruitment
@@ -77,5 +92,11 @@ public class MetaGameBootstrapper : MonoBehaviour
         catRecruitmentController.OpenCrewManagementPopUpEvent = OpenCrewManagementPopUpEvent;
         catRecruitmentController.NewCatPurchasedEvent = NewCatPurchasedEvent;
         catRecruitmentController.Initialize();
+
+        // Cat options
+        catOptionsController.OpenSelectedCatOptionsEvent = OpenSelectedCatOptionsEvent;
+        catOptionsController.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
+        catOptionsController.OpenCatCrewManagementEvent = OpenCatCrewManagementEvent;
+        catOptionsController.Initialize();
     }
 }

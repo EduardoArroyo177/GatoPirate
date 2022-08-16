@@ -144,7 +144,7 @@ public class CatRecruitmentController : MonoBehaviour
             //    catalogueSkinItemViewHelper.SetItemLocked();
             catalogueSkinItemViewHelper.SetItemUnlocked();
 
-            if (CatsDataSaveManager.Instance.IsSkingPurchased(skinDataHelper.SkinType.ToString()))
+            if (CatsDataSaveManager.Instance.IsSkinPurchased(skinDataHelper.SkinType.ToString()))
                 catalogueSkinItemViewHelper.SetAsPurchased();
 
             if (skinDataHelper.SkinTier.Equals(ItemTier.BASIC))

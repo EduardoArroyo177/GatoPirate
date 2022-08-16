@@ -103,7 +103,10 @@ public class CatBodyBuilder : MonoBehaviour
     public void InitializeSkin()
     {
         if (!catSkinData)
+        {
+            RestartSkinData();
             return;
+        }
 
         // Head
         if (CatSkinData.CatHeadFrontSkinSprite)
@@ -192,7 +195,7 @@ public class CatBodyBuilder : MonoBehaviour
         }
     }
 
-    public void RestartData()
+    public void RestartCatData()
     {
         catHeadRenderer.sprite = null;
         catBodyRenderer.sprite = null;
@@ -203,6 +206,10 @@ public class CatBodyBuilder : MonoBehaviour
         catTailRenderer.sprite = null;
         catFaceRenderer.sprite = null;
 
+    }
+
+    public void RestartSkinData()
+    {
         catHeadFrontSkinRenderer.sprite = null;
         catHeadBackSkinRenderer.sprite = null;
         catBodyFrontSkinRenderer.sprite = null;
@@ -212,7 +219,7 @@ public class CatBodyBuilder : MonoBehaviour
         catRightPawSkinRenderer.sprite = null;
         catRightPawAccesorySkinRenderer.sprite = null;
         catLeftBottomPawSkinRenderer.sprite = null;
-        catRightBottomPawSkinRenderer = null;
+        catRightBottomPawSkinRenderer.sprite = null;
         catTailSkinRenderer.sprite = null;
     }
 }

@@ -45,6 +45,7 @@ public class IslandSlot : MonoBehaviour
     public void CleanSlot()
     {
         isOccupied = false;
-        catBodyBuilder.RestartData();
+        catBodyBuilder.RestartCatData();
+        catBodyBuilder.RestartSkinData();
     }
 }

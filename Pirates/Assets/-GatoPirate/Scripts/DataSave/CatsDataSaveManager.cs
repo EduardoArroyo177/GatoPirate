@@ -82,7 +82,9 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatAmountStructure.CatType = CatType.ORANGE.ToString();
             initialCatAmountStructure.CatsOwnedAmount = 3;
             DataSaveCatCrewAmountStructure.DataSaveCatCrewAmountList.Add(initialCatAmountStructure);
-            
+
+            DataSaveSkinPurchasedStructure = new DataSaveSkinPurchasedStructure();
+
             SaveCatData();
         }
         else
@@ -146,9 +148,6 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
     // Skins
     public void UnlockSkin(SkinType _skinType)
     {
-        if (DataSaveSkinPurchasedStructure == null)
-            DataSaveSkinPurchasedStructure = new DataSaveSkinPurchasedStructure();
-
         DataSaveSkinStructure dataSaveSkinStructure = new DataSaveSkinStructure();
         dataSaveSkinStructure.SkinType = _skinType.ToString();
         DataSaveSkinPurchasedStructure.PurchasedSkinList.Add(dataSaveSkinStructure);
@@ -191,8 +190,11 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
         return DataSaveSkinPurchasedStructure.PurchasedSkinList;
     }
 
-    public bool IsSkingPurchased(string _skinType)
+    public bool IsSkinPurchased(string _skinType)
     {
+        if (DataSaveSkinPurchasedStructure.PurchasedSkinList.Count <= 0)
+            return false;
+
         int skinIndex = DataSaveSkinPurchasedStructure.PurchasedSkinList.FindIndex(x => x.SkinType.Equals(_skinType));
         if (skinIndex < 0)
             return false;

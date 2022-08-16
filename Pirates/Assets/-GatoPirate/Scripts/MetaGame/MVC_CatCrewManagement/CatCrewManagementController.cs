@@ -60,7 +60,6 @@ public class CatCrewManagementController : MonoBehaviour
             catDataHelper = CatsModel.Instance.GetCatData(catDataSaveListHelper[index].CatType);
             skinDataHelper = CatsModel.Instance.GetSkinData(catDataSaveListHelper[index].SkinType);
             catViewHelper = Instantiate(catCrewManagementView.CatView);
-            // TODO: Get skin data
 
             ownedCatViewHelper = catViewHelper.GetComponent<OwnedCatView>();
             // Events
@@ -199,8 +198,7 @@ public class CatCrewManagementController : MonoBehaviour
         
          // Get cat data
         selectedCatData = CatsModel.Instance.GetCatData(selectedCat.CatType);
-        // TODO: Get skin data
-        //CatSkinData skinData = CatsModel.Instance.GetSkinData();
+        selectedSkinData = CatsModel.Instance.GetSkinData(selectedCat.SkinType);
 
         // Check if slot is already selected
         if (isShipSlotCatSelected)
@@ -220,7 +218,7 @@ public class CatCrewManagementController : MonoBehaviour
             selectedSlot.InitializeCat();
             selectedSlot.CurrentCatIndex = selectedCatIndex;
 
-            // TODO: Save new cat crew here?
+            // TODO: Move save data to its own button ((Accept/Combat button)
             CatsDataSaveManager.Instance.UpdateCatIslandSlot(selectedSlot.CatID, selectedSlot.SlotIndex);
 
             // Remove selected cat from list

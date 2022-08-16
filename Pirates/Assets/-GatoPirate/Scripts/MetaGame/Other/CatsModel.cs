@@ -24,4 +24,15 @@ public class CatsModel : SceneSingleton<CatsModel>
             return CatsDataList[index];
     }
 
+    public CatSkinData GetSkinData(string _skinType)
+    {
+        int index = CatsSkinDataList.FindIndex(x => x.SkinType.ToString().Equals(_skinType));
+        if (index < 0)
+        {
+            return null;
+        }
+        else
+            return CatsSkinDataList[index];
+    }
+
 }

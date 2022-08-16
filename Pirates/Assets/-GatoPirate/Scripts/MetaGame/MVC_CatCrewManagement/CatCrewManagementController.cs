@@ -19,6 +19,7 @@ public class CatCrewManagementController : MonoBehaviour
     public ShipSlotViewEvent SelectShipSlotEvent { get; set; }
     public CatTypeIDEvent NewCatPurchasedEvent { get; set; }
     public StringEvent OpenCatCrewManagementEvent { get; set; }
+    public StringEvent CatUpdatedEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private List<OwnedCatView> ownedCatsList = new();
@@ -40,6 +41,7 @@ public class CatCrewManagementController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<ShipSlotView>.BuildEventHandler(SelectShipSlotEvent, SelectShipSlotEventCallback));
         _eventHandlers.Add(EventHandlerFactory<CatType, string>.BuildEventHandler(NewCatPurchasedEvent, NewCatPurchasedEventCallback));
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(OpenCatCrewManagementEvent, OpenCatCrewManagementEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(CatUpdatedEvent, CatUpdatedEventCallback));
 
         FillCatInventoryData();
         FillCurrentShipCatData();
@@ -51,10 +53,12 @@ public class CatCrewManagementController : MonoBehaviour
         GameObject catViewHelper;
         OwnedCatView ownedCatViewHelper;
         CatData catDataHelper;
+        CatSkinData skinDataHelper;
         List<DataSaveCatStructure> catDataSaveListHelper = CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList;
         for (int index = 0; index < catDataSaveListHelper.Count; index++)
         {
             catDataHelper = CatsModel.Instance.GetCatData(catDataSaveListHelper[index].CatType);
+            skinDataHelper = CatsModel.Instance.GetSkinData(catDataSaveListHelper[index].SkinType);
             catViewHelper = Instantiate(catCrewManagementView.CatView);
             // TODO: Get skin data
 
@@ -64,7 +68,7 @@ public class CatCrewManagementController : MonoBehaviour
             // Setting data
             ownedCatViewHelper.SetIndexAndID(index, catDataSaveListHelper[index].CatID);
             ownedCatViewHelper.SetName(catDataSaveListHelper[index].CatName);
-            ownedCatViewHelper.SetCatAndSkinData(catDataHelper);
+            ownedCatViewHelper.SetCatAndSkinData(catDataHelper, skinDataHelper);
 
             // Set catalogues
             catCrewManagementView.EnabledCatalogues = SetEnabledCatalogues(index);
@@ -138,6 +142,7 @@ public class CatCrewManagementController : MonoBehaviour
         }
 
         CatData catDataHelper;
+        CatSkinData skinDataHelper;
         List<DataSaveCatStructure> catDataSaveListHelper = CatsDataSaveManager.Instance.GetCatShipCrewStructureData();
         int slotIndexHelper = 0;
         if (catDataSaveListHelper != null || catDataSaveListHelper.Count > 0)
@@ -149,7 +154,8 @@ public class CatCrewManagementController : MonoBehaviour
                 // Cat data
                 catDataHelper = CatsModel.Instance.GetCatData(catDataSaveListHelper[index].CatType);
                 shipSlotViewList[slotIndexHelper].CatData = catDataHelper;
-                // TODO: Get skin data
+                skinDataHelper = CatsModel.Instance.GetSkinData(catDataSaveListHelper[index].SkinType);
+                shipSlotViewList[slotIndexHelper].SkinData = skinDataHelper;
 
                 shipSlotViewList[slotIndexHelper].InitializeCat();
 
@@ -292,6 +298,31 @@ public class CatCrewManagementController : MonoBehaviour
         catCrewManagementView.EnabledCatalogues = SetEnabledCatalogues(ownedCatsList.Count - 1);
         ownedCatViewHelper.transform.SetParent(catCrewManagementView.OwnedCatsContentList[currentContentIndex]);
         catalogueNavigationView.Initialize(catCrewManagementView.EnabledCatalogues);
+    }
+
+    private void CatUpdatedEventCallback(string _catID)
+    {
+        DataSaveCatStructure cat = CatsDataSaveManager.Instance.GetCatStructureData(_catID);
+        CatData catData = CatsModel.Instance.GetCatData(cat.CatType); ;
+        CatSkinData skinData = CatsModel.Instance.GetSkinData(cat.SkinType); 
+
+        // Find cat in catalogues
+        int catIndex = ownedCatsList.FindIndex(x => x.CatID.Equals(_catID));
+        if (catIndex >= 0)
+        {
+            ownedCatsList[catIndex].SetCatAndSkinData(catData, skinData);
+        }
+
+        // Find cat in ship slots
+        for (int index = 0; index < shipSlotViewList.Length; index++)
+        {
+            if (shipSlotViewList[index].CatID.Equals(_catID))
+            {
+                shipSlotViewList[index].CatData = catData;
+                shipSlotViewList[index].SkinData = skinData;
+                shipSlotViewList[index].InitializeCat();
+            }
+        }
     }
     #endregion
 

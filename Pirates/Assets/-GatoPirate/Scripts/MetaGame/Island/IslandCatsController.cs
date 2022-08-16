@@ -14,18 +14,22 @@ public class IslandCatsController : MonoBehaviour
     public StringEvent OpenSelectedCatOptionsEvent { get; set; }
     public VoidEvent CloseSelectedCatCameraEvent { get; set; }
     public VoidEvent CatSelectedEvent { get; set; }
+    public StringEvent CatUpdatedEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory<CatType, string>.BuildEventHandler(NewCatPurchasedEvent, NewCatPurchasedEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(CatUpdatedEvent, CatUpdatedEventCallback));
         SetIslandCats();
     }
 
     private void SetIslandCats()
     {
         CatData catData;
+        CatSkinData skinData;
         IslandSlot islandSlot;
 
         // Get island slots
@@ -37,21 +41,25 @@ public class IslandCatsController : MonoBehaviour
                 if (islandSlot) // If not, means there is no empty space, so we do nothing
                 {
                     catData = CatsModel.Instance.GetCatData(CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatType);
+                    skinData = CatsModel.Instance.GetSkinData(CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].SkinType);
                     if (catData)
                     {
+                        // Cat data
                         islandSlot.CatData = catData;
+                        islandSlot.SkinData = skinData;
                         islandSlot.IsOccupied = true;
                         islandSlot.CatID = CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatID;
+                        // Events
                         islandSlot.TriggerSelectedCatCameraEvent = TriggerSelectedCatCameraEvent;
                         islandSlot.OpenSelectedCatOptionsEvent = OpenSelectedCatOptionsEvent;
                         islandSlot.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
                         islandSlot.CatSelectedEvent = CatSelectedEvent;
-                        // TODO: Get Cat Skin Data
+
                         islandSlot.InitializeCat();
                     }
                     else
                     {
-                        Debug.LogError("Cat type not found in CatType Model");
+                        Debug.LogError("Cat type not found in SkinType Model");
                     }
                 }
                     
@@ -60,29 +68,33 @@ public class IslandCatsController : MonoBehaviour
             else if (CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot != -1)
             {
                 catData = CatsModel.Instance.GetCatData(CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatType);
+                skinData = CatsModel.Instance.GetSkinData(CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].SkinType);
                 if (catData)
                 {
+                    // Cat data
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CatData = catData;
+                    slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].SkinData = skinData;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].IsOccupied = true;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CatID =
                         CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatID;
+                    // Events
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].TriggerSelectedCatCameraEvent = TriggerSelectedCatCameraEvent;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].OpenSelectedCatOptionsEvent = OpenSelectedCatOptionsEvent;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CatSelectedEvent = CatSelectedEvent;
 
-                    // TODO: Get and set Skin data
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].InitializeCat();
                 }
                 else
                 {
-                    Debug.LogError("Cat type not found in CatType Model");
+                    Debug.LogError("Cat type not found in SkinType Model");
 
                 }
             }
         }
     }
 
+    #region Event callbacks
     private void NewCatPurchasedEventCallback(CatType _catType, string _catID)
     {
 
@@ -106,6 +118,20 @@ public class IslandCatsController : MonoBehaviour
         }
     }
 
+    private void CatUpdatedEventCallback(string _catID)
+    {
+        int index = slotList.FindIndex(x => x.CatID.Equals(_catID));
+        if (index < 0)
+            return;
+
+        DataSaveCatStructure cat = CatsDataSaveManager.Instance.GetCatStructureData(_catID);
+        if (cat != null)
+        {
+            slotList[index].SkinData = CatsModel.Instance.GetSkinData(cat.SkinType);
+            slotList[index].InitializeCat();
+        }
+    }
+    #endregion
     public IslandSlot GetEmptySlot()
     {
         List<IslandSlot> emptySlotList = slotList.FindAll(x => x.IsOccupied == false);

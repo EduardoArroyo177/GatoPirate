@@ -154,6 +154,19 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
         DataSaveSkinPurchasedStructure.PurchasedSkinList.Add(dataSaveSkinStructure);
         SaveSkinData();
     }
+
+    public void UpdateCatSkin(string _catID, SkinType _skinType)
+    {
+        int catIndex = DataSaveCatCrewStructure.DataSaveCatCrewList.FindIndex(x => x.CatID.Equals(_catID));
+        if (catIndex < 0)
+        {
+            Debug.LogError("Cat ID Not found");
+            return;
+        }
+
+        DataSaveCatCrewStructure.DataSaveCatCrewList[catIndex].SkinType = _skinType.ToString();
+        SaveCatData();
+    }
     #endregion
 
     #region Get data

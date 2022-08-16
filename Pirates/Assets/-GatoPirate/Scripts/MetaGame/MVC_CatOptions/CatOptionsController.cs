@@ -12,6 +12,7 @@ public class CatOptionsController : MonoBehaviour
     public StringEvent OpenSelectedCatOptionsEvent { get; set; }
     public VoidEvent CloseSelectedCatCameraEvent { get; set; }
     public StringEvent OpenCatCrewManagementEvent { get; set; }
+    public StringEvent OpenSkinManagementEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -28,7 +29,6 @@ public class CatOptionsController : MonoBehaviour
     {
         catID = _catID;
         catOptionsView.gameObject.SetActive(true);
-        Debug.Log($"Cat selected! {_catID}");
     }
     #endregion
 
@@ -44,8 +44,8 @@ public class CatOptionsController : MonoBehaviour
     }
 
     public void OpenSkinManagementScreen()
-    { 
-        // Raise string event with catid
+    {
+        OpenSkinManagementEvent.Raise(catID);
     }
     #endregion
 

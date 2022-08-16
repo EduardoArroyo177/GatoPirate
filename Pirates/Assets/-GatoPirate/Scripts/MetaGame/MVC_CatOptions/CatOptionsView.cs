@@ -19,7 +19,7 @@ public class CatOptionsView : MonoBehaviour
     }
 
     public void ChangeSkin()
-    { 
-    
+    {
+        catOptionsController.OpenSkinManagementScreen();
     }
 }

@@ -29,8 +29,6 @@ public class MetaGameBootstrapper : MonoBehaviour
     private IntEvent SelectCatEvent;
     [SerializeField]
     private ShipSlotViewEvent SelectShipSlotEvent;
-    [SerializeField]
-    private StringEvent OpenCatCrewManagementEvent;
 
     [Header("Cat Recruitment")]
     [SerializeField]
@@ -55,7 +53,19 @@ public class MetaGameBootstrapper : MonoBehaviour
     private CatOptionsController catOptionsController;
     [SerializeField]
     private StringEvent OpenSelectedCatOptionsEvent;
-    
+    [SerializeField]
+    private StringEvent OpenCatCrewManagementEvent;
+    [SerializeField]
+    public StringEvent OpenSkinManagementEvent;
+
+    [Header("Skin management")]
+    [SerializeField]
+    private CatSkinManagementController catSkinManagementController;
+    [SerializeField]
+    private IntEvent SelectSkinEvent;
+    [SerializeField]
+    private StringEvent CatUpdatedEvent;
+
 
     private void Awake()
     {
@@ -73,6 +83,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         islandCatsController.OpenSelectedCatOptionsEvent = OpenSelectedCatOptionsEvent;
         islandCatsController.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
         islandCatsController.CatSelectedEvent = CatSelectedEvent;
+        islandCatsController.CatUpdatedEvent = CatUpdatedEvent;
         islandCatsController.Initialize();
 
         // Cat crew management
@@ -80,6 +91,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catCrewManagementController.SelectShipSlotEvent = SelectShipSlotEvent;
         catCrewManagementController.NewCatPurchasedEvent = NewCatPurchasedEvent;
         catCrewManagementController.OpenCatCrewManagementEvent = OpenCatCrewManagementEvent;
+        catCrewManagementController.CatUpdatedEvent = CatUpdatedEvent;
         catCrewManagementController.Initialize();
 
         // Cat recruitment
@@ -97,6 +109,13 @@ public class MetaGameBootstrapper : MonoBehaviour
         catOptionsController.OpenSelectedCatOptionsEvent = OpenSelectedCatOptionsEvent;
         catOptionsController.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
         catOptionsController.OpenCatCrewManagementEvent = OpenCatCrewManagementEvent;
+        catOptionsController.OpenSkinManagementEvent = OpenSkinManagementEvent;
         catOptionsController.Initialize();
+
+        // Skin management
+        catSkinManagementController.OpenSkinManagementEvent = OpenSkinManagementEvent;
+        catSkinManagementController.SelectSkinEvent = SelectSkinEvent;
+        catSkinManagementController.CatUpdatedEvent = CatUpdatedEvent;
+        catSkinManagementController.Initialize();
     }
 }

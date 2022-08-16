@@ -55,6 +55,7 @@ public class CatBodyBuilderUI : MonoBehaviour
     [SerializeField]
     private Image catTailSkinImage;
 
+
     public CatData CatData { get => catData; set => catData = value; }
     public CatSkinData CatSkinData { get => catSkinData; set => catSkinData = value; }
 
@@ -112,7 +113,10 @@ public class CatBodyBuilderUI : MonoBehaviour
     private void InitializeSkin()
     {
         if (!catSkinData)
+        {
+            RestartSkin();
             return;
+        }
 
         // Head
         if (CatSkinData.CatHeadFrontSkinSprite)
@@ -240,7 +244,7 @@ public class CatBodyBuilderUI : MonoBehaviour
         }
     }
 
-    public void RestartData()
+    public void RestartCat()
     {
         catHeadImage.sprite = null;
         catBodyImage.sprite = null;
@@ -250,17 +254,41 @@ public class CatBodyBuilderUI : MonoBehaviour
         catRightBottomPawImage.sprite = null;
         catTailImage.sprite = null;
         catFaceImage.sprite = null;
+    }
 
+    public void RestartSkin()
+    {
         catHeadFrontSkinImage.sprite = null;
+        catHeadFrontSkinImage.gameObject.SetActive(false);
+
         catHeadBackSkinImage.sprite = null;
+        catHeadBackSkinImage.gameObject.SetActive(false);
+
         catBodyFrontSkinImage.sprite = null;
+        catBodyFrontSkinImage.gameObject.SetActive(false);
+
         catBodyBackSkinImage.sprite = null;
+        catBodyBackSkinImage.gameObject.SetActive(false);
+
         catLeftPawSkinImage.sprite = null;
+        catLeftPawSkinImage.gameObject.SetActive(false);
+
         catLeftPawAccesorySkinImage.sprite = null;
+        catLeftPawAccesorySkinImage.gameObject.SetActive(false);
+
         catRightPawSkinImage.sprite = null;
+        catRightPawSkinImage.gameObject.SetActive(false);
+
         catRightPawAccesorySkinImage.sprite = null;
+        catRightPawAccesorySkinImage.gameObject.SetActive(false);
+
         catLeftBottomPawSkinImage.sprite = null;
-        catRightBottomPawSkinImage = null;
+        catLeftBottomPawSkinImage.gameObject.SetActive(false);
+
+        catRightBottomPawSkinImage.sprite = null;
+        catRightBottomPawSkinImage.gameObject.SetActive(false);
+
         catTailSkinImage.sprite = null;
+        catTailSkinImage.gameObject.SetActive(false);
     }
 }

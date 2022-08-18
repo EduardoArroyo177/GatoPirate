@@ -16,7 +16,7 @@ public class OwnedSkinView : MonoBehaviour
 
     public IntEvent SelectSkinEvent { get; set; }
 
-    public int SkinIndex { get; set; }
+    public int SkinIndex;// { get; set; }
     public SkinType SkinType { get; set; }
     public string SkinName { get; set; }
 

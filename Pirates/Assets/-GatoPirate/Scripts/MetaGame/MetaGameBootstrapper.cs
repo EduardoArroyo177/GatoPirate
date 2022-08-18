@@ -65,6 +65,8 @@ public class MetaGameBootstrapper : MonoBehaviour
     private IntEvent SelectSkinEvent;
     [SerializeField]
     private StringEvent CatUpdatedEvent;
+    [SerializeField]
+    private StringEvent SkinPurchasedEvent;
 
 
     private void Awake()
@@ -103,6 +105,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catRecruitmentController.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
         catRecruitmentController.OpenCrewManagementPopUpEvent = OpenCrewManagementPopUpEvent;
         catRecruitmentController.NewCatPurchasedEvent = NewCatPurchasedEvent;
+        catRecruitmentController.SkinPurchasedEvent = SkinPurchasedEvent;
         catRecruitmentController.Initialize();
 
         // Cat options
@@ -116,6 +119,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catSkinManagementController.OpenSkinManagementEvent = OpenSkinManagementEvent;
         catSkinManagementController.SelectSkinEvent = SelectSkinEvent;
         catSkinManagementController.CatUpdatedEvent = CatUpdatedEvent;
+        catSkinManagementController.SkinPurchasedEvent = SkinPurchasedEvent;
         catSkinManagementController.Initialize();
     }
 }

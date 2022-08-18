@@ -15,6 +15,7 @@ public class CatSkinManagementController : MonoBehaviour
     public IntEvent SelectSkinEvent { get; set; }
     public StringEvent OpenSkinManagementEvent { get; set; }
     public StringEvent CatUpdatedEvent { get; set; }
+    public StringEvent SkinPurchasedEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private List<OwnedSkinView> ownedSkinList = new();
@@ -27,6 +28,7 @@ public class CatSkinManagementController : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(OpenSkinManagementEvent, OpenSkinManagementEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int>.BuildEventHandler(SelectSkinEvent, SelectSkinEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(SkinPurchasedEvent, SkinPurchasedEventCallback));
 
         catSkinManagementView.CatSkinManagementController = this;
         // Initialize current cat with cat id from event
@@ -124,6 +126,23 @@ public class CatSkinManagementController : MonoBehaviour
         ownedSkinList[_skinIndex].SetAsUnavailable();
         selectedSkinIndex = _skinIndex;
         selectedSkinType = ownedSkinList[_skinIndex].SkinType;
+    }
+
+    // New skin purchased
+    private void SkinPurchasedEventCallback(string _skinType)
+    {
+        GameObject skinViewHelper = Instantiate(catSkinManagementView.SkinView);
+        OwnedSkinView ownedSkinViewHelper = skinViewHelper.GetComponent<OwnedSkinView>();
+        CatSkinData catSkinDataHelper = CatsModel.Instance.GetSkinData(_skinType);
+
+        ownedSkinViewHelper.SelectSkinEvent = SelectSkinEvent;
+        ownedSkinViewHelper.SetIndexAndType(ownedSkinList.Count, catSkinDataHelper.SkinType);
+        ownedSkinViewHelper.SetName(catSkinDataHelper.SkinName);
+        ownedSkinViewHelper.SetSkinSprite(catSkinDataHelper.SkinPreviewSprite);
+
+        ownedSkinViewHelper.transform.SetParent(catSkinManagementView.SkinsCatalogueContent);
+
+        ownedSkinList.Add(ownedSkinViewHelper);
     }
     #endregion
 

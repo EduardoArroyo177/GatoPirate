@@ -38,6 +38,9 @@ public class CatRecruitmentController : MonoBehaviour
 
     // Island update
     public CatTypeIDEvent NewCatPurchasedEvent { get; set; }
+
+    // Skin update
+    public StringEvent SkinPurchasedEvent { get; set; }
     #endregion
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -252,6 +255,8 @@ public class CatRecruitmentController : MonoBehaviour
         // TODO: Reduce currency amount with item price
         // Save skin data
         CatsDataSaveManager.Instance.UnlockSkin(skinType);
+        // Update skin management
+        SkinPurchasedEvent.Raise(skinType.ToString());
         // TODO: Show purchased animation
     }
 

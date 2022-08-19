@@ -114,12 +114,16 @@ public class CatBodyBuilder : MonoBehaviour
             catHeadFrontSkinRenderer.sprite = CatSkinData.CatHeadFrontSkinSprite;
             catHeadFrontSkinRenderer.color = CatSkinData.SkinColor;
         }
+        else
+            catHeadFrontSkinRenderer.sprite = null;
 
         if (CatSkinData.CatHeadBackSkinSprite)
         {
             catHeadBackSkinRenderer.sprite = CatSkinData.CatHeadBackSkinSprite;
             catHeadBackSkinRenderer.color = CatSkinData.SkinColor;
         }
+        else
+            catHeadBackSkinRenderer.sprite = null;
 
         // Body
         if (CatSkinData.CatBodyFrontSkinSprite)
@@ -127,12 +131,16 @@ public class CatBodyBuilder : MonoBehaviour
             catBodyFrontSkinRenderer.sprite = CatSkinData.CatBodyFrontSkinSprite;
             catBodyFrontSkinRenderer.color = CatSkinData.SkinColor;
         }
+        else
+            catBodyFrontSkinRenderer.sprite = null;
 
         if (CatSkinData.CatBodyBackSkinSprite)
         {
             catBodyBackSkinRenderer.sprite = CatSkinData.CatBodyBackSkinSprite;
             catBodyBackSkinRenderer.color = CatSkinData.SkinColor;
         }
+        else
+            catBodyBackSkinRenderer.sprite = null;
 
         // Left paw
         if (CatSkinData.CatLeftPawSkinSprite)
@@ -140,12 +148,16 @@ public class CatBodyBuilder : MonoBehaviour
             catLeftPawSkinRenderer.sprite = CatSkinData.CatLeftPawSkinSprite;
             catLeftPawSkinRenderer.color = CatSkinData.SkinColor;
         }
+        else
+            catLeftPawSkinRenderer.sprite = null;
 
         if (CatSkinData.CatLeftPawAccesorySkinSprite)
         {
             catLeftPawAccesorySkinRenderer.sprite = CatSkinData.CatLeftPawAccesorySkinSprite;
             catLeftPawAccesorySkinRenderer.color = CatSkinData.SkinColor;
         }
+        else
+            catLeftPawAccesorySkinRenderer.sprite = null;
 
         // Right paw
         if (CatSkinData.CatRightPawSkinSprite)
@@ -153,12 +165,16 @@ public class CatBodyBuilder : MonoBehaviour
             catRightPawSkinRenderer.sprite = CatSkinData.CatRightPawSkinSprite;
             catRightPawSkinRenderer.color = CatSkinData.SkinColor;
         }
+        else
+            catRightPawSkinRenderer.sprite = null;
 
         if (CatSkinData.CatRightPawAccesorySkinSprite)
         {
             catRightPawAccesorySkinRenderer.sprite = CatSkinData.CatRightPawAccesorySkinSprite;
             catRightPawAccesorySkinRenderer.color = CatSkinData.SkinColor;
         }
+        else
+            catRightPawAccesorySkinRenderer.sprite = null;
 
         // Bottom paws 
         if (CatSkinData.CatLeftBottomPawSkinSprite)
@@ -166,12 +182,16 @@ public class CatBodyBuilder : MonoBehaviour
             catLeftBottomPawSkinRenderer.sprite = CatSkinData.CatLeftBottomPawSkinSprite;
             catLeftBottomPawSkinRenderer.color = CatSkinData.SkinColor;
         }
+        else
+            catLeftBottomPawSkinRenderer.sprite = null;
 
         if (CatSkinData.CatRightBottomPawSkinSprite)
         {
             catRightBottomPawSkinRenderer.sprite = CatSkinData.CatRightBottomPawSkinSprite;
             catRightBottomPawSkinRenderer.color = CatSkinData.SkinColor;
         }
+        else
+            catRightBottomPawSkinRenderer.sprite = null;
 
         // Tail
         if (CatSkinData.NoTail)
@@ -185,13 +205,14 @@ public class CatBodyBuilder : MonoBehaviour
                 catTailSkinRenderer.sprite = CatSkinData.CatTailSkinSprite;
                 catTailSkinRenderer.color = CatSkinData.SkinColor;
             }
-
-            if (CatSkinData.CatTailSpecialSkinSprite)
+            else if (CatSkinData.CatTailSpecialSkinSprite)
             {
                 catTailRenderer.sprite = null;
                 catTailSkinRenderer.sprite = CatSkinData.CatTailSpecialSkinSprite;
                 catTailSkinRenderer.color = CatSkinData.SkinColor;
             }
+            else
+                catTailSkinRenderer.sprite = null;
         }
     }
 

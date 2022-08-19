@@ -27,6 +27,9 @@ public class CatalogueNavigationView : MonoBehaviour
             img_circleIndicators[index].gameObject.SetActive(true);
             img_circleIndicators[index].Initialize();
         }
+
+        if (CatalogueListLength > 1)
+            btn_arrowNext.SetActive(true);
     }
 
     public void Initialize(int _catalogueSize)
@@ -89,12 +92,15 @@ public class CatalogueNavigationView : MonoBehaviour
         currentCatalogIndex = 0;
         // Restart arrows
         btn_arrowPrevious.SetActive(false);
-        btn_arrowNext.SetActive(true);
+        btn_arrowNext.SetActive(false);
         // Restart circle indicators
         img_circleIndicators[0].SetAsActive();
         for (int index = 1; index < CatalogueListLength; index++)
         {
             img_circleIndicators[index].SetAsInactive();
         }
+
+        if (CatalogueListLength > 1)
+            btn_arrowNext.SetActive(true);
     }
 }

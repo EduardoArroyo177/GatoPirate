@@ -22,7 +22,7 @@ public class CatSkinManagementController : MonoBehaviour
 
     private int selectedSkinIndex = -1;
     private string catID = "";
-    private SkinType selectedSkinType = SkinType.NONE;
+    public SkinType selectedSkinType = SkinType.NONE;
 
     public void Initialize()
     {
@@ -103,6 +103,7 @@ public class CatSkinManagementController : MonoBehaviour
     {
         int index = ownedSkinList.FindIndex(x => x.SkinType.Equals(_skinType));
         selectedSkinIndex = index;
+        selectedSkinType = _skinType;
         if (index < 0)
             return;
         else
@@ -152,12 +153,26 @@ public class CatSkinManagementController : MonoBehaviour
         // TODO: Update cat in save manager
         CatsDataSaveManager.Instance.UpdateCatSkin(catID, selectedSkinType);
         CatUpdatedEvent.Raise(catID);
+
+        // Set previous cat skin as available
+        int index = ownedSkinList.FindIndex(x => x.SkinType.Equals(selectedSkinType));
+        if (index >= 0)
+        {
+            ownedSkinList[index].SetAsAvailable();
+        }
+
         catSkinManagementView.gameObject.SetActive(false);
     }
 
     public void Close()
     {
-        // TODO: Set original skin as selected skin
+        // Set previous cat skin as available
+        int index = ownedSkinList.FindIndex(x => x.SkinType.Equals(selectedSkinType));
+        if (index >= 0)
+        {
+            ownedSkinList[index].SetAsAvailable();
+        }
+
         catSkinManagementView.gameObject.SetActive(false);
     }
     #endregion

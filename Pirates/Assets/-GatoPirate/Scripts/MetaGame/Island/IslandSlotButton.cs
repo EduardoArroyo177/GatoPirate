@@ -10,10 +10,12 @@ public class IslandSlotButton : MonoBehaviour
     public StringEvent OpenSelectedCatOptionsEvent { get; set; }
     public VoidEvent CloseSelectedCatCameraEvent { get; set; }
     public VoidEvent CatSelectedEvent { get; set; }
+    public BoolEvent OpenScreenEvent { get; set; }
 
     private string catID;// { get; set; }
     private bool isInitialized;
     private bool isZoomedIn;
+    private bool isScreenOpen;
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -21,6 +23,7 @@ public class IslandSlotButton : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CloseSelectedCatCameraEvent, CloseSelectedCatCameraEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CatSelectedEvent, CatSelectedEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<bool>.BuildEventHandler(OpenScreenEvent, OpenScreenEventCallback));
 
         isInitialized = true;
         catID = _catID;
@@ -28,10 +31,11 @@ public class IslandSlotButton : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        if (isInitialized && !isZoomedIn)
+        if (isInitialized && !isZoomedIn && !isScreenOpen)
         {
+            // Camera zoom
             TriggerSelectedCatCameraEvent.Raise(gameObject);
-            // TODO: Raise another event to open pop up (with cat id)
+            // Cat options pop up
             OpenSelectedCatOptionsEvent.Raise(catID);
             // TODO: Mark cat with outline or something to show this is the selected cat
             CatSelectedEvent.Raise();
@@ -47,6 +51,11 @@ public class IslandSlotButton : MonoBehaviour
     private void CloseSelectedCatCameraEventCallback(Void _item)
     {
         isZoomedIn = false;
+    }
+
+    private void OpenScreenEventCallback(bool _isScreenOpen)
+    {
+        isScreenOpen = _isScreenOpen;
     }
     #endregion
 

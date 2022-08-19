@@ -86,6 +86,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             DataSaveSkinPurchasedStructure = new DataSaveSkinPurchasedStructure();
 
             SaveCatData();
+            SaveSkinData();
         }
         else
         {

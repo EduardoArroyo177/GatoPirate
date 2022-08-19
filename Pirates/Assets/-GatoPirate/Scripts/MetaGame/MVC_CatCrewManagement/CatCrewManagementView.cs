@@ -20,4 +20,13 @@ public class CatCrewManagementView : MonoBehaviour
     public Transform[] OwnedCatsContentList { get => ownedCatsContentList; set => ownedCatsContentList = value; }
     public int CatalogueSizePerPage { get => catalogueSizePerPage; set => catalogueSizePerPage = value; }
     public int EnabledCatalogues { get => enabledCatalogues; set => enabledCatalogues = value; }
+
+
+    #region Button calls
+    public void GoToCombat()
+    {
+        // TODO: Go to combat
+        Debug.Log("Go to combat");
+    }
+    #endregion
 }

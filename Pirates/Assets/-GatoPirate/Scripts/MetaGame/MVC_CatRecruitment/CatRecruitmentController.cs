@@ -27,10 +27,6 @@ public class CatRecruitmentController : MonoBehaviour
 
     // Pop ups
     public VoidEvent OpenGoToStorePopUpEvent { get; set; }
-    public VoidEvent OpenCrewManagementPopUpEvent { get; set; }
-    
-    // Close view
-    public VoidEvent CloseRecruitmentViewEvent { get; set; }
 
     // Information view
     public IntCatalogueTypeEvent ShowSelectedCatInfoEvent { get; set; }
@@ -56,13 +52,10 @@ public class CatRecruitmentController : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueCatEvent, PurchaseCatalogueCatEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueSkinEvent, PurchaseCatalogueSkinEventCallback));
-        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CloseRecruitmentViewEvent, CloseRecruitmentViewEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedCatInfoEvent, ShowSelectedItemEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedSkinInfoEvent, ShowSelectedSkinInfoEventCallback));
 
-        catRecruitmentPopUpsView.CloseRecruitmentViewEvent = CloseRecruitmentViewEvent;
         catRecruitmentPopUpsView.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
-        catRecruitmentPopUpsView.OpenCrewManagementPopUpEvent = OpenCrewManagementPopUpEvent;
         catRecruitmentPopUpsView.Initialize();
 
         catRecruitmentSelectedItemView.PurchaseCatalogueItemEvent = PurchaseCatalogueCatEvent;
@@ -351,19 +344,6 @@ public class CatRecruitmentController : MonoBehaviour
         catRecruitmentSelectedItemView.ShowSelectedCatInfo(itemName, itemSprite, itemDescription, itemPrice);
     }
 
-    private void CloseRecruitmentViewEventCallback(Void _item)
-    {
-        // Check if there was a change in inventory to show pop up
-        if (inventoryChanged)
-        {
-            inventoryChanged = false;
-            OpenCrewManagementPopUpEvent.Raise();
-        }
-        else
-        {
-            catRecruitmentView.gameObject.SetActive(false);
-        }
-    }
     #endregion
 
     #region OnDestroy

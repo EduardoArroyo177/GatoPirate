@@ -15,6 +15,7 @@ public class IslandCatsController : MonoBehaviour
     public VoidEvent CloseSelectedCatCameraEvent { get; set; }
     public VoidEvent CatSelectedEvent { get; set; }
     public StringEvent CatUpdatedEvent { get; set; }
+    public BoolEvent OpenScreenEvent { get; set; }
 
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -54,6 +55,7 @@ public class IslandCatsController : MonoBehaviour
                         islandSlot.OpenSelectedCatOptionsEvent = OpenSelectedCatOptionsEvent;
                         islandSlot.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
                         islandSlot.CatSelectedEvent = CatSelectedEvent;
+                        islandSlot.OpenScreenEvent = OpenScreenEvent;
 
                         islandSlot.InitializeCat();
                     }
@@ -82,6 +84,7 @@ public class IslandCatsController : MonoBehaviour
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].OpenSelectedCatOptionsEvent = OpenSelectedCatOptionsEvent;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CatSelectedEvent = CatSelectedEvent;
+                    slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].OpenScreenEvent = OpenScreenEvent;
 
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].InitializeCat();
                 }
@@ -113,6 +116,7 @@ public class IslandCatsController : MonoBehaviour
                 islandSlot.OpenSelectedCatOptionsEvent = OpenSelectedCatOptionsEvent;
                 islandSlot.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
                 islandSlot.CatSelectedEvent = CatSelectedEvent;
+                islandSlot.OpenScreenEvent = OpenScreenEvent;
                 islandSlot.InitializeCat();
             }
         }

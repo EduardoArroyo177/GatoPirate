@@ -20,6 +20,8 @@ public class CatCrewManagementController : MonoBehaviour
     public CatTypeIDEvent NewCatPurchasedEvent { get; set; }
     public StringEvent OpenCatCrewManagementEvent { get; set; }
     public StringEvent CatUpdatedEvent { get; set; }
+    public VoidEvent OpenCatCrewManagementNoIDEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private List<OwnedCatView> ownedCatsList = new();
@@ -42,6 +44,7 @@ public class CatCrewManagementController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<CatType, string>.BuildEventHandler(NewCatPurchasedEvent, NewCatPurchasedEventCallback));
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(OpenCatCrewManagementEvent, OpenCatCrewManagementEventCallback));
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(CatUpdatedEvent, CatUpdatedEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(OpenCatCrewManagementNoIDEvent, OpenCatCrewManagementNoIDEventCallback));
 
         FillCatInventoryData();
         FillCurrentShipCatData();
@@ -172,7 +175,12 @@ public class CatCrewManagementController : MonoBehaviour
     #region Event callbacks
     private void OpenCatCrewManagementEventCallback(string _catID)
     {
-        // TODO: Get cat from cat id and seleect it by default through this
+        // TODO: Get cat from cat id and select it by default through this
+        catCrewManagementView.gameObject.SetActive(true);
+    }
+
+    private void OpenCatCrewManagementNoIDEventCallback(UnityAtoms.Void _item)
+    {
         catCrewManagementView.gameObject.SetActive(true);
     }
 

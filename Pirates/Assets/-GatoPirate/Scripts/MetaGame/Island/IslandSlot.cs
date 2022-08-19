@@ -22,6 +22,8 @@ public class IslandSlot : MonoBehaviour
     public StringEvent OpenSelectedCatOptionsEvent { get; set; }
     public VoidEvent CloseSelectedCatCameraEvent { get; set; }
     public VoidEvent CatSelectedEvent { get; set; }
+    public BoolEvent OpenScreenEvent { get; set; }
+
 
     private IslandSlotButton islandSlotButton;
 
@@ -38,8 +40,11 @@ public class IslandSlot : MonoBehaviour
             islandSlotButton.OpenSelectedCatOptionsEvent = OpenSelectedCatOptionsEvent;
             islandSlotButton.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
             islandSlotButton.CatSelectedEvent = CatSelectedEvent;
+            islandSlotButton.OpenScreenEvent = OpenScreenEvent;
             islandSlotButton.Initialize(CatID);
         }
+
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 
     public void CleanSlot()
@@ -47,5 +52,7 @@ public class IslandSlot : MonoBehaviour
         isOccupied = false;
         catBodyBuilder.RestartCatData();
         catBodyBuilder.RestartSkinData();
+
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 }

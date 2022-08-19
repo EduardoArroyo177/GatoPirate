@@ -8,8 +8,6 @@ using UnityEngine;
 public class VirtualCameraControllerMainMenu : MonoBehaviour
 {
     [SerializeField]
-    private CinemachineBrain test;
-    [SerializeField]
     private CinemachineVirtualCamera mainCamera;
     [SerializeField]
     private CinemachineVirtualCamera catSelectedCamera;

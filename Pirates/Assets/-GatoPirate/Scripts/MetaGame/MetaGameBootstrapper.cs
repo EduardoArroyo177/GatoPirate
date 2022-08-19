@@ -42,11 +42,9 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField]
     private IntCatalogueTypeEvent ShowSelectedSkinInfoEvent;
     [SerializeField]
-    private VoidEvent CloseRecruitmentViewEvent;
-    [SerializeField]
     private VoidEvent OpenGoToStorePopUpEvent;
     [SerializeField]
-    private VoidEvent OpenCrewManagementPopUpEvent;
+    private VoidEvent OpenCatCrewManagementNoIDEvent;
 
     [Header("Cat options")]
     [SerializeField]
@@ -67,6 +65,8 @@ public class MetaGameBootstrapper : MonoBehaviour
     private StringEvent CatUpdatedEvent;
     [SerializeField]
     private StringEvent SkinPurchasedEvent;
+    [SerializeField]
+    private BoolEvent OpenScreenEvent;
 
 
     private void Awake()
@@ -86,6 +86,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         islandCatsController.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
         islandCatsController.CatSelectedEvent = CatSelectedEvent;
         islandCatsController.CatUpdatedEvent = CatUpdatedEvent;
+        islandCatsController.OpenScreenEvent = OpenScreenEvent;
         islandCatsController.Initialize();
 
         // Cat crew management
@@ -94,6 +95,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catCrewManagementController.NewCatPurchasedEvent = NewCatPurchasedEvent;
         catCrewManagementController.OpenCatCrewManagementEvent = OpenCatCrewManagementEvent;
         catCrewManagementController.CatUpdatedEvent = CatUpdatedEvent;
+        catCrewManagementController.OpenCatCrewManagementNoIDEvent = OpenCatCrewManagementNoIDEvent;
         catCrewManagementController.Initialize();
 
         // Cat recruitment
@@ -101,9 +103,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catRecruitmentController.PurchaseCatalogueSkinEvent = PurchaseCatalogueSkinEvent;
         catRecruitmentController.ShowSelectedCatInfoEvent = ShowSelectedItemEvent;
         catRecruitmentController.ShowSelectedSkinInfoEvent = ShowSelectedSkinInfoEvent;
-        catRecruitmentController.CloseRecruitmentViewEvent = CloseRecruitmentViewEvent;
         catRecruitmentController.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
-        catRecruitmentController.OpenCrewManagementPopUpEvent = OpenCrewManagementPopUpEvent;
         catRecruitmentController.NewCatPurchasedEvent = NewCatPurchasedEvent;
         catRecruitmentController.SkinPurchasedEvent = SkinPurchasedEvent;
         catRecruitmentController.Initialize();

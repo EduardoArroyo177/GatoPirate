@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2339486519289672296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2339486519289672298}
+  - component: {fileID: 2339486519289672297}
+  m_Layer: 0
+  m_Name: MetaGameBootstrapper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2339486519289672298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339486519289672296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 621.15735, y: 1434.1517, z: -4.322204}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2339486519289672297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339486519289672296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75a8fc8a3462a934baeddc5d0b4638da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCameraControllerMainMenu: {fileID: 0}
+  TriggerSelectedCatCameraEvent: {fileID: 11400000, guid: 57b131841612466458f152ebfef1ec35, type: 2}
+  CloseSelectedCatCameraEvent: {fileID: 11400000, guid: 82f45c051b277494db76ac7d074988be, type: 2}
+  islandCatsController: {fileID: 0}
+  NewCatPurchasedEvent: {fileID: 11400000, guid: 2d9fec4a4bb95aa488262de2e6dd95ab, type: 2}
+  CatSelectedEvent: {fileID: 11400000, guid: 963afccacd2f255439faaf9048c153b7, type: 2}
+  catCrewManagementController: {fileID: 0}
+  SelectCatEvent: {fileID: 11400000, guid: b097e20b5441eb842889622e3795060c, type: 2}
+  SelectShipSlotEvent: {fileID: 11400000, guid: b7dca281a02934648ae3d8ed3283f6ae, type: 2}
+  catRecruitmentController: {fileID: 0}
+  PurchaseCatalogueCatEvent: {fileID: 11400000, guid: 12e5c35bdf1640c4ea2ceb190d06e2d8, type: 2}
+  PurchaseCatalogueSkinEvent: {fileID: 11400000, guid: 8022c9dc01b0db046bdbff57dfb5f610, type: 2}
+  ShowSelectedItemEvent: {fileID: 11400000, guid: 1d6d158a4d3aec740ac0cb7eff37f0ad, type: 2}
+  ShowSelectedSkinInfoEvent: {fileID: 11400000, guid: 59ebc392c2a9ee5459a5369505cf62bf, type: 2}
+  OpenGoToStorePopUpEvent: {fileID: 11400000, guid: 6f13e3847cefa7b4ba076e89a99bc4d8, type: 2}
+  OpenCatCrewManagementNoIDEvent: {fileID: 11400000, guid: e614e26036e81a848b3ad69b75607f1e, type: 2}
+  catOptionsController: {fileID: 0}
+  OpenSelectedCatOptionsEvent: {fileID: 11400000, guid: 2759995cea92c064d8b9e3ab7be4c852, type: 2}
+  OpenCatCrewManagementEvent: {fileID: 11400000, guid: fc2b6e02136f86146aa78d14a8cc3e6b, type: 2}
+  OpenSkinManagementEvent: {fileID: 11400000, guid: 2a8d1e9db403513419a5989df0e3cbf2, type: 2}
+  catSkinManagementController: {fileID: 0}
+  SelectSkinEvent: {fileID: 11400000, guid: c427b652cfd1a8b49b20e32645379711, type: 2}
+  CatUpdatedEvent: {fileID: 11400000, guid: 070737786c8366443b7434ad803e5fbf, type: 2}
+  SkinPurchasedEvent: {fileID: 11400000, guid: 654f7abae1de2714fa909b362d9447a4, type: 2}
+  OpenScreenEvent: {fileID: 11400000, guid: efc47854f7f35f14fb3ac8d6dc709a92, type: 2}

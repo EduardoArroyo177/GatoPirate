@@ -4,43 +4,39 @@ using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
-public class IslandSlotButton : MonoBehaviour
+public class IslandShipButton : MonoBehaviour
 {
-    public GameObjectEvent TriggerSelectedCatCameraEvent { get; set; }
-    public StringEvent OpenSelectedCatOptionsEvent { get; set; }
-    public VoidEvent CloseSelectedCatCameraEvent { get; set; }
+    public VoidEvent TriggerShipCameraEvent { get; set; }
+    public VoidEvent OpenShipOptionsEvent { get; set; }
     public VoidEvent CatSelectedEvent { get; set; }
-    public BoolEvent OpenScreenEvent { get; set; }
+
+    public VoidEvent CloseSelectedCatCameraEvent { get; set; }
     public VoidEvent CloseShipCameraEvent { get; set; }
-
-
-    private string catID;// { get; set; }
-    private bool isInitialized;
-    private bool isZoomedIn;
-    private bool isScreenOpen;
+    public BoolEvent OpenScreenEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
-    public void Initialize(string _catID)
+    private bool isZoomedIn;
+    private bool isScreenOpen;
+
+    public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CloseSelectedCatCameraEvent, CloseSelectedCatCameraEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CloseShipCameraEvent, CloseSelectedCatCameraEventCallback));
-        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CatSelectedEvent, CatSelectedEventCallback));
         _eventHandlers.Add(EventHandlerFactory<bool>.BuildEventHandler(OpenScreenEvent, OpenScreenEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CatSelectedEvent, CatSelectedEventCallback));
 
-        isInitialized = true;
-        catID = _catID;
     }
 
     private void OnMouseUpAsButton()
     {
-        if (isInitialized && !isZoomedIn && !isScreenOpen)
+        if (!isZoomedIn && !isScreenOpen)
         {
-            // Camera zoom
-            TriggerSelectedCatCameraEvent.Raise(gameObject);
-            // Cat options pop up
-            OpenSelectedCatOptionsEvent.Raise(catID);
-            // TODO: Mark cat with outline or something to show this is the selected cat
+            // Zoom in to ship
+            TriggerShipCameraEvent.Raise();
+            // Open ship options
+            OpenShipOptionsEvent.Raise();
+            // Block cats so they cannot be pressed as buttons
             CatSelectedEvent.Raise();
         }
     }

@@ -47,6 +47,8 @@ MonoBehaviour:
   virtualCameraControllerMainMenu: {fileID: 0}
   TriggerSelectedCatCameraEvent: {fileID: 11400000, guid: 57b131841612466458f152ebfef1ec35, type: 2}
   CloseSelectedCatCameraEvent: {fileID: 11400000, guid: 82f45c051b277494db76ac7d074988be, type: 2}
+  TriggerShipCameraEvent: {fileID: 11400000, guid: 1fda9712e5972c340a98a0c92c87a052, type: 2}
+  CloseShipCameraEvent: {fileID: 11400000, guid: 6401b9ef05c6f7345bbec1f9bbf17b67, type: 2}
   islandCatsController: {fileID: 0}
   NewCatPurchasedEvent: {fileID: 11400000, guid: 2d9fec4a4bb95aa488262de2e6dd95ab, type: 2}
   CatSelectedEvent: {fileID: 11400000, guid: 963afccacd2f255439faaf9048c153b7, type: 2}
@@ -69,3 +71,6 @@ MonoBehaviour:
   CatUpdatedEvent: {fileID: 11400000, guid: 070737786c8366443b7434ad803e5fbf, type: 2}
   SkinPurchasedEvent: {fileID: 11400000, guid: 654f7abae1de2714fa909b362d9447a4, type: 2}
   OpenScreenEvent: {fileID: 11400000, guid: efc47854f7f35f14fb3ac8d6dc709a92, type: 2}
+  shipOptionsController: {fileID: 0}
+  OpenShipOptionsEvent: {fileID: 11400000, guid: 18641421d041c824d964690faaaafbbe, type: 2}
+  LoadCombatSceneEvent: {fileID: 11400000, guid: 8bd8f266ebdcda94588c93f2f032d11b, type: 2}

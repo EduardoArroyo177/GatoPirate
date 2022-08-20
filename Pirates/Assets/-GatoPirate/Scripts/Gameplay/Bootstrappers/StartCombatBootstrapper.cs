@@ -10,6 +10,12 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private CombatData combatData;
 
+    [Header("Scene loader")]
+    [SerializeField]
+    private SceneLoaderManager sceneLoaderManager;
+    [SerializeField]
+    private VoidEvent LoadMainMenuSceneEvent;
+
     [Header("Gameplay Script references")]
     [SerializeField]
     private StartCombatController startCombatController;
@@ -56,6 +62,10 @@ public class StartCombatBootstrapper : MonoBehaviour
 
     private void Awake()
     {
+        // Scene loader
+        sceneLoaderManager.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
+        sceneLoaderManager.Initialize();
+
         playerActiveCannons = combatData.CatCrewDataList.Length;
 
         startCombatController.StartCombatEvent = StartCombatEvent;

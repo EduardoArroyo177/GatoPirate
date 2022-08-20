@@ -51,7 +51,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     public VoidEvent SkipInitialAnimationsEvent { get; set; }
 
     // Properties
-    public CatData[] CatCrewDataList { get; set; }
+    public CatCombatData[] CatCrewDataList { get; set; }
     public ShipData PlayerShipData { get => playerShipData; set => playerShipData = value; }
     public int NumberOfActiveCannons { get; set; }
 

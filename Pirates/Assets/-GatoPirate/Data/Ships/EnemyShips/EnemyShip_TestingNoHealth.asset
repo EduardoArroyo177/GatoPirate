@@ -21,7 +21,7 @@ MonoBehaviour:
   shipLevelBallSpeedMultiplier: 1
   shipLevelHealthMultiplier: 1
   shipLevelSpecialAttackMultiplier: 1
-  shipHealth: 50
+  shipHealth: 350
   cannonBallSpeed: 20
   basicAttackDamage: 5
   normalAttackDamage: 30

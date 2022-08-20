@@ -40,7 +40,6 @@ public class CatRecruitmentController : MonoBehaviour
     #endregion
 
     private List<IAtomEventHandler> _eventHandlers = new();
-    private bool inventoryChanged;
     // Cat catalogues
     private List<CatalogueItemView> catBasicItemList = new List<CatalogueItemView>();
     private List<CatalogueItemView> catSpecialItemList = new List<CatalogueItemView>();
@@ -169,7 +168,6 @@ public class CatRecruitmentController : MonoBehaviour
     #region Event callbacks
     private void PurchaseCatalogueCatEventCallback(int _itemIndex, ItemTier _itemTier)
     {
-        inventoryChanged = true;
         string itemName = "";
         CatType catType = CatType.GENERIC;
         int index;

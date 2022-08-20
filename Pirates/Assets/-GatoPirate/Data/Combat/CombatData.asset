@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerShipData: {fileID: 11400000, guid: 269b5ceab8369614d847b4e39b4ad43e, type: 2}
   catCrewDataList:
-  - {fileID: 11400000, guid: 97fe5d65ca78816478c95a8b3def7291, type: 2}
-  - {fileID: 11400000, guid: 97fe5d65ca78816478c95a8b3def7291, type: 2}
-  - {fileID: 11400000, guid: d4111847cca992f45962a5ba830f29d6, type: 2}
-  - {fileID: 11400000, guid: d4111847cca992f45962a5ba830f29d6, type: 2}
-  enemyShipData: {fileID: 11400000, guid: c6424596538fe354f92e9deb4a2733b3, type: 2}
+  - catData: {fileID: 11400000, guid: 5a26b11426c547945b543e8aed545f97, type: 2}
+    skinData: {fileID: 0}
+  - catData: {fileID: 11400000, guid: 5a26b11426c547945b543e8aed545f97, type: 2}
+    skinData: {fileID: 11400000, guid: 17639e7e78dcf144eb77aa5367370a0a, type: 2}
+  - catData: {fileID: 11400000, guid: 5a26b11426c547945b543e8aed545f97, type: 2}
+    skinData: {fileID: 11400000, guid: c54defbb42d17254bacbaa7b03ca0adc, type: 2}
+  - catData: {fileID: 11400000, guid: 5a26b11426c547945b543e8aed545f97, type: 2}
+    skinData: {fileID: 0}
+  enemyShipData: {fileID: 11400000, guid: 98208653d6ef88a45b7194246016b992, type: 2}

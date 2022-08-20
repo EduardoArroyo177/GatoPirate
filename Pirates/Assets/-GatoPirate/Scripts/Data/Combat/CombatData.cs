@@ -9,7 +9,7 @@ public class CombatData : ScriptableObject
     [SerializeField]
     private PlayerShipData playerShipData;
     [SerializeField]
-    private CatData[] catCrewDataList;
+    private CatCombatData[] catCrewDataList;
 
     [Header("Enemy")]
     [SerializeField]
@@ -17,5 +17,5 @@ public class CombatData : ScriptableObject
 
     public PlayerShipData PlayerShipData { get => playerShipData; set => playerShipData = value; }
     public EnemyShipData EnemyShipData { get => enemyShipData; set => enemyShipData = value; }
-    public CatData[] CatCrewDataList { get => catCrewDataList; set => catCrewDataList = value; }
+    public CatCombatData[] CatCrewDataList { get => catCrewDataList; set => catCrewDataList = value; }
 }

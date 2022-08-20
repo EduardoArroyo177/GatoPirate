@@ -18,7 +18,7 @@ public class PlayerBuildShipController : MonoBehaviour
     public VoidEvent TriggerEnemyStartingAnimationEvent { get; set; }
     public VoidEvent SkipInitialAnimationsEvent { get; set; }
 
-    public CatData[] CatCrewDataList { get; set; }
+    public CatCombatData[] CatCrewDataList { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
     
@@ -31,7 +31,8 @@ public class PlayerBuildShipController : MonoBehaviour
 
         for (int index = 0; index < CatCrewDataList.Length; index++)
         {
-            catBodyBuilderList[index].CatData = CatCrewDataList[index];
+            catBodyBuilderList[index].CatData = CatCrewDataList[index].CatData;
+            catBodyBuilderList[index].CatSkinData = CatCrewDataList[index].SkinData;
             catBodyBuilderList[index].InitializeData();
         }
     }

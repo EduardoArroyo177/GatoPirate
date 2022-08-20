@@ -8,6 +8,8 @@ public class IslandCatsController : MonoBehaviour
 {
     [SerializeField]
     private List<IslandSlot> slotList;
+    [SerializeField]
+    private IslandShipButton islandShipButton;
 
     public CatTypeIDEvent NewCatPurchasedEvent { get; set; }
     public GameObjectEvent TriggerSelectedCatCameraEvent { get; set; }
@@ -16,6 +18,11 @@ public class IslandCatsController : MonoBehaviour
     public VoidEvent CatSelectedEvent { get; set; }
     public StringEvent CatUpdatedEvent { get; set; }
     public BoolEvent OpenScreenEvent { get; set; }
+    public VoidEvent CloseShipCameraEvent { get; set; }
+
+    // For island ship
+    public VoidEvent TriggerShipCameraEvent { get; set; }
+    public VoidEvent OpenShipOptionsEvent { get; set; }
 
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -24,6 +31,15 @@ public class IslandCatsController : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory<CatType, string>.BuildEventHandler(NewCatPurchasedEvent, NewCatPurchasedEventCallback));
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(CatUpdatedEvent, CatUpdatedEventCallback));
+
+        islandShipButton.TriggerShipCameraEvent = TriggerShipCameraEvent;
+        islandShipButton.OpenShipOptionsEvent = OpenShipOptionsEvent;
+        islandShipButton.CatSelectedEvent = CatSelectedEvent;
+        islandShipButton.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
+        islandShipButton.CloseShipCameraEvent = CloseShipCameraEvent;
+        islandShipButton.OpenScreenEvent = OpenScreenEvent;
+        islandShipButton.Initialize();
+
         SetIslandCats();
     }
 
@@ -56,6 +72,7 @@ public class IslandCatsController : MonoBehaviour
                         islandSlot.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
                         islandSlot.CatSelectedEvent = CatSelectedEvent;
                         islandSlot.OpenScreenEvent = OpenScreenEvent;
+                        islandSlot.CloseShipCameraEvent = CloseShipCameraEvent;
 
                         islandSlot.InitializeCat();
                     }
@@ -85,6 +102,7 @@ public class IslandCatsController : MonoBehaviour
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CatSelectedEvent = CatSelectedEvent;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].OpenScreenEvent = OpenScreenEvent;
+                    slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CloseShipCameraEvent = CloseShipCameraEvent;
 
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].InitializeCat();
                 }
@@ -117,6 +135,7 @@ public class IslandCatsController : MonoBehaviour
                 islandSlot.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
                 islandSlot.CatSelectedEvent = CatSelectedEvent;
                 islandSlot.OpenScreenEvent = OpenScreenEvent;
+                islandSlot.CloseShipCameraEvent = CloseShipCameraEvent;
                 islandSlot.InitializeCat();
             }
         }

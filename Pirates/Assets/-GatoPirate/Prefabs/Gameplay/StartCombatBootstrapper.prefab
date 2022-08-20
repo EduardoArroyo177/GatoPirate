@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatData: {fileID: 11400000, guid: 32a0ef828edb74049a6a9c95635e6ee4, type: 2}
+  sceneLoaderManager: {fileID: 0}
+  LoadMainMenuSceneEvent: {fileID: 11400000, guid: 55b768c7dc70c81459fe56d5b8890cf5, type: 2}
   startCombatController: {fileID: 0}
   playerGameplayBootstrapper: {fileID: 0}
   enemyGameplayBootstrapper: {fileID: 0}

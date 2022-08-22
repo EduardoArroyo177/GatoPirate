@@ -8,14 +8,16 @@ using UnityEngine.SceneManagement;
 // TODO: Update with final game scenes name
 public enum GameScenes
 {
-    TestCombatScene,
-    TestMainMenuScene_Island
+    Combat,
+    MainMenu
 }
 
 public class SceneLoaderManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject pnl_loading;
+    [SerializeField]
+    private GameScenes sceneToLoad;
 
     public VoidEvent LoadCombatSceneEvent { get; set; }
     public VoidEvent LoadMainMenuSceneEvent { get; set; }
@@ -34,13 +36,13 @@ public class SceneLoaderManager : MonoBehaviour
     private void LoadCombatSceneEventCallback(Void _item)
     {
         pnl_loading.SetActive(true);
-        StartCoroutine(LoadSceneAsync(GameScenes.TestCombatScene.ToString()));
+        StartCoroutine(LoadSceneAsync(sceneToLoad.ToString()));
     }
 
     private void LoadMainMenuSceneEventCallback(Void _item)
     {
         pnl_loading.SetActive(true);
-        StartCoroutine(LoadSceneAsync(GameScenes.TestMainMenuScene_Island.ToString()));
+        StartCoroutine(LoadSceneAsync(sceneToLoad.ToString()));
     }
     #endregion
 

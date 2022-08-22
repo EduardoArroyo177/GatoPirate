@@ -43,6 +43,8 @@ public class CatData : ScriptableObject
     private Sprite catPreviewSprite;
     [SerializeField]
     private int catPrice;
+    [SerializeField]
+    private CurrencyType currencyType;
 
     [Header("Unlock data")]
     [SerializeField]
@@ -71,6 +73,9 @@ public class CatData : ScriptableObject
     public string CatDescription { get => catDescription; set => catDescription = value; }
     public Sprite CatPreviewSprite { get => catPreviewSprite; set => catPreviewSprite = value; }
     public int CatPrice { get => catPrice; set => catPrice = value; }
+    public CurrencyType CurrencyType { get => currencyType; set => currencyType = value; }
+
+    // Unlock data
     public Island IslandToUnlock { get => islandToUnlock; set => islandToUnlock = value; }
     public bool IsUnlocked { get => isUnlocked; set => isUnlocked = value; }
 }

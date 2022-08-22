@@ -64,6 +64,8 @@ public class CatSkinData : ScriptableObject
     private Sprite skinPreviewSprite;
     [SerializeField]
     private int skinPrice;
+    [SerializeField]
+    private CurrencyType currencyType;
 
     [Header("Unlock data")]
     [SerializeField]
@@ -97,11 +99,15 @@ public class CatSkinData : ScriptableObject
     public bool NoTail { get => noTail; set => noTail = value; }
 
     public Color SkinColor { get => skinColor; set => skinColor = value; }
+
+    // Catalogue data
     public string SkinDescription { get => skinDescription; set => skinDescription = value; }
     public Sprite SkinPreviewSprite { get => skinPreviewSprite; set => skinPreviewSprite = value; }
     public int SkinPrice { get => skinPrice; set => skinPrice = value; }
+    public CurrencyType CurrencyType { get => currencyType; set => currencyType = value; }
+
+    // Unlock data
     public Island IslandToUnlock { get => islandToUnlock; set => islandToUnlock = value; }
     public bool IsUnlocked { get => isUnlocked; set => isUnlocked = value; }
 
-    // Catalogue data
 }

@@ -15,6 +15,8 @@ public class CatRecruitmentSelectedItemView : MonoBehaviour
     private TextMeshProUGUI lbl_itemDescription;
     [SerializeField]
     private TextMeshProUGUI lbl_itemPrice;
+    [SerializeField]
+    private Image img_currency;
 
     public IntCatalogueTypeEvent PurchaseCatalogueItemEvent { get; set; }
 
@@ -28,15 +30,16 @@ public class CatRecruitmentSelectedItemView : MonoBehaviour
         ItemType = _itemType;
     }
 
-    public void ShowSelectedCatInfo(string _itemName, Sprite _itemSprite, string _itemDescription, int _itemPrice)
+    public void ShowSelectedCatInfo(string _itemName, Sprite _itemSprite, string _itemDescription, int _itemPrice, Sprite _currencySprite)
     {
         lbl_itemName.text = _itemName;
         img_selectedItem.sprite = _itemSprite;
         lbl_itemDescription.text = _itemDescription;
         lbl_itemPrice.text = _itemPrice.ToString();
+        img_currency.sprite = _currencySprite;
+
         gameObject.SetActive(true);
         // TODO: Fill data for not enough currency button
-        // TODO: Ask for currency to update sprite
     }
     #endregion
 

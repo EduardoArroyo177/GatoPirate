@@ -19,6 +19,8 @@ public class CatalogueItemView : MonoBehaviour
     private TextMeshProUGUI lbl_purchasePrice;
     [SerializeField]
     private GameObject pnl_purchasedItem;
+    [SerializeField]
+    private Image img_currencyIcon;
 
     [Header("Item locked")]
     [SerializeField]
@@ -42,6 +44,7 @@ public class CatalogueItemView : MonoBehaviour
     public string ItemDescription { get; set; }
     public int ItemPrice { get; set; }
     public Sprite ItemSprite { get; set; }
+    public Sprite CurrencySprite { get; set; }
 
     #region Data set
     // For cats
@@ -70,10 +73,12 @@ public class CatalogueItemView : MonoBehaviour
         ItemDescription = _itemDescription;
     }
 
-    public void SetSprite(Sprite _itemSprite)
+    public void SetSprites(Sprite _itemSprite, Sprite _currencySprite)
     {
         ItemSprite = _itemSprite;
+        CurrencySprite = _currencySprite;
         img_item.sprite = _itemSprite;
+        img_currencyIcon.sprite = _currencySprite;
     }
 
     public void SetPurchasePrice(int _price)

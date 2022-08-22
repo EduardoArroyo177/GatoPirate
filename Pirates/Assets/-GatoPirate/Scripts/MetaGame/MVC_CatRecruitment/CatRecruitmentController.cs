@@ -84,7 +84,8 @@ public class CatRecruitmentController : MonoBehaviour
             catalogueCatItemViewHelper.SetIndexAndTypes(index, catDataHelper.CatTier, catDataHelper.CatType);
             catalogueCatItemViewHelper.SetName(catDataHelper.CatName);
             catalogueCatItemViewHelper.SetDescription(catDataHelper.CatDescription);
-            catalogueCatItemViewHelper.SetSprite(catDataHelper.CatPreviewSprite);
+            catalogueCatItemViewHelper.SetSprites(catDataHelper.CatPreviewSprite,
+                 GeneralDataModel.Instance.GetCurrencySprite(catDataHelper.CurrencyType));
             catalogueCatItemViewHelper.SetPurchasePrice(catDataHelper.CatPrice);
             // TODO: Check if currency is enough to buy
             //if (skinDataHelper.IsUnlocked)
@@ -129,7 +130,8 @@ public class CatRecruitmentController : MonoBehaviour
             catalogueSkinItemViewHelper.SetIndexAndTypes(index, skinDataHelper.SkinTier, skinDataHelper.SkinType);
             catalogueSkinItemViewHelper.SetName(skinDataHelper.SkinName);
             catalogueSkinItemViewHelper.SetDescription(skinDataHelper.SkinDescription);
-            catalogueSkinItemViewHelper.SetSprite(skinDataHelper.SkinPreviewSprite);
+            catalogueSkinItemViewHelper.SetSprites(skinDataHelper.SkinPreviewSprite,
+                GeneralDataModel.Instance.GetCurrencySprite(skinDataHelper.CurrencyType));
             catalogueSkinItemViewHelper.SetPurchasePrice(skinDataHelper.SkinPrice);
             
             // TODO: Check if currency is enough to buy
@@ -260,6 +262,7 @@ public class CatRecruitmentController : MonoBehaviour
         Sprite itemSprite = null;
         string itemDescription = "";
         int itemPrice = -1;
+        Sprite currencySprite = null;
 
         switch (_itemType)
         {
@@ -271,6 +274,7 @@ public class CatRecruitmentController : MonoBehaviour
                 itemSprite = catBasicItemList[index].ItemSprite;
                 itemDescription = catBasicItemList[index].ItemDescription;
                 itemPrice = catBasicItemList[index].ItemPrice;
+                currencySprite = catBasicItemList[index].CurrencySprite;
                 break;
             case ItemTier.SPECIAL:
                 index = catSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
@@ -280,6 +284,7 @@ public class CatRecruitmentController : MonoBehaviour
                 itemSprite = catSpecialItemList[index].ItemSprite;
                 itemDescription = catSpecialItemList[index].ItemDescription;
                 itemPrice = catSpecialItemList[index].ItemPrice;
+                currencySprite = catSpecialItemList[index].CurrencySprite;
                 break;
         }
 
@@ -289,7 +294,7 @@ public class CatRecruitmentController : MonoBehaviour
             return;
         }
 
-        catRecruitmentSelectedItemView.ShowSelectedCatInfo(itemName, itemSprite, itemDescription, itemPrice);
+        catRecruitmentSelectedItemView.ShowSelectedCatInfo(itemName, itemSprite, itemDescription, itemPrice, currencySprite);
     }
 
     private void ShowSelectedSkinInfoEventCallback(int _itemIndex, ItemTier _itemType)
@@ -301,6 +306,7 @@ public class CatRecruitmentController : MonoBehaviour
         Sprite itemSprite = null;
         string itemDescription = "";
         int itemPrice = -1;
+        Sprite currencySprite = null;
 
         switch (_itemType)
         {
@@ -312,6 +318,7 @@ public class CatRecruitmentController : MonoBehaviour
                 itemSprite = skinBasicItemList[index].ItemSprite;
                 itemDescription = skinBasicItemList[index].ItemDescription;
                 itemPrice = skinBasicItemList[index].ItemPrice;
+                currencySprite = skinBasicItemList[index].CurrencySprite;
                 break;
             case ItemTier.SPECIAL:
                 index = skinSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
@@ -321,6 +328,7 @@ public class CatRecruitmentController : MonoBehaviour
                 itemSprite = skinSpecialItemList[index].ItemSprite;
                 itemDescription = skinSpecialItemList[index].ItemDescription;
                 itemPrice = skinSpecialItemList[index].ItemPrice;
+                currencySprite = skinSpecialItemList[index].CurrencySprite;
                 break;
             case ItemTier.PREMIUM:
                 index = skinPremiumItemList.FindIndex(x => x.ItemIndex == _itemIndex);
@@ -330,6 +338,7 @@ public class CatRecruitmentController : MonoBehaviour
                 itemSprite = skinPremiumItemList[index].ItemSprite;
                 itemDescription = skinPremiumItemList[index].ItemDescription;
                 itemPrice = skinPremiumItemList[index].ItemPrice;
+                currencySprite = skinPremiumItemList[index].CurrencySprite;
                 break;
         }
 
@@ -339,7 +348,7 @@ public class CatRecruitmentController : MonoBehaviour
             return;
         }
 
-        catRecruitmentSelectedItemView.ShowSelectedCatInfo(itemName, itemSprite, itemDescription, itemPrice);
+        catRecruitmentSelectedItemView.ShowSelectedCatInfo(itemName, itemSprite, itemDescription, itemPrice, currencySprite);
     }
 
     #endregion

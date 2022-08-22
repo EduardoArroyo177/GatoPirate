@@ -35,7 +35,8 @@ public enum ProjectileType
 public enum CurrencyType
 { 
     GOLDEN_COINS,
-    WOOD
+    WOOD,
+    PREMIUM_GEM
 }
 
 #region Cats

@@ -889,6 +889,7 @@ MonoBehaviour:
   btn_purchaseItem: {fileID: 2971142904280512312}
   lbl_purchasePrice: {fileID: 2971142904085126011}
   pnl_purchasedItem: {fileID: 3387452311948767463}
+  img_currencyIcon: {fileID: 2971142903306060182}
   img_lockedOverlay: {fileID: 7106394767960623774}
   btn_goToStore: {fileID: 1118216308120705964}
   lbl_purchasePrice2: {fileID: 5594944078393670779}

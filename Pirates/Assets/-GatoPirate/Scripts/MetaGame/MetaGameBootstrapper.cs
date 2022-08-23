@@ -10,6 +10,14 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField]
     private CombatData combatData;
 
+    [Header("Music and Audio")]
+    [SerializeField]
+    private MusicManagerMainMenu musicManager;
+    [SerializeField]
+    private VoidEvent TriggerIslandMusicEvent;
+    [SerializeField]
+    private VoidEvent TriggerStoreMusicEvent;
+
     [Header("Scene loader")]
     [SerializeField]
     private SceneLoaderManager sceneLoaderManager;
@@ -94,6 +102,11 @@ public class MetaGameBootstrapper : MonoBehaviour
         // First loading data
         CatsDataSaveManager.Instance.LoadCatsSavedData();
 
+        // Music and audio
+        musicManager.TriggerIslandMusicEvent = TriggerIslandMusicEvent;
+        musicManager.TriggerStoreMusicEvent = TriggerStoreMusicEvent;
+        musicManager.Initialize();
+
         // Scene loader
         sceneLoaderManager.LoadCombatSceneEvent = LoadCombatSceneEvent;
         sceneLoaderManager.Initialize();
@@ -157,5 +170,13 @@ public class MetaGameBootstrapper : MonoBehaviour
         shipOptionsController.CloseShipCameraEvent = CloseShipCameraEvent;
         shipOptionsController.LoadCombatSceneEvent = LoadCombatSceneEvent;
         shipOptionsController.Initialize();
+
+        // Init completed
+        GameInitializationCompleted();
+    }
+
+    private void GameInitializationCompleted()
+    {
+        TriggerIslandMusicEvent.Raise();
     }
 }

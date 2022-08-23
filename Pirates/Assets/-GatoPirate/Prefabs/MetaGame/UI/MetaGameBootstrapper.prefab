@@ -44,6 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a8fc8a3462a934baeddc5d0b4638da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatData: {fileID: 11400000, guid: 32a0ef828edb74049a6a9c95635e6ee4, type: 2}
+  musicManager: {fileID: 0}
+  TriggerIslandMusicEvent: {fileID: 11400000, guid: b13b78183819757429e263b81cf90798, type: 2}
+  TriggerStoreMusicEvent: {fileID: 11400000, guid: f835b9726aa34c84097ad714bcf0d156, type: 2}
+  sceneLoaderManager: {fileID: 0}
+  LoadCombatSceneEvent: {fileID: 11400000, guid: 8bd8f266ebdcda94588c93f2f032d11b, type: 2}
   virtualCameraControllerMainMenu: {fileID: 0}
   TriggerSelectedCatCameraEvent: {fileID: 11400000, guid: 57b131841612466458f152ebfef1ec35, type: 2}
   CloseSelectedCatCameraEvent: {fileID: 11400000, guid: 82f45c051b277494db76ac7d074988be, type: 2}
@@ -73,4 +79,3 @@ MonoBehaviour:
   OpenScreenEvent: {fileID: 11400000, guid: efc47854f7f35f14fb3ac8d6dc709a92, type: 2}
   shipOptionsController: {fileID: 0}
   OpenShipOptionsEvent: {fileID: 11400000, guid: 18641421d041c824d964690faaaafbbe, type: 2}
-  LoadCombatSceneEvent: {fileID: 11400000, guid: 8bd8f266ebdcda94588c93f2f032d11b, type: 2}

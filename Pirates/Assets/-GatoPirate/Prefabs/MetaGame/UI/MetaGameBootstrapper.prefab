@@ -50,6 +50,10 @@ MonoBehaviour:
   TriggerStoreMusicEvent: {fileID: 11400000, guid: f835b9726aa34c84097ad714bcf0d156, type: 2}
   sceneLoaderManager: {fileID: 0}
   LoadCombatSceneEvent: {fileID: 11400000, guid: 8bd8f266ebdcda94588c93f2f032d11b, type: 2}
+  settingsController: {fileID: 0}
+  SetMusicVolumeEvent: {fileID: 11400000, guid: 8e6063f40a163a947bb9ce470d789911, type: 2}
+  SetSoundsVolumeEvent: {fileID: 11400000, guid: 3d88799a75bc8a342bb9171adf161543, type: 2}
+  SetVibrationOnEvent: {fileID: 11400000, guid: d5e210e011c149b40a8b6854a6ce0bb2, type: 2}
   virtualCameraControllerMainMenu: {fileID: 0}
   TriggerSelectedCatCameraEvent: {fileID: 11400000, guid: 57b131841612466458f152ebfef1ec35, type: 2}
   CloseSelectedCatCameraEvent: {fileID: 11400000, guid: 82f45c051b277494db76ac7d074988be, type: 2}

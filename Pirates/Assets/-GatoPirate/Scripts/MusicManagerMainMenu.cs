@@ -15,6 +15,7 @@ public class MusicManagerMainMenu : MonoBehaviour
 
     public VoidEvent TriggerIslandMusicEvent { get; set; }
     public VoidEvent TriggerStoreMusicEvent { get; set; }
+    public FloatEvent SetMusicVolumeEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private AudioSource audioSource;
@@ -24,6 +25,8 @@ public class MusicManagerMainMenu : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerIslandMusicEvent, TriggerIslandMusicEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerStoreMusicEvent, TriggerStoreMusicEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<float>.BuildEventHandler(SetMusicVolumeEvent, SetMusicVolumeEventCallback));
+
     }
 
     #region Event callbacks
@@ -39,6 +42,11 @@ public class MusicManagerMainMenu : MonoBehaviour
         audioSource.Stop();
         audioSource.clip = storeMusic;
         audioSource.Play();
+    }
+
+    private void SetMusicVolumeEventCallback(float _newVolume)
+    {
+        audioSource.volume = _newVolume;
     }
     #endregion
 

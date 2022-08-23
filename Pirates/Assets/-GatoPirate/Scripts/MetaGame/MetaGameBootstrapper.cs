@@ -24,6 +24,16 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField]
     private VoidEvent LoadCombatSceneEvent;
 
+    [Header("Settings")]
+    [SerializeField]
+    private SettingsController settingsController;
+    [SerializeField]
+    private FloatEvent SetMusicVolumeEvent;
+    [SerializeField]
+    private FloatEvent SetSoundsVolumeEvent;
+    [SerializeField]
+    private BoolEvent SetVibrationOnEvent;
+
     [Header("Virtual cameras")]
     [SerializeField]
     private VirtualCameraControllerMainMenu virtualCameraControllerMainMenu;
@@ -105,11 +115,18 @@ public class MetaGameBootstrapper : MonoBehaviour
         // Music and audio
         musicManager.TriggerIslandMusicEvent = TriggerIslandMusicEvent;
         musicManager.TriggerStoreMusicEvent = TriggerStoreMusicEvent;
+        musicManager.SetMusicVolumeEvent = SetMusicVolumeEvent;
         musicManager.Initialize();
 
         // Scene loader
         sceneLoaderManager.LoadCombatSceneEvent = LoadCombatSceneEvent;
         sceneLoaderManager.Initialize();
+
+        // Settings
+        settingsController.SetMusicVolumeEvent = SetMusicVolumeEvent;
+        settingsController.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        settingsController.SetVibrationOnEvent = SetVibrationOnEvent;
+        settingsController.Initialize();
 
         // Virtual cameras
         virtualCameraControllerMainMenu.TriggerSelectedCatCameraEvent = TriggerSelectedCatCameraEvent;

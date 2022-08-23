@@ -46,6 +46,10 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField]
     private VoidEvent CloseShipCameraEvent;
 
+    [Header("Main menu")]
+    [SerializeField]
+    private MainMenuController mainMenuController;
+
     [Header("Island")]
     [SerializeField]
     private IslandCatsController islandCatsController;
@@ -134,6 +138,10 @@ public class MetaGameBootstrapper : MonoBehaviour
         virtualCameraControllerMainMenu.TriggerShipCameraEvent = TriggerShipCameraEvent;
         virtualCameraControllerMainMenu.CloseShipCameraEvent = CloseShipCameraEvent;
         virtualCameraControllerMainMenu.Initialize();
+
+        // Main menu
+        mainMenuController.CatSelectedEvent = CatSelectedEvent;
+        mainMenuController.Initialize();
 
         // Island
         islandCatsController.NewCatPurchasedEvent = NewCatPurchasedEvent;

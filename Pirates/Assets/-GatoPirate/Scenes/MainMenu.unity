@@ -3567,8 +3567,8 @@ RectTransform:
   m_Father: {fileID: 1879945078}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.2, y: 1}
+  m_AnchorMin: {x: 0.8, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5676,6 +5676,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 580022582}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &384614358
 MonoBehaviour:
@@ -8507,7 +8519,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1254550396}
   m_HandleRect: {fileID: 1254550395}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 0.2
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8578,6 +8590,7 @@ GameObject:
   - component: {fileID: 580022583}
   - component: {fileID: 580022585}
   - component: {fileID: 580022584}
+  - component: {fileID: 580022586}
   m_Layer: 5
   m_Name: View_MainMenu
   m_TagString: Untagged
@@ -8646,6 +8659,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580022582}
   m_CullTransparentMesh: 1
+--- !u!114 &580022586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580022582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c53561ebfc9dc74c8433a775f638216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &595573616
 GameObject:
   m_ObjectHideFlags: 0
@@ -10047,6 +10072,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 580022582}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &678371092
 MonoBehaviour:
@@ -18851,8 +18888,8 @@ RectTransform:
   m_Father: {fileID: 736408384}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.2, y: 1}
+  m_AnchorMin: {x: 0.8, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -21914,6 +21951,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1393617896}
+  - component: {fileID: 1393617897}
   m_Layer: 5
   m_Name: Controller
   m_TagString: Untagged
@@ -21941,6 +21979,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1393617897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393617895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2608a708f7402114a8ed54c8e1878401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuView: {fileID: 580022586}
 --- !u!1001 &1405620019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22470,7 +22521,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 325963531}
   m_HandleRect: {fileID: 325963530}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 0.2
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -34787,6 +34838,10 @@ PrefabInstance:
       propertyPath: musicManager
       value: 
       objectReference: {fileID: 530838091}
+    - target: {fileID: 2339486519289672297, guid: 3cdc8de540e8e354997e6f1945626441, type: 3}
+      propertyPath: mainMenuController
+      value: 
+      objectReference: {fileID: 1393617897}
     - target: {fileID: 2339486519289672297, guid: 3cdc8de540e8e354997e6f1945626441, type: 3}
       propertyPath: sceneLoaderManager
       value: 

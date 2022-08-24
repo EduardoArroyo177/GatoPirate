@@ -37,6 +37,9 @@ public class CatRecruitmentController : MonoBehaviour
 
     // Skin update
     public StringEvent SkinPurchasedEvent { get; set; }
+
+    // Currency update
+    public VoidEvent CurrenciesUpdatedEvent { get; set; }
     #endregion
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -53,6 +56,7 @@ public class CatRecruitmentController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueSkinEvent, PurchaseCatalogueSkinEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedCatInfoEvent, ShowSelectedItemEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedSkinInfoEvent, ShowSelectedSkinInfoEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CurrenciesUpdatedEvent, CurrenciesUpdatedEventCallback));
 
         catRecruitmentPopUpsView.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
         catRecruitmentPopUpsView.Initialize();
@@ -69,6 +73,7 @@ public class CatRecruitmentController : MonoBehaviour
         GameObject catItemViewHelper;
         CatalogueItemView catalogueCatItemViewHelper;
         CatData catDataHelper;
+        int currencyAmount = 0;
 
         for (int index = 0; index < CatsModel.Instance.CatsDataList.Count; index++)
         {
@@ -87,12 +92,17 @@ public class CatRecruitmentController : MonoBehaviour
             catalogueCatItemViewHelper.SetSprites(catDataHelper.CatPreviewSprite,
                  GeneralDataModel.Instance.GetCurrencySprite(catDataHelper.CurrencyType));
             catalogueCatItemViewHelper.SetPurchasePrice(catDataHelper.CatPrice);
-            // TODO: Check if currency is enough to buy
-            //if (skinDataHelper.IsUnlocked)
-            //    catalogueSkinItemViewHelper.SetItemUnlocked();
-            //else
-            //    catalogueSkinItemViewHelper.SetItemLocked();
-            catalogueCatItemViewHelper.SetItemUnlocked();
+            // Check if currency is enough to buy
+            catalogueCatItemViewHelper.CurrencyType = catDataHelper.CurrencyType;
+            currencyAmount = CurrencyDataSaveManager.Instance.GetCurrencyAmount(catDataHelper.CurrencyType);
+            if (currencyAmount < catDataHelper.CatPrice)
+            {
+                catalogueCatItemViewHelper.SetItemLocked();
+            }
+            else
+            {
+                catalogueCatItemViewHelper.SetItemUnlocked();
+            }
 
             if (catDataHelper.CatTier.Equals(ItemTier.BASIC))
             {
@@ -115,6 +125,7 @@ public class CatRecruitmentController : MonoBehaviour
         GameObject catItemViewHelper;
         CatalogueItemView catalogueSkinItemViewHelper;
         CatSkinData skinDataHelper;
+        int currencyAmount = 0;
 
         for (int index = 0; index < CatsModel.Instance.CatsSkinDataList.Count; index++)
         {
@@ -133,13 +144,18 @@ public class CatRecruitmentController : MonoBehaviour
             catalogueSkinItemViewHelper.SetSprites(skinDataHelper.SkinPreviewSprite,
                 GeneralDataModel.Instance.GetCurrencySprite(skinDataHelper.CurrencyType));
             catalogueSkinItemViewHelper.SetPurchasePrice(skinDataHelper.SkinPrice);
-            
-            // TODO: Check if currency is enough to buy
-            //if (skinDataHelper.IsUnlocked)
-            //    catalogueSkinItemViewHelper.SetItemUnlocked();
-            //else
-            //    catalogueSkinItemViewHelper.SetItemLocked();
-            catalogueSkinItemViewHelper.SetItemUnlocked();
+
+            // Check if currency is enough to buy
+            catalogueSkinItemViewHelper.CurrencyType = skinDataHelper.CurrencyType;
+            currencyAmount = CurrencyDataSaveManager.Instance.GetCurrencyAmount(skinDataHelper.CurrencyType);
+            if (currencyAmount < skinDataHelper.SkinPrice)
+            {
+                catalogueSkinItemViewHelper.SetItemLocked();
+            }
+            else
+            {
+                catalogueSkinItemViewHelper.SetItemUnlocked();
+            }
 
             if (CatsDataSaveManager.Instance.IsSkinPurchased(skinDataHelper.SkinType.ToString()))
                 catalogueSkinItemViewHelper.SetAsPurchased();
@@ -162,7 +178,6 @@ public class CatRecruitmentController : MonoBehaviour
         }
 
         catCatalogueNavigationView.Initialize();
-
         skinCatalogueNavigationView.Initialize();
     }
     #endregion
@@ -173,6 +188,8 @@ public class CatRecruitmentController : MonoBehaviour
         string itemName = "";
         CatType catType = CatType.GENERIC;
         int index;
+        CurrencyType currencyType = CurrencyType.GOLDEN_COINS;
+        int itemPrice = 0;
         switch (_itemTier)
         {
             case ItemTier.BASIC:
@@ -181,6 +198,8 @@ public class CatRecruitmentController : MonoBehaviour
                     return;
                 itemName = catBasicItemList[index].ItemName;
                 catType = catBasicItemList[index].CatType;
+                currencyType = catBasicItemList[index].CurrencyType;
+                itemPrice = catBasicItemList[index].ItemPrice;
                 break;
             case ItemTier.SPECIAL:
                 index = catSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
@@ -188,6 +207,8 @@ public class CatRecruitmentController : MonoBehaviour
                     return;
                 itemName = catSpecialItemList[index].ItemName;
                 catType = catSpecialItemList[index].CatType;
+                currencyType = catSpecialItemList[index].CurrencyType;
+                itemPrice = catSpecialItemList[index].ItemPrice;
                 break;
         }
 
@@ -198,12 +219,14 @@ public class CatRecruitmentController : MonoBehaviour
         }
         // TODO: (if needed) Get island and its slot to save it, then call event to place it there
         // TODO: Reduce currency Amount with item price
+        CurrencyDataSaveManager.Instance.UpdateCurrency(currencyType, -itemPrice);
         // Save cat data
         string catID = IDGenerator.Instance.GetGeneratedID(itemName);
         CatsDataSaveManager.Instance.SaveNewCat(catType, catID, itemName);
         //  Update cat island event
         NewCatPurchasedEvent.Raise(catType, catID);
         // TODO: Show purchased animation
+
     }
 
     private void PurchaseCatalogueSkinEventCallback(int _itemIndex, ItemTier _itemTier)
@@ -351,6 +374,79 @@ public class CatRecruitmentController : MonoBehaviour
         catRecruitmentSelectedItemView.ShowSelectedCatInfo(itemName, itemSprite, itemDescription, itemPrice, currencySprite);
     }
 
+    private void CurrenciesUpdatedEventCallback(Void _item)
+    {
+        int currencyAmount = 0;
+        // Cat basic items
+        for (int index = 0; index < catBasicItemList.Count; index++)
+        {
+            currencyAmount = CurrencyDataSaveManager.Instance.GetCurrencyAmount(catBasicItemList[index].CurrencyType);
+            if (currencyAmount < catBasicItemList[index].ItemPrice)
+            {
+                catBasicItemList[index].SetItemLocked();
+            }
+            else
+            {
+                catBasicItemList[index].SetItemUnlocked();
+            }
+        }
+
+        // Cat special items
+        for (int index = 0; index < catSpecialItemList.Count; index++)
+        {
+            currencyAmount = CurrencyDataSaveManager.Instance.GetCurrencyAmount(catSpecialItemList[index].CurrencyType);
+            if (currencyAmount < catSpecialItemList[index].ItemPrice)
+            {
+                catSpecialItemList[index].SetItemLocked();
+            }
+            else
+            {
+                catSpecialItemList[index].SetItemUnlocked();
+            }
+        }
+
+        // Skin basic items
+        for (int index = 0; index < skinBasicItemList.Count; index++)
+        {
+            currencyAmount = CurrencyDataSaveManager.Instance.GetCurrencyAmount(skinBasicItemList[index].CurrencyType);
+            if (currencyAmount < skinBasicItemList[index].ItemPrice)
+            {
+                skinBasicItemList[index].SetItemLocked();
+            }
+            else
+            {
+                skinBasicItemList[index].SetItemUnlocked();
+            }
+        }
+
+        // Skin special items
+        for (int index = 0; index < skinSpecialItemList.Count; index++)
+        {
+            currencyAmount = CurrencyDataSaveManager.Instance.GetCurrencyAmount(skinSpecialItemList[index].CurrencyType);
+            if (currencyAmount < skinSpecialItemList[index].ItemPrice)
+            {
+                skinSpecialItemList[index].SetItemLocked();
+            }
+            else
+            {
+                skinSpecialItemList[index].SetItemUnlocked();
+            }
+        }
+
+        // Skin premium items
+        for (int index = 0; index < skinPremiumItemList.Count; index++)
+        {
+            currencyAmount = CurrencyDataSaveManager.Instance.GetCurrencyAmount(skinPremiumItemList[index].CurrencyType);
+            if (currencyAmount < skinPremiumItemList[index].ItemPrice)
+            {
+                skinPremiumItemList[index].SetItemLocked();
+            }
+            else
+            {
+                skinPremiumItemList[index].SetItemUnlocked();
+            }
+        }
+    }
     #endregion
 
     #region OnDestroy

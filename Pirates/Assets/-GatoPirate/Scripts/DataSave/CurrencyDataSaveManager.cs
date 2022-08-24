@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 public class CurrencyDataSaveManager : SceneSingleton<CurrencyDataSaveManager>
@@ -13,6 +14,7 @@ public class CurrencyDataSaveManager : SceneSingleton<CurrencyDataSaveManager>
     public const int INITIAL_WOOD_AMOUNT = 1000;
     public const int INITIAL_GEMS_AMOUNT = 5;
 
+    public VoidEvent CurrenciesUpdatedEvent { get; set; }
     public DataSaveCurrencyListStructure OwnedCurrencyList { get => ownedCurrencyList; set => ownedCurrencyList = value; }
 
 
@@ -64,7 +66,7 @@ public class CurrencyDataSaveManager : SceneSingleton<CurrencyDataSaveManager>
         return OwnedCurrencyList.CurrencyList[index].Amount;
     }
 
-    public void AddCurrency(CurrencyType _currencyType, int _amount)
+    public void UpdateCurrency(CurrencyType _currencyType, int _amount)
     {
         int index = OwnedCurrencyList.CurrencyList.FindIndex(x => x.CurrencyType.Equals(_currencyType.ToString()));
 
@@ -76,6 +78,7 @@ public class CurrencyDataSaveManager : SceneSingleton<CurrencyDataSaveManager>
 
         OwnedCurrencyList.CurrencyList[index].Amount += _amount;
         SaveCurrencyData();
+        CurrenciesUpdatedEvent.Raise();
     }
     #endregion
 

@@ -122,6 +122,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         // First loading data
         CatsDataSaveManager.Instance.LoadCatsSavedData();
         CurrencyDataSaveManager.Instance.LoadCurrencySavedData();
+        CurrencyDataSaveManager.Instance.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
 
         // Music and audio
         musicManager.TriggerIslandMusicEvent = TriggerIslandMusicEvent;
@@ -187,6 +188,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catRecruitmentController.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
         catRecruitmentController.NewCatPurchasedEvent = NewCatPurchasedEvent;
         catRecruitmentController.SkinPurchasedEvent = SkinPurchasedEvent;
+        catRecruitmentController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
         catRecruitmentController.Initialize();
 
         // Cat options

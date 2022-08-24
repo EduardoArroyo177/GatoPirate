@@ -64,4 +64,9 @@ public class SettingsController : MonoBehaviour
         SetVibrationOnEvent.Raise(settingsView.ToggleVibration.isOn);
         PlayerPrefs.SetInt(VIBRATION_SETTINGS, settingsView.ToggleVibration.isOn ? 1 : 0);
     }
+
+    public void Add1000Coins()
+    {
+        CurrencyDataSaveManager.Instance.UpdateCurrency(CurrencyType.GOLDEN_COINS, 1000);
+    }
 }

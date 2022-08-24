@@ -22,4 +22,10 @@ public class SettingsView : MonoBehaviour
         SettingsController.SaveSettings();
         gameObject.SetActive(false);
     }
+
+    // TODO: For testing only, remove later
+    public void AddCoins()
+    {
+        SettingsController.Add1000Coins();
+    }
 }

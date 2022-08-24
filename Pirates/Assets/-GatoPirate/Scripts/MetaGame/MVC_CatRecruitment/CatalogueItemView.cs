@@ -45,6 +45,7 @@ public class CatalogueItemView : MonoBehaviour
     public int ItemPrice { get; set; }
     public Sprite ItemSprite { get; set; }
     public Sprite CurrencySprite { get; set; }
+    public CurrencyType CurrencyType { get; set; }
 
     #region Data set
     // For cats

@@ -10,6 +10,14 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private CombatData combatData;
 
+    [Header("Music manager")]
+    [SerializeField]
+    private MusicManagerCombat musicManagerCombat;
+    [SerializeField]
+    private VoidEvent TriggerCombatMusicEvent;
+    [SerializeField]
+    private FloatEvent SetMusicVolumeEvent;
+
     [Header("Scene loader")]
     [SerializeField]
     private SceneLoaderManager sceneLoaderManager;
@@ -66,12 +74,20 @@ public class StartCombatBootstrapper : MonoBehaviour
         sceneLoaderManager.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
         sceneLoaderManager.Initialize();
 
+        // Combat data
         playerActiveCannons = combatData.CatCrewDataList.Length;
 
+        // Music manager
+        musicManagerCombat.TriggerCombatMusicEvent = TriggerCombatMusicEvent;
+        musicManagerCombat.SetMusicVolumeEvent = SetMusicVolumeEvent;
+        musicManagerCombat.Initialize();
+
+        // Start combat controller
         startCombatController.StartCombatEvent = StartCombatEvent;
         startCombatController.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
         startCombatController.Initialize();
 
+        // Virtual cameras
         virtualCameraController.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
         virtualCameraController.TriggerPlayerStartingAnimationEvent = TriggerPlayerStartingAnimationEvent;
         virtualCameraController.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
@@ -120,5 +136,11 @@ public class StartCombatBootstrapper : MonoBehaviour
     private void StartingAnimation()
     {
         TriggerPlayerStartingAnimationEvent.Raise();
+        CombatInitializationCompleted();
+    }
+
+    private void CombatInitializationCompleted()
+    {
+        TriggerCombatMusicEvent.Raise();
     }
 }

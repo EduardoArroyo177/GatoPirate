@@ -197,7 +197,7 @@ public class CatRecruitmentController : MonoBehaviour
             return;
         }
         // TODO: (if needed) Get island and its slot to save it, then call event to place it there
-        // TODO: Reduce currency amount with item price
+        // TODO: Reduce currency Amount with item price
         // Save cat data
         string catID = IDGenerator.Instance.GetGeneratedID(itemName);
         CatsDataSaveManager.Instance.SaveNewCat(catType, catID, itemName);
@@ -245,7 +245,7 @@ public class CatRecruitmentController : MonoBehaviour
             return;
         }
         // TODO: (if needed) Get island and its slot to save it, then call event to place it there
-        // TODO: Reduce currency amount with item price
+        // TODO: Reduce currency Amount with item price
         // Save skin data
         CatsDataSaveManager.Instance.UnlockSkin(skinType);
         // Update skin management

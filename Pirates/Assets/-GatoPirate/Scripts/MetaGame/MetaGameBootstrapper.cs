@@ -50,6 +50,12 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField]
     private MainMenuController mainMenuController;
 
+    [Header("Currency panels")]
+    [SerializeField]
+    private PanelCurrenciesController[] pnl_currenciesList;
+    [SerializeField]
+    private VoidEvent CurrenciesUpdatedEvent;
+
     [Header("Island")]
     [SerializeField]
     private IslandCatsController islandCatsController;
@@ -115,6 +121,7 @@ public class MetaGameBootstrapper : MonoBehaviour
     {
         // First loading data
         CatsDataSaveManager.Instance.LoadCatsSavedData();
+        CurrencyDataSaveManager.Instance.LoadCurrencySavedData();
 
         // Music and audio
         musicManager.TriggerIslandMusicEvent = TriggerIslandMusicEvent;
@@ -142,6 +149,13 @@ public class MetaGameBootstrapper : MonoBehaviour
         // Main menu
         mainMenuController.CatSelectedEvent = CatSelectedEvent;
         mainMenuController.Initialize();
+
+        // Currency panels
+        for (int index = 0; index < pnl_currenciesList.Length; index++)
+        {
+            pnl_currenciesList[index].CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
+            pnl_currenciesList[index].Initialize();
+        }
 
         // Island
         islandCatsController.NewCatPurchasedEvent = NewCatPurchasedEvent;
@@ -203,5 +217,6 @@ public class MetaGameBootstrapper : MonoBehaviour
     private void GameInitializationCompleted()
     {
         TriggerIslandMusicEvent.Raise();
+        CurrenciesUpdatedEvent.Raise();
     }
 }

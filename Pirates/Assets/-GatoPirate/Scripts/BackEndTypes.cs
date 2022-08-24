@@ -64,3 +64,23 @@ public class DataSaveSkinPurchasedStructure
     }
 }
 #endregion
+
+#region Currency management
+[Serializable]
+public class DataSaveCurrencyStructure
+{
+    public string CurrencyType;
+    public int Amount;
+}
+
+[Serializable]
+public class DataSaveCurrencyListStructure
+{
+    public List<DataSaveCurrencyStructure> CurrencyList;
+
+    public DataSaveCurrencyListStructure()
+    {
+        CurrencyList = new List<DataSaveCurrencyStructure>();
+    }
+}
+#endregion

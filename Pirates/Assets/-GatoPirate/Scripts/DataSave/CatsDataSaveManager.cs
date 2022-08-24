@@ -43,7 +43,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
             initialCatStructure.SkinType = SkinType.NONE.ToString(); // TODO: Check if first cat will have a special skin by default
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
-            // Captain amount
+            // Captain Amount
             DataSaveCatCrewAmountStructure = new DataSaveCatCrewAmountStructure();
             DataSaveCatAmountStructure initialCatAmountStructure = new DataSaveCatAmountStructure();
             initialCatAmountStructure.CatType = CatType.CAPTAIN.ToString();
@@ -77,7 +77,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
             initialCatStructure.SkinType = SkinType.NONE.ToString();
             DataSaveCatCrewStructure.DataSaveCatCrewList.Add(initialCatStructure);
-            // Sailors amount
+            // Sailors Amount
             initialCatAmountStructure = new DataSaveCatAmountStructure();
             initialCatAmountStructure.CatType = CatType.ORANGE.ToString();
             initialCatAmountStructure.CatsOwnedAmount = 3;
@@ -113,14 +113,14 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
         newCatStructure.SkinType = "none"; 
         DataSaveCatCrewStructure.DataSaveCatCrewList.Add(newCatStructure);
 
-        // Set amount
+        // Set Amount
         int catIndex = DataSaveCatCrewAmountStructure.DataSaveCatCrewAmountList.FindIndex(x => x.CatType.Equals(_catType));
-        // We update existing cat amount
+        // We update existing cat Amount
         if (catIndex >= 0)
         {
             DataSaveCatCrewAmountStructure.DataSaveCatCrewAmountList[catIndex].CatsOwnedAmount++;
         }
-        // We create a new cat amount entry
+        // We create a new cat Amount entry
         else
         {
             DataSaveCatAmountStructure initialCatAmountStructure = new DataSaveCatAmountStructure();

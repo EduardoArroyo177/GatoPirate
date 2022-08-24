@@ -98,7 +98,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyShipAttackController.StartCombatEvent = StartCombatEvent;
         enemyShipAttackController.StopCombatEvent = StopCombatEvent;
 
-        // TODO: Initialize this after x amount of time or from a button or whatever
+        // TODO: Initialize this after x Amount of time or from a button or whatever
         enemyShipAttackController.Initialize();
 
         // Enemy ship health controller

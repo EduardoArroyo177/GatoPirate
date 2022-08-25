@@ -62,7 +62,8 @@ public class CatRecruitmentController : MonoBehaviour
         catRecruitmentPopUpsView.Initialize();
 
         catRecruitmentSelectedItemView.PurchaseCatalogueItemEvent = PurchaseCatalogueCatEvent;
-
+        catRecruitmentSelectedItemView.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
+        
         FillCatCatalogueData();
         FillSkinCatalogueData();
     }
@@ -286,6 +287,7 @@ public class CatRecruitmentController : MonoBehaviour
         string itemDescription = "";
         int itemPrice = -1;
         Sprite currencySprite = null;
+        bool isUnlocked = false;
 
         switch (_itemType)
         {
@@ -298,6 +300,7 @@ public class CatRecruitmentController : MonoBehaviour
                 itemDescription = catBasicItemList[index].ItemDescription;
                 itemPrice = catBasicItemList[index].ItemPrice;
                 currencySprite = catBasicItemList[index].CurrencySprite;
+                isUnlocked = catBasicItemList[index].ItemUnlocked;
                 break;
             case ItemTier.SPECIAL:
                 index = catSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
@@ -308,6 +311,7 @@ public class CatRecruitmentController : MonoBehaviour
                 itemDescription = catSpecialItemList[index].ItemDescription;
                 itemPrice = catSpecialItemList[index].ItemPrice;
                 currencySprite = catSpecialItemList[index].CurrencySprite;
+                isUnlocked = catSpecialItemList[index].ItemUnlocked;
                 break;
         }
 
@@ -318,6 +322,10 @@ public class CatRecruitmentController : MonoBehaviour
         }
 
         catRecruitmentSelectedItemView.ShowSelectedCatInfo(itemName, itemSprite, itemDescription, itemPrice, currencySprite);
+        if (isUnlocked)
+            catRecruitmentSelectedItemView.SetItemUnlocked();
+        else
+            catRecruitmentSelectedItemView.SetItemLocked();
     }
 
     private void ShowSelectedSkinInfoEventCallback(int _itemIndex, ItemTier _itemType)
@@ -330,6 +338,7 @@ public class CatRecruitmentController : MonoBehaviour
         string itemDescription = "";
         int itemPrice = -1;
         Sprite currencySprite = null;
+        bool isUnlocked = false;
 
         switch (_itemType)
         {
@@ -342,6 +351,7 @@ public class CatRecruitmentController : MonoBehaviour
                 itemDescription = skinBasicItemList[index].ItemDescription;
                 itemPrice = skinBasicItemList[index].ItemPrice;
                 currencySprite = skinBasicItemList[index].CurrencySprite;
+                isUnlocked = skinBasicItemList[index].ItemUnlocked;
                 break;
             case ItemTier.SPECIAL:
                 index = skinSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
@@ -352,6 +362,7 @@ public class CatRecruitmentController : MonoBehaviour
                 itemDescription = skinSpecialItemList[index].ItemDescription;
                 itemPrice = skinSpecialItemList[index].ItemPrice;
                 currencySprite = skinSpecialItemList[index].CurrencySprite;
+                isUnlocked = skinSpecialItemList[index].ItemUnlocked;
                 break;
             case ItemTier.PREMIUM:
                 index = skinPremiumItemList.FindIndex(x => x.ItemIndex == _itemIndex);
@@ -362,6 +373,7 @@ public class CatRecruitmentController : MonoBehaviour
                 itemDescription = skinPremiumItemList[index].ItemDescription;
                 itemPrice = skinPremiumItemList[index].ItemPrice;
                 currencySprite = skinPremiumItemList[index].CurrencySprite;
+                isUnlocked = skinPremiumItemList[index].ItemUnlocked;
                 break;
         }
 
@@ -372,6 +384,10 @@ public class CatRecruitmentController : MonoBehaviour
         }
 
         catRecruitmentSelectedItemView.ShowSelectedCatInfo(itemName, itemSprite, itemDescription, itemPrice, currencySprite);
+        if (isUnlocked)
+            catRecruitmentSelectedItemView.SetItemUnlocked();
+        else
+            catRecruitmentSelectedItemView.SetItemLocked();
     }
 
     private void CurrenciesUpdatedEventCallback(Void _item)

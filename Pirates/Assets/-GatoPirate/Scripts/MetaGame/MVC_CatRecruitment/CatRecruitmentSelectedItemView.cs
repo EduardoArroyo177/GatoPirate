@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 
 public class CatRecruitmentSelectedItemView : MonoBehaviour
 {
@@ -17,8 +18,19 @@ public class CatRecruitmentSelectedItemView : MonoBehaviour
     private TextMeshProUGUI lbl_itemPrice;
     [SerializeField]
     private Image img_currency;
+    [SerializeField]
+    private GameObject btn_purchaseItem;
+
+    [Header("Item locked")]
+    [SerializeField]
+    private GameObject img_lockedOverlay;
+    [SerializeField]
+    private GameObject btn_goToStore;
+    [SerializeField]
+    private TextMeshProUGUI lbl_itemPrice2;
 
     public IntCatalogueTypeEvent PurchaseCatalogueItemEvent { get; set; }
+    public VoidEvent OpenGoToStorePopUpEvent { get; set; }
 
     public int ItemIndex { get; set; }
     public ItemTier ItemType { get; set; }
@@ -28,6 +40,20 @@ public class CatRecruitmentSelectedItemView : MonoBehaviour
     {
         ItemIndex = _itemIndex;
         ItemType = _itemType;
+    }
+
+    public void SetItemLocked()
+    {
+        btn_purchaseItem.SetActive(false);
+        btn_goToStore.SetActive(true);
+        img_lockedOverlay.SetActive(true);
+    }
+
+    public void SetItemUnlocked()
+    {
+        btn_purchaseItem.SetActive(true);
+        btn_goToStore.SetActive(false);
+        img_lockedOverlay.SetActive(false);
     }
 
     public void ShowSelectedCatInfo(string _itemName, Sprite _itemSprite, string _itemDescription, int _itemPrice, Sprite _currencySprite)
@@ -51,8 +77,8 @@ public class CatRecruitmentSelectedItemView : MonoBehaviour
     }
 
     public void GoToStore()
-    { 
-        
+    {
+        OpenGoToStorePopUpEvent.Raise();
     }
     #endregion
 }

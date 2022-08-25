@@ -46,6 +46,7 @@ public class CatalogueItemView : MonoBehaviour
     public Sprite ItemSprite { get; set; }
     public Sprite CurrencySprite { get; set; }
     public CurrencyType CurrencyType { get; set; }
+    public bool ItemUnlocked { get; set; }
 
     #region Data set
     // For cats
@@ -94,6 +95,7 @@ public class CatalogueItemView : MonoBehaviour
         btn_purchaseItem.gameObject.SetActive(false);
         btn_goToStore.SetActive(true);
         img_lockedOverlay.SetActive(true);
+        ItemUnlocked = false;
     }
 
     public void SetItemUnlocked()
@@ -101,6 +103,7 @@ public class CatalogueItemView : MonoBehaviour
         btn_purchaseItem.gameObject.SetActive(true);
         btn_goToStore.SetActive(false);
         img_lockedOverlay.SetActive(false);
+        ItemUnlocked = true;
     }
 
     public void SetAsPurchased()

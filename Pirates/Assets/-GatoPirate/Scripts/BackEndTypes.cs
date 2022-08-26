@@ -84,3 +84,20 @@ public class DataSaveCurrencyListStructure
     }
 }
 #endregion
+
+#region Settings management
+[Serializable]
+public class DataSaveSettingsStructure
+{
+    public float MusicVolume;
+    public float SoundsVolume;
+    public bool VibrationOn;
+
+    public DataSaveSettingsStructure()
+    {
+        MusicVolume = 1.0f;
+        SoundsVolume = 1.0f;
+        VibrationOn = true;
+    }
+}
+#endregion

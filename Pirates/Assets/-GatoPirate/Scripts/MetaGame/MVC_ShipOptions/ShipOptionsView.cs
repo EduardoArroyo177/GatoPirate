@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ShipOptionsView : MonoBehaviour
 {
-    public ShipOptionsController shipOptionsController;
+    public ShipOptionsController ShipOptionsController { get; set; }
 
     public void ClosePopUp()
     {
-        shipOptionsController.CloseCamera();
+        ShipOptionsController.CloseCamera();
         gameObject.SetActive(false);
     }
 
     public void OpenCatCrew()
     {
-        shipOptionsController.OpenCatCrewManagement();
+        ShipOptionsController.OpenCatCrewManagement();
     }
 
     public void Combat()
     {
-        shipOptionsController.StartCombat();
+        ShipOptionsController.StartCombat();
     }
 }

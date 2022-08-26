@@ -123,6 +123,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         CatsDataSaveManager.Instance.LoadCatsSavedData();
         CurrencyDataSaveManager.Instance.LoadCurrencySavedData();
         CurrencyDataSaveManager.Instance.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
+        SettingsDataSaveManager.Instance.LoadSettingsSavedData();
 
         // Music and audio
         musicManager.TriggerIslandMusicEvent = TriggerIslandMusicEvent;
@@ -210,6 +211,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         shipOptionsController.OpenShipOptionsEvent = OpenShipOptionsEvent;
         shipOptionsController.CloseShipCameraEvent = CloseShipCameraEvent;
         shipOptionsController.LoadCombatSceneEvent = LoadCombatSceneEvent;
+        shipOptionsController.OpenCatCrewManagementNoIDEvent = OpenCatCrewManagementNoIDEvent;
         shipOptionsController.Initialize();
 
         // Init completed

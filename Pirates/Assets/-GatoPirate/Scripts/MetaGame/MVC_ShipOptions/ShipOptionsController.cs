@@ -15,6 +15,7 @@ public class ShipOptionsController : MonoBehaviour
     public VoidEvent OpenShipOptionsEvent { get; set; }
     public VoidEvent CloseShipCameraEvent { get; set; }
     public VoidEvent LoadCombatSceneEvent { get; set; }
+    public VoidEvent OpenCatCrewManagementNoIDEvent { get; set; }
 
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -25,7 +26,7 @@ public class ShipOptionsController : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(OpenShipOptionsEvent, OpenShipOptionsEventCallback));
 
-        shipOptionsView.shipOptionsController = this;
+        shipOptionsView.ShipOptionsController = this;
     }
 
     #region Event callbacks
@@ -42,8 +43,8 @@ public class ShipOptionsController : MonoBehaviour
     }
 
     public void OpenCatCrewManagement()
-    { 
-        
+    {
+        OpenCatCrewManagementNoIDEvent.Raise();
     }
     #endregion
 

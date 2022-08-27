@@ -6,17 +6,32 @@ using UnityEngine;
 
 public class MetaGameBootstrapper : MonoBehaviour
 {
+    #region Variables
     [Header("Combat data")]
     [SerializeField]
     private CombatData combatData;
 
-    [Header("Music and Audio")]
+    [Header("Music")]
     [SerializeField]
     private MusicManagerMainMenu musicManager;
     [SerializeField]
     private VoidEvent TriggerIslandMusicEvent;
     [SerializeField]
     private VoidEvent TriggerStoreMusicEvent;
+
+    [Header("UI Sounds")]
+    [SerializeField]
+    private SoundsManagerMainMenu soundsManager;
+    [SerializeField]
+    private VoidEvent UISoundScreenOpenEvent;
+    [SerializeField]
+    private VoidEvent UISoundScreenClosedEvent;
+    [SerializeField]
+    private VoidEvent UISoundButtonPressedEvent;
+    [SerializeField]
+    private VoidEvent UISoundButtonCancelEvent;
+    [SerializeField]
+    private VoidEvent UISoundTapEvent;
 
     [Header("Scene loader")]
     [SerializeField]
@@ -115,7 +130,7 @@ public class MetaGameBootstrapper : MonoBehaviour
     private ShipOptionsController shipOptionsController;
     [SerializeField]
     private VoidEvent OpenShipOptionsEvent;
-    
+    #endregion
 
     private void Awake()
     {
@@ -130,6 +145,14 @@ public class MetaGameBootstrapper : MonoBehaviour
         musicManager.TriggerStoreMusicEvent = TriggerStoreMusicEvent;
         musicManager.SetMusicVolumeEvent = SetMusicVolumeEvent;
         musicManager.Initialize();
+
+        soundsManager.UISoundScreenOpenEvent = UISoundScreenOpenEvent;
+        soundsManager.UISoundScreenClosedEvent = UISoundScreenClosedEvent;
+        soundsManager.UISoundButtonPressedEvent = UISoundButtonPressedEvent;
+        soundsManager.UISoundButtonCancelEvent = UISoundButtonCancelEvent;
+        soundsManager.UISoundTapEvent = UISoundTapEvent;
+        soundsManager.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        soundsManager.Initialize();
 
         // Scene loader
         sceneLoaderManager.LoadCombatSceneEvent = LoadCombatSceneEvent;

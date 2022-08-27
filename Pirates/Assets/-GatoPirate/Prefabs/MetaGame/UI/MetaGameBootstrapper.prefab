@@ -48,6 +48,12 @@ MonoBehaviour:
   musicManager: {fileID: 0}
   TriggerIslandMusicEvent: {fileID: 11400000, guid: b13b78183819757429e263b81cf90798, type: 2}
   TriggerStoreMusicEvent: {fileID: 11400000, guid: f835b9726aa34c84097ad714bcf0d156, type: 2}
+  soundsManager: {fileID: 0}
+  UISoundScreenOpenEvent: {fileID: 11400000, guid: 9bbdfd38cc1cb6948b5efdc70951e457, type: 2}
+  UISoundScreenClosedEvent: {fileID: 11400000, guid: 0cbd702c140003345b25df9a376d61cb, type: 2}
+  UISoundButtonPressedEvent: {fileID: 11400000, guid: e90e23a9d2491914f8a28856a3898275, type: 2}
+  UISoundButtonCancelEvent: {fileID: 11400000, guid: e4e8627de28c7c54a8e0cf1480bd301d, type: 2}
+  UISoundTapEvent: {fileID: 11400000, guid: 1be66c8da56addb47b9fdeeaf03a3619, type: 2}
   sceneLoaderManager: {fileID: 0}
   LoadCombatSceneEvent: {fileID: 11400000, guid: 8bd8f266ebdcda94588c93f2f032d11b, type: 2}
   settingsController: {fileID: 0}
@@ -59,6 +65,13 @@ MonoBehaviour:
   CloseSelectedCatCameraEvent: {fileID: 11400000, guid: 82f45c051b277494db76ac7d074988be, type: 2}
   TriggerShipCameraEvent: {fileID: 11400000, guid: 1fda9712e5972c340a98a0c92c87a052, type: 2}
   CloseShipCameraEvent: {fileID: 11400000, guid: 6401b9ef05c6f7345bbec1f9bbf17b67, type: 2}
+  mainMenuController: {fileID: 0}
+  pnl_currenciesList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  CurrenciesUpdatedEvent: {fileID: 11400000, guid: 9905e4e1943c32e40ad1240a1ca41796, type: 2}
   islandCatsController: {fileID: 0}
   NewCatPurchasedEvent: {fileID: 11400000, guid: 2d9fec4a4bb95aa488262de2e6dd95ab, type: 2}
   CatSelectedEvent: {fileID: 11400000, guid: 963afccacd2f255439faaf9048c153b7, type: 2}

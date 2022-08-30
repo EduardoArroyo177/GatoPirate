@@ -16,6 +16,7 @@
     }
   ],
   "dependencies": {
+	"com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
     "com.unity-atoms.unity-atoms-base-atoms": "4.4.5",
     "com.unity-atoms.unity-atoms-core": "4.4.5",
     "com.unity-atoms.unity-atoms-fsm": "4.4.5",

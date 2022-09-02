@@ -26,6 +26,7 @@ public class SettingsController : MonoBehaviour
         settingsView.ScrollbarSounds.value = SettingsDataSaveManager.Instance.GetSoundsVolume();
         SetSoundsVolumeEvent.Raise(settingsView.ScrollbarSounds.value);
 
+        settingsView.ToggleVibration.onValueChanged.AddListener(OnToggleChange);
         settingsView.ToggleVibration.isOn = SettingsDataSaveManager.Instance.GetVibrationOn();
         SetVibrationOnEvent.Raise(settingsView.ToggleVibration.isOn);
 
@@ -41,6 +42,12 @@ public class SettingsController : MonoBehaviour
     private void SoundsVolumeChange(float _newVolume)
     {
         SetSoundsVolumeEvent.Raise(settingsView.ScrollbarSounds.value);
+    }
+
+    private void OnToggleChange(bool _value)
+    {
+        if (_value)
+            VibrationController.Instance.TriggerVibrationOn();
     }
 
     public void SaveSettings()

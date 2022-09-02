@@ -474,8 +474,9 @@ public class HuaweiGameServicesManager : MonoBehaviour
 
     private void Start()
     {
-       
+#if UNITY_ANDROID && !UNITY_EDITOR
         InitService();
+#endif
     }
 
     public void InitApp()

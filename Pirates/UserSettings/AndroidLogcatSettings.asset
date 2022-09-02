@@ -2,8 +2,8 @@
     "m_SelectedDeviceId": "2KTYD21706202168",
     "m_SelectedPackage": {
         "deviceId": "2KTYD21706202168",
-        "name": "com.DefaultCompany.Pirates",
-        "processId": 20953,
+        "name": "com.vadventures.pirates.huawei",
+        "processId": 25412,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -12,6 +12,18 @@
             "deviceId": "2KTYD21706202168",
             "name": "com.DefaultCompany.Pirates",
             "processId": 20953,
+            "exited": false
+        },
+        {
+            "deviceId": "2KTYD21706202168",
+            "name": "com.vadventures.pirates.huawei",
+            "processId": 23997,
+            "exited": false
+        },
+        {
+            "deviceId": "2KTYD21706202168",
+            "name": "com.vadventures.pirates.huawei",
+            "processId": 25412,
             "exited": false
         }
     ],

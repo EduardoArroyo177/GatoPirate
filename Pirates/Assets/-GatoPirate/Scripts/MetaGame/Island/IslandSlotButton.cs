@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;
@@ -6,6 +7,10 @@ using UnityEngine;
 
 public class IslandSlotButton : MonoBehaviour
 {
+    [SerializeField]
+    private DOTweenAnimation tweenAnimation;
+    [SerializeField]
+    private bool isEmoteAnimated;
     public GameObjectEvent TriggerSelectedCatCameraEvent { get; set; }
     public StringEvent OpenSelectedCatOptionsEvent { get; set; }
     public VoidEvent CloseSelectedCatCameraEvent { get; set; }
@@ -40,8 +45,15 @@ public class IslandSlotButton : MonoBehaviour
             TriggerSelectedCatCameraEvent.Raise(gameObject);
             // Cat options pop up
             OpenSelectedCatOptionsEvent.Raise(catID);
-            // TODO: Mark cat with outline or something to show this is the selected cat
+
             CatSelectedEvent.Raise();
+            // Play selected animation
+            if (!isEmoteAnimated)
+            {
+                tweenAnimation.DORestart();
+                tweenAnimation.DOPlay();
+            }
+            // TODO: Play selected sound
         }
     }
 
@@ -54,6 +66,8 @@ public class IslandSlotButton : MonoBehaviour
     private void CloseSelectedCatCameraEventCallback(Void _item)
     {
         isZoomedIn = false;
+        if(!isEmoteAnimated)
+            tweenAnimation.DOPlayBackwards();
     }
 
     private void OpenScreenEventCallback(bool _isScreenOpen)

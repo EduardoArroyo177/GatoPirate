@@ -9,7 +9,6 @@ namespace HuaweiService.push
     public class HmsInstanceId :HmsClass<HmsInstanceId_Data>
     {
         public const string TAG = "HmsInstanceId";
-        public HmsInstanceId (Context arg0): base(arg0) { }
         public HmsInstanceId (): base() { }
         public static HmsInstanceId getInstance(Context arg0) {
             return CallStatic<HmsInstanceId>("getInstance", arg0);
@@ -20,9 +19,6 @@ namespace HuaweiService.push
         public long getCreationTime() {
             return Call<long>("getCreationTime");
         }
-        public string getToken(string arg0) {
-            return Call<string>("getToken", arg0);
-        }
         public string getToken(string arg0, string arg1) {
             return Call<string>("getToken", arg0, arg1);
         }
@@ -31,9 +27,6 @@ namespace HuaweiService.push
         }
         public void deleteToken(string arg0, string arg1) {
             Call("deleteToken", arg0, arg1);
-        }
-        public void deleteToken(string arg0) {
-            Call("deleteToken", arg0);
         }
         public void deleteAAID() {
             Call("deleteAAID");

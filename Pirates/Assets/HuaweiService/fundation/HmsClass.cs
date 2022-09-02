@@ -6,28 +6,6 @@ namespace HuaweiService{
     {
         string name{get;}
     }
-
-    public static class AgcIniter
-    {
-        static bool needInit = true;
-        public static void Init(string name)
-        {
-            if (!needInit)
-            {
-                return;
-            }
-            if (name != null && name.StartsWith("com.huawei.agconnect"))
-            {
-                needInit = false;
-                try
-                {
-                    version.LibraryInfos.getInstance().registerLibraryType("Unity");
-                }catch (System.Exception _)
-                {
-                }
-            }
-        }
-    }
     
     public abstract class HmsClass<T> : IHmsBase where T:IHmsBaseClass, new(){
         private AndroidJavaObject _obj;
@@ -46,7 +24,6 @@ namespace HuaweiService{
         }
         public AndroidJavaObject obj{
             get{
-                AgcIniter.Init(name);
                 return _obj == null?_obj = new AndroidJavaObject(name,HmsUtil.TransferParams(construcArgs)):_obj;
             }
             set{
@@ -63,7 +40,6 @@ namespace HuaweiService{
         public static AndroidJavaClass _clz;
         public static AndroidJavaClass clz{
             get{
-                AgcIniter.Init(name);
                 return _clz == null?_clz = new AndroidJavaClass(name):_clz;
             } 
         }
@@ -134,22 +110,11 @@ namespace HuaweiService{
         {
             return Call<bool>("equals", obj);
         }
-        
+
         public override string ToString()
         {
             return Call<string>("toString");
         }
         
     }
-    
-    public static class HmsClassHelper
-    {
-        public static K ConvertObject<K>(AndroidJavaObject arg0) where K:IHmsBase,new()
-        {
-            var map = new K();
-            map.obj = arg0;
-            return map;
-        }
-    }
-
 }

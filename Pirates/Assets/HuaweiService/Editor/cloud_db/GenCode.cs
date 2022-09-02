@@ -1,4 +1,5 @@
 using System.IO;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace HuaweiService.CloudDB.Editor {
@@ -24,7 +25,7 @@ namespace HuaweiService.CloudDB.Editor {
                 Directory.CreateDirectory (ExportFileDir);
                 using (StreamReader r = new StreamReader (ObjectTypeFilePath)) {
                     string json = r.ReadToEnd ();
-                    template = JsonUtility.FromJson<ClassTemplate> (json);
+                    template = JsonConvert.DeserializeObject<ClassTemplate> (json);
                     GenerateObjectTypeInfoHelper ();
                     foreach (ObjectType objectType in template.objectTypes) {
                         GenerateModels (objectType);
@@ -61,7 +62,7 @@ namespace HuaweiService.CloudDB.Editor {
 
         public void GenerateModels (ObjectType objectType) {
             string objectTypeName = objectType.objectTypeName;
-            Field[] fields = objectType.fields.ToArray();
+            Field[] fields = objectType.fields;
 
             string path = ExportFileDir + $"/{objectTypeName}.cs";
             Debug.LogFormat ("Generating Class: {0}.", objectTypeName);

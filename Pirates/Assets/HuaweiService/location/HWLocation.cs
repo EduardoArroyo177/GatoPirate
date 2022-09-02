@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using HuaweiService.Auth;
 
 namespace HuaweiService.location
 {
@@ -9,7 +8,6 @@ namespace HuaweiService.location
     }
     public class HWLocation :HmsClass<HWLocation_Data>
     {
-        public static Parcelable.Creator CREATOR => HmsUtil.GetStaticValue<Parcelable.Creator>("CREATOR");
         public HWLocation (): base() { }
         public double getLatitude() {
             return Call<double>("getLatitude");

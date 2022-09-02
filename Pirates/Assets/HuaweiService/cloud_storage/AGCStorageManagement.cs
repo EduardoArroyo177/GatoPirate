@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -28,7 +27,6 @@ namespace HuaweiService.CloudStorage
         public StorageReference getStorageReference(string arg0) {
             return Call<StorageReference>("getStorageReference", arg0);
         }
-        [Obsolete("Method is obsolete.", false)]
         public StorageReference getReferenceFromUrl(string arg0) {
             return Call<StorageReference>("getReferenceFromUrl", arg0);
         }

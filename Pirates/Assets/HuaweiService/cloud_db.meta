@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 15cefd14827314975b6c4dd5cc8bf030
+<<<<<<< Updated upstream:hmsDemo/Assets/HuaweiServiceDemo/HuaweiCloudDBDemo/Plugins.meta
+guid: 7c5a6628bfa0cba4fa087946048e64f3
+=======
+guid: 41310888acd714fd481a04b23c39f14f
+>>>>>>> Stashed changes:hmsDemo/Assets/HuaweiService/cloud_db.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

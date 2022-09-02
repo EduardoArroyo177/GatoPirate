@@ -1,22 +1,19 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace HuaweiService.CloudDB
-{
-    public class OnSnapshotListenerData : IHmsBaseListener
-    {
+namespace HuaweiService.CloudDB {
+    public class OnSnapshotListener_Data : IHmsBaseListener {
         public string name => "com.huawei.agconnect.cloud.database.OnSnapshotListener";
         public string buildName => "";
     }
-    public class OnSnapshotListener : HmsListener<OnSnapshotListenerData>
-    {
-    
-        public virtual void onSnapshot(CloudDBZoneSnapshot snapshot, AGConnectCloudDBException e) {
-            Call("onSnapshot", snapshot, e);
+    public class OnSnapshotListener : HmsListener<OnSnapshotListener_Data> {
+        public OnSnapshotListener () : base () { }
+        public virtual void onSnapshot (CloudDBZoneSnapshot arg0, AGConnectCloudDBException arg1) {
+            Call ("onSnapshot", arg0, arg1);
         }
-    
-        public void onSnapshot(AndroidJavaObject snapshot, AndroidJavaObject e){
-            onSnapshot(HmsUtil.GetHmsBase<CloudDBZoneSnapshot>(snapshot), HmsUtil.GetHmsBase<AGConnectCloudDBException>(e));
+        public void onSnapshot (AndroidJavaObject arg0, AndroidJavaObject arg1) {
+            onSnapshot (HmsUtil.GetHmsBase<CloudDBZoneSnapshot> (arg0),
+                HmsUtil.GetHmsBase<AGConnectCloudDBException> (arg1));
         }
     }
 

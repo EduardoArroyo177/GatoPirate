@@ -1,29 +1,26 @@
 using System;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace HuaweiService.CloudDB.Editor {
     public class ClassTemplate {
-        public System.Collections.Generic.List<Permissions> permissions;
-        public System.Collections.Generic.List<ObjectType> objectTypes;
+        public Permissions[] permissions;
+        public ObjectType[] objectTypes;
     }
-    [Serializable]
     public class Permissions {
-        public System.Collections.Generic.List<PermissionInfo> permissions;
+        public PermissionInfo[] infos;
         public string objectTypeName;
     }
-    [Serializable]
     public class PermissionInfo {
         public string role;
         public string[] rights;
     }
-    [Serializable]
     public class ObjectType {
         public string[] indexs;
         public string objectTypeName;
-        public System.Collections.Generic.List<Field> fields;
+        public Field[] fields;
     }
 
-    [Serializable]
     public class Field {
         public bool isNeedEncrypt;
         public string fieldName;

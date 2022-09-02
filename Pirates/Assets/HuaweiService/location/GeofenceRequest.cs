@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using HuaweiService.Auth;
 
 namespace HuaweiService.location
 {
@@ -14,7 +13,6 @@ namespace HuaweiService.location
         public const int DWELL_INIT_CONVERSION = 4;
         public const int COORDINATE_TYPE_WGS_84 = 1;
         public const int COORDINATE_TYPE_GCJ_02 = 0;
-        public static Parcelable.Creator CREATOR => HmsUtil.GetStaticValue<Parcelable.Creator>("CREATOR");
         public GeofenceRequest (): base() { }
         public List getGeofences() {
             return Call<List>("getGeofences");

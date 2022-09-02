@@ -24,8 +24,5 @@ namespace HuaweiService.ads
         public static void setRequestOptions(RequestOptions arg0) {
             CallStatic("setRequestOptions", arg0);
         }
-        public static void setConsent(string arg0) {
-            CallStatic("setConsent", arg0);
-        }
     }
 }

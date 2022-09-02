@@ -8,7 +8,7 @@ namespace HuaweiService.CloudDB
     }
     public class CloudDBZoneConfig :HmsClass<CloudDBZoneConfig_Data>
     {
-        public CloudDBZoneConfig (string cloudDBZoneNameSource, CloudDBZoneSyncProperty syncPropertySource, CloudDBZoneAccessProperty accessPropertySource): base(cloudDBZoneNameSource, syncPropertySource, accessPropertySource) { }
+        public CloudDBZoneConfig (string arg0, CloudDBZoneSyncProperty arg1, CloudDBZoneAccessProperty arg2): base(arg0, arg1, arg2) { }
         public CloudDBZoneConfig (): base() { }
         public string getCloudDBZoneName() {
             return Call<string>("getCloudDBZoneName");
@@ -22,17 +22,17 @@ namespace HuaweiService.CloudDB
         public bool isEncrypted() {
             return Call<bool>("isEncrypted");
         }
-        public void setEncryptedKey(string key, string rekey) {
-            Call("setEncryptedKey", key, rekey);
+        public void setEncryptedKey(string arg0, string arg1) {
+            Call("setEncryptedKey", arg0, arg1);
         }
-        public void setPersistenceEnabled(bool isPerEnable) {
-            Call("setPersistenceEnabled", isPerEnable);
+        public void setPersistenceEnabled(bool arg0) {
+            Call("setPersistenceEnabled", arg0);
         }
         public bool getPersistenceEnabled() {
             return Call<bool>("getPersistenceEnabled");
         }
-        public void setCapacity(long capacity) {
-            Call("setCapacity", capacity);
+        public void setCapacity(long arg0) {
+            Call("setCapacity", arg0);
         }
         public long getCapacity() {
             return Call<long>("getCapacity");
@@ -43,7 +43,7 @@ namespace HuaweiService.CloudDB
         }
         public class CloudDBZoneAccessProperty :HmsClass<CloudDBZoneAccessProperty_Data>
         {
-            public static CloudDBZoneAccessProperty CLOUDDBZONE_PUBLIC => HmsUtil.GetStaticValue<CloudDBZoneAccessProperty>("CLOUDDBZONE_PUBLIC");
+            public static CloudDBZoneAccessProperty CLOUDDBZONE_PUBLIC => HmsUtil.GetStaticValue<CloudDBZoneAccessProperty>("CLOUDDBZONE_PUBLIC", name);
         
             public CloudDBZoneAccessProperty (): base() { }
         }
@@ -53,9 +53,9 @@ namespace HuaweiService.CloudDB
         }
         public class CloudDBZoneSyncProperty :HmsClass<CloudDBZoneSyncProperty_Data>
         {
-            public static CloudDBZoneSyncProperty CLOUDDBZONE_LOCAL_ONLY => HmsUtil.GetStaticValue<CloudDBZoneSyncProperty>("CLOUDDBZONE_LOCAL_ONLY");
+            public static CloudDBZoneSyncProperty CLOUDDBZONE_LOCAL_ONLY => HmsUtil.GetStaticValue<CloudDBZoneSyncProperty>("CLOUDDBZONE_LOCAL_ONLY", name);
         
-            public static CloudDBZoneSyncProperty CLOUDDBZONE_CLOUD_CACHE => HmsUtil.GetStaticValue<CloudDBZoneSyncProperty>("CLOUDDBZONE_CLOUD_CACHE");
+            public static CloudDBZoneSyncProperty CLOUDDBZONE_CLOUD_CACHE => HmsUtil.GetStaticValue<CloudDBZoneSyncProperty>("CLOUDDBZONE_CLOUD_CACHE", name);
         
             public CloudDBZoneSyncProperty (): base() { }
         }

@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using HuaweiService.Auth;
 
 namespace HuaweiService.location
 {
@@ -9,8 +8,8 @@ namespace HuaweiService.location
     }
     public class LocationSettingsRequest :HmsClass<LocationSettingsRequest_Data>
     {
-        public static Parcelable.Creator CREATOR => HmsUtil.GetStaticValue<Parcelable.Creator>("CREATOR");
         public LocationSettingsRequest (): base() { }
+    
         public class Builder_Data : IHmsBaseClass{
             public string name => "com.huawei.hms.location.LocationSettingsRequest$Builder";
         }

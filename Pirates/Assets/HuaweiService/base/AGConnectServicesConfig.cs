@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -7,8 +6,6 @@ namespace HuaweiService
     public class AGConnectServicesConfig_Data : IHmsBaseClass{
         public string name => "com.huawei.agconnect.config.AGConnectServicesConfig";
     }
-    
-    [Obsolete("Method is obsolete.", false)]
     public class AGConnectServicesConfig :HmsClass<AGConnectServicesConfig_Data>
     {
         public AGConnectServicesConfig (): base() { }

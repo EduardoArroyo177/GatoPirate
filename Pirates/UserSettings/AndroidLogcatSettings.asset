@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "2KTYD21706202168",
         "name": "com.vadventures.pirates.huawei",
-        "processId": 25412,
+        "processId": 29322,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -24,6 +24,12 @@
             "deviceId": "2KTYD21706202168",
             "name": "com.vadventures.pirates.huawei",
             "processId": 25412,
+            "exited": false
+        },
+        {
+            "deviceId": "2KTYD21706202168",
+            "name": "com.vadventures.pirates.huawei",
+            "processId": 29322,
             "exited": false
         }
     ],

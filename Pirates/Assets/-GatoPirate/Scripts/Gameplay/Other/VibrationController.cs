@@ -13,6 +13,11 @@ public class VibrationController : SceneSingleton<VibrationController>
         isVibrationOn = SettingsDataSaveManager.Instance.GetVibrationOn();
     }
 
+    public void SetVibrationOn(bool _vibrationOn)
+    {
+        isVibrationOn = _vibrationOn;
+    }
+
     public void TriggerVibrationOn()
     {
         HapticPatterns.PlayPreset(HapticPatterns.PresetType.SoftImpact);

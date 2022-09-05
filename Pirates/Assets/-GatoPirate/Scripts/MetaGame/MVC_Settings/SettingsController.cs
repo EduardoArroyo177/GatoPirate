@@ -10,7 +10,6 @@ public class SettingsController : MonoBehaviour
 
     public FloatEvent SetMusicVolumeEvent { get; set; }
     public FloatEvent SetSoundsVolumeEvent { get; set; }
-    public BoolEvent SetVibrationOnEvent { get; set; }
 
     public void Initialize()
     {
@@ -28,7 +27,7 @@ public class SettingsController : MonoBehaviour
 
         settingsView.ToggleVibration.onValueChanged.AddListener(OnToggleChange);
         settingsView.ToggleVibration.isOn = SettingsDataSaveManager.Instance.GetVibrationOn();
-        SetVibrationOnEvent.Raise(settingsView.ToggleVibration.isOn);
+        VibrationController.Instance.SetVibrationOn(settingsView.ToggleVibration.isOn);
 
         settingsView.ScrollbarMusic.onValueChanged.AddListener(MusicVolumeChange);
         settingsView.ScrollbarSounds.onValueChanged.AddListener(SoundsVolumeChange);
@@ -56,7 +55,7 @@ public class SettingsController : MonoBehaviour
             settingsView.ScrollbarSounds.value,
             settingsView.ToggleVibration.isOn);
 
-        SetVibrationOnEvent.Raise(settingsView.ToggleVibration.isOn);
+        VibrationController.Instance.SetVibrationOn(settingsView.ToggleVibration.isOn);
     }
 
     public void Add1000Coins()

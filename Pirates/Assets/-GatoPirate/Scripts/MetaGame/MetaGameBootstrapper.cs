@@ -46,8 +46,6 @@ public class MetaGameBootstrapper : MonoBehaviour
     private FloatEvent SetMusicVolumeEvent;
     [SerializeField]
     private FloatEvent SetSoundsVolumeEvent;
-    [SerializeField]
-    private BoolEvent SetVibrationOnEvent;
 
     [Header("Virtual cameras")]
     [SerializeField]
@@ -154,6 +152,9 @@ public class MetaGameBootstrapper : MonoBehaviour
         soundsManager.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
         soundsManager.Initialize();
 
+        // Vibration 
+        VibrationController.Instance.Initialize();
+
         // Scene loader
         sceneLoaderManager.LoadCombatSceneEvent = LoadCombatSceneEvent;
         sceneLoaderManager.Initialize();
@@ -161,7 +162,6 @@ public class MetaGameBootstrapper : MonoBehaviour
         // Settings
         settingsController.SetMusicVolumeEvent = SetMusicVolumeEvent;
         settingsController.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
-        settingsController.SetVibrationOnEvent = SetVibrationOnEvent;
         settingsController.Initialize();
 
         // Virtual cameras

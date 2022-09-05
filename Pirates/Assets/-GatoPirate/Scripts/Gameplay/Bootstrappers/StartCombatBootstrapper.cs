@@ -10,13 +10,19 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private CombatData combatData;
 
+    [Header("Settings")]
+    [SerializeField]
+    private SettingsController settingsController;
+    [SerializeField]
+    private FloatEvent SetMusicVolumeEvent;
+    [SerializeField]
+    private FloatEvent SetSoundsVolumeEvent;
+
     [Header("Music manager")]
     [SerializeField]
     private MusicManagerCombat musicManagerCombat;
     [SerializeField]
     private VoidEvent TriggerCombatMusicEvent;
-    [SerializeField]
-    private FloatEvent SetMusicVolumeEvent;
 
     [Header("Scene loader")]
     [SerializeField]
@@ -70,6 +76,9 @@ public class StartCombatBootstrapper : MonoBehaviour
 
     private void Awake()
     {
+        // Load settings
+        SettingsDataSaveManager.Instance.LoadSettingsSavedData();
+
         // Scene loader
         sceneLoaderManager.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
         sceneLoaderManager.Initialize();
@@ -81,6 +90,14 @@ public class StartCombatBootstrapper : MonoBehaviour
         musicManagerCombat.TriggerCombatMusicEvent = TriggerCombatMusicEvent;
         musicManagerCombat.SetMusicVolumeEvent = SetMusicVolumeEvent;
         musicManagerCombat.Initialize();
+
+        // Settings
+        settingsController.SetMusicVolumeEvent = SetMusicVolumeEvent;
+        settingsController.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        settingsController.Initialize();
+
+        // Vibration 
+        VibrationController.Instance.Initialize();
 
         // Start combat controller
         startCombatController.StartCombatEvent = StartCombatEvent;

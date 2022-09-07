@@ -10,13 +10,14 @@ public class PauseController : MonoBehaviour
     private PauseView pauseView;
 
     public VoidEvent PauseGameEvent { get; set; }
+    public VoidEvent LoadCombatSceneEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(PauseGameEvent, PauseGameEventCallback));
-        pauseView.pauseController = this;
+        pauseView.PauseController = this;
     }
 
     #region Event callbacks
@@ -24,6 +25,7 @@ public class PauseController : MonoBehaviour
     {
         Time.timeScale = 0;
         pauseView.gameObject.SetActive(true);
+        // TODO: Lower music volume
     }
     #endregion
 
@@ -35,8 +37,10 @@ public class PauseController : MonoBehaviour
     }
 
     public void RestartGame()
-    { 
+    {
         // TODO: Call scene loader
+        Time.timeScale = 1;
+        LoadCombatSceneEvent.Raise();
     }
 
     public void QuitCombat()

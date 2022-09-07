@@ -52,6 +52,7 @@ MonoBehaviour:
   TriggerCombatMusicEvent: {fileID: 11400000, guid: 7dcbaa470bf4cde45924c17e60aad050, type: 2}
   sceneLoaderManager: {fileID: 0}
   LoadMainMenuSceneEvent: {fileID: 11400000, guid: 55b768c7dc70c81459fe56d5b8890cf5, type: 2}
+  LoadCombatSceneEvent: {fileID: 11400000, guid: 8bd8f266ebdcda94588c93f2f032d11b, type: 2}
   startCombatController: {fileID: 0}
   playerGameplayBootstrapper: {fileID: 0}
   enemyGameplayBootstrapper: {fileID: 0}

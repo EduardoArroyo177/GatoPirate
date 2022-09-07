@@ -29,6 +29,8 @@ public class StartCombatBootstrapper : MonoBehaviour
     private SceneLoaderManager sceneLoaderManager;
     [SerializeField]
     private VoidEvent LoadMainMenuSceneEvent;
+    [SerializeField]
+    private VoidEvent LoadCombatSceneEvent;
 
     [Header("Gameplay Script references")]
     [SerializeField]
@@ -83,6 +85,7 @@ public class StartCombatBootstrapper : MonoBehaviour
 
         // Scene loader
         sceneLoaderManager.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
+        sceneLoaderManager.LoadCombatSceneEvent = LoadCombatSceneEvent;
         sceneLoaderManager.Initialize();
 
         // Combat data
@@ -113,7 +116,8 @@ public class StartCombatBootstrapper : MonoBehaviour
         virtualCameraController.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
         virtualCameraController.Initialize();
 
-        uiCanvasBootstrapper.PauseGameEvent = PauseGameEvent; 
+        uiCanvasBootstrapper.PauseGameEvent = PauseGameEvent;
+        uiCanvasBootstrapper.LoadCombatSceneEvent = LoadCombatSceneEvent;
         uiCanvasBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         uiCanvasBootstrapper.WinChestEvent = WinChestEvent;
         uiCanvasBootstrapper.Initialize();

@@ -40,9 +40,11 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private VirtualCameraController virtualCameraController;
 
-    [Header("UI script references")]
+    [Header("UI references")]
     [SerializeField]
     private UICanvasBootstrapper uiCanvasBootstrapper;
+    [SerializeField]
+    private VoidEvent PauseGameEvent;
 
     [Header("Starting animations events")]
     [SerializeField]
@@ -66,7 +68,7 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private VoidEvent TriggerEnemyLostAnimationEvent;
     [SerializeField]
-    private VoidEvent TriggerPlayerLostAnimationEvent;
+    private VoidEvent TriggerPlayerLostAnimationEvent;    
 
     [Header("Other events")]
     [SerializeField]
@@ -111,6 +113,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         virtualCameraController.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
         virtualCameraController.Initialize();
 
+        uiCanvasBootstrapper.PauseGameEvent = PauseGameEvent; 
         uiCanvasBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         uiCanvasBootstrapper.WinChestEvent = WinChestEvent;
         uiCanvasBootstrapper.Initialize();

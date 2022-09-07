@@ -48,7 +48,6 @@ MonoBehaviour:
   settingsController: {fileID: 0}
   SetMusicVolumeEvent: {fileID: 11400000, guid: 9ce99649eaf950544a31a813663dbceb, type: 2}
   SetSoundsVolumeEvent: {fileID: 11400000, guid: 3d88799a75bc8a342bb9171adf161543, type: 2}
-  SetVibrationOnEvent: {fileID: 11400000, guid: d5e210e011c149b40a8b6854a6ce0bb2, type: 2}
   musicManagerCombat: {fileID: 0}
   TriggerCombatMusicEvent: {fileID: 11400000, guid: 7dcbaa470bf4cde45924c17e60aad050, type: 2}
   sceneLoaderManager: {fileID: 0}
@@ -58,6 +57,7 @@ MonoBehaviour:
   enemyGameplayBootstrapper: {fileID: 0}
   virtualCameraController: {fileID: 0}
   uiCanvasBootstrapper: {fileID: 0}
+  PauseGameEvent: {fileID: 11400000, guid: b20c8ea02a6006f4ab22c9f8fbc845cf, type: 2}
   TriggerPlayerStartingAnimationEvent: {fileID: 11400000, guid: 8cdce201dda29a6458a7936bf41dc226, type: 2}
   TriggerEnemyStartingAnimationEvent: {fileID: 11400000, guid: 9636546a6dde715419a86f6c27bff2c7, type: 2}
   StartingAnimationsFinishedEvent: {fileID: 11400000, guid: 20c09da1367f8954ebdac5dfd0f44a95, type: 2}

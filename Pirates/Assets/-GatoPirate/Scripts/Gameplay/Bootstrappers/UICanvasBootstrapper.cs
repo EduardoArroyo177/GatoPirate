@@ -16,6 +16,8 @@ public class UICanvasBootstrapper : MonoBehaviour
     // Pause events
     public VoidEvent PauseGameEvent { get; set; }
     public VoidEvent LoadCombatSceneEvent { get; set; }
+    public VoidEvent LoadMainMenuSceneEvent { get; set; }
+
     // Result screen events
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
     public BoolEvent WinChestEvent { get; set; }
@@ -25,6 +27,7 @@ public class UICanvasBootstrapper : MonoBehaviour
         // Pause
         pauseController.PauseGameEvent = PauseGameEvent;
         pauseController.LoadCombatSceneEvent = LoadCombatSceneEvent;
+        pauseController.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;    
         pauseController.Initialize();
 
         // Player resources

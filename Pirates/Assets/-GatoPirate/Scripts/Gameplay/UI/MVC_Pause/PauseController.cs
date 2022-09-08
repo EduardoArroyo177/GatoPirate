@@ -8,9 +8,12 @@ public class PauseController : MonoBehaviour
 {
     [SerializeField]
     private PauseView pauseView;
+    [SerializeField]
+    private PausePopUpView popUpView;
 
     public VoidEvent PauseGameEvent { get; set; }
     public VoidEvent LoadCombatSceneEvent { get; set; }
+    public VoidEvent LoadMainMenuSceneEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -18,6 +21,7 @@ public class PauseController : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(PauseGameEvent, PauseGameEventCallback));
         pauseView.PauseController = this;
+        popUpView.PauseController = this;
     }
 
     #region Event callbacks
@@ -38,14 +42,21 @@ public class PauseController : MonoBehaviour
 
     public void RestartGame()
     {
-        // TODO: Call scene loader
         Time.timeScale = 1;
         LoadCombatSceneEvent.Raise();
     }
 
-    public void QuitCombat()
-    { 
+    public void ShowQuitPopUp()
+    {
         // TODO: show quit confirmation pop up
+        popUpView.gameObject.SetActive(true);
+    }
+
+    public void QuitCombat()
+    {
+        // TODO: Call scene loader
+        Time.timeScale = 1;
+        LoadMainMenuSceneEvent.Raise();
     }
     #endregion
 

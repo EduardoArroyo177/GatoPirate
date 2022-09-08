@@ -18,7 +18,7 @@ public class PauseView : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        PauseController.QuitCombat();
+        PauseController.ShowQuitPopUp();
     }
 
     public void ClosePause()

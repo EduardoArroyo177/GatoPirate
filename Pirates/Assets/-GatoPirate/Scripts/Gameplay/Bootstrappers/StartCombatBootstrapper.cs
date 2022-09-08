@@ -118,6 +118,7 @@ public class StartCombatBootstrapper : MonoBehaviour
 
         uiCanvasBootstrapper.PauseGameEvent = PauseGameEvent;
         uiCanvasBootstrapper.LoadCombatSceneEvent = LoadCombatSceneEvent;
+        uiCanvasBootstrapper.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
         uiCanvasBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         uiCanvasBootstrapper.WinChestEvent = WinChestEvent;
         uiCanvasBootstrapper.Initialize();

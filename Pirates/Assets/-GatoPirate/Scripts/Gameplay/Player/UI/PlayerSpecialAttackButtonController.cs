@@ -17,6 +17,7 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
 
     public FloatEvent InitializeSpecialAttackEvent { get; set; }
     public VoidEvent ShootSpecialAttackEvent { get; set; }
+    public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
     private Button btn_specialAttack;
@@ -70,6 +71,8 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
         }
         btn_specialAttack.interactable = true;
         shineSpriteEffectAnimation.StartShineAnimation();
+        // TODO: Trigger ready sound
+        TriggerCombatSoundEvent.Raise(CombatSounds.SPECIAL_CANNON_READY);
     }
 
     public void StopAnimation()
@@ -77,6 +80,7 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
         StopAllCoroutines();
     }
 
+    #region On Destroy
     private void OnDestroy()
     {
         foreach (var item in _eventHandlers)
@@ -85,4 +89,5 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
         }
         _eventHandlers.Clear();
     }
+    #endregion
 }

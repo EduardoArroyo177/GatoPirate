@@ -56,3 +56,6 @@ MonoBehaviour:
   InitializeSpecialAttackEvent: {fileID: 11400000, guid: ab73f988ddb0696489e4a538f946ede0, type: 2}
   ShootSpecialAttackEvent: {fileID: 11400000, guid: bc37ffff05c06bf469c91ab769a8ae67, type: 2}
   CurrentPlayerHealthUIEvent: {fileID: 11400000, guid: 6bb6f2dacb13dd04fb4a6e08d10608ec, type: 2}
+  shipSoundsManager: {fileID: 0}
+  TriggerPlayerShipSoundEvent: {fileID: 11400000, guid: 261dd82693ea3f7449bfc96a75268d3a, type: 2}
+  TriggerCombatSoundEvent: {fileID: 11400000, guid: 360064637eecb7d4a835912da5939908, type: 2}

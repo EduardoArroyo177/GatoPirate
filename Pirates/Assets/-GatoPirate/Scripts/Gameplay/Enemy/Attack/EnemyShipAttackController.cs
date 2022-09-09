@@ -45,6 +45,7 @@ public class EnemyShipAttackController : MonoBehaviour
     // Events
     public VoidEvent StartCombatEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
+    public CombatShipSoundEvent TriggerEnemyShipSoundEvent { get; set; }
 
     // Other properties
     public int NumberOfActiveCannons { get; set; }
@@ -61,17 +62,21 @@ public class EnemyShipAttackController : MonoBehaviour
         // Cannon ball
         leftCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         leftCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+        leftCannon.TriggerShipSoundEvent = TriggerEnemyShipSoundEvent;
 
         middleCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         middleCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+        middleCannon.TriggerShipSoundEvent = TriggerEnemyShipSoundEvent;
 
         rightCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         rightCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+        rightCannon.TriggerShipSoundEvent = TriggerEnemyShipSoundEvent;
 
         // Special attack
         specialCannon.SetDamageValue(SpecialAttackDamage * ShipLevelSpecialAttackMultiplier);
         // TODO: Create special attack movement speed if needed
         specialCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+        specialCannon.TriggerShipSoundEvent = TriggerEnemyShipSoundEvent;
 
         // Ship
         currentCountDown = NormalAttackCoolDownTime * ShipLevelCoolDownMultiplier;

@@ -30,6 +30,25 @@ public enum ProjectileType
     AUTOMATIC,
     SPECIAL
 }
+
+public enum CombatShipSounds
+{ 
+    AUTOMATIC_CANNON_SHOT,
+    AUTOMATIC_CANNON_HIT,
+    BASIC_CANNON_SHOT,
+    BASIC_CANNON_HIT,
+    NORMAL_CANNON_SHOT,
+    NORMAL_CANNON_HIT,
+    SPECIAL_CANNON_SHOT,
+    SPECIAL_CANNON_HIT
+}
+
+public enum CombatSounds
+{ 
+    SPECIAL_CANNON_READY,
+    WEAK_SPOT_SHOWN,
+    WEAK_SPOT_HIT
+}
 #endregion
 
 public enum CurrencyType

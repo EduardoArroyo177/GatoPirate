@@ -49,6 +49,7 @@ public class PlayerShipAttackController : MonoBehaviour
     public VoidEvent ShootSpecialAttackEvent { get; set; }
     public VoidEvent StartCombatEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
+    public CombatShipSoundEvent TriggerPlayerShipSoundEvent { get; set; }
 
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -64,13 +65,15 @@ public class PlayerShipAttackController : MonoBehaviour
         // Basic attack
         middleCannon.SetDamageValue(BasicAttackDamage * ShipLevelAttackMultiplier);
         middleCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
-
+        middleCannon.TriggerShipSoundEvent = TriggerPlayerShipSoundEvent;
         // Normal attack
         leftCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         leftCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+        leftCannon.TriggerShipSoundEvent = TriggerPlayerShipSoundEvent;
 
         rightCannon.SetDamageValue(NormalAttackDamage * ShipLevelAttackMultiplier);
         rightCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+        rightCannon.TriggerShipSoundEvent = TriggerPlayerShipSoundEvent;
 
         currentCountDown = NormalAttackCoolDownTime * ShipLevelCoolDownMultiplier;
 
@@ -78,16 +81,18 @@ public class PlayerShipAttackController : MonoBehaviour
         automaticCannonLeft.SetDamageValue(AutomaticAttackDamage * ShipLevelAttackMultiplier);
         // TODO: Create special attack movement speed if needed
         automaticCannonLeft.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+        automaticCannonLeft.TriggerShipSoundEvent = TriggerPlayerShipSoundEvent;
 
         automaticCannonRight.SetDamageValue(AutomaticAttackDamage * ShipLevelAttackMultiplier);
         // TODO: Create special attack movement speed if needed
         automaticCannonRight.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
+        automaticCannonRight.TriggerShipSoundEvent = TriggerPlayerShipSoundEvent;
 
         // Special attack
         specialCannon.SetDamageValue(SpecialAttackDamage * ShipLevelSpecialAttackMultiplier);
         // TODO: Create special attack movement speed if needed
         specialCannon.SetMovementSpeedValue(CannonBallSpeed * ShipLevelBallSpeedMultiplier);
-
+        specialCannon.TriggerShipSoundEvent = TriggerPlayerShipSoundEvent;
     }
 
     private void StartCombatEventCallback(Void _item)
@@ -144,6 +149,7 @@ public class PlayerShipAttackController : MonoBehaviour
         }
     }
 
+    #region On destroy
     private void OnDestroy()
     {
         foreach (var item in _eventHandlers)
@@ -152,4 +158,5 @@ public class PlayerShipAttackController : MonoBehaviour
         }
         _eventHandlers.Clear();
     }
+    #endregion
 }

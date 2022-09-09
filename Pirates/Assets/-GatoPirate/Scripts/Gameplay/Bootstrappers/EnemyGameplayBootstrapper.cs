@@ -38,6 +38,12 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private IntEvent WoodResourcesDroppedEvent;
 
+    [Header("Sounds")]
+    [SerializeField]
+    private ShipSoundsManager shipSoundsManager;
+    [SerializeField]
+    private CombatShipSoundEvent TriggerEnemyShipSoundEvent;
+
 
     // Events
     public VoidEvent StartCombatEvent { get; set; }
@@ -97,8 +103,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         // Events
         enemyShipAttackController.StartCombatEvent = StartCombatEvent;
         enemyShipAttackController.StopCombatEvent = StopCombatEvent;
-
-        // TODO: Initialize this after x Amount of time or from a button or whatever
+        enemyShipAttackController.TriggerEnemyShipSoundEvent = TriggerEnemyShipSoundEvent;
         enemyShipAttackController.Initialize();
 
         // Enemy ship health controller
@@ -150,6 +155,10 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyDestroyedController.ShowResultScreenEvent = ShowResultScreenEvent;
         enemyDestroyedController.TriggerEnemyLostAnimationEvent = TriggerEnemyLostAnimationEvent;
         enemyDestroyedController.Initialize();
+
+        // Sounds
+        shipSoundsManager.TriggerShipSoundEvent = TriggerEnemyShipSoundEvent;
+        shipSoundsManager.Initialize();
     }
 }
 

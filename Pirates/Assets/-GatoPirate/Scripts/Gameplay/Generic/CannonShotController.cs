@@ -10,6 +10,8 @@ public class CannonShotController : MonoBehaviour
     public float damage;
     public float movementSpeed;
 
+    public CombatShipSoundEvent TriggerShipSoundEvent { get; set; }
+
     public void SetDamageValue(float _damage)
     {
         damage = _damage;
@@ -33,7 +35,7 @@ public class CannonShotController : MonoBehaviour
         cannonBallHelper.SetDamageAndSpeed(damage, movementSpeed);
         cannonBallHelper.IsShotByEnemy = _isEnemy;
         newCannonBall.SetActive(true);
-
+        TriggerShipSoundEvent.Raise(CombatShipSounds.BASIC_CANNON_SHOT);
         // TODO: Update call with correct particles
         GameObject cannonBallShotParticle = ObjectPooling.Instance.GetBasicProjectileShotParticle();
         if (cannonBallShotParticle)
@@ -56,6 +58,8 @@ public class CannonShotController : MonoBehaviour
         cannonBallHelper.SetDamageAndSpeed(damage, movementSpeed);
         cannonBallHelper.IsShotByEnemy = _isEnemy;
         newCannonBall.SetActive(true);
+        TriggerShipSoundEvent.Raise(CombatShipSounds.NORMAL_CANNON_SHOT);
+
         GameObject cannonBallShotParticle = ObjectPooling.Instance.GetNormalProjectileShotParticle();
         if (cannonBallShotParticle)
         {
@@ -77,6 +81,8 @@ public class CannonShotController : MonoBehaviour
         cannonBallHelper.SetDamageAndSpeed(damage, movementSpeed);
         cannonBallHelper.IsShotByEnemy = _isEnemy;
         newCannonBall.SetActive(true);
+        TriggerShipSoundEvent.Raise(CombatShipSounds.AUTOMATIC_CANNON_SHOT);
+
         // TODO: Update call with correct particles
         GameObject cannonBallShotParticle = ObjectPooling.Instance.GetAutomaticProjectileShotParticle();
         if (cannonBallShotParticle)
@@ -100,6 +106,8 @@ public class CannonShotController : MonoBehaviour
         cannonBallHelper.SetDamageAndSpeed(damage, movementSpeed);
         cannonBallHelper.IsShotByEnemy = _isEnemy;
         newSpecialAttackProjectile.SetActive(true);
+        TriggerShipSoundEvent.Raise(CombatShipSounds.SPECIAL_CANNON_SHOT);
+
         // TODO: Update call with correct particles
         GameObject cannonBallShotParticle = ObjectPooling.Instance.GetSpecialProjectileShotParticle();
         if (cannonBallShotParticle)

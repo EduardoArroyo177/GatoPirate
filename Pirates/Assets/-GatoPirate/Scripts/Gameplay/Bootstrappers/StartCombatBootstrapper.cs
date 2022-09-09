@@ -24,6 +24,12 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private VoidEvent TriggerCombatMusicEvent;
 
+    [Header("Sound manager")]
+    [SerializeField]
+    private SoundsEffectsController soundsEffectsController;
+    [SerializeField]
+    private CombatSoundEvent TriggerCombatSoundEvent;
+
     [Header("Scene loader")]
     [SerializeField]
     private SceneLoaderManager sceneLoaderManager;
@@ -95,6 +101,10 @@ public class StartCombatBootstrapper : MonoBehaviour
         musicManagerCombat.TriggerCombatMusicEvent = TriggerCombatMusicEvent;
         musicManagerCombat.SetMusicVolumeEvent = SetMusicVolumeEvent;
         musicManagerCombat.Initialize();
+
+        // Sounds controller
+        soundsEffectsController.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
+        soundsEffectsController.Initialize();
 
         // Settings
         settingsController.SetMusicVolumeEvent = SetMusicVolumeEvent;

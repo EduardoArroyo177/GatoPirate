@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
@@ -100,6 +101,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     private List<GameObject> resourcesBoxParticleList = new();
 
     public VoidEvent StopCombatEvent { get; set; }
+    public CombatShipSoundEvent TriggerShipSoundEvent { get; set; }
 
     public void Initialize()
     {
@@ -125,6 +127,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
             // Projectile
             projectileHelper = Instantiate(basicProjectile, basicProjectileParent.transform);
             projectileHelper.GetComponent<Projectile>().StopCombatEvent = StopCombatEvent;
+            projectileHelper.GetComponent<Projectile>().TriggerShipSoundEvent = TriggerShipSoundEvent;
             projectileHelper.SetActive(false);
             basicProjectileList.Add(projectileHelper);
 
@@ -194,6 +197,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
             // Projectile
             projectileHelper = Instantiate(normalProjectile, normalProjectileParent.transform);
             projectileHelper.GetComponent<Projectile>().StopCombatEvent = StopCombatEvent;
+            projectileHelper.GetComponent<Projectile>().TriggerShipSoundEvent = TriggerShipSoundEvent;
             projectileHelper.SetActive(false);
             normalProjectileList.Add(projectileHelper);
 
@@ -264,6 +268,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
             // Projectile
             projectileHelper = Instantiate(automaticProjectile, automaticProjectileParent.transform);
             projectileHelper.GetComponent<Projectile>().StopCombatEvent = StopCombatEvent;
+            projectileHelper.GetComponent<Projectile>().TriggerShipSoundEvent = TriggerShipSoundEvent;
             projectileHelper.SetActive(false);
             automaticProjectileList.Add(projectileHelper);
 
@@ -333,6 +338,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
             // Projectile
             projectileHelper = Instantiate(specialAttackProjectile, specialProjectileParent.transform);
             projectileHelper.GetComponent<Projectile>().StopCombatEvent = StopCombatEvent;
+            projectileHelper.GetComponent<Projectile>().TriggerShipSoundEvent = TriggerShipSoundEvent;
             projectileHelper.SetActive(false);
             specialProjectileList.Add(projectileHelper);
 

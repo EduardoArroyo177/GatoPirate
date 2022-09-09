@@ -40,6 +40,14 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     [SerializeField]
     private FloatEvent CurrentPlayerHealthUIEvent;
 
+    [Header("Sounds")]
+    [SerializeField]
+    private ShipSoundsManager shipSoundsManager;
+    [SerializeField]
+    private CombatShipSoundEvent TriggerPlayerShipSoundEvent;
+    [SerializeField]
+    private CombatSoundEvent TriggerCombatSoundEvent;
+
     // Events
     public FloatEvent TriggerShakingCameraEvent { get; set; }
     public VoidEvent StartCombatEvent { get; set; }
@@ -64,6 +72,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     private void InitializePoolingSystem()
     {
         ObjectPooling.Instance.StopCombatEvent = StopCombatEvent;
+        ObjectPooling.Instance.TriggerShipSoundEvent = TriggerPlayerShipSoundEvent;
         ObjectPooling.Instance.Initialize();
     }
 
@@ -76,6 +85,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipAttackUIController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
         playerShipAttackUIController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
         playerShipAttackUIController.StopCombatEvent = StopCombatEvent;
+        playerShipAttackUIController.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
         playerShipAttackUIController.Initialize();
 
         playerShipHealthUIController.CurrentHealthUIEvent = CurrentPlayerHealthUIEvent;
@@ -112,6 +122,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipAttackController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
         playerShipAttackController.StartCombatEvent = StartCombatEvent;
         playerShipAttackController.StopCombatEvent = StopCombatEvent;
+        playerShipAttackController.TriggerPlayerShipSoundEvent = TriggerPlayerShipSoundEvent;
         playerShipAttackController.Initialize();
 
         // Player ship health controller
@@ -133,13 +144,8 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerDefeatedController.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
         playerDefeatedController.Initialize();
 
-        // Trigger game init
-        //TriggerPlayerStartingAnimationEvent.Raise();
-        
+        // Sounds
+        shipSoundsManager.TriggerShipSoundEvent = TriggerPlayerShipSoundEvent;
+        shipSoundsManager.Initialize();
     }
-
-    //private void StartingAnimation()
-    //{
-    //    TriggerPlayerStartingAnimationEvent.Raise();
-    //}
 }

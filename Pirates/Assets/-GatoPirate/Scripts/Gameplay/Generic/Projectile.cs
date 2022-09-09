@@ -22,6 +22,7 @@ public class Projectile : MonoBehaviour
     public ProjectileType ProjectileType { get => projectileType; set => projectileType = value; }
     public bool IsShotByEnemy { get; set; }
 
+    public CombatShipSoundEvent TriggerShipSoundEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -84,6 +85,7 @@ public class Projectile : MonoBehaviour
     private void DestroyProjectile(bool _hitEnemy)
     {
         ShowExplosionParticle(_hitEnemy);
+        TriggerSound();
         gameObject.SetActive(false);
     }
 
@@ -125,6 +127,25 @@ public class Projectile : MonoBehaviour
             explosionParticle.SetActive(true);
             damageTextHelper.transform.position = transform.position;
             damageTextHelper.GetComponent<DamageTextParticleController>().ShowTextParticle(projectileType, (int)projectileDamage, _hitEnemy);
+        }
+    }
+
+    private void TriggerSound()
+    {
+        switch (projectileType)
+        {
+            case ProjectileType.BASIC:
+                TriggerShipSoundEvent.Raise(CombatShipSounds.BASIC_CANNON_HIT);                
+                break;
+            case ProjectileType.NORMAL:
+                TriggerShipSoundEvent.Raise(CombatShipSounds.NORMAL_CANNON_HIT); 
+                break;
+            case ProjectileType.AUTOMATIC:
+                TriggerShipSoundEvent.Raise(CombatShipSounds.AUTOMATIC_CANNON_HIT); 
+                break;
+            case ProjectileType.SPECIAL:
+                TriggerShipSoundEvent.Raise(CombatShipSounds.SPECIAL_CANNON_HIT); 
+                break;
         }
     }
 

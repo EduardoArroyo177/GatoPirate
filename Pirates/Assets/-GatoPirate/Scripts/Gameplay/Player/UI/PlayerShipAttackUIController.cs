@@ -27,6 +27,9 @@ public class PlayerShipAttackUIController : MonoBehaviour
     public VoidEvent ShootSpecialAttackEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
 
+    // Sounds
+    public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
+
     // Properties
     public int NumberOfActiveCannons { get; set; }
 
@@ -72,6 +75,7 @@ public class PlayerShipAttackUIController : MonoBehaviour
             case 4:
                 specialAttackButtonController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
                 specialAttackButtonController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
+                specialAttackButtonController.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
                 specialAttackButtonController.Initialize();
                 break;
         }

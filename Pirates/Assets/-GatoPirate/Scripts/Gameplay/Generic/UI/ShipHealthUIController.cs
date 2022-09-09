@@ -8,7 +8,13 @@ using UnityEngine.UI;
 public class ShipHealthUIController : MonoBehaviour
 {
     [SerializeField]
+    private bool isUI;
+    [SerializeField]
     private Image Img_currentHealth;
+    [SerializeField]
+    private Transform lifeBar;
+    [SerializeField]
+    private SpriteRenderer lifeBarRenderer;
     [SerializeField]
     private Color highHealthColor;
     [Range(0.0f, 1.0f)]
@@ -32,30 +38,40 @@ public class ShipHealthUIController : MonoBehaviour
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
-    private void Awake()
-    {
-        Img_currentHealth.color = highHealthColor;
-        Img_currentHealth.fillAmount = 1;
-    }
-
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory<float>.BuildEventHandler(CurrentHealthUIEvent, CurrentHealthUIEventCallback));
+        if (isUI)
+            Img_currentHealth.color = highHealthColor;
+        else
+            lifeBarRenderer.color = highHealthColor;
     }
 
     private void CurrentHealthUIEventCallback(float _healthValue)
     {
-        Img_currentHealth.fillAmount = _healthValue;
+        if (isUI)
+        {
+            Img_currentHealth.fillAmount = _healthValue;
 
-        //if (Img_currentHealth.fillAmount > highHealthValue)
-        //    Img_currentHealth.color = highHealthColor;
+            if (Img_currentHealth.fillAmount < highHealthValue
+                && Img_currentHealth.fillAmount > meddiumHealthValue)
+                Img_currentHealth.color = meddiumHealthColor;
 
-        if (Img_currentHealth.fillAmount < highHealthValue
-            && Img_currentHealth.fillAmount > meddiumHealthValue)
-            Img_currentHealth.color = meddiumHealthColor;
+            else if (Img_currentHealth.fillAmount < meddiumHealthValue)
+                Img_currentHealth.color = lowHealthColor;
+        }
+        else
+        {
+            lifeBar.localScale = new Vector3(_healthValue, 1, 1);
 
-        else if(Img_currentHealth.fillAmount < meddiumHealthValue)
-            Img_currentHealth.color = lowHealthColor;
+            if (lifeBar.localScale.x < highHealthValue
+                && lifeBar.localScale.x > meddiumHealthValue)
+                lifeBarRenderer.color = meddiumHealthColor;
+
+            else if(lifeBar.localScale.x < meddiumHealthValue)
+                lifeBarRenderer.color = lowHealthColor; 
+
+        }
 
     }
 

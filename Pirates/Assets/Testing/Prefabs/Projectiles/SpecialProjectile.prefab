@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176f87192384e78448bcf931fc429f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileType: 3
   movementSpeed: 10
   projectileDamage: 0
   destroyTime: 5
   cannonBallSprite: {fileID: 494039601755968821}
-  projectileType: 3
 --- !u!54 &3904698444856780924
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -4
   m_Sprite: {fileID: 21300000, guid: ad6f8b1f9bd63a24bae2dc6a5ae3d2e6, type: 3}
   m_Color: {r: 0.5471698, g: 0, b: 0, a: 1}
   m_FlipX: 0

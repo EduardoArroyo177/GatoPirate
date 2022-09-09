@@ -40,7 +40,7 @@ public class Projectile : MonoBehaviour
 
     private void OnDisable()
     {
-        CancelInvoke(nameof(DestroyProjectile));
+        CancelInvoke("DestroyProjectileByTime");
     }
 
     private void Awake()

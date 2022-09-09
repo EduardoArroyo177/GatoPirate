@@ -9,11 +9,20 @@ public class EnemyShipWeakSpotController : MonoBehaviour
     [SerializeField]
     private EnemyWeakSpot weakSpotIndicator;
     [SerializeField]
-    private GameObject leftWeakSpot;
+    private GameObject leftWeakSpotPoint;
     [SerializeField]
-    private GameObject middleWeakSpot;
+    private GameObject middleWeakSpotPoint;
     [SerializeField]
-    private GameObject rightWeakSpot;
+    private GameObject rightWeakSpotPoint;
+
+    [Header("Sprite references")]
+    [SerializeField]
+    private GameObject leftWeakSpotWindow;
+    [SerializeField]
+    private GameObject middleWeakSpotWindow;
+    [SerializeField]
+    private GameObject rightWeakSpotWindow;
+
 
     public float WeakSpotAppearanceRateMin { get; set; }
     public float WeakSpotAppearanceRateMax { get; set; }
@@ -63,9 +72,10 @@ public class EnemyShipWeakSpotController : MonoBehaviour
                 {
                     case 1:
                         // Only middle
-                        weakSpotIndicator.transform.position = middleWeakSpot.transform.position;
+                        weakSpotIndicator.transform.position = middleWeakSpotPoint.transform.position;
                         isWeakSpotActive = true;
                         weakSpotIndicator.gameObject.SetActive(true);
+                        middleWeakSpotWindow.SetActive(false);
                         StartCoroutine(WeakSpotActive());
                         
                         break;
@@ -74,10 +84,12 @@ public class EnemyShipWeakSpotController : MonoBehaviour
                         switch (Random.Range(0, 2))
                         {
                             case 0:
-                                weakSpotIndicator.transform.position = leftWeakSpot.transform.position;
+                                weakSpotIndicator.transform.position = leftWeakSpotPoint.transform.position;
+                                leftWeakSpotWindow.SetActive(true);
                                 break;
                             case 1:
-                                weakSpotIndicator.transform.position = rightWeakSpot.transform.position;
+                                weakSpotIndicator.transform.position = rightWeakSpotPoint.transform.position;
+                                rightWeakSpotWindow.SetActive(true);
                                 break;
                         }
                         isWeakSpotActive = true;
@@ -90,15 +102,18 @@ public class EnemyShipWeakSpotController : MonoBehaviour
                         {
                             case 0:
                                 // Left side
-                                weakSpotIndicator.transform.position = leftWeakSpot.transform.position;
+                                weakSpotIndicator.transform.position = leftWeakSpotPoint.transform.position;
+                                leftWeakSpotWindow.SetActive(true);
                                 break;
                             case 1:
                                 // Middle side
-                                weakSpotIndicator.transform.position = middleWeakSpot.transform.position;
+                                weakSpotIndicator.transform.position = middleWeakSpotPoint.transform.position;
+                                middleWeakSpotWindow.SetActive(true);
                                 break;
                             case 2:
                                 // Right side
-                                weakSpotIndicator.transform.position = rightWeakSpot.transform.position;
+                                weakSpotIndicator.transform.position = rightWeakSpotPoint.transform.position;
+                                rightWeakSpotWindow.SetActive(true);
                                 break;
                         }
                         isWeakSpotActive = true;
@@ -111,15 +126,18 @@ public class EnemyShipWeakSpotController : MonoBehaviour
                         {
                             case 0:
                                 // Left side
-                                weakSpotIndicator.transform.position = leftWeakSpot.transform.position;
+                                weakSpotIndicator.transform.position = leftWeakSpotPoint.transform.position;
+                                leftWeakSpotWindow.SetActive(true);
                                 break;
                             case 1:
                                 // Middle side
-                                weakSpotIndicator.transform.position = middleWeakSpot.transform.position;
+                                weakSpotIndicator.transform.position = middleWeakSpotPoint.transform.position;
+                                middleWeakSpotWindow.SetActive(true);
                                 break;
                             case 2:
                                 // Right side
-                                weakSpotIndicator.transform.position = rightWeakSpot.transform.position;
+                                weakSpotIndicator.transform.position = rightWeakSpotPoint.transform.position;
+                                rightWeakSpotWindow.SetActive(true);
                                 break;
                         }
                         isWeakSpotActive = true;
@@ -134,8 +152,12 @@ public class EnemyShipWeakSpotController : MonoBehaviour
     private IEnumerator WeakSpotActive()
     {
         yield return new WaitForSeconds(WeakSpotCoolDownTime);
+        // Disable weak spot
         weakSpotIndicator.gameObject.SetActive(false);
         isWeakSpotActive = false;
+        leftWeakSpotWindow.SetActive(false);
+        middleWeakSpotWindow.SetActive(false);
+        rightWeakSpotWindow.SetActive(false);
     }
 
     private void OnDestroy()

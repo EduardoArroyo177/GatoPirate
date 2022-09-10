@@ -7,6 +7,10 @@ public class SoundsEffectsController : MonoBehaviour
 {
     [SerializeField]
     private AudioClip specialCannonReady;
+    [SerializeField]
+    private AudioClip weakSpotActive;
+    [SerializeField]
+    private AudioClip weakSpotHit;
 
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
 
@@ -32,10 +36,10 @@ public class SoundsEffectsController : MonoBehaviour
         {
             case CombatSounds.SPECIAL_CANNON_READY:
                 return specialCannonReady;
-            //case CombatSounds.WEAK_SPOT_SHOWN:
-            //    return automaticCannonHit;
-            //case CombatSounds.WEAK_SPOT_HIT:
-            //    return basicCannonShot;
+            case CombatSounds.WEAK_SPOT_ACTIVE:
+                return weakSpotActive;
+            case CombatSounds.WEAK_SPOT_HIT:
+                return weakSpotHit;
             default:
                 return specialCannonReady;
         }

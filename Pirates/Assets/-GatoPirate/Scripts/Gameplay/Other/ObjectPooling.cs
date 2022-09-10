@@ -74,6 +74,10 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     private GameObject resourcesBoxParticles;
     [SerializeField]
     private int resourcesBoxParticleAmnt;
+    [SerializeField]
+    private GameObject weakSpotShownPartilcles;
+    [SerializeField]
+    private int weakSpotParticleAmnt;
 
     // Basic
     private List<GameObject> basicProjectileList = new();
@@ -99,6 +103,9 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     private List<GameObject> playerDamageTextParticleList = new();
     private List<GameObject> enemyDamageTextParticleList = new();
     private List<GameObject> resourcesBoxParticleList = new();
+
+    // Weak spot
+    private List<GameObject> weakSpotParticleList = new();
 
     public VoidEvent StopCombatEvent { get; set; }
     public CombatShipSoundEvent TriggerShipSoundEvent { get; set; }
@@ -462,6 +469,33 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
             if (!resourcesBoxParticleList[index].activeInHierarchy)
             {
                 return resourcesBoxParticleList[index];
+            }
+        }
+
+        return null;
+    }
+
+    private void InstantiateWeakSpotParticles()
+    {
+        GameObject weakSpotParticlesParent = new GameObject("WeakSpotParticlesParent");
+        GameObject weakSpotHelper;
+
+        for (int index = 0; index < weakSpotParticleAmnt; index++)
+        {
+            // Player damage text
+            weakSpotHelper = Instantiate(weakSpotShownPartilcles, weakSpotParticlesParent.transform);
+            weakSpotHelper.SetActive(false);
+            weakSpotParticleList.Add(weakSpotHelper);
+        }
+    }
+
+    public GameObject GetWeakSpotShownParticles()
+    {
+        for (int index = 0; index < weakSpotParticleList.Count; index++)
+        {
+            if (!weakSpotParticleList[index].activeInHierarchy)
+            {
+                return weakSpotParticleList[index];
             }
         }
 

@@ -160,6 +160,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         enemyGameplayBootstrapper.WinChestEvent = WinChestEvent;
         enemyGameplayBootstrapper.TriggerEnemyLostAnimationEvent = TriggerEnemyLostAnimationEvent;
         enemyGameplayBootstrapper.SkipInitialAnimationsEvent = SkipInitialAnimationsEvent;
+        enemyGameplayBootstrapper.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
 
         enemyGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         enemyGameplayBootstrapper.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;

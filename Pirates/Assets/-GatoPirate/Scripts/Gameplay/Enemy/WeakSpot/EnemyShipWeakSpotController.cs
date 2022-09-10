@@ -33,6 +33,8 @@ public class EnemyShipWeakSpotController : MonoBehaviour
     // Events
     public VoidEvent StartCombatEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
+    public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
@@ -48,6 +50,7 @@ public class EnemyShipWeakSpotController : MonoBehaviour
 
         weakSpotIndicator.EnemyShipHealthController = EnemyShipHealthController;
         weakSpotIndicator.WeakSpotPlayerDamageMultiplier = WeakSpotPlayerDamageMultiplier;
+        weakSpotIndicator.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
     }
 
     private void StartCombatEventCallback(Void _item)
@@ -151,6 +154,9 @@ public class EnemyShipWeakSpotController : MonoBehaviour
 
     private IEnumerator WeakSpotActive()
     {
+        // TODO: Trigger sound for weak spot active
+        TriggerCombatSoundEvent.Raise(CombatSounds.WEAK_SPOT_ACTIVE);
+        // TODO: Show particles for weak spot active
         yield return new WaitForSeconds(WeakSpotCoolDownTime);
         // Disable weak spot
         weakSpotIndicator.gameObject.SetActive(false);

@@ -54,6 +54,8 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     public VoidEvent StartingAnimationsFinishedEvent { get; set; }
     public VoidEvent TriggerEnemyLostAnimationEvent { get; set; }
     public VoidEvent SkipInitialAnimationsEvent { get; set; }
+    public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
+
 
     // Properties
     public EnemyShipData EnemyShipData { get => enemyShipData; set => enemyShipData = value; }
@@ -127,6 +129,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         // Events
         enemyShipWeakSpotController.StartCombatEvent = StartCombatEvent;
         enemyShipWeakSpotController.StopCombatEvent = StopCombatEvent;
+        enemyShipWeakSpotController.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
         enemyShipWeakSpotController.Initialize();
 
         // Enemy resources drop 

@@ -46,7 +46,7 @@ public enum CombatShipSounds
 public enum CombatSounds
 { 
     SPECIAL_CANNON_READY,
-    WEAK_SPOT_SHOWN,
+    WEAK_SPOT_ACTIVE,
     WEAK_SPOT_HIT
 }
 #endregion

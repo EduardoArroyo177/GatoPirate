@@ -15,6 +15,8 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private float destroyTime;
     [SerializeField]
+    private bool isSprite;
+    [SerializeField]
     private Transform cannonBallSprite;
 
     public Vector3 Direction { get; set; }
@@ -30,11 +32,17 @@ public class Projectile : MonoBehaviour
 
     private void OnEnable()
     {
-        if (IsShotByEnemy)
-            cannonBallSprite.localEulerAngles = new Vector3(-30, 0, currentRotationEuler.z);
-        else
-            cannonBallSprite.localEulerAngles = new Vector3(30, currentRotationEuler.y, currentRotationEuler.z);
-       
+        if (isSprite)
+        {
+            if (IsShotByEnemy)
+                cannonBallSprite.localEulerAngles = new Vector3(-30, 0, currentRotationEuler.z);
+            else
+                cannonBallSprite.localEulerAngles = new Vector3(30, currentRotationEuler.y, currentRotationEuler.z);
+        }
+        //else
+        //{ 
+        
+        //}
         Invoke("DestroyProjectileByTime", destroyTime);
     }
 
@@ -45,7 +53,8 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
-        currentRotationEuler = cannonBallSprite.eulerAngles;
+        if(isSprite)
+            currentRotationEuler = cannonBallSprite.eulerAngles;
     }
 
     private void Start()

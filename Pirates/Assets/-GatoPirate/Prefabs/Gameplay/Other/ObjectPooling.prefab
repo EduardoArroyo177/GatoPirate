@@ -44,15 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f7a9f73a086ac4d8246cf9fadac776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicProjectile: {fileID: 5587535167352711626, guid: 96805dbfb030c594f90668b6b9bc6e18, type: 3}
+  basicProjectile: {fileID: 8347204644429285014, guid: 00ca85e4067fff8419779693964e59c7, type: 3}
   basicProjectileInstanceAmnt: 50
   basicShotParticles: {fileID: 117382, guid: f6fd7c6469f235a4595c9be5430ef7d9, type: 3}
   basicExplosionParticles: {fileID: 132352, guid: 71b02155078e4bf4e962f302d3675af2, type: 3}
-  normalProjectile: {fileID: 5587535167352711626, guid: e75308ea180c58a4098baef8a7bc7b80, type: 3}
+  normalProjectile: {fileID: 8444937668082027888, guid: 547119921e779d049b8e7c8408657f6f, type: 3}
   normalProjectileInstanceAmnt: 25
   normalShotParticles: {fileID: 193574, guid: 5c2bdcf6f0badc34f9f192b0995e4a79, type: 3}
   normalExplosionParticles: {fileID: 130848, guid: d16221e794fe16e4e8994a7f8c770561, type: 3}
-  automaticProjectile: {fileID: 5587535167352711626, guid: 57b74d7934ba22147a328652eb652f70, type: 3}
+  automaticProjectile: {fileID: 245920846255588621, guid: 4d8111f26f673c94292141286c0d7e82, type: 3}
   automaticProjectileInstanceAmnt: 10
   automaticShotParticles: {fileID: 132130, guid: db3d9495050fd0541a5cf71c72d85e54, type: 3}
   automaticExplosionParticles: {fileID: 195742, guid: c83fb3ef04bb383408bb2064b89690b2, type: 3}

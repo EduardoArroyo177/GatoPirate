@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms;
 using UnityEngine;
 
 public class EnemyWeakSpot : MonoBehaviour
 {
     public ShipHealthController EnemyShipHealthController { get; set; }
     public float WeakSpotPlayerDamageMultiplier { get; set; }
+    public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
+
 
     private float projectileDamage;
 
@@ -26,6 +29,8 @@ public class EnemyWeakSpot : MonoBehaviour
 
     private void CauseDamage()
     {
+        // Trigger weak spot hit sound
+        TriggerCombatSoundEvent.Raise(CombatSounds.WEAK_SPOT_HIT);
         if ((EnemyShipHealthController.CurrentHealth - projectileDamage) <= 0)
         {
             EnemyShipHealthController.CurrentHealth = 0;

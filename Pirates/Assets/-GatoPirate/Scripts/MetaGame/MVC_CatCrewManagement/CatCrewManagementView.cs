@@ -16,6 +16,8 @@ public class CatCrewManagementView : MonoBehaviour
     [SerializeField]
     private int enabledCatalogues;
 
+    public CatCrewManagementController CatCrewManagementController { get; set; }
+
     public GameObject CatView { get => catView; set => catView = value; }
     public Transform[] OwnedCatsContentList { get => ownedCatsContentList; set => ownedCatsContentList = value; }
     public int CatalogueSizePerPage { get => catalogueSizePerPage; set => catalogueSizePerPage = value; }
@@ -25,8 +27,7 @@ public class CatCrewManagementView : MonoBehaviour
     #region Button calls
     public void GoToCombat()
     {
-        // TODO: Go to combat
-        Debug.Log("Go to combat");
+        CatCrewManagementController.StartCombat();
     }
     #endregion
 }

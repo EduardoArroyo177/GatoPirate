@@ -146,6 +146,9 @@ public class CatRecruitmentController : MonoBehaviour
                 GeneralDataModel.Instance.GetCurrencySprite(skinDataHelper.CurrencyType));
             catalogueSkinItemViewHelper.SetPurchasePrice(skinDataHelper.SkinPrice);
 
+            if (CatsDataSaveManager.Instance.IsSkinPurchased(skinDataHelper.SkinType.ToString()))
+                catalogueSkinItemViewHelper.SetAsPurchased();
+
             // Check if currency is enough to buy
             catalogueSkinItemViewHelper.CurrencyType = skinDataHelper.CurrencyType;
             currencyAmount = CurrencyDataSaveManager.Instance.GetCurrencyAmount(skinDataHelper.CurrencyType);
@@ -157,9 +160,6 @@ public class CatRecruitmentController : MonoBehaviour
             {
                 catalogueSkinItemViewHelper.SetItemUnlocked();
             }
-
-            if (CatsDataSaveManager.Instance.IsSkinPurchased(skinDataHelper.SkinType.ToString()))
-                catalogueSkinItemViewHelper.SetAsPurchased();
 
             if (skinDataHelper.SkinTier.Equals(ItemTier.BASIC))
             {

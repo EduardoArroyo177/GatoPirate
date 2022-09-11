@@ -20,6 +20,11 @@ public class IslandCatsController : MonoBehaviour
     public BoolEvent OpenScreenEvent { get; set; }
     public VoidEvent CloseShipCameraEvent { get; set; }
 
+    // Sound events
+    public CatSoundEvent TriggerCatSoundEvent { get; set; }
+    public ShipSoundEvent TriggerShipSoundEvent { get; set; }
+
+
     // For island ship
     public VoidEvent TriggerShipCameraEvent { get; set; }
     public VoidEvent OpenShipOptionsEvent { get; set; }
@@ -38,6 +43,7 @@ public class IslandCatsController : MonoBehaviour
         islandShipButton.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
         islandShipButton.CloseShipCameraEvent = CloseShipCameraEvent;
         islandShipButton.OpenScreenEvent = OpenScreenEvent;
+        islandShipButton.TriggerShipSoundEvent = TriggerShipSoundEvent;
         islandShipButton.Initialize();
 
         SetIslandCats();
@@ -73,6 +79,7 @@ public class IslandCatsController : MonoBehaviour
                         islandSlot.CatSelectedEvent = CatSelectedEvent;
                         islandSlot.OpenScreenEvent = OpenScreenEvent;
                         islandSlot.CloseShipCameraEvent = CloseShipCameraEvent;
+                        islandSlot.TriggerCatSoundEvent = TriggerCatSoundEvent;
 
                         islandSlot.InitializeCat();
                     }
@@ -103,6 +110,7 @@ public class IslandCatsController : MonoBehaviour
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CatSelectedEvent = CatSelectedEvent;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].OpenScreenEvent = OpenScreenEvent;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CloseShipCameraEvent = CloseShipCameraEvent;
+                    slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].TriggerCatSoundEvent = TriggerCatSoundEvent;
 
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].InitializeCat();
                 }
@@ -136,6 +144,7 @@ public class IslandCatsController : MonoBehaviour
                 islandSlot.CatSelectedEvent = CatSelectedEvent;
                 islandSlot.OpenScreenEvent = OpenScreenEvent;
                 islandSlot.CloseShipCameraEvent = CloseShipCameraEvent;
+                islandSlot.TriggerCatSoundEvent = TriggerCatSoundEvent;
                 islandSlot.InitializeCat();
             }
         }

@@ -33,6 +33,12 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField]
     private VoidEvent UISoundTapEvent;
 
+    [Header("Other sounds")]
+    [SerializeField]
+    private CatSoundEvent TriggerCatSoundEvent;
+    [SerializeField]
+    private ShipSoundEvent TriggerShipSoundEvent;
+
     [Header("Scene loader")]
     [SerializeField]
     private SceneLoaderManager sceneLoaderManager;
@@ -128,6 +134,8 @@ public class MetaGameBootstrapper : MonoBehaviour
     private ShipOptionsController shipOptionsController;
     [SerializeField]
     private VoidEvent OpenShipOptionsEvent;
+    [SerializeField]
+    private VoidEvent StartCombatEvent;
     #endregion
 
     private void Awake()
@@ -150,6 +158,8 @@ public class MetaGameBootstrapper : MonoBehaviour
         soundsManager.UISoundButtonCancelEvent = UISoundButtonCancelEvent;
         soundsManager.UISoundTapEvent = UISoundTapEvent;
         soundsManager.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        soundsManager.TriggerCatSoundEvent = TriggerCatSoundEvent;
+        soundsManager.TriggerShipSoundEvent = TriggerShipSoundEvent;
         soundsManager.Initialize();
 
         // Vibration 
@@ -193,6 +203,9 @@ public class MetaGameBootstrapper : MonoBehaviour
         islandCatsController.CloseShipCameraEvent = CloseShipCameraEvent;
         islandCatsController.TriggerShipCameraEvent = TriggerShipCameraEvent;
         islandCatsController.OpenShipOptionsEvent = OpenShipOptionsEvent;
+        islandCatsController.OpenShipOptionsEvent = OpenShipOptionsEvent;
+        islandCatsController.TriggerShipSoundEvent = TriggerShipSoundEvent;
+        islandCatsController.TriggerCatSoundEvent = TriggerCatSoundEvent;
         islandCatsController.Initialize();
 
         // Cat crew management
@@ -202,6 +215,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catCrewManagementController.OpenCatCrewManagementEvent = OpenCatCrewManagementEvent;
         catCrewManagementController.CatUpdatedEvent = CatUpdatedEvent;
         catCrewManagementController.OpenCatCrewManagementNoIDEvent = OpenCatCrewManagementNoIDEvent;
+        catCrewManagementController.StartCombatEvent = StartCombatEvent;
         catCrewManagementController.Initialize();
 
         // Cat recruitment
@@ -235,6 +249,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         shipOptionsController.CloseShipCameraEvent = CloseShipCameraEvent;
         shipOptionsController.LoadCombatSceneEvent = LoadCombatSceneEvent;
         shipOptionsController.OpenCatCrewManagementNoIDEvent = OpenCatCrewManagementNoIDEvent;
+        shipOptionsController.StartCombatEvent = StartCombatEvent;
         shipOptionsController.Initialize();
 
         // Init completed

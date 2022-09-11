@@ -18,12 +18,27 @@ public class SoundsManagerMainMenu : MonoBehaviour
     [SerializeField]
     private AudioClip sound_Tap;
 
+    [Header("Cat sounds")]
+    [SerializeField]
+    private AudioClip sound_CatMeow1;
+    [SerializeField]
+    private AudioClip sound_CatMeow2;
+    [SerializeField]
+    private AudioClip sound_CatMeow3;
+
+    [Header("Ship sounds")]
+    [SerializeField]
+    private AudioClip sound_ShipSelected;
+
     public VoidEvent UISoundScreenOpenEvent { get; set; }
     public VoidEvent UISoundScreenClosedEvent { get; set; }
     public VoidEvent UISoundButtonPressedEvent { get; set; }
     public VoidEvent UISoundButtonCancelEvent { get; set; }
     public VoidEvent UISoundTapEvent { get; set; }
     public FloatEvent SetSoundsVolumeEvent { get; set; }
+
+    public CatSoundEvent TriggerCatSoundEvent { get; set; }
+    public ShipSoundEvent TriggerShipSoundEvent { get; set; }
 
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -38,6 +53,9 @@ public class SoundsManagerMainMenu : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UISoundButtonCancelEvent, UISoundButtonCancelEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UISoundTapEvent, UISoundTapEventCallback));
         _eventHandlers.Add(EventHandlerFactory<float>.BuildEventHandler(SetSoundsVolumeEvent, SetSoundsVolumeEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<CatMeowSounds>.BuildEventHandler(TriggerCatSoundEvent, TriggerCatSoundEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<ShipSounds>.BuildEventHandler(TriggerShipSoundEvent, TriggerShipSoundEventCallback));
+
     }
 
     #region Event callbacks
@@ -80,7 +98,43 @@ public class SoundsManagerMainMenu : MonoBehaviour
     {
         audioSource.volume = _newVolume;
     }
+
+    private void TriggerCatSoundEventCallback(CatMeowSounds _catSound)
+    {
+        audioSource.PlayOneShot(GetCatSound(_catSound));
+    }
+
+    private void TriggerShipSoundEventCallback(ShipSounds _shipSound)
+    {
+        audioSource.PlayOneShot(GetShipSound(_shipSound));
+    }
     #endregion
+
+    private AudioClip GetCatSound(CatMeowSounds _catSound)
+    {
+        switch (_catSound)
+        {
+            case CatMeowSounds.SELECTED_CAT1:
+                return sound_CatMeow1;
+            case CatMeowSounds.SELECTED_CAT2:
+                return sound_CatMeow2;
+            case CatMeowSounds.SELECTED_CAT3:
+                return sound_CatMeow3;
+            default:
+                return sound_CatMeow1;
+        }
+    }
+
+    private AudioClip GetShipSound(ShipSounds _shipSound)
+    {
+        switch (_shipSound)
+        {
+            case ShipSounds.SHIP_SELECTED:
+                return sound_ShipSelected;
+            default:
+                return sound_ShipSelected;
+        }
+    }
 
     #region OnDestroy
     private void OnDestroy()

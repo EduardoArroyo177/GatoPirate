@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
@@ -24,6 +25,7 @@ public class IslandSlot : MonoBehaviour
     public VoidEvent CatSelectedEvent { get; set; }
     public BoolEvent OpenScreenEvent { get; set; }
     public VoidEvent CloseShipCameraEvent { get; set; }
+    public CatSoundEvent TriggerCatSoundEvent { get; set; }
 
 
     private IslandSlotButton islandSlotButton;
@@ -43,6 +45,8 @@ public class IslandSlot : MonoBehaviour
             islandSlotButton.CatSelectedEvent = CatSelectedEvent;
             islandSlotButton.OpenScreenEvent = OpenScreenEvent;
             islandSlotButton.CloseShipCameraEvent = CloseShipCameraEvent;
+            islandSlotButton.TriggerCatSoundEvent = TriggerCatSoundEvent;
+            islandSlotButton.CatMeow = catBodyBuilder.CatData.MeowSound;
             islandSlotButton.Initialize(CatID);
         }
 

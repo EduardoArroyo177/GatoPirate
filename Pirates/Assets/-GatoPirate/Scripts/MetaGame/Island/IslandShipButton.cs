@@ -13,6 +13,7 @@ public class IslandShipButton : MonoBehaviour
     public VoidEvent CloseSelectedCatCameraEvent { get; set; }
     public VoidEvent CloseShipCameraEvent { get; set; }
     public BoolEvent OpenScreenEvent { get; set; }
+    public ShipSoundEvent TriggerShipSoundEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -38,6 +39,8 @@ public class IslandShipButton : MonoBehaviour
             OpenShipOptionsEvent.Raise();
             // Block cats so they cannot be pressed as buttons
             CatSelectedEvent.Raise();
+            // TODO: Trigger sound effect
+            TriggerShipSoundEvent.Raise(ShipSounds.SHIP_SAILING);
         }
     }
 

@@ -48,6 +48,8 @@ public class CatalogueItemView : MonoBehaviour
     public CurrencyType CurrencyType { get; set; }
     public bool ItemUnlocked { get; set; }
 
+    private bool itemPurchased;
+
     #region Data set
     // For cats
     public void SetIndexAndTypes(int _itemIndex, ItemTier _itemType, CatType _catType = CatType.GENERIC)
@@ -100,6 +102,8 @@ public class CatalogueItemView : MonoBehaviour
 
     public void SetItemUnlocked()
     {
+        if (itemPurchased)
+            return;
         btn_purchaseItem.gameObject.SetActive(true);
         btn_goToStore.SetActive(false);
         img_lockedOverlay.SetActive(false);
@@ -108,6 +112,7 @@ public class CatalogueItemView : MonoBehaviour
 
     public void SetAsPurchased()
     {
+        itemPurchased = true;
         btn_purchaseItem.gameObject.SetActive(false);
         pnl_purchasedItem.SetActive(true);
     }

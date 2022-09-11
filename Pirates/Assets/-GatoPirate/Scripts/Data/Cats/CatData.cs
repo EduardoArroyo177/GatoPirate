@@ -52,6 +52,10 @@ public class CatData : ScriptableObject
     [SerializeField]
     private bool isUnlocked;
 
+    [Header("Sounds")]
+    [SerializeField]
+    private CatMeowSounds meowSound;
+
 
     // Cat data
     public CatType CatType { get => catType; set => catType = value; }
@@ -78,4 +82,7 @@ public class CatData : ScriptableObject
     // Unlock data
     public Island IslandToUnlock { get => islandToUnlock; set => islandToUnlock = value; }
     public bool IsUnlocked { get => isUnlocked; set => isUnlocked = value; }
+    
+    // Sounds
+    public CatMeowSounds MeowSound { get => meowSound; set => meowSound = value; }
 }

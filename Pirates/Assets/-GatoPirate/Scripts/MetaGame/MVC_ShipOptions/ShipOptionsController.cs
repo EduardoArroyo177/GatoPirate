@@ -16,6 +16,8 @@ public class ShipOptionsController : MonoBehaviour
     public VoidEvent CloseShipCameraEvent { get; set; }
     public VoidEvent LoadCombatSceneEvent { get; set; }
     public VoidEvent OpenCatCrewManagementNoIDEvent { get; set; }
+    public VoidEvent StartCombatEvent { get; set; }
+
 
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -25,6 +27,7 @@ public class ShipOptionsController : MonoBehaviour
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(OpenShipOptionsEvent, OpenShipOptionsEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartCombatEvent, StartCombatEventCallback));
 
         shipOptionsView.ShipOptionsController = this;
     }
@@ -33,6 +36,11 @@ public class ShipOptionsController : MonoBehaviour
     private void OpenShipOptionsEventCallback(Void _item)
     {
         shipOptionsView.gameObject.SetActive(true);
+    }
+
+    private void StartCombatEventCallback(Void _item)
+    {
+        StartCombat();
     }
     #endregion
 
@@ -63,9 +71,14 @@ public class ShipOptionsController : MonoBehaviour
             catCombatDataHelper = new CatCombatData();
             catCombatDataHelper.CatData = catData;
             catCombatDataHelper.SkinData = skinData;
-            CombatData.CatCrewDataList[index] = catCombatDataHelper;
+            CombatData.CatCrewDataList[catCrewList[index].IslandSlot] = catCombatDataHelper;
         }
-        // Load combat scene
+        // TODO: Trigger ship animation
+        LoadCombatSceneEvent.Raise();
+    }
+
+    public void LoadCombatScene()
+    {
         LoadCombatSceneEvent.Raise();
     }
 

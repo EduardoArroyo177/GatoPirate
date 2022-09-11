@@ -54,12 +54,13 @@ MonoBehaviour:
   UISoundButtonPressedEvent: {fileID: 11400000, guid: e90e23a9d2491914f8a28856a3898275, type: 2}
   UISoundButtonCancelEvent: {fileID: 11400000, guid: e4e8627de28c7c54a8e0cf1480bd301d, type: 2}
   UISoundTapEvent: {fileID: 11400000, guid: 1be66c8da56addb47b9fdeeaf03a3619, type: 2}
+  TriggerCatSoundEvent: {fileID: 11400000, guid: bb837421ca9531049a599f22da825cea, type: 2}
+  TriggerShipSoundEvent: {fileID: 11400000, guid: 982fbdb7e1fdf5949895b27d89e477c4, type: 2}
   sceneLoaderManager: {fileID: 0}
   LoadCombatSceneEvent: {fileID: 11400000, guid: 8bd8f266ebdcda94588c93f2f032d11b, type: 2}
   settingsController: {fileID: 0}
   SetMusicVolumeEvent: {fileID: 11400000, guid: 8e6063f40a163a947bb9ce470d789911, type: 2}
   SetSoundsVolumeEvent: {fileID: 11400000, guid: 3d88799a75bc8a342bb9171adf161543, type: 2}
-  SetVibrationOnEvent: {fileID: 11400000, guid: d5e210e011c149b40a8b6854a6ce0bb2, type: 2}
   virtualCameraControllerMainMenu: {fileID: 0}
   TriggerSelectedCatCameraEvent: {fileID: 11400000, guid: 57b131841612466458f152ebfef1ec35, type: 2}
   CloseSelectedCatCameraEvent: {fileID: 11400000, guid: 82f45c051b277494db76ac7d074988be, type: 2}
@@ -96,3 +97,4 @@ MonoBehaviour:
   OpenScreenEvent: {fileID: 11400000, guid: efc47854f7f35f14fb3ac8d6dc709a92, type: 2}
   shipOptionsController: {fileID: 0}
   OpenShipOptionsEvent: {fileID: 11400000, guid: 18641421d041c824d964690faaaafbbe, type: 2}
+  StartCombatEvent: {fileID: 11400000, guid: 9cbbd912c1aa4ad44b226917ba808a75, type: 2}

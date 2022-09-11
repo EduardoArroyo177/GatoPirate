@@ -17,12 +17,14 @@ public class IslandSlotButton : MonoBehaviour
     public VoidEvent CatSelectedEvent { get; set; }
     public BoolEvent OpenScreenEvent { get; set; }
     public VoidEvent CloseShipCameraEvent { get; set; }
-
+    public CatSoundEvent TriggerCatSoundEvent { get; set; }
+    public CatMeowSounds CatMeow { get => catMeow; set => catMeow = value; }
 
     private string catID;// { get; set; }
     private bool isInitialized;
     private bool isZoomedIn;
     private bool isScreenOpen;
+    private CatMeowSounds catMeow;
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -54,6 +56,7 @@ public class IslandSlotButton : MonoBehaviour
                 tweenAnimation.DOPlay();
             }
             // TODO: Play selected sound
+            TriggerCatSoundEvent.Raise(catMeow);
         }
     }
 

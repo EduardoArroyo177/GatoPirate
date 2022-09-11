@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerShipData: {fileID: 11400000, guid: 269b5ceab8369614d847b4e39b4ad43e, type: 2}
   catCrewDataList:
-  - catData: {fileID: 11400000, guid: 5a26b11426c547945b543e8aed545f97, type: 2}
+  - catData: {fileID: 11400000, guid: fc0fa6a9bc04110408d1192c32f97568, type: 2}
     skinData: {fileID: 0}
-  - catData: {fileID: 11400000, guid: 5a26b11426c547945b543e8aed545f97, type: 2}
-    skinData: {fileID: 11400000, guid: 17639e7e78dcf144eb77aa5367370a0a, type: 2}
-  - catData: {fileID: 11400000, guid: 5a26b11426c547945b543e8aed545f97, type: 2}
+  - catData: {fileID: 11400000, guid: 0f4de49c318f19e44a3e39d977877b52, type: 2}
     skinData: {fileID: 11400000, guid: c54defbb42d17254bacbaa7b03ca0adc, type: 2}
   - catData: {fileID: 11400000, guid: 5a26b11426c547945b543e8aed545f97, type: 2}
+    skinData: {fileID: 0}
+  - catData: {fileID: 11400000, guid: ce7a3424ee52db84bb493c0ad5007a3b, type: 2}
     skinData: {fileID: 0}
   enemyShipData: {fileID: 11400000, guid: 98208653d6ef88a45b7194246016b992, type: 2}

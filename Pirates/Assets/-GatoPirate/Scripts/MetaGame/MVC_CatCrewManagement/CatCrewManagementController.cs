@@ -21,6 +21,7 @@ public class CatCrewManagementController : MonoBehaviour
     public StringEvent OpenCatCrewManagementEvent { get; set; }
     public StringEvent CatUpdatedEvent { get; set; }
     public VoidEvent OpenCatCrewManagementNoIDEvent { get; set; }
+    public VoidEvent StartCombatEvent { get; set; }
 
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -45,6 +46,8 @@ public class CatCrewManagementController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(OpenCatCrewManagementEvent, OpenCatCrewManagementEventCallback));
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(CatUpdatedEvent, CatUpdatedEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(OpenCatCrewManagementNoIDEvent, OpenCatCrewManagementNoIDEventCallback));
+
+        catCrewManagementView.CatCrewManagementController = this;
 
         FillCatInventoryData();
         FillCurrentShipCatData();
@@ -348,6 +351,12 @@ public class CatCrewManagementController : MonoBehaviour
             selectedSlot.Deselect();
             selectedSlot = null;
         }
+    }
+
+    public void StartCombat()
+    {
+        catCrewManagementView.gameObject.SetActive(false);
+        StartCombatEvent.Raise();
     }
     #endregion
 

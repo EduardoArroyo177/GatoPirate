@@ -51,6 +51,19 @@ public enum CombatSounds
 }
 #endregion
 
+public enum CatMeowSounds
+{ 
+    SELECTED_CAT1,
+    SELECTED_CAT2,
+    SELECTED_CAT3
+}
+
+public enum ShipSounds
+{ 
+    SHIP_SELECTED,
+    SHIP_SAILING,
+    SHIP_SINKING
+}
 public enum CurrencyType
 { 
     GOLDEN_COINS,
@@ -81,7 +94,6 @@ public enum SkinType
     SUPERMAN
 }
 
-// TODO: Update tier to be generic
 public enum ItemTier
 {
     BASIC,

@@ -98,3 +98,6 @@ MonoBehaviour:
   shipOptionsController: {fileID: 0}
   OpenShipOptionsEvent: {fileID: 11400000, guid: 18641421d041c824d964690faaaafbbe, type: 2}
   StartCombatEvent: {fileID: 11400000, guid: 9cbbd912c1aa4ad44b226917ba808a75, type: 2}
+  storeController: {fileID: 0}
+  OpenStoreEvent: {fileID: 11400000, guid: f01d21ea75a3f1948934b9cf39db56ff, type: 2}
+  PurchaseStoreItemEvent: {fileID: 11400000, guid: 0b63699242799544fb14557c76de6eb1, type: 2}

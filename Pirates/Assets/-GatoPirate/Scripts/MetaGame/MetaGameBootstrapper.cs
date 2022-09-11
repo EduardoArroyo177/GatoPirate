@@ -136,6 +136,14 @@ public class MetaGameBootstrapper : MonoBehaviour
     private VoidEvent OpenShipOptionsEvent;
     [SerializeField]
     private VoidEvent StartCombatEvent;
+
+    [Header("Game store")]
+    [SerializeField]
+    private StoreController storeController;
+    [SerializeField]
+    private VoidEvent OpenStoreEvent;
+    [SerializeField]
+    private StringEvent PurchaseStoreItemEvent;
     #endregion
 
     private void Awake()
@@ -251,6 +259,11 @@ public class MetaGameBootstrapper : MonoBehaviour
         shipOptionsController.OpenCatCrewManagementNoIDEvent = OpenCatCrewManagementNoIDEvent;
         shipOptionsController.StartCombatEvent = StartCombatEvent;
         shipOptionsController.Initialize();
+
+        // Store
+        storeController.OpenStoreEvent = OpenStoreEvent;
+        storeController.PurchaseStoreItemEvent = PurchaseStoreItemEvent;
+        storeController.Initialize();
 
         // Init completed
         GameInitializationCompleted();

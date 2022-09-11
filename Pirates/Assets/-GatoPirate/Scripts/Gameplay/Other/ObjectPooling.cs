@@ -77,6 +77,8 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     [SerializeField]
     private GameObject weakSpotShownPartilcles;
     [SerializeField]
+    private GameObject weakSpotHitParticles;
+    [SerializeField]
     private int weakSpotParticleAmnt;
 
     // Basic
@@ -105,7 +107,8 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     private List<GameObject> resourcesBoxParticleList = new();
 
     // Weak spot
-    private List<GameObject> weakSpotParticleList = new();
+    private List<GameObject> weakSpotActiveParticleList = new();
+    private List<GameObject> weakSpotHitParticleList = new();
 
     public VoidEvent StopCombatEvent { get; set; }
     public CombatShipSoundEvent TriggerShipSoundEvent { get; set; }
@@ -118,6 +121,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
         InstantiateSpecialProjectiles();
         InstantiateDamageTextParticles();
         InstantiateResourcesBoxParticles();
+        InstantiateWeakSpotParticles();
     }
 
     #region Basic projectile
@@ -479,23 +483,42 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     {
         GameObject weakSpotParticlesParent = new GameObject("WeakSpotParticlesParent");
         GameObject weakSpotHelper;
+        GameObject weakSpotHitHelper;
 
         for (int index = 0; index < weakSpotParticleAmnt; index++)
         {
-            // Player damage text
+            // Weak spot active
             weakSpotHelper = Instantiate(weakSpotShownPartilcles, weakSpotParticlesParent.transform);
             weakSpotHelper.SetActive(false);
-            weakSpotParticleList.Add(weakSpotHelper);
+            weakSpotActiveParticleList.Add(weakSpotHelper);
+
+            // Weak spot hit 
+            weakSpotHitHelper = Instantiate(weakSpotHitParticles, weakSpotParticlesParent.transform);
+            weakSpotHitHelper.SetActive(false);
+            weakSpotHitParticleList.Add(weakSpotHitHelper);
         }
     }
 
-    public GameObject GetWeakSpotShownParticles()
+    public GameObject GetWeakSpotActiveParticles()
     {
-        for (int index = 0; index < weakSpotParticleList.Count; index++)
+        for (int index = 0; index < weakSpotActiveParticleList.Count; index++)
         {
-            if (!weakSpotParticleList[index].activeInHierarchy)
+            if (!weakSpotActiveParticleList[index].activeInHierarchy)
             {
-                return weakSpotParticleList[index];
+                return weakSpotActiveParticleList[index];
+            }
+        }
+
+        return null;
+    }
+
+    public GameObject GetWeakSpotHitParticles()
+    {
+        for (int index = 0; index < weakSpotHitParticleList.Count; index++)
+        {
+            if (!weakSpotHitParticleList[index].activeInHierarchy)
+            {
+                return weakSpotHitParticleList[index];
             }
         }
 

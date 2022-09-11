@@ -154,9 +154,16 @@ public class EnemyShipWeakSpotController : MonoBehaviour
 
     private IEnumerator WeakSpotActive()
     {
-        // TODO: Trigger sound for weak spot active
+        // Trigger sound for weak spot active
         TriggerCombatSoundEvent.Raise(CombatSounds.WEAK_SPOT_ACTIVE);
         // TODO: Show particles for weak spot active
+        GameObject particles = ObjectPooling.Instance.GetWeakSpotActiveParticles();
+        if (particles)
+        {
+            Debug.Log("PARTICLES SHOWING!");
+            particles.transform.position = weakSpotIndicator.transform.position;
+            particles.SetActive(true);
+        }
         yield return new WaitForSeconds(WeakSpotCoolDownTime);
         // Disable weak spot
         weakSpotIndicator.gameObject.SetActive(false);

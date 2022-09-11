@@ -15,23 +15,34 @@ public class ShipHealthUIController : MonoBehaviour
     private Transform lifeBar;
     [SerializeField]
     private SpriteRenderer lifeBarRenderer;
+
+    [Header("High health")]
     [SerializeField]
     private Color highHealthColor;
     [Range(0.0f, 1.0f)]
     [SerializeField]
     private float highHealthValue;
-
     [SerializeField]
-    private Color meddiumHealthColor;
+    private GameObject firstDamageGroup;
+
+    [Header("Medium health")]
+    [SerializeField]
+    private Color mediumHealthColor;
     [Range(0.0f, 1.0f)]
     [SerializeField]
-    private float meddiumHealthValue;
+    private float mediumHealthValue;
+    [SerializeField]
+    private GameObject secondDamageGroup;
 
+    [Header("Low health")]
     [SerializeField]
     private Color lowHealthColor;
     [Range(0.0f, 1.0f)]
     [SerializeField]
     private float lowHealthValue;
+    [SerializeField]
+    private GameObject thirdDamageGroup;
+
 
     public FloatEvent CurrentHealthUIEvent { get; set; }
     public FloatEvent TriggerShakingCameraEvent { get; set; }
@@ -53,23 +64,42 @@ public class ShipHealthUIController : MonoBehaviour
         {
             Img_currentHealth.fillAmount = _healthValue;
 
-            if (Img_currentHealth.fillAmount < highHealthValue
-                && Img_currentHealth.fillAmount > meddiumHealthValue)
-                Img_currentHealth.color = meddiumHealthColor;
+            // TODO: Ask for a 20%
 
-            else if (Img_currentHealth.fillAmount < meddiumHealthValue)
+            if (Img_currentHealth.fillAmount < highHealthValue
+                && Img_currentHealth.fillAmount > mediumHealthValue)
+                Img_currentHealth.color = mediumHealthColor;
+
+            else if (Img_currentHealth.fillAmount < mediumHealthValue)
                 Img_currentHealth.color = lowHealthColor;
         }
         else
         {
             lifeBar.localScale = new Vector3(_healthValue, 1, 1);
 
-            if (lifeBar.localScale.x < highHealthValue
-                && lifeBar.localScale.x > meddiumHealthValue)
-                lifeBarRenderer.color = meddiumHealthColor;
+            // TODO: Ask for a 20%
 
-            else if(lifeBar.localScale.x < meddiumHealthValue)
-                lifeBarRenderer.color = lowHealthColor; 
+            if (lifeBar.localScale.x < 1
+                && lifeBar.localScale.x > highHealthValue)
+            {
+                if (firstDamageGroup)
+                    firstDamageGroup.SetActive(true);
+            }
+
+            else if (lifeBar.localScale.x < highHealthValue
+                && lifeBar.localScale.x > mediumHealthValue)
+            {
+                lifeBarRenderer.color = mediumHealthColor;
+                if(secondDamageGroup)
+                    secondDamageGroup.SetActive(true);
+            }
+
+            else if (lifeBar.localScale.x < mediumHealthValue)
+            {
+                lifeBarRenderer.color = lowHealthColor;
+                if (thirdDamageGroup)
+                    thirdDamageGroup.SetActive(true);
+            }
 
         }
 

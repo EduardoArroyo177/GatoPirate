@@ -65,3 +65,6 @@ MonoBehaviour:
   damageTextParticleAmnt: 50
   resourcesBoxParticles: {fileID: 143964, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
   resourcesBoxParticleAmnt: 5
+  weakSpotShownPartilcles: {fileID: 3626009884251410212, guid: fac7b291ae8a06d47bceb1385929bdab, type: 3}
+  weakSpotHitParticles: {fileID: 644791055168556034, guid: 619492981ef4abf4da2856cb60694514, type: 3}
+  weakSpotParticleAmnt: 5

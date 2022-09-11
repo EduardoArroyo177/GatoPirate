@@ -31,6 +31,14 @@ public class EnemyWeakSpot : MonoBehaviour
     {
         // Trigger weak spot hit sound
         TriggerCombatSoundEvent.Raise(CombatSounds.WEAK_SPOT_HIT);
+        // Trigger weak spot hit particles
+        GameObject particles = ObjectPooling.Instance.GetWeakSpotHitParticles();
+        if (particles)
+        {
+            particles.transform.position = transform.position;
+            particles.SetActive(true);
+        }
+
         if ((EnemyShipHealthController.CurrentHealth - projectileDamage) <= 0)
         {
             EnemyShipHealthController.CurrentHealth = 0;

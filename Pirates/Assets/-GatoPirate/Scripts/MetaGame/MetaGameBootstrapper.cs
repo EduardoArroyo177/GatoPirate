@@ -144,6 +144,10 @@ public class MetaGameBootstrapper : MonoBehaviour
     private VoidEvent OpenStoreEvent;
     [SerializeField]
     private StringEvent PurchaseStoreItemEvent;
+
+    [Header("Result screen")]
+    [SerializeField]
+    private MetaResultScreenController resultScreenController;
     #endregion
 
     private void Awake()
@@ -267,6 +271,9 @@ public class MetaGameBootstrapper : MonoBehaviour
 
         // Init completed
         GameInitializationCompleted();
+
+        // Result screen
+        resultScreenController.Initialize();
     }
 
     private void GameInitializationCompleted()

@@ -16,7 +16,6 @@ public class StoreController : MonoBehaviour
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
-
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(OpenStoreEvent, OpenStoreEventCallback));

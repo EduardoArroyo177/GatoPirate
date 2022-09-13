@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d8f513b34b733ab49b6f16ff6b990a5f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Pirates Kids
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e2b4e5c05192bca46ada109eece6e9c3, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

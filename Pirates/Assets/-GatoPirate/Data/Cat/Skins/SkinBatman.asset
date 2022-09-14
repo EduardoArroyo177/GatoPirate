@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SkinBatman
   m_EditorClassIdentifier: 
   skinType: 4
+  skinTier: 0
   skinName: BatCat
-  skinPreviewSprite: {fileID: 21300000, guid: 191002c277d92bb4b8a3025d1981835a, type: 3}
   catHeadFrontSkinSprite: {fileID: 21300000, guid: b7fb580037f15d34fbb6af8642cd3042, type: 3}
   catHeadBackSkinSprite: {fileID: 0}
   catBodyFrontSkinSprite: {fileID: 21300000, guid: 2b2088145cd742f4f8519a80d9ab6f38, type: 3}
@@ -29,3 +29,9 @@ MonoBehaviour:
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
   skinColor: {r: 1, g: 1, b: 1, a: 1}
+  skinDescription: 
+  skinPreviewSprite: {fileID: 21300000, guid: 191002c277d92bb4b8a3025d1981835a, type: 3}
+  skinPrice: 100
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0

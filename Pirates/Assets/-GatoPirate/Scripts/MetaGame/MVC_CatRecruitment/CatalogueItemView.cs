@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityAtoms;
 using UnityAtoms.BaseAtoms;
+using Coffee.UIEffects;
 
 public class CatalogueItemView : MonoBehaviour
 {
@@ -30,6 +31,10 @@ public class CatalogueItemView : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI lbl_purchasePrice2;
 
+    [Header("Animations")]
+    [SerializeField]
+    private GameObject img_purchasedAnimation;
+
     // Events
     public IntCatalogueTypeEvent PurchaseCatalogueItemEvent { get; set; }
     public VoidEvent OpenGoToStorePopUpEvent { get; set; }
@@ -49,6 +54,7 @@ public class CatalogueItemView : MonoBehaviour
     public bool ItemUnlocked { get; set; }
 
     private bool itemPurchased;
+    private UIShiny itemShinyEffect;
 
     #region Data set
     // For cats
@@ -83,6 +89,7 @@ public class CatalogueItemView : MonoBehaviour
         CurrencySprite = _currencySprite;
         img_item.sprite = _itemSprite;
         img_currencyIcon.sprite = _currencySprite;
+        itemShinyEffect = img_item.GetComponent<UIShiny>();
     }
 
     public void SetPurchasePrice(int _price)
@@ -115,6 +122,12 @@ public class CatalogueItemView : MonoBehaviour
         itemPurchased = true;
         btn_purchaseItem.gameObject.SetActive(false);
         pnl_purchasedItem.SetActive(true);
+    }
+
+    public void PlayPurchasedAnimation()
+    {
+        img_purchasedAnimation.SetActive(true);
+        itemShinyEffect.Play();
     }
     #endregion
 

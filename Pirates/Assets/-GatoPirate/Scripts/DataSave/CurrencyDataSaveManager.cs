@@ -82,7 +82,6 @@ public class CurrencyDataSaveManager : SceneSingleton<CurrencyDataSaveManager>
         {
             EarnedCurrencyList = JsonUtility.FromJson<DataSaveCurrencyListStructure>(earnedDataSave);
         }
-        Debug.Log("DONE LOADING DATA");
     }
     #endregion
 

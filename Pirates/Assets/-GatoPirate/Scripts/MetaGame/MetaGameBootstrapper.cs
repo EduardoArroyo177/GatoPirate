@@ -74,6 +74,8 @@ public class MetaGameBootstrapper : MonoBehaviour
     private PanelCurrenciesController[] pnl_currenciesList;
     [SerializeField]
     private VoidEvent CurrenciesUpdatedEvent;
+    [SerializeField]
+    private CurrencyTypeIntEvent ShowSpentCurrencyEvent;
 
     [Header("Island")]
     [SerializeField]
@@ -201,6 +203,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         for (int index = 0; index < pnl_currenciesList.Length; index++)
         {
             pnl_currenciesList[index].CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
+            pnl_currenciesList[index].ShowSpentCurrencyEvent = ShowSpentCurrencyEvent;
             pnl_currenciesList[index].Initialize();
         }
 
@@ -239,6 +242,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catRecruitmentController.NewCatPurchasedEvent = NewCatPurchasedEvent;
         catRecruitmentController.SkinPurchasedEvent = SkinPurchasedEvent;
         catRecruitmentController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
+        catRecruitmentController.ShowSpentCurrencyEvent = ShowSpentCurrencyEvent;
         catRecruitmentController.Initialize();
 
         // Cat options

@@ -40,6 +40,7 @@ public class CatRecruitmentController : MonoBehaviour
 
     // Currency update
     public VoidEvent CurrenciesUpdatedEvent { get; set; }
+    public CurrencyTypeIntEvent ShowSpentCurrencyEvent { get; set; }
     #endregion
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -186,6 +187,7 @@ public class CatRecruitmentController : MonoBehaviour
     #region Event callbacks
     private void PurchaseCatalogueCatEventCallback(int _itemIndex, ItemTier _itemTier)
     {
+        CatalogueItemView selectedItem = null;
         string itemName = "";
         CatType catType = CatType.GENERIC;
         int index;
@@ -197,84 +199,114 @@ public class CatRecruitmentController : MonoBehaviour
                 index = catBasicItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
-                itemName = catBasicItemList[index].ItemName;
-                catType = catBasicItemList[index].CatType;
-                currencyType = catBasicItemList[index].CurrencyType;
-                itemPrice = catBasicItemList[index].ItemPrice;
+                selectedItem = catBasicItemList[index];
+
+                //itemName = catBasicItemList[index].ItemName;
+                //catType = catBasicItemList[index].CatType;
+                //currencyType = catBasicItemList[index].CurrencyType;
+                //itemPrice = catBasicItemList[index].ItemPrice;
                 break;
             case ItemTier.SPECIAL:
                 index = catSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
-                itemName = catSpecialItemList[index].ItemName;
-                catType = catSpecialItemList[index].CatType;
-                currencyType = catSpecialItemList[index].CurrencyType;
-                itemPrice = catSpecialItemList[index].ItemPrice;
+                selectedItem = catSpecialItemList[index];
+
+                //itemName = catSpecialItemList[index].ItemName;
+                //catType = catSpecialItemList[index].CatType;
+                //currencyType = catSpecialItemList[index].CurrencyType;
+                //itemPrice = catSpecialItemList[index].ItemPrice;
                 break;
         }
 
-        if (string.IsNullOrEmpty(itemName))
+        if (!selectedItem)
         {
             Debug.LogError("There was a problem with the item purchase");
             return;
         }
+
+        itemName = selectedItem.ItemName;
+        catType = selectedItem.CatType;
+        currencyType = selectedItem.CurrencyType;
+        itemPrice = selectedItem.ItemPrice;
+
         // TODO: (if needed) Get island and its slot to save it, then call event to place it there
-        // TODO: Reduce currency Amount with item price
+        // Reduce currency Amount with item price
         CurrencyDataSaveManager.Instance.UpdateCurrency(currencyType, -itemPrice);
+        // TODO: Play currency spend animation
+        ShowSpentCurrencyEvent.Raise(currencyType, itemPrice);
         // Save cat data
         string catID = IDGenerator.Instance.GetGeneratedID(itemName);
         CatsDataSaveManager.Instance.SaveNewCat(catType, catID, itemName);
         //  Update cat island event
         NewCatPurchasedEvent.Raise(catType, catID);
         // TODO: Show purchased animation
+        selectedItem.PlayPurchasedAnimation();
 
     }
 
     private void PurchaseCatalogueSkinEventCallback(int _itemIndex, ItemTier _itemTier)
     {
+        CatalogueItemView selectedItem = null;
         string itemName = "";
         SkinType skinType = SkinType.NONE;
+        CurrencyType currencyType = CurrencyType.GOLDEN_COINS;
         int index;
+        int itemPrice = 0;
+
         switch (_itemTier)
         {
             case ItemTier.BASIC:
                 index = skinBasicItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
-                itemName = skinBasicItemList[index].ItemName;
-                skinType = skinBasicItemList[index].SkinType;
-                skinBasicItemList[index].SetAsPurchased();
+                selectedItem = skinBasicItemList[index];
+                //itemName = skinBasicItemList[index].ItemName;
+                //skinType = skinBasicItemList[index].SkinType;
+                //skinBasicItemList[index].SetAsPurchased();
                 break;
             case ItemTier.SPECIAL:
                 index = skinSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
-                itemName = skinSpecialItemList[index].ItemName;
-                skinType = skinSpecialItemList[index].SkinType;
-                skinSpecialItemList[index].SetAsPurchased();
+                selectedItem = skinSpecialItemList[index];
+                //itemName = skinSpecialItemList[index].ItemName;
+                //skinType = skinSpecialItemList[index].SkinType;
+                //skinSpecialItemList[index].SetAsPurchased();
                 break;
             case ItemTier.PREMIUM:
                 index = skinPremiumItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
-                itemName = skinPremiumItemList[index].ItemName;
-                skinType = skinPremiumItemList[index].SkinType;
-                skinPremiumItemList[index].SetAsPurchased();
+                selectedItem = skinPremiumItemList[index];
+                //itemName = skinPremiumItemList[index].ItemName;
+                //skinType = skinPremiumItemList[index].SkinType;
+                //skinPremiumItemList[index].SetAsPurchased();
                 break;
         }
 
-        if (string.IsNullOrEmpty(itemName))
+        if (!selectedItem)
         {
             Debug.LogError("There was a problem with the item purchase");
             return;
         }
+
+        itemName = selectedItem.ItemName;
+        skinType = selectedItem.SkinType;
+        currencyType = selectedItem.CurrencyType;
+        itemPrice = selectedItem.ItemPrice;
         // TODO: (if needed) Get island and its slot to save it, then call event to place it there
-        // TODO: Reduce currency Amount with item price
+        // Reduce currency Amount with item price
+        CurrencyDataSaveManager.Instance.UpdateCurrency(currencyType, -itemPrice);
+        ShowSpentCurrencyEvent.Raise(currencyType, itemPrice);
         // Save skin data
         CatsDataSaveManager.Instance.UnlockSkin(skinType);
         // Update skin management
         SkinPurchasedEvent.Raise(skinType.ToString());
         // TODO: Show purchased animation
+        selectedItem.PlayPurchasedAnimation();
+
+        selectedItem.SetAsPurchased();
     }
 
     private void ShowSelectedItemEventCallback(int _itemIndex, ItemTier _itemType)

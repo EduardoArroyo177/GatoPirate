@@ -21,6 +21,7 @@ public class UICanvasBootstrapper : MonoBehaviour
     // Result screen events
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
     public BoolEvent WinChestEvent { get; set; }
+
     
     public void Initialize()
     {
@@ -37,6 +38,7 @@ public class UICanvasBootstrapper : MonoBehaviour
         // Result screen
         resultScreenController.ShowResultScreenEvent = ShowResultScreenEvent;
         resultScreenController.WinChestEvent = WinChestEvent;
+        resultScreenController.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
         resultScreenController.Initialize();
     }
 }

@@ -61,7 +61,10 @@ public class ResultScreenController : MonoBehaviour
         resultScreenView.gameObject.SetActive(true);
 
         // TODO: Save data in combat data
-
+        CurrencyDataSaveManager.Instance.UpdateEarnedCurrency(CurrencyType.GOLDEN_COINS, CurrencyManager.Instance.GetCombatEarnedCoins());
+        // TODO: Uncomment this when wood is available in the game
+        //CurrencyDataSaveManager.Instance.UpdateEarnedCurrency(CurrencyType.WOOD, CurrencyManager.Instance.GetCombatEarnedWood());
+        
         // TODO: Set chest earned data here
         //if (combatWon && canWinChest)
         //{
@@ -95,6 +98,8 @@ public class ResultScreenController : MonoBehaviour
         {
             // Play and show wood resource animation
         }
+
+        // TODO: Trigger chest earned animation when previous is finished
     }
 
     private void LoadReviveScreen()

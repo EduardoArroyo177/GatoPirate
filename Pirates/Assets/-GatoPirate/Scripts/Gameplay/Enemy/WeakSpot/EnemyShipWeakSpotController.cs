@@ -160,7 +160,6 @@ public class EnemyShipWeakSpotController : MonoBehaviour
         GameObject particles = ObjectPooling.Instance.GetWeakSpotActiveParticles();
         if (particles)
         {
-            Debug.Log("PARTICLES SHOWING!");
             particles.transform.position = weakSpotIndicator.transform.position;
             particles.SetActive(true);
         }

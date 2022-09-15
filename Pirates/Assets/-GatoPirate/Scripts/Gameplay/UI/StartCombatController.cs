@@ -7,6 +7,8 @@ using UnityEngine;
 public class StartCombatController : MonoBehaviour
 {
     [SerializeField]
+    private GameObject startCombatView;
+    [SerializeField]
     private float startCombatDelay;
     [SerializeField]
     private GameObject btn_skipIntro;
@@ -22,7 +24,7 @@ public class StartCombatController : MonoBehaviour
 
     private void StartingAnimationsFinishedEventCallback(Void _item)
     {
-        gameObject.SetActive(true);
+        startCombatView.SetActive(true);
     }
 
     public void StartCombat()
@@ -34,7 +36,7 @@ public class StartCombatController : MonoBehaviour
     {
         StartCombatEvent.Raise();
         btn_skipIntro.SetActive(false);
-        gameObject.SetActive(false);
+        startCombatView.SetActive(false);
     }
 
     private void OnDestroy()

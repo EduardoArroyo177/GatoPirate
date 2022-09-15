@@ -86,6 +86,8 @@ public class StartCombatBootstrapper : MonoBehaviour
 
     private void Awake()
     {
+        // Load currency
+        CurrencyDataSaveManager.Instance.LoadCurrencySavedData();
         // Load settings
         SettingsDataSaveManager.Instance.LoadSettingsSavedData();
 

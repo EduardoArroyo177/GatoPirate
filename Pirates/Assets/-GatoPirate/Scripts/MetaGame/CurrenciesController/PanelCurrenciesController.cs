@@ -25,9 +25,14 @@ public class PanelCurrenciesController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI lbl_spentGems;
 
-    
+    // Events
     public VoidEvent CurrenciesUpdatedEvent { get; set; }
     public CurrencyTypeIntEvent ShowSpentCurrencyEvent { get; set; }
+
+    // Properties
+    public TextMeshProUGUI Lbl_goldenCoinsAmnt { get => lbl_goldenCoinsAmnt; set => lbl_goldenCoinsAmnt = value; }
+    public TextMeshProUGUI Lbl_woodAmnt { get => lbl_woodAmnt; set => lbl_woodAmnt = value; }
+    public TextMeshProUGUI Lbl_gemAmnt { get => lbl_gemAmnt; set => lbl_gemAmnt = value; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -40,9 +45,9 @@ public class PanelCurrenciesController : MonoBehaviour
     #region Event callbacks
     private void CurrenciesUpdatedEventCallback(Void _item)
     {
-        lbl_goldenCoinsAmnt.text = $"x{CurrencyDataSaveManager.Instance.GetCurrencyAmount(CurrencyType.GOLDEN_COINS)}";
-        lbl_woodAmnt.text = $"x{CurrencyDataSaveManager.Instance.GetCurrencyAmount(CurrencyType.WOOD)}";
-        lbl_gemAmnt.text = $"x{CurrencyDataSaveManager.Instance.GetCurrencyAmount(CurrencyType.PREMIUM_GEM)}";
+        Lbl_goldenCoinsAmnt.text = $"x{CurrencyDataSaveManager.Instance.GetCurrencyAmount(CurrencyType.GOLDEN_COINS)}";
+        Lbl_woodAmnt.text = $"x{CurrencyDataSaveManager.Instance.GetCurrencyAmount(CurrencyType.WOOD)}";
+        Lbl_gemAmnt.text = $"x{CurrencyDataSaveManager.Instance.GetCurrencyAmount(CurrencyType.PREMIUM_GEM)}";
     }
 
     private void ShowSpentCurrencyEventCallback(CurrencyType _currency, int _spentAmount)
@@ -63,6 +68,9 @@ public class PanelCurrenciesController : MonoBehaviour
                 break;
         }
     }
+    #endregion
+
+    #region Public methods
     #endregion
 
     #region On Destroy

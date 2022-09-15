@@ -8,9 +8,7 @@ using UnityAtoms;
 public class EnemyResourcesDropUIController : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI lbl_earnedCoins;
-    [SerializeField]
-    private TextMeshProUGUI lbl_earnedWood;
+    private PanelCurrenciesController currenciesController;
     [SerializeField]
     private float animationDuration;
 
@@ -51,14 +49,15 @@ public class EnemyResourcesDropUIController : MonoBehaviour
         {
             start = currentEarnedCoins;
             totalAmount = currentEarnedCoins + _currencyToIncrease;
-            currencyText = lbl_earnedCoins;
+
+            currencyText = currenciesController.Lbl_goldenCoinsAmnt;
             currentEarnedCoins = totalAmount;
         }
         else if (_currencyType.Equals(CurrencyType.WOOD))
         {
             start = currentEarnedWood;
             totalAmount = currentEarnedWood + _currencyToIncrease;
-            currencyText = lbl_earnedWood;
+            currencyText = currenciesController.Lbl_woodAmnt;
             currentEarnedWood = totalAmount;
         }
 

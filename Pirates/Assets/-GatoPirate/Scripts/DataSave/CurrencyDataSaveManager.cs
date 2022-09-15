@@ -54,6 +54,7 @@ public class CurrencyDataSaveManager : SceneSingleton<CurrencyDataSaveManager>
             OwnedCurrencyList = JsonUtility.FromJson<DataSaveCurrencyListStructure>(dataSave);
         }
 
+        // Combat data
         string earnedDataSave = PlayerPrefs.GetString(EARNED_CURRENCY_IN_BATTLE_KEY);
         if (string.IsNullOrEmpty(earnedDataSave))
         {

@@ -9,6 +9,8 @@ public class ResultScreenController : MonoBehaviour
 {
     [SerializeField]
     private ResultScreenView resultScreenView;
+    [SerializeField]
+    private ReviveScreenView reviveScreenView;
 
     // TODO: Revive screen referente
 
@@ -97,10 +99,13 @@ public class ResultScreenController : MonoBehaviour
 
     private void LoadReviveScreen()
     {
-
+        // TODO: Set coins price
+        // TODO: Update button if there's no enough coins
+        reviveScreenView.gameObject.SetActive(true);
     }
 
     #region Public methods
+    // Result screen
     // This is trigger after a certain tween
     public void TriggerResultScreenAnimations()
     {
@@ -116,8 +121,26 @@ public class ResultScreenController : MonoBehaviour
 
     public void LoadMainMenuScene()
     {
-        Debug.Log("LOADING MAIN MENU SCENE?");
         LoadMainMenuSceneEvent.Raise();
+    }
+
+    // Revive screen
+    public void ReviveWithCoins()
+    { 
+        // TODO:
+        // Reduce coins from data save
+        // Restart ship health
+        // Unpause game
+        // Close revive screen
+    }
+
+    public void ReviveWithAd()
+    { 
+        // TODO:
+        // Trigger an ad
+        // The callback should restart ship health
+        // Unpause the game
+        // Close revive screen
     }
     #endregion
 

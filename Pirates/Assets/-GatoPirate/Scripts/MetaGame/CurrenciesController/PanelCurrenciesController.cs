@@ -28,6 +28,7 @@ public class PanelCurrenciesController : MonoBehaviour
     // Events
     public VoidEvent CurrenciesUpdatedEvent { get; set; }
     public CurrencyTypeIntEvent ShowSpentCurrencyEvent { get; set; }
+    public VoidEvent OpenStoreEvent { get; set; }
 
     // Properties
     public TextMeshProUGUI Lbl_goldenCoinsAmnt { get => lbl_goldenCoinsAmnt; set => lbl_goldenCoinsAmnt = value; }
@@ -71,6 +72,10 @@ public class PanelCurrenciesController : MonoBehaviour
     #endregion
 
     #region Public methods
+    public void OpenStore()
+    {
+        OpenStoreEvent?.Raise();
+    }
     #endregion
 
     #region On Destroy

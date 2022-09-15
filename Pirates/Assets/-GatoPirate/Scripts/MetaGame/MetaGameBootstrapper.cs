@@ -204,6 +204,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         {
             pnl_currenciesList[index].CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
             pnl_currenciesList[index].ShowSpentCurrencyEvent = ShowSpentCurrencyEvent;
+            pnl_currenciesList[index].OpenStoreEvent = OpenStoreEvent;
             pnl_currenciesList[index].Initialize();
         }
 

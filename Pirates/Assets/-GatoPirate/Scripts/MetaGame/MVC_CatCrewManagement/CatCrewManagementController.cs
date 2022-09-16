@@ -22,6 +22,9 @@ public class CatCrewManagementController : MonoBehaviour
     public StringEvent CatUpdatedEvent { get; set; }
     public VoidEvent OpenCatCrewManagementNoIDEvent { get; set; }
     public VoidEvent StartCombatEvent { get; set; }
+    // Sounds
+    public CatSoundEvent TriggerCatSoundEvent { get; set; }
+
 
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -229,6 +232,9 @@ public class CatCrewManagementController : MonoBehaviour
             selectedSlot.InitializeCat();
             selectedSlot.CurrentCatIndex = selectedCatIndex;
 
+            // TODO: Trigger cat switched sound
+            TriggerCatSoundEvent.Raise(CatMeowSounds.CREW_SWITCHED_CAT1);
+
             // TODO: Move save data to its own button ((Accept/Combat button)
             CatsDataSaveManager.Instance.UpdateCatIslandSlot(selectedSlot.CatID, selectedSlot.SlotIndex);
 
@@ -272,6 +278,9 @@ public class CatCrewManagementController : MonoBehaviour
             selectedSlot.SkinData = selectedSkinData;
             selectedSlot.InitializeCat();
             selectedSlot.CurrentCatIndex = selectedCatIndex;
+
+            // TODO: Trigger cat switched sound
+            TriggerCatSoundEvent.Raise(CatMeowSounds.CREW_SWITCHED_CAT1);
 
             // TODO: Save new cat crew here?
             CatsDataSaveManager.Instance.UpdateCatIslandSlot(selectedSlot.CatID, selectedSlot.SlotIndex);

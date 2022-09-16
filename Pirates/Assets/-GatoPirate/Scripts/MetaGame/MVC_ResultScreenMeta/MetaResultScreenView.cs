@@ -7,6 +7,8 @@ using UnityEngine;
 public class MetaResultScreenView : MonoBehaviour
 {
     [SerializeField]
+    private float screenShownDelay;
+    [SerializeField]
     private TextMeshProUGUI lbl_currentCoins;
     [SerializeField]
     private TextMeshProUGUI lbl_earnedCoins;
@@ -20,6 +22,7 @@ public class MetaResultScreenView : MonoBehaviour
     public TextMeshProUGUI Lbl_earnedCoins { get => lbl_earnedCoins; set => lbl_earnedCoins = value; }
     public float AnimationDuration { get => animationDuration; set => animationDuration = value; }
     public DOTweenAnimation TweenAnimation { get => tweenAnimation; set => tweenAnimation = value; }
+    public float ScreenShownDelay { get => screenShownDelay; set => screenShownDelay = value; }
 
     public void SetResultsData(int _currentCoins, int _earnedCoins)
     { 
@@ -28,8 +31,14 @@ public class MetaResultScreenView : MonoBehaviour
     }
 
     #region Button methods
+    public void CurrencyAnimation()
+    {
+        ResultScreenController.TriggerCurrencyAnimation();
+    }
+
     public void SaveDataAndClose()
     {
+        ResultScreenController.TriggerAddedCoinsSound();
         ResultScreenController.SaveCurrencyData();
         gameObject.SetActive(false);
     }

@@ -16,6 +16,9 @@ public class CatSkinManagementController : MonoBehaviour
     public StringEvent OpenSkinManagementEvent { get; set; }
     public StringEvent CatUpdatedEvent { get; set; }
     public StringEvent SkinPurchasedEvent { get; set; }
+    // Sounds
+    public CatSoundEvent TriggerCatSoundEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private List<OwnedSkinView> ownedSkinList = new();
@@ -127,6 +130,8 @@ public class CatSkinManagementController : MonoBehaviour
         ownedSkinList[_skinIndex].SetAsUnavailable();
         selectedSkinIndex = _skinIndex;
         selectedSkinType = ownedSkinList[_skinIndex].SkinType;
+
+        // TODO: Trigger basic sound 
     }
 
     // New skin purchased
@@ -150,6 +155,9 @@ public class CatSkinManagementController : MonoBehaviour
     #region Public methods
     public void SaveAndClose()
     {
+        // Trigger skin cat sound
+        TriggerCatSoundEvent.Raise(CatMeowSounds.SKIN_CHANGED_CAT1);
+
         // TODO: Update cat in save manager
         CatsDataSaveManager.Instance.UpdateCatSkin(catID, selectedSkinType);
         CatUpdatedEvent.Raise(catID);
@@ -161,6 +169,7 @@ public class CatSkinManagementController : MonoBehaviour
             ownedSkinList[index].SetAsAvailable();
         }
 
+        
         catSkinManagementView.gameObject.SetActive(false);
     }
 

@@ -51,11 +51,18 @@ public enum CombatSounds
 }
 #endregion
 
+#region UI Sounds
 public enum CatMeowSounds
 { 
     SELECTED_CAT1,
     SELECTED_CAT2,
-    SELECTED_CAT3
+    SELECTED_CAT3,
+    SKIN_CHANGED_CAT1,
+    SKIN_CHANGED_CAT2,
+    SKIN_CHANGED_CAT3,
+    CREW_SWITCHED_CAT1,
+    CREW_SWITCHED_CAT2,
+    CREW_SWITCHED_CAT3
 }
 
 public enum ShipSounds
@@ -64,12 +71,25 @@ public enum ShipSounds
     SHIP_SAILING,
     SHIP_SINKING
 }
+
+public enum UISounds
+{ 
+    STORE_MUSIC,
+    STORE_ITEM_PURCHASED,
+    MENU_RESULT_SCREEN_MUSIC,
+    MENU_RESULT_SCREEN_EARNED_COINS,
+    MENU_RESULT_SCREEN_ADDED_COINS
+}
+#endregion
+
+#region Currency
 public enum CurrencyType
 { 
     GOLDEN_COINS,
     WOOD,
     PREMIUM_GEM
 }
+#endregion
 
 #region Cats
 public enum CatType
@@ -102,9 +122,11 @@ public enum ItemTier
 }
 #endregion
 
+#region Islands
 public enum Island
 { 
     ISLAND1,
     ISLAND2,
     ISLAND3
 }
+#endregion

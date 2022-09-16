@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class MetaResultScreenController : MonoBehaviour
 {
     [SerializeField]
     private MetaResultScreenView resultScreenView;
+
+    public UISoundsEvent TriggerUISoundEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private int earnedCoins;
@@ -31,20 +34,32 @@ public class MetaResultScreenController : MonoBehaviour
             currentCoins = CurrencyDataSaveManager.Instance.GetCurrencyAmount(CurrencyType.GOLDEN_COINS);
             // Update UI
             resultScreenView.SetResultsData(currentCoins, earnedCoins);
-            // TODO: Update this with all resources the player has earned
-            StartCoroutine("CurrencyCounterAnimation");
+
+            StartCoroutine("ShowScreen");
+            
         }
-        
+    }
+
+    private IEnumerator ShowScreen()
+    {
+        // Small delay before showing the screen
+        yield return new WaitForSeconds(resultScreenView.ScreenShownDelay);
+        resultScreenView.gameObject.SetActive(true);
+        // Trigger result screen music 
+        TriggerUISoundEvent.Raise(UISounds.MENU_RESULT_SCREEN_MUSIC);
     }
 
     private IEnumerator CurrencyCounterAnimation()
     {
-        resultScreenView.gameObject.SetActive(true);
+        
         int start = currentCoins;
         float timer = 0;
         int score;
         int reducedScore;
-        int totalAmount = currentCoins + earnedCoins;        
+        int totalAmount = currentCoins + earnedCoins;
+        
+        // Trigger coins count sound
+        TriggerUISoundEvent.Raise(UISounds.MENU_RESULT_SCREEN_EARNED_COINS);
 
         while (timer < resultScreenView.AnimationDuration)
         {
@@ -64,6 +79,8 @@ public class MetaResultScreenController : MonoBehaviour
 
         // Trigger tween animation
         resultScreenView.TweenAnimation.DOPlayAllById("CoinsTween");
+
+        // TODO: Update this with all resources the player has earned
     }
 
     public void SaveCurrencyData()
@@ -73,6 +90,16 @@ public class MetaResultScreenController : MonoBehaviour
         CurrencyDataSaveManager.Instance.UpdateCurrency(CurrencyType.GOLDEN_COINS, earnedCoins);
         // Remove earned resources
         CurrencyDataSaveManager.Instance.UpdateEarnedCurrency(CurrencyType.GOLDEN_COINS, -earnedCoins);
+    }
+
+    public void TriggerCurrencyAnimation()
+    {
+        StartCoroutine("CurrencyCounterAnimation");
+    }
+
+    public void TriggerAddedCoinsSound()
+    {
+        TriggerUISoundEvent.Raise(UISounds.MENU_RESULT_SCREEN_ADDED_COINS);
     }
 
     #region OnDestroy

@@ -25,10 +25,28 @@ public class SoundsManagerMainMenu : MonoBehaviour
     private AudioClip sound_CatMeow2;
     [SerializeField]
     private AudioClip sound_CatMeow3;
+    [SerializeField]
+    private AudioClip[] sounds_SwitchedCat;
+    [SerializeField]
+    private AudioClip[] sounds_SkinChangedCat;
 
     [Header("Ship sounds")]
     [SerializeField]
     private AudioClip sound_ShipSelected;
+
+    [Header("Store")]
+    [SerializeField]
+    private AudioClip sound_storeMusic;
+    [SerializeField]
+    private AudioClip sound_itemPurchased;
+
+    [Header("Result screen")]
+    [SerializeField]
+    private AudioClip sound_earnedCoins;
+    [SerializeField]
+    private AudioClip sound_win;
+    [SerializeField]
+    private AudioClip sound_addedCoins;
 
     public VoidEvent UISoundScreenOpenEvent { get; set; }
     public VoidEvent UISoundScreenClosedEvent { get; set; }
@@ -39,6 +57,7 @@ public class SoundsManagerMainMenu : MonoBehaviour
 
     public CatSoundEvent TriggerCatSoundEvent { get; set; }
     public ShipSoundEvent TriggerShipSoundEvent { get; set; }
+    public UISoundsEvent TriggerUISoundEvent { get; set; }
 
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -55,6 +74,7 @@ public class SoundsManagerMainMenu : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<float>.BuildEventHandler(SetSoundsVolumeEvent, SetSoundsVolumeEventCallback));
         _eventHandlers.Add(EventHandlerFactory<CatMeowSounds>.BuildEventHandler(TriggerCatSoundEvent, TriggerCatSoundEventCallback));
         _eventHandlers.Add(EventHandlerFactory<ShipSounds>.BuildEventHandler(TriggerShipSoundEvent, TriggerShipSoundEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<UISounds>.BuildEventHandler(TriggerUISoundEvent, TriggerUISoundEventCallback));
 
     }
 
@@ -108,6 +128,11 @@ public class SoundsManagerMainMenu : MonoBehaviour
     {
         audioSource.PlayOneShot(GetShipSound(_shipSound));
     }
+
+    private void TriggerUISoundEventCallback(UISounds _uiSound)
+    {
+        audioSource.PlayOneShot(GetUISound(_uiSound));
+    }
     #endregion
 
     private AudioClip GetCatSound(CatMeowSounds _catSound)
@@ -120,6 +145,14 @@ public class SoundsManagerMainMenu : MonoBehaviour
                 return sound_CatMeow2;
             case CatMeowSounds.SELECTED_CAT3:
                 return sound_CatMeow3;
+            case CatMeowSounds.CREW_SWITCHED_CAT1:
+            case CatMeowSounds.CREW_SWITCHED_CAT2:
+            case CatMeowSounds.CREW_SWITCHED_CAT3:
+                return sounds_SwitchedCat[Random.Range(0, sounds_SwitchedCat.Length)];
+            case CatMeowSounds.SKIN_CHANGED_CAT1:
+            case CatMeowSounds.SKIN_CHANGED_CAT2:
+            case CatMeowSounds.SKIN_CHANGED_CAT3:
+                return sounds_SkinChangedCat[Random.Range(0, sounds_SkinChangedCat.Length)];
             default:
                 return sound_CatMeow1;
         }
@@ -133,6 +166,25 @@ public class SoundsManagerMainMenu : MonoBehaviour
                 return sound_ShipSelected;
             default:
                 return sound_ShipSelected;
+        }
+    }
+
+    private AudioClip GetUISound(UISounds _uiSound)
+    {
+        switch (_uiSound)
+        {
+            case UISounds.MENU_RESULT_SCREEN_EARNED_COINS:
+                return sound_earnedCoins;
+            case UISounds.MENU_RESULT_SCREEN_MUSIC:
+                return sound_win;
+            case UISounds.MENU_RESULT_SCREEN_ADDED_COINS:
+                return sound_addedCoins;
+            case UISounds.STORE_MUSIC:
+                return sound_storeMusic;
+            case UISounds.STORE_ITEM_PURCHASED:
+                return sound_itemPurchased;
+            default:
+                return sound_storeMusic;
         }
     }
 

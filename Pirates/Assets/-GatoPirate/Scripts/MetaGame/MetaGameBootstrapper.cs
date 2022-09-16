@@ -38,6 +38,8 @@ public class MetaGameBootstrapper : MonoBehaviour
     private CatSoundEvent TriggerCatSoundEvent;
     [SerializeField]
     private ShipSoundEvent TriggerShipSoundEvent;
+    [SerializeField]
+    private UISoundsEvent TriggerUISoundEvent;
 
     [Header("Scene loader")]
     [SerializeField]
@@ -174,6 +176,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         soundsManager.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
         soundsManager.TriggerCatSoundEvent = TriggerCatSoundEvent;
         soundsManager.TriggerShipSoundEvent = TriggerShipSoundEvent;
+        soundsManager.TriggerUISoundEvent = TriggerUISoundEvent;
         soundsManager.Initialize();
 
         // Vibration 
@@ -232,6 +235,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catCrewManagementController.CatUpdatedEvent = CatUpdatedEvent;
         catCrewManagementController.OpenCatCrewManagementNoIDEvent = OpenCatCrewManagementNoIDEvent;
         catCrewManagementController.StartCombatEvent = StartCombatEvent;
+        catCrewManagementController.TriggerCatSoundEvent = TriggerCatSoundEvent;
         catCrewManagementController.Initialize();
 
         // Cat recruitment
@@ -244,6 +248,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catRecruitmentController.SkinPurchasedEvent = SkinPurchasedEvent;
         catRecruitmentController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
         catRecruitmentController.ShowSpentCurrencyEvent = ShowSpentCurrencyEvent;
+        catRecruitmentController.TriggerUISoundEvent = TriggerUISoundEvent;
         catRecruitmentController.Initialize();
 
         // Cat options
@@ -258,6 +263,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catSkinManagementController.SelectSkinEvent = SelectSkinEvent;
         catSkinManagementController.CatUpdatedEvent = CatUpdatedEvent;
         catSkinManagementController.SkinPurchasedEvent = SkinPurchasedEvent;
+        catSkinManagementController.TriggerCatSoundEvent = TriggerCatSoundEvent;
         catSkinManagementController.Initialize();
 
         // Ship options
@@ -278,6 +284,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         GameInitializationCompleted();
 
         // Result screen
+        resultScreenController.TriggerUISoundEvent = TriggerUISoundEvent;
         resultScreenController.Initialize();
     }
 

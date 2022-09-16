@@ -41,6 +41,9 @@ public class CatRecruitmentController : MonoBehaviour
     // Currency update
     public VoidEvent CurrenciesUpdatedEvent { get; set; }
     public CurrencyTypeIntEvent ShowSpentCurrencyEvent { get; set; }
+
+    // Sounds
+    public UISoundsEvent TriggerUISoundEvent { get; set; }
     #endregion
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -123,7 +126,6 @@ public class CatRecruitmentController : MonoBehaviour
 
     private void FillSkinCatalogueData()
     {
-        // TODO: Check for skins that are already purchased
         GameObject catItemViewHelper;
         CatalogueItemView catalogueSkinItemViewHelper;
         CatSkinData skinDataHelper;
@@ -200,22 +202,12 @@ public class CatRecruitmentController : MonoBehaviour
                 if (index < 0)
                     return;
                 selectedItem = catBasicItemList[index];
-
-                //itemName = catBasicItemList[index].ItemName;
-                //catType = catBasicItemList[index].CatType;
-                //currencyType = catBasicItemList[index].CurrencyType;
-                //itemPrice = catBasicItemList[index].ItemPrice;
                 break;
             case ItemTier.SPECIAL:
                 index = catSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
                 selectedItem = catSpecialItemList[index];
-
-                //itemName = catSpecialItemList[index].ItemName;
-                //catType = catSpecialItemList[index].CatType;
-                //currencyType = catSpecialItemList[index].CurrencyType;
-                //itemPrice = catSpecialItemList[index].ItemPrice;
                 break;
         }
 
@@ -233,16 +225,18 @@ public class CatRecruitmentController : MonoBehaviour
         // TODO: (if needed) Get island and its slot to save it, then call event to place it there
         // Reduce currency Amount with item price
         CurrencyDataSaveManager.Instance.UpdateCurrency(currencyType, -itemPrice);
-        // TODO: Play currency spend animation
+        // Play currency spend animation
         ShowSpentCurrencyEvent.Raise(currencyType, itemPrice);
         // Save cat data
         string catID = IDGenerator.Instance.GetGeneratedID(itemName);
         CatsDataSaveManager.Instance.SaveNewCat(catType, catID, itemName);
         //  Update cat island event
         NewCatPurchasedEvent.Raise(catType, catID);
-        // TODO: Show purchased animation
+        // Show purchased animation
         selectedItem.PlayPurchasedAnimation();
-
+        // TODO: Play item purchased sound
+        TriggerUISoundEvent.Raise(UISounds.STORE_ITEM_PURCHASED);
+        // TODO: Play celebration sound
     }
 
     private void PurchaseCatalogueSkinEventCallback(int _itemIndex, ItemTier _itemTier)
@@ -261,27 +255,18 @@ public class CatRecruitmentController : MonoBehaviour
                 if (index < 0)
                     return;
                 selectedItem = skinBasicItemList[index];
-                //itemName = skinBasicItemList[index].ItemName;
-                //skinType = skinBasicItemList[index].SkinType;
-                //skinBasicItemList[index].SetAsPurchased();
                 break;
             case ItemTier.SPECIAL:
                 index = skinSpecialItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
                 selectedItem = skinSpecialItemList[index];
-                //itemName = skinSpecialItemList[index].ItemName;
-                //skinType = skinSpecialItemList[index].SkinType;
-                //skinSpecialItemList[index].SetAsPurchased();
                 break;
             case ItemTier.PREMIUM:
                 index = skinPremiumItemList.FindIndex(x => x.ItemIndex == _itemIndex);
                 if (index < 0)
                     return;
                 selectedItem = skinPremiumItemList[index];
-                //itemName = skinPremiumItemList[index].ItemName;
-                //skinType = skinPremiumItemList[index].SkinType;
-                //skinPremiumItemList[index].SetAsPurchased();
                 break;
         }
 
@@ -303,8 +288,11 @@ public class CatRecruitmentController : MonoBehaviour
         CatsDataSaveManager.Instance.UnlockSkin(skinType);
         // Update skin management
         SkinPurchasedEvent.Raise(skinType.ToString());
-        // TODO: Show purchased animation
+        // Show purchased animation
         selectedItem.PlayPurchasedAnimation();
+        // TODO: Play item purchased sound
+        TriggerUISoundEvent.Raise(UISounds.STORE_ITEM_PURCHASED);
+        // TODO: Play celebration sound
 
         selectedItem.SetAsPurchased();
     }

@@ -56,6 +56,7 @@ MonoBehaviour:
   UISoundTapEvent: {fileID: 11400000, guid: 1be66c8da56addb47b9fdeeaf03a3619, type: 2}
   TriggerCatSoundEvent: {fileID: 11400000, guid: bb837421ca9531049a599f22da825cea, type: 2}
   TriggerShipSoundEvent: {fileID: 11400000, guid: 982fbdb7e1fdf5949895b27d89e477c4, type: 2}
+  TriggerUISoundEvent: {fileID: 11400000, guid: fd190d23a1ad1da43b20f1589728e893, type: 2}
   sceneLoaderManager: {fileID: 0}
   LoadCombatSceneEvent: {fileID: 11400000, guid: 8bd8f266ebdcda94588c93f2f032d11b, type: 2}
   settingsController: {fileID: 0}

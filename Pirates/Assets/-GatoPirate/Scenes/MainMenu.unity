@@ -23154,6 +23154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1513968206}
+  - component: {fileID: 1513968207}
   - component: {fileID: 1513968205}
   m_Layer: 0
   m_Name: AmbienceSoundManager
@@ -23273,6 +23274,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1513968207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513968204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c66ed803a6640047aa41f175e8f8636, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeDefaultValue: 0.3
 --- !u!21 &1519004031
 Material:
   serializedVersion: 8
@@ -34424,6 +34438,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 740308842}
     - target: {fileID: 2339486519289672297, guid: 3cdc8de540e8e354997e6f1945626441, type: 3}
+      propertyPath: ambienceAudioManager
+      value: 
+      objectReference: {fileID: 1513968207}
+    - target: {fileID: 2339486519289672297, guid: 3cdc8de540e8e354997e6f1945626441, type: 3}
       propertyPath: catOptionsController
       value: 
       objectReference: {fileID: 741361418}
@@ -34816,7 +34834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5061902602827670060, guid: 03bd4eec52f604c4d9905900173a2266, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -55.282776
+      value: -55.282715
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03bd4eec52f604c4d9905900173a2266, type: 3}
@@ -35005,6 +35023,10 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1507610914}
+    - target: {fileID: 7277134503453233847, guid: c2db0f5af66aae6468c498ba5d1ab9e6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 21.077148
+      objectReference: {fileID: 0}
     - target: {fileID: 7277134503729056280, guid: c2db0f5af66aae6468c498ba5d1ab9e6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

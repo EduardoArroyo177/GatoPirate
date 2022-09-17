@@ -57,6 +57,8 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     public VoidEvent TriggerEnemyStartingAnimationEvent { get; set; }
     public VoidEvent TriggerPlayerLostAnimationEvent { get; set; }
     public VoidEvent SkipInitialAnimationsEvent { get; set; }
+    public FloatEvent SetSoundsVolumeEvent { get; set; }
+
 
     // Properties
     public CatCombatData[] CatCrewDataList { get; set; }
@@ -146,6 +148,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
 
         // Sounds
         shipSoundsManager.TriggerShipSoundEvent = TriggerPlayerShipSoundEvent;
+        shipSoundsManager.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
         shipSoundsManager.Initialize();
     }
 }

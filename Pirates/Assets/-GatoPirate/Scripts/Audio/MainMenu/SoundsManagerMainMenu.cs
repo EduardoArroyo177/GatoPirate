@@ -59,7 +59,6 @@ public class SoundsManagerMainMenu : MonoBehaviour
     public ShipSoundEvent TriggerShipSoundEvent { get; set; }
     public UISoundsEvent TriggerUISoundEvent { get; set; }
 
-
     private List<IAtomEventHandler> _eventHandlers = new();
     private AudioSource audioSource;
 

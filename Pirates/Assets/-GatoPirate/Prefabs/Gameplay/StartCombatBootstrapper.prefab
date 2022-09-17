@@ -50,8 +50,16 @@ MonoBehaviour:
   SetSoundsVolumeEvent: {fileID: 11400000, guid: 3d88799a75bc8a342bb9171adf161543, type: 2}
   musicManagerCombat: {fileID: 0}
   TriggerCombatMusicEvent: {fileID: 11400000, guid: 7dcbaa470bf4cde45924c17e60aad050, type: 2}
+  SetPreviousMusicVolumeEvent: {fileID: 11400000, guid: 98efe13ba8e4d524cb26945088460c39, type: 2}
   soundsEffectsController: {fileID: 0}
   TriggerCombatSoundEvent: {fileID: 11400000, guid: 360064637eecb7d4a835912da5939908, type: 2}
+  ambienceAudioManager: {fileID: 0}
+  uiSoundManagerCombat: {fileID: 0}
+  UISoundScreenOpenEvent: {fileID: 11400000, guid: 9bbdfd38cc1cb6948b5efdc70951e457, type: 2}
+  UISoundScreenClosedEvent: {fileID: 11400000, guid: 0cbd702c140003345b25df9a376d61cb, type: 2}
+  UISoundButtonPressedEvent: {fileID: 11400000, guid: e90e23a9d2491914f8a28856a3898275, type: 2}
+  UISoundButtonCancelEvent: {fileID: 11400000, guid: e4e8627de28c7c54a8e0cf1480bd301d, type: 2}
+  UISoundTapEvent: {fileID: 11400000, guid: 1be66c8da56addb47b9fdeeaf03a3619, type: 2}
   sceneLoaderManager: {fileID: 0}
   LoadMainMenuSceneEvent: {fileID: 11400000, guid: 55b768c7dc70c81459fe56d5b8890cf5, type: 2}
   LoadCombatSceneEvent: {fileID: 11400000, guid: 8bd8f266ebdcda94588c93f2f032d11b, type: 2}

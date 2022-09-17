@@ -10,10 +10,14 @@ public class PauseController : MonoBehaviour
     private PauseView pauseView;
     [SerializeField]
     private PausePopUpView popUpView;
+    [SerializeField]
+    private float pauseMusicVolume;
 
     public VoidEvent PauseGameEvent { get; set; }
     public VoidEvent LoadCombatSceneEvent { get; set; }
     public VoidEvent LoadMainMenuSceneEvent { get; set; }
+    public FloatEvent SetMusicVolumeEvent { get; set; }
+    public VoidEvent SetPreviousMusicVolumeEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -30,6 +34,7 @@ public class PauseController : MonoBehaviour
         Time.timeScale = 0;
         pauseView.gameObject.SetActive(true);
         // TODO: Lower music volume
+        SetMusicVolumeEvent.Raise(pauseMusicVolume);
     }
     #endregion
 
@@ -38,11 +43,13 @@ public class PauseController : MonoBehaviour
     {
         pauseView.gameObject.SetActive(false);
         Time.timeScale = 1;
+        SetPreviousMusicVolumeEvent.Raise();
     }
 
     public void RestartGame()
     {
         Time.timeScale = 1;
+        SetPreviousMusicVolumeEvent.Raise();
         LoadCombatSceneEvent.Raise();
     }
 
@@ -54,7 +61,8 @@ public class PauseController : MonoBehaviour
 
     public void QuitCombat()
     {
-        // TODO: Call scene loader
+        SetPreviousMusicVolumeEvent.Raise();
+        // Call scene loader
         Time.timeScale = 1;
         LoadMainMenuSceneEvent.Raise();
     }

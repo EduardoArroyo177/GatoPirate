@@ -35,6 +35,8 @@ public class MetaGameBootstrapper : MonoBehaviour
 
     [Header("Other sounds")]
     [SerializeField]
+    private AmbienceAudioManager ambienceAudioManager;
+    [SerializeField]
     private CatSoundEvent TriggerCatSoundEvent;
     [SerializeField]
     private ShipSoundEvent TriggerShipSoundEvent;
@@ -178,6 +180,9 @@ public class MetaGameBootstrapper : MonoBehaviour
         soundsManager.TriggerShipSoundEvent = TriggerShipSoundEvent;
         soundsManager.TriggerUISoundEvent = TriggerUISoundEvent;
         soundsManager.Initialize();
+
+        ambienceAudioManager.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        ambienceAudioManager.Initialize();
 
         // Vibration 
         VibrationController.Instance.Initialize();

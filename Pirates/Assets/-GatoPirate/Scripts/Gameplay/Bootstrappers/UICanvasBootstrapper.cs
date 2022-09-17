@@ -17,6 +17,8 @@ public class UICanvasBootstrapper : MonoBehaviour
     public VoidEvent PauseGameEvent { get; set; }
     public VoidEvent LoadCombatSceneEvent { get; set; }
     public VoidEvent LoadMainMenuSceneEvent { get; set; }
+    public FloatEvent SetMusicVolumeEvent { get; set; }
+    public VoidEvent SetPreviousMusicVolumeEvent { get; set; }
 
     // Result screen events
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
@@ -28,7 +30,9 @@ public class UICanvasBootstrapper : MonoBehaviour
         // Pause
         pauseController.PauseGameEvent = PauseGameEvent;
         pauseController.LoadCombatSceneEvent = LoadCombatSceneEvent;
-        pauseController.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;    
+        pauseController.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
+        pauseController.SetMusicVolumeEvent = SetMusicVolumeEvent;
+        pauseController.SetPreviousMusicVolumeEvent = SetPreviousMusicVolumeEvent;
         pauseController.Initialize();
 
         // Player resources

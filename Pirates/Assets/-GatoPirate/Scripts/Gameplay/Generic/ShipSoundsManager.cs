@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 public class ShipSoundsManager : MonoBehaviour
@@ -24,6 +25,7 @@ public class ShipSoundsManager : MonoBehaviour
     private AudioClip specialCannonHit;
 
     public CombatShipSoundEvent TriggerShipSoundEvent { get; set; }
+    public FloatEvent SetSoundsVolumeEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private AudioSource audioSource;
@@ -32,9 +34,15 @@ public class ShipSoundsManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         _eventHandlers.Add(EventHandlerFactory<CombatShipSounds>.BuildEventHandler(TriggerShipSoundEvent, TriggerShipSoundEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<float>.BuildEventHandler(SetSoundsVolumeEvent, SetSoundsVolumeEventCallback));
     }
 
     #region Event callbacks
+    private void SetSoundsVolumeEventCallback(float _volume)
+    {
+        audioSource.volume = _volume;
+    }
+
     private void TriggerShipSoundEventCallback(CombatShipSounds _soundType)
     {
         audioSource.PlayOneShot(GetAudioFromType(_soundType));

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 public class SoundsEffectsController : MonoBehaviour
@@ -13,6 +14,7 @@ public class SoundsEffectsController : MonoBehaviour
     private AudioClip weakSpotHit;
 
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
+    public FloatEvent SetSoundsVolumeEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
     private AudioSource audioSource;
@@ -21,9 +23,15 @@ public class SoundsEffectsController : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         _eventHandlers.Add(EventHandlerFactory<CombatSounds>.BuildEventHandler(TriggerCombatSoundEvent, TriggerCombatSoundEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<float>.BuildEventHandler(SetSoundsVolumeEvent, SetSoundsVolumeEventCallback));
     }
 
     #region Event callbacks
+    private void SetSoundsVolumeEventCallback(float _volume)
+    {
+        audioSource.volume = _volume;
+    }
+
     private void TriggerCombatSoundEventCallback(CombatSounds _soundType)
     {
         audioSource.PlayOneShot(GetAudioFromType(_soundType));

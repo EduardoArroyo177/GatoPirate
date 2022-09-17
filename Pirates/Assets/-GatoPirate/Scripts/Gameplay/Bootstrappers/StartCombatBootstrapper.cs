@@ -18,17 +18,38 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private FloatEvent SetSoundsVolumeEvent;
 
+    [Header("Audio")]
     [Header("Music manager")]
     [SerializeField]
     private MusicManagerCombat musicManagerCombat;
     [SerializeField]
     private VoidEvent TriggerCombatMusicEvent;
+    [SerializeField]
+    private VoidEvent SetPreviousMusicVolumeEvent;
 
     [Header("Sound manager")]
     [SerializeField]
     private SoundsEffectsController soundsEffectsController;
     [SerializeField]
     private CombatSoundEvent TriggerCombatSoundEvent;
+
+    [Header("Ambience sound manager")]
+    [SerializeField]
+    private AmbienceAudioManager ambienceAudioManager;
+
+    [Header("UI Sound manager")]
+    [SerializeField]
+    private UISoundManagerCombat uiSoundManagerCombat;
+    [SerializeField]
+    private VoidEvent UISoundScreenOpenEvent;
+    [SerializeField]
+    private VoidEvent UISoundScreenClosedEvent;
+    [SerializeField]
+    private VoidEvent UISoundButtonPressedEvent;
+    [SerializeField]
+    private VoidEvent UISoundButtonCancelEvent;
+    [SerializeField]
+    private VoidEvent UISoundTapEvent;
 
     [Header("Scene loader")]
     [SerializeField]
@@ -99,14 +120,30 @@ public class StartCombatBootstrapper : MonoBehaviour
         // Combat data
         playerActiveCannons = combatData.CatCrewDataList.Length;
 
-        // Music manager
+        // Sounds
+        // Music
         musicManagerCombat.TriggerCombatMusicEvent = TriggerCombatMusicEvent;
         musicManagerCombat.SetMusicVolumeEvent = SetMusicVolumeEvent;
+        musicManagerCombat.SetPreviousMusicVolumeEvent = SetPreviousMusicVolumeEvent;
         musicManagerCombat.Initialize();
 
-        // Sounds controller
+        // Sfx 
         soundsEffectsController.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
+        soundsEffectsController.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
         soundsEffectsController.Initialize();
+
+        // Ambience
+        ambienceAudioManager.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        ambienceAudioManager.Initialize();
+
+        // UI
+        uiSoundManagerCombat.UISoundScreenOpenEvent = UISoundScreenOpenEvent;
+        uiSoundManagerCombat.UISoundScreenClosedEvent = UISoundScreenClosedEvent;
+        uiSoundManagerCombat.UISoundButtonPressedEvent = UISoundButtonPressedEvent;
+        uiSoundManagerCombat.UISoundButtonCancelEvent = UISoundButtonCancelEvent;
+        uiSoundManagerCombat.UISoundTapEvent = UISoundTapEvent;
+        uiSoundManagerCombat.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        uiSoundManagerCombat.Initialize();
 
         // Settings
         settingsController.SetMusicVolumeEvent = SetMusicVolumeEvent;
@@ -131,6 +168,8 @@ public class StartCombatBootstrapper : MonoBehaviour
         uiCanvasBootstrapper.PauseGameEvent = PauseGameEvent;
         uiCanvasBootstrapper.LoadCombatSceneEvent = LoadCombatSceneEvent;
         uiCanvasBootstrapper.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
+        uiCanvasBootstrapper.SetMusicVolumeEvent = SetMusicVolumeEvent;
+        uiCanvasBootstrapper.SetPreviousMusicVolumeEvent = SetPreviousMusicVolumeEvent;
         uiCanvasBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         uiCanvasBootstrapper.WinChestEvent = WinChestEvent;
         uiCanvasBootstrapper.Initialize();
@@ -146,6 +185,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         playerGameplayBootstrapper.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
         playerGameplayBootstrapper.StopCombatEvent = StopCombatEvent;
         playerGameplayBootstrapper.SkipInitialAnimationsEvent = SkipInitialAnimationsEvent;
+        playerGameplayBootstrapper.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
 
         playerGameplayBootstrapper.TriggerPlayerStartingAnimationEvent = TriggerPlayerStartingAnimationEvent;
         playerGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
@@ -163,6 +203,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         enemyGameplayBootstrapper.TriggerEnemyLostAnimationEvent = TriggerEnemyLostAnimationEvent;
         enemyGameplayBootstrapper.SkipInitialAnimationsEvent = SkipInitialAnimationsEvent;
         enemyGameplayBootstrapper.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
+        enemyGameplayBootstrapper.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
 
         enemyGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         enemyGameplayBootstrapper.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;

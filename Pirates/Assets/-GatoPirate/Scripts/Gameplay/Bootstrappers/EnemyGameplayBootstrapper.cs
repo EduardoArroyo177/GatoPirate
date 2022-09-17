@@ -55,6 +55,8 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     public VoidEvent TriggerEnemyLostAnimationEvent { get; set; }
     public VoidEvent SkipInitialAnimationsEvent { get; set; }
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
+    public FloatEvent SetSoundsVolumeEvent { get; set; }
+
 
 
     // Properties
@@ -161,6 +163,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
 
         // Sounds
         shipSoundsManager.TriggerShipSoundEvent = TriggerEnemyShipSoundEvent;
+        shipSoundsManager.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
         shipSoundsManager.Initialize();
     }
 }

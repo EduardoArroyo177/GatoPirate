@@ -26259,11 +26259,6 @@ PrefabInstance:
       objectReference: {fileID: 1637931041}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65dceaad17731ce42a53b940bf7b3987, type: 3}
---- !u!1 &1695264034 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1035045329295096467, guid: 717701dd242141343b5a46ded4ceae3d, type: 3}
-  m_PrefabInstance: {fileID: 1035045329881536433}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1719792891
 GameObject:
   m_ObjectHideFlags: 0
@@ -34448,9 +34443,21 @@ PrefabInstance:
       value: MVC_MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 2996746959469154909, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2996746959469154909, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1695264034}
+      objectReference: {fileID: 11400000, guid: cca5c0e0bc078384d8b2df9a32fb77cc, type: 2}
+    - target: {fileID: 2996746959469154909, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 2996746959469154909, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityAtoms.BaseAtoms.VoidEvent, UnityAtoms.UnityAtomsBaseAtoms.Runtime
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
 --- !u!1001 &5061902602400824937

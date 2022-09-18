@@ -46,6 +46,8 @@ public class StoreController : MonoBehaviour
     private void PurchaseStoreItemEventCallback(string _storeItemID)
     {
         Debug.Log($"Purchasing {_storeItemID}");
+        // Trigger purchase animation with IAP callback
+        // Update the button with "Already owned" text
     }
     #endregion
 

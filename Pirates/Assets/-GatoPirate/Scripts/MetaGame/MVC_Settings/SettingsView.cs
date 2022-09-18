@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class SettingsView : MonoBehaviour
 {
     [SerializeField]
-    private Scrollbar scrollbarMusic;
+    private Slider sliderMusic;
     [SerializeField]
-    private Scrollbar scrollbarSounds;
+    private Slider sliderSounds;
     [SerializeField]
     private Toggle toggleVibration;
 
     public SettingsController SettingsController { get; set; }
-    public Scrollbar ScrollbarMusic { get => scrollbarMusic; set => scrollbarMusic = value; }
-    public Scrollbar ScrollbarSounds { get => scrollbarSounds; set => scrollbarSounds = value; }
+    public Slider SliderMusic { get => sliderMusic; set => sliderMusic = value; }
+    public Slider SliderSounds { get => sliderSounds; set => sliderSounds = value; }
     public Toggle ToggleVibration { get => toggleVibration; set => toggleVibration = value; }
 
     public void AcceptAndClose()

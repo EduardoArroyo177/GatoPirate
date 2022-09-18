@@ -19,28 +19,28 @@ public class SettingsController : MonoBehaviour
 
     private void LoadSavedSettings()
     {
-        settingsView.ScrollbarMusic.value = SettingsDataSaveManager.Instance.GetMusicVolume();
-        SetMusicVolumeEvent.Raise(settingsView.ScrollbarMusic.value);
+        settingsView.SliderMusic.value = SettingsDataSaveManager.Instance.GetMusicVolume();
+        SetMusicVolumeEvent.Raise(settingsView.SliderMusic.value);
 
-        settingsView.ScrollbarSounds.value = SettingsDataSaveManager.Instance.GetSoundsVolume();
-        SetSoundsVolumeEvent.Raise(settingsView.ScrollbarSounds.value);
+        settingsView.SliderSounds.value = SettingsDataSaveManager.Instance.GetSoundsVolume();
+        SetSoundsVolumeEvent.Raise(settingsView.SliderSounds.value);
 
         settingsView.ToggleVibration.onValueChanged.AddListener(OnToggleChange);
         settingsView.ToggleVibration.isOn = SettingsDataSaveManager.Instance.GetVibrationOn();
         VibrationController.Instance.SetVibrationOn(settingsView.ToggleVibration.isOn);
 
-        settingsView.ScrollbarMusic.onValueChanged.AddListener(MusicVolumeChange);
-        settingsView.ScrollbarSounds.onValueChanged.AddListener(SoundsVolumeChange);
+        settingsView.SliderMusic.onValueChanged.AddListener(MusicVolumeChange);
+        settingsView.SliderSounds.onValueChanged.AddListener(SoundsVolumeChange);
     }
 
     private void MusicVolumeChange(float _newVolume)
     {
-        SetMusicVolumeEvent.Raise(settingsView.ScrollbarMusic.value);
+        SetMusicVolumeEvent.Raise(settingsView.SliderMusic.value);
     }
 
     private void SoundsVolumeChange(float _newVolume)
     {
-        SetSoundsVolumeEvent.Raise(settingsView.ScrollbarSounds.value);
+        SetSoundsVolumeEvent.Raise(settingsView.SliderSounds.value);
     }
 
     private void OnToggleChange(bool _value)
@@ -51,8 +51,8 @@ public class SettingsController : MonoBehaviour
 
     public void SaveSettings()
     {
-        SettingsDataSaveManager.Instance.UpdateSettings(settingsView.ScrollbarMusic.value,
-            settingsView.ScrollbarSounds.value,
+        SettingsDataSaveManager.Instance.UpdateSettings(settingsView.SliderMusic.value,
+            settingsView.SliderSounds.value,
             settingsView.ToggleVibration.isOn);
 
         VibrationController.Instance.SetVibrationOn(settingsView.ToggleVibration.isOn);

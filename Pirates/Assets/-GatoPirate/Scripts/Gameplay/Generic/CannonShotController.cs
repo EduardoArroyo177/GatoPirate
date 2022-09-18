@@ -96,7 +96,7 @@ public class CannonShotController : MonoBehaviour
     #region Special attack
     public void ShootSpecialAttack(bool _isEnemy = false)
     {
-        GameObject newSpecialAttackProjectile = ObjectPooling.Instance.GetSpecialProjectile();
+        GameObject newSpecialAttackProjectile = ObjectPooling.Instance.GetSpecialProjectile(_isEnemy);
         if (!newSpecialAttackProjectile)
             return;
         newSpecialAttackProjectile.transform.rotation = transform.rotation;

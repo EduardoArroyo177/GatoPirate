@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4009169048416042794}
   - component: {fileID: 4994130895023080591}
   m_Layer: 0
-  m_Name: SpecialProjectile2
+  m_Name: SpecialProjectile2_Enemy
   m_TagString: SpecialAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +140,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -4
   m_Sprite: {fileID: 21300000, guid: b99a5dc82ae90c84482b29dfd69b0b0e, type: 3}
-  m_Color: {r: 0.16820934, g: 0.3762906, b: 0.7924528, a: 1}
+  m_Color: {r: 0.7921569, g: 0.16862743, b: 0.19255085, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

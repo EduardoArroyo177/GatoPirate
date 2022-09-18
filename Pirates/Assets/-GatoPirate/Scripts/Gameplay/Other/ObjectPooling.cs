@@ -54,6 +54,8 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     [SerializeField]
     private GameObject specialAttackProjectile;
     [SerializeField]
+    private GameObject specialAttackEnemyProjectile;
+    [SerializeField]
     private int specialProjectileAmnt;
 
     [Header("Particles")]
@@ -100,6 +102,9 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     private List<GameObject> specialProjectileList = new();
     private List<GameObject> specialProjectileShotParticleList = new();
     private List<GameObject> specialProjectileExplosionParticleList = new();
+
+    // Special enemy
+    private List<GameObject> specialEnemyProjectileList = new();
 
     // Damage text 
     private List<GameObject> playerDamageTextParticleList = new();
@@ -340,6 +345,7 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
     {
         GameObject specialProjectileParent = new GameObject("SpecialProjectileParent");
         GameObject projectileHelper;
+        GameObject projectileEnemyHelper;
         GameObject specialProjectileShotParticlesParent = new GameObject("SpecialShotParticlesParent");
         GameObject specialProjectileShotHelper;
         GameObject specialExplosionParticlesParent = new GameObject("SpecialExplosionParticlesParent");
@@ -353,6 +359,13 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
             projectileHelper.SetActive(false);
             specialProjectileList.Add(projectileHelper);
 
+            // Enemy projectile
+            projectileEnemyHelper = Instantiate(specialAttackEnemyProjectile, specialProjectileParent.transform);
+            projectileEnemyHelper.GetComponent<Projectile>().StopCombatEvent = StopCombatEvent;
+            projectileEnemyHelper.GetComponent<Projectile>().TriggerShipSoundEvent = TriggerShipSoundEvent;
+            projectileEnemyHelper.SetActive(false);
+            specialEnemyProjectileList.Add(projectileEnemyHelper);
+
             // Shot particles
             specialProjectileShotHelper = Instantiate(specialShotParticles, specialProjectileShotParticlesParent.transform);
             specialProjectileShotHelper.SetActive(false);
@@ -365,13 +378,26 @@ public class ObjectPooling : SceneSingleton<ObjectPooling>
         }
     }
 
-    public GameObject GetSpecialProjectile()
+    public GameObject GetSpecialProjectile(bool _isEnemy = false)
     {
-        for (int index = 0; index < specialProjectileList.Count; index++)
+        if (!_isEnemy)
         {
-            if (!specialProjectileList[index].activeInHierarchy)
+            for (int index = 0; index < specialProjectileList.Count; index++)
             {
-                return specialProjectileList[index];
+                if (!specialProjectileList[index].activeInHierarchy)
+                {
+                    return specialProjectileList[index];
+                }
+            }
+        }
+        else
+        {
+            for (int index = 0; index < specialEnemyProjectileList.Count; index++)
+            {
+                if (!specialEnemyProjectileList[index].activeInHierarchy)
+                {
+                    return specialEnemyProjectileList[index];
+                }
             }
         }
 

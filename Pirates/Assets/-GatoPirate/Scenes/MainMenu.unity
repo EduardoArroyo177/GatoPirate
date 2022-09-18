@@ -34557,6 +34557,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 886557163}
     m_Modifications:
+    - target: {fileID: 5379410526142161343, guid: c78edb2c8a9fc9541aa1205194b65305, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379410526142161343, guid: c78edb2c8a9fc9541aa1205194b65305, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379410526142161343, guid: c78edb2c8a9fc9541aa1205194b65305, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379410526142161343, guid: c78edb2c8a9fc9541aa1205194b65305, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5379410526203309826, guid: c78edb2c8a9fc9541aa1205194b65305, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -34644,6 +34660,10 @@ PrefabInstance:
     - target: {fileID: 5379410526203309829, guid: c78edb2c8a9fc9541aa1205194b65305, type: 3}
       propertyPath: m_Name
       value: MVC_MetaResultScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379410526870341631, guid: c78edb2c8a9fc9541aa1205194b65305, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c78edb2c8a9fc9541aa1205194b65305, type: 3}

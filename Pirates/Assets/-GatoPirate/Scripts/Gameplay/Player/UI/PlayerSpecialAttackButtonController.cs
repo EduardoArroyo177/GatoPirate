@@ -8,7 +8,11 @@ using UnityEngine.UI;
 public class PlayerSpecialAttackButtonController : MonoBehaviour
 {
     [SerializeField]
+    private Button btn_specialAttack;
+    [SerializeField]
     private Image img_fillBar;
+    [SerializeField]
+    private GameObject img_attackReady;
     // TODO: Remove or hide after testing
     [SerializeField]
     private float fillAnimationDuration;
@@ -20,7 +24,6 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
-    private Button btn_specialAttack;
 
     public void Initialize()
     {
@@ -29,7 +32,6 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
 
     private void InitializeSpecialAttackEventCallback(float _duration)
     {
-        btn_specialAttack = GetComponent<Button>();
         StartChargeAttackTimerAnimation(_duration);
     }
 
@@ -44,6 +46,7 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
     {
         img_fillBar.fillAmount = 0;
         btn_specialAttack.interactable = false;
+        img_attackReady.SetActive(false);
         shineSpriteEffectAnimation.StopAnimation();
         StartCoroutine(CircleFillAnimation());
     }
@@ -53,7 +56,8 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
         fillAnimationDuration = _duration;
         img_fillBar.fillAmount = 0;
         btn_specialAttack.interactable = false;
-        if(gameObject.activeInHierarchy)
+        img_attackReady.SetActive(false);
+        if (gameObject.activeInHierarchy)
             StartCoroutine(CircleFillAnimation());
     }
 
@@ -71,13 +75,15 @@ public class PlayerSpecialAttackButtonController : MonoBehaviour
         }
         btn_specialAttack.interactable = true;
         shineSpriteEffectAnimation.StartShineAnimation();
-        // TODO: Trigger ready sound
+        img_attackReady.SetActive(true);
+        // Trigger ready sound
         TriggerCombatSoundEvent.Raise(CombatSounds.SPECIAL_CANNON_READY);
     }
 
     public void StopAnimation()
     {
         StopAllCoroutines();
+
     }
 
     #region On Destroy

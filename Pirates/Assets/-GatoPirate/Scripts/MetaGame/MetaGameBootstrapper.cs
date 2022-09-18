@@ -101,6 +101,8 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField]
     private CatRecruitmentController catRecruitmentController;
     [SerializeField]
+    private VoidEvent OpenCatRecruitmentScreenEvent;
+    [SerializeField]
     private IntCatalogueTypeEvent PurchaseCatalogueCatEvent;
     [SerializeField]
     private IntCatalogueTypeEvent PurchaseCatalogueSkinEvent;
@@ -244,6 +246,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catCrewManagementController.Initialize();
 
         // Cat recruitment
+        catRecruitmentController.OpenCatRecruitmentScreenEvent = OpenCatRecruitmentScreenEvent;
         catRecruitmentController.PurchaseCatalogueCatEvent = PurchaseCatalogueCatEvent;
         catRecruitmentController.PurchaseCatalogueSkinEvent = PurchaseCatalogueSkinEvent;
         catRecruitmentController.ShowSelectedCatInfoEvent = ShowSelectedItemEvent;

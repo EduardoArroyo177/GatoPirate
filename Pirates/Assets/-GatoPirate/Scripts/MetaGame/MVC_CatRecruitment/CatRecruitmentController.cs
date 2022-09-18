@@ -12,6 +12,8 @@ public class CatRecruitmentController : MonoBehaviour
     [SerializeField]
     private CatRecruitmentView catRecruitmentView;
     [SerializeField]
+    private CatRecruitmentNavigationView catRecruitmentNavigationView;
+    [SerializeField]
     private CatalogueNavigationView catCatalogueNavigationView;
     [SerializeField]
     private CatalogueNavigationView skinCatalogueNavigationView;
@@ -21,6 +23,7 @@ public class CatRecruitmentController : MonoBehaviour
     private CatRecruitmentSelectedItemView catRecruitmentSelectedItemView;
 
     #region Events
+    public VoidEvent OpenCatRecruitmentScreenEvent { get; set; }
     public IntCatalogueTypeEvent PurchaseCatalogueCatEvent { get; set; }
     public IntCatalogueTypeEvent PurchaseCatalogueSkinEvent { get; set; }
 
@@ -56,6 +59,7 @@ public class CatRecruitmentController : MonoBehaviour
     private List<CatalogueItemView> skinPremiumItemList = new List<CatalogueItemView>();
     public void Initialize()
     {
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(OpenCatRecruitmentScreenEvent, OpenCatRecruitmentScreenEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueCatEvent, PurchaseCatalogueCatEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueSkinEvent, PurchaseCatalogueSkinEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedCatInfoEvent, ShowSelectedItemEventCallback));
@@ -187,6 +191,12 @@ public class CatRecruitmentController : MonoBehaviour
     #endregion
 
     #region Event callbacks
+    private void OpenCatRecruitmentScreenEventCallback(Void _item)
+    {
+        catRecruitmentView.gameObject.SetActive(true);
+        catRecruitmentNavigationView.SelectCatsMenu();
+    }
+
     private void PurchaseCatalogueCatEventCallback(int _itemIndex, ItemTier _itemTier)
     {
         CatalogueItemView selectedItem = null;

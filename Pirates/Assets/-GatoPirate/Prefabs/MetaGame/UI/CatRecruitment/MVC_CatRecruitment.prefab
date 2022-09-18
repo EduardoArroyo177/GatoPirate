@@ -11483,30 +11483,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1035045329295096467}
-    - target: {fileID: 7896636126345428155, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7896636126345428155, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1.1777774
-      objectReference: {fileID: 0}
-    - target: {fileID: 7896636126345428155, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.8990197
-      objectReference: {fileID: 0}
-    - target: {fileID: 7896636126345428155, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.16582128
-      objectReference: {fileID: 0}
-    - target: {fileID: 7896636126345428155, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0.000005722046
-      objectReference: {fileID: 0}
-    - target: {fileID: 7896636126345428155, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0.0000019073486
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
 --- !u!224 &1035045329524230014 stripped

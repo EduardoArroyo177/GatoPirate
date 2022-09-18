@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -426,7 +426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.011672974, y: 0.121589065}
   m_AnchorMax: {x: 0.988327, y: 0.99288785}
-  m_AnchoredPosition: {x: 0, y: -40.716}
+  m_AnchoredPosition: {x: 0, y: -55.282715}
   m_SizeDelta: {x: 0, y: 91.247}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5061902602827670049
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.3137255}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -848,7 +848,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -75.340965}
+  m_AnchoredPosition: {x: 0, y: -75.341064}
   m_SizeDelta: {x: 0, y: -150.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2092163870865274527
@@ -982,7 +982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2324858050749041889, guid: 48d514a802e19954fab418c6a7ab40f7, type: 3}
       propertyPath: m_Name
-      value: Img_NotchBlocker (1)
+      value: Img_NotchBlocker
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48d514a802e19954fab418c6a7ab40f7, type: 3}
@@ -1997,6 +1997,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pnl_Options
       objectReference: {fileID: 0}
+    - target: {fileID: 6092732167111924646, guid: 37ee5c5071786654d88fe6c42ec5e7b3, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6168496229937348218, guid: 37ee5c5071786654d88fe6c42ec5e7b3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2165,6 +2169,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -39.599365
       objectReference: {fileID: 0}
+    - target: {fileID: 5007324709613116039, guid: c1c4bf7f42a96b74ba3e42aaa3e33c76, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5007324709613116041, guid: c1c4bf7f42a96b74ba3e42aaa3e33c76, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2315,9 +2323,17 @@ PrefabInstance:
       propertyPath: m_text
       value: TRAJES
       objectReference: {fileID: 0}
+    - target: {fileID: 7164356791774511081, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7896636124591892789, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
       propertyPath: m_text
       value: TRAJES
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896636125387732130, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7896636125387732156, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
       propertyPath: m_Name

@@ -42,7 +42,7 @@ public class CatalogueItemView : MonoBehaviour
 
     // Set item catalogue type
     public int ItemIndex { get; set; }
-    public ItemTier ItemType { get; set; }
+    public ItemTier ItemTierType { get; set; }
     public CatType CatType { get; set; }
     public SkinType SkinType { get; set; }
     public string ItemName { get; set; }
@@ -58,17 +58,17 @@ public class CatalogueItemView : MonoBehaviour
 
     #region Data set
     // For cats
-    public void SetIndexAndTypes(int _itemIndex, ItemTier _itemType, CatType _catType = CatType.GENERIC)
+    public void SetIndexAndTypes(int _itemIndex, ItemTier _itemTier, CatType _catType = CatType.GENERIC)
     {
         ItemIndex = _itemIndex;
-        ItemType = _itemType;
+        ItemTierType = _itemTier;
         CatType = _catType;
     }
     // For skins
     public void SetIndexAndTypes(int _itemIndex, ItemTier _itemType, SkinType _skinType = SkinType.NONE)
     {
         ItemIndex = _itemIndex;
-        ItemType = _itemType;
+        ItemTierType = _itemType;
         SkinType = _skinType;
     }
 
@@ -134,7 +134,7 @@ public class CatalogueItemView : MonoBehaviour
     #region Buttons
     public void PurchaseItem()
     {
-        PurchaseCatalogueItemEvent.Raise(ItemIndex, ItemType);
+        PurchaseCatalogueItemEvent.Raise(ItemIndex, ItemTierType);
     }
 
     public void GoToStore()
@@ -144,7 +144,7 @@ public class CatalogueItemView : MonoBehaviour
 
     public void ShowItemInfo()
     {
-        ShowSelectedItemEvent.Raise(ItemIndex, ItemType);
+        ShowSelectedItemEvent.Raise(ItemIndex, ItemTierType);
     }
     #endregion
 }

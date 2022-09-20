@@ -30,16 +30,17 @@ public class CatRecruitmentSelectedItemView : MonoBehaviour
     private TextMeshProUGUI lbl_itemPrice2;
 
     public IntCatalogueTypeEvent PurchaseCatalogueItemEvent { get; set; }
+    public IntCatalogueTypeEvent PurchaseCatalogueSkinEvent { get; set; }
     public VoidEvent OpenGoToStorePopUpEvent { get; set; }
 
     public int ItemIndex { get; set; }
-    public ItemTier ItemType { get; set; }
+    public ItemTier ItemTierType { get; set; }
 
     #region Data set
-    public void SetItemData(int _itemIndex, ItemTier _itemType)
+    public void SetItemData(int _itemIndex, ItemTier _itemTier)
     {
         ItemIndex = _itemIndex;
-        ItemType = _itemType;
+        ItemTierType = _itemTier;
     }
 
     public void SetItemLocked()
@@ -72,7 +73,7 @@ public class CatRecruitmentSelectedItemView : MonoBehaviour
     #region Buttons
     public void PurchaseItem()
     {
-        PurchaseCatalogueItemEvent.Raise(ItemIndex, ItemType);
+        PurchaseCatalogueItemEvent.Raise(ItemIndex, ItemTierType);
         gameObject.SetActive(false);
     }
 

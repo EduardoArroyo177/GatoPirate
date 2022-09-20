@@ -62,14 +62,13 @@ public class CatRecruitmentController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(OpenCatRecruitmentScreenEvent, OpenCatRecruitmentScreenEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueCatEvent, PurchaseCatalogueCatEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(PurchaseCatalogueSkinEvent, PurchaseCatalogueSkinEventCallback));
-        _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedCatInfoEvent, ShowSelectedItemEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedCatInfoEvent, ShowSelectedCatEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedSkinInfoEvent, ShowSelectedSkinInfoEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CurrenciesUpdatedEvent, CurrenciesUpdatedEventCallback));
 
         catRecruitmentPopUpsView.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
         catRecruitmentPopUpsView.Initialize();
 
-        catRecruitmentSelectedItemView.PurchaseCatalogueItemEvent = PurchaseCatalogueCatEvent;
         catRecruitmentSelectedItemView.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
         
         FillCatCatalogueData();
@@ -307,9 +306,10 @@ public class CatRecruitmentController : MonoBehaviour
         selectedItem.SetAsPurchased();
     }
 
-    private void ShowSelectedItemEventCallback(int _itemIndex, ItemTier _itemType)
+    private void ShowSelectedCatEventCallback(int _itemIndex, ItemTier _itemType)
     {
         catRecruitmentSelectedItemView.SetItemData(_itemIndex, _itemType);
+        catRecruitmentSelectedItemView.PurchaseCatalogueItemEvent = PurchaseCatalogueCatEvent;
 
         int index;
         string itemName = "";
@@ -361,6 +361,7 @@ public class CatRecruitmentController : MonoBehaviour
     private void ShowSelectedSkinInfoEventCallback(int _itemIndex, ItemTier _itemType)
     {
         catRecruitmentSelectedItemView.SetItemData(_itemIndex, _itemType);
+        catRecruitmentSelectedItemView.PurchaseCatalogueItemEvent = PurchaseCatalogueSkinEvent; ;
 
         int index;
         string itemName = "";

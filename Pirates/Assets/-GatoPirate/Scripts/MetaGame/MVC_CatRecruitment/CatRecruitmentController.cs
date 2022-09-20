@@ -244,7 +244,7 @@ public class CatRecruitmentController : MonoBehaviour
         NewCatPurchasedEvent.Raise(catType, catID);
         // Show purchased animation
         selectedItem.PlayPurchasedAnimation();
-        // TODO: Play item purchased sound
+        // Play item purchased sound
         TriggerUISoundEvent.Raise(UISounds.STORE_ITEM_PURCHASED);
         // TODO: Play celebration sound
     }

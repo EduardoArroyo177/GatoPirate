@@ -300,6 +300,8 @@ public class CatCrewManagementController : MonoBehaviour
     private void NewCatPurchasedEventCallback(CatType _catType, string _catID)
     {
         GameObject catViewHelper = Instantiate(catCrewManagementView.CatView);
+        Debug.Log($"NEW CAT PURCHASED? cat scale {catViewHelper.transform.localScale}");
+
         OwnedCatView ownedCatViewHelper = catViewHelper.GetComponent<OwnedCatView>();
         CatData catDataHelper = CatsModel.Instance.GetCatData(_catType.ToString());
 
@@ -316,6 +318,7 @@ public class CatCrewManagementController : MonoBehaviour
         catCrewManagementView.EnabledCatalogues = SetEnabledCatalogues(ownedCatsList.Count - 1);
         ownedCatViewHelper.transform.SetParent(catCrewManagementView.OwnedCatsContentList[currentContentIndex]);
         catalogueNavigationView.Initialize(catCrewManagementView.EnabledCatalogues);
+        Debug.Log($"NEW CAT PURCHASED? cat scale after parent {catViewHelper.transform.localScale}");
     }
 
     private void CatUpdatedEventCallback(string _catID)

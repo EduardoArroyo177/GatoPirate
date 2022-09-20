@@ -22672,6 +22672,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2315342912504698883, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315342912504698883, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315342912504698883, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315342912504698883, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315342912504698883, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085156409432067738, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085156409432067738, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085156409432067738, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085156409432067738, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085156409432067738, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
 --- !u!212 &2492444554201214310

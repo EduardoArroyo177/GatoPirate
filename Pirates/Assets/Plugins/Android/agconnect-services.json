@@ -21,36 +21,36 @@
 	},
 	"client":{
 		"cp_id":"2640052000030160390",
-		"product_id":"99536292102583812",
-		"client_id":"971413900094361280",
-		"client_secret":"BDF28498F6A56C8DDE3D78DD64A32AA6200AE15B19BCC289C7146972384D1D3A",
-		"project_id":"99536292102583812",
-		"app_id":"106984397",
-		"api_key":"DAEDAIEVUtG/+iriQjnwGqarU0rSn1xxDXf5do/LGM3+2GXW+c10Te5fr99pDP+gHrWJcAQmRtBKlVMGjWgK3L72Jdn2CvtVSA3LEg==",
-		"package_name":"com.vadventures.pirates.huawei"
+		"product_id":"99536292102622275",
+		"client_id":"984431823041875328",
+		"client_secret":"8E59DDDE06B644631C02A92BDD7B17E39E70A96336A146E3810D5E5F7AF2E77F",
+		"project_id":"99536292102622275",
+		"app_id":"107079983",
+		"api_key":"DAEDAKeXa3uT2hdfRK2XUcCOerfE+xXZmBkg0q+tE05DnWNIKbkcdRVhWXEcgY2qjnzih4MjL0sCmFRsrOhiuQVa35o3JmlzF3UWGg==",
+		"package_name":"com.vadventures.piratecats.huawei"
 	},
 	"oauth_client":{
-		"client_id":"106984397",
+		"client_id":"107079983",
 		"client_type":1
 	},
 	"app_info":{
-		"app_id":"106984397",
-		"package_name":"com.vadventures.pirates.huawei"
+		"app_id":"107079983",
+		"package_name":"com.vadventures.piratecats.huawei"
 	},
 	"configuration_version":"3.0",
 	"appInfos":[
 		{
-			"package_name":"com.vadventures.pirates.huawei",
+			"package_name":"com.vadventures.piratecats.huawei",
 			"client":{
-				"app_id":"106984397"
+				"app_id":"107079983"
 			},
 			"app_info":{
-				"package_name":"com.vadventures.pirates.huawei",
-				"app_id":"106984397"
+				"package_name":"com.vadventures.piratecats.huawei",
+				"app_id":"107079983"
 			},
 			"oauth_client":{
 				"client_type":1,
-				"client_id":"106984397"
+				"client_id":"107079983"
 			}
 		}
 	]

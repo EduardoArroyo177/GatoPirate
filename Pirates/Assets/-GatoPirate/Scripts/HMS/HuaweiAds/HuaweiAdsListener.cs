@@ -2,6 +2,7 @@ using HuaweiService;
 using HuaweiService.ads;
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 
@@ -47,9 +48,11 @@ public class InterstitialAdListener : AdListener
 public class MRewardLoadListener : RewardAdLoadListener
 {
     private RewardAd ad;
-    public MRewardLoadListener(RewardAd _ad)
+    private VoidEvent RewardSuccessEvent;
+    public MRewardLoadListener(RewardAd _ad, VoidEvent _rewardSuccessEvent = null)
     {
         ad = _ad;
+        RewardSuccessEvent = _rewardSuccessEvent;
     }
     public override void onRewardAdFailedToLoad(int errorCode)
     {
@@ -59,11 +62,20 @@ public class MRewardLoadListener : RewardAdLoadListener
     public override void onRewardedLoaded()
     {
         Debug.Log("RewardAdLoadListener onRewardedLoaded");
-        ad.show(new Context(), new MRewardAdStatusListener());
+        ad.show(new Context(), new MRewardAdStatusListener(RewardSuccessEvent));
     }
 }
 public class MRewardAdStatusListener : RewardAdStatusListener
 {
+    private VoidEvent RewardSuccessEvent;
+    private bool rewardSuccess;
+
+    public MRewardAdStatusListener(VoidEvent _rewardSuccessEvent = null)
+    {
+        RewardSuccessEvent = _rewardSuccessEvent;
+        rewardSuccess = false;
+    }
+
     public override void onRewardAdOpened()
     {
         Debug.Log("RewardAdStatusListener onRewardAdOpened");
@@ -71,12 +83,15 @@ public class MRewardAdStatusListener : RewardAdStatusListener
     public override void onRewardAdClosed()
     {
         Debug.Log("RewardAdStatusListener onRewardAdClosed");
+        if (rewardSuccess)
+        {
+            RewardSuccessEvent?.Raise();
+        }
     }
     public override void onRewarded(Reward arg0)
     {
-        Debug.Log("RewardAdStatusListener onRewarded");
-        //ServiceLocator.levelInfoUIManager.StartGameWithOffer();
-        //ServiceLocator.levelFlowManager.Revive();
+        //Debug.Log($"RewardAdStatusListener onRewarded {arg0.getName()}");
+        rewardSuccess = true;
     }
     public override void onRewardAdFailedToShow(int arg0)
     {

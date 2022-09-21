@@ -11,23 +11,30 @@ public class PanelCurrenciesController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI lbl_goldenCoinsAmnt;
     [SerializeField]
-    private TextMeshProUGUI lbl_spentGoldenCoins;
+    private TextMeshProUGUI lbl_updatedGoldenCoins;
 
     [Header("Wood")]
     [SerializeField]
     private TextMeshProUGUI lbl_woodAmnt;
     [SerializeField]
-    private TextMeshProUGUI lbl_spentWood;
+    private TextMeshProUGUI lbl_updatedWood;
 
     [Header("Gems")]
     [SerializeField]
     private TextMeshProUGUI lbl_gemAmnt;
     [SerializeField]
-    private TextMeshProUGUI lbl_spentGems;
+    private TextMeshProUGUI lbl_updatedGems;
+
+    [Header("Colors")]
+    [SerializeField]
+    private Color spentColor;
+    [SerializeField]
+    private Color rewardedColor;
 
     // Events
     public VoidEvent CurrenciesUpdatedEvent { get; set; }
     public CurrencyTypeIntEvent ShowSpentCurrencyEvent { get; set; }
+    public CurrencyTypeIntEvent ShowRewardedCurrencyEvent { get; set; }
     public VoidEvent OpenStoreEvent { get; set; }
 
     // Properties
@@ -41,6 +48,7 @@ public class PanelCurrenciesController : MonoBehaviour
     {        
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CurrenciesUpdatedEvent, CurrenciesUpdatedEventCallback));
         _eventHandlers.Add(EventHandlerFactory<CurrencyType, int>.BuildEventHandler(ShowSpentCurrencyEvent, ShowSpentCurrencyEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<CurrencyType, int>.BuildEventHandler(ShowRewardedCurrencyEvent, ShowRewardedCurrencyEventCallback));
     }
 
     #region Event callbacks
@@ -56,16 +64,41 @@ public class PanelCurrenciesController : MonoBehaviour
         switch (_currency)
         {
             case CurrencyType.GOLDEN_COINS:
-                lbl_spentGoldenCoins.text = $"-{_spentAmount}";
-                lbl_spentGoldenCoins.gameObject.SetActive(true);
+                lbl_updatedGoldenCoins.color = spentColor;
+                lbl_updatedGoldenCoins.text = $"-{_spentAmount}";
+                lbl_updatedGoldenCoins.gameObject.SetActive(true);
                 break;
             case CurrencyType.WOOD:
-                lbl_spentWood.text = $"-{_spentAmount}";
-                lbl_spentWood.gameObject.SetActive(true);
+                lbl_updatedWood.color = spentColor;
+                lbl_updatedWood.text = $"-{_spentAmount}";
+                lbl_updatedWood.gameObject.SetActive(true);
                 break;
             case CurrencyType.PREMIUM_GEM:
-                lbl_spentGems.text = $"-{_spentAmount}";
-                lbl_spentGems.gameObject.SetActive(true);
+                lbl_updatedGems.color = spentColor;
+                lbl_updatedGems.text = $"-{_spentAmount}";
+                lbl_updatedGems.gameObject.SetActive(true);
+                break;
+        }
+    }
+
+    private void ShowRewardedCurrencyEventCallback(CurrencyType _currency, int _rewardedAmount)
+    {
+        switch (_currency)
+        {
+            case CurrencyType.GOLDEN_COINS:
+                lbl_updatedGoldenCoins.color = rewardedColor;
+                lbl_updatedGoldenCoins.text = $"+{_rewardedAmount}";
+                lbl_updatedGoldenCoins.gameObject.SetActive(true);
+                break;
+            case CurrencyType.WOOD:
+                lbl_updatedWood.color = rewardedColor;
+                lbl_updatedWood.text = $"+{_rewardedAmount}";
+                lbl_updatedWood.gameObject.SetActive(true);
+                break;
+            case CurrencyType.PREMIUM_GEM:
+                lbl_updatedGems.color = rewardedColor;
+                lbl_updatedGems.text = $"+{_rewardedAmount}";
+                lbl_updatedGems.gameObject.SetActive(true);
                 break;
         }
     }

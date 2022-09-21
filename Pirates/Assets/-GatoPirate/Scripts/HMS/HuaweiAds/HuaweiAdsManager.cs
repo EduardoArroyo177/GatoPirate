@@ -7,6 +7,7 @@ using UnityEngine;
 public class HuaweiAdsManager : MonoBehaviour
 {
     public static HuaweiAdsManager instance;
+    [Header("Testing IDs")]
     [SerializeField]
     private string imageAdsID = "teste9ih9j0rc3";
     [SerializeField]
@@ -14,10 +15,19 @@ public class HuaweiAdsManager : MonoBehaviour
     [SerializeField]
     private string rewardedAdsID = "testx9dtjwj8hp";
 
+    [Header("Game IDs")]
     [SerializeField]
-    private int resultScreensBeforeInterstitial;
+    private string freeCoinsRecruitment;
+    [SerializeField]
+    private string freeCoinsStore;
+    [SerializeField]
+    private string doubleReward;
+    [SerializeField]
+    private string revive;
+    [SerializeField]
+    private string combatsPlayed;
 
-    private int resultScreenCounter;
+
 
     void Awake()
     {
@@ -25,7 +35,6 @@ public class HuaweiAdsManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            resultScreenCounter = 0;
         }
         else
             Destroy(gameObject);
@@ -42,11 +51,6 @@ public class HuaweiAdsManager : MonoBehaviour
     }
     public void LoadVideoAds()
     {
-        resultScreenCounter++;
-        if (resultScreenCounter < resultScreensBeforeInterstitial)
-            return;
-
-        resultScreenCounter = 0;
         InterstitialAd ad = new InterstitialAd(new Context());
         ad.setAdId(videoAdsID);
         ad.setAdListener(new InterstitialAdListener(ad));
@@ -69,13 +73,13 @@ public class HuaweiAdsManager : MonoBehaviour
         Debug.Log($"set consent status as {consentStatus}");
     }
 
-    public void checkConsentStatus()
+    public void CheckConsentStatus()
     {
         Consent consentInfo = Consent.getInstance(new Context());
         consentInfo.requestConsentUpdate(new MConsentUpdateListener());
     }
 
-    public void setRequestOptionsNonPersonalizedAd()
+    public void SetRequestOptionsNonPersonalizedAd()
     {
         RequestOptions reqOptions = HwAds.getRequestOptions()
             .toBuilder()

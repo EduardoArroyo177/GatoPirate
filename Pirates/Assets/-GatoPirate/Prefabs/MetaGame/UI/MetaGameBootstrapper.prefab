@@ -74,8 +74,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   CurrenciesUpdatedEvent: {fileID: 11400000, guid: 9905e4e1943c32e40ad1240a1ca41796, type: 2}
   ShowSpentCurrencyEvent: {fileID: 11400000, guid: 266e74c0680d52c47b2ea9f3f068d207, type: 2}
+  ShowRewardedCurrencyEvent: {fileID: 11400000, guid: 54cc69683de42e242939fcee24845efe, type: 2}
   islandCatsController: {fileID: 0}
   NewCatPurchasedEvent: {fileID: 11400000, guid: 2d9fec4a4bb95aa488262de2e6dd95ab, type: 2}
   CatSelectedEvent: {fileID: 11400000, guid: 963afccacd2f255439faaf9048c153b7, type: 2}
@@ -106,3 +108,7 @@ MonoBehaviour:
   OpenStoreEvent: {fileID: 11400000, guid: f01d21ea75a3f1948934b9cf39db56ff, type: 2}
   PurchaseStoreItemEvent: {fileID: 11400000, guid: 0b63699242799544fb14557c76de6eb1, type: 2}
   resultScreenController: {fileID: 0}
+  adsControllerMenu: {fileID: 0}
+  FreeCoinsRewardSuccessEvent: {fileID: 11400000, guid: 63c343543bc5ace4cb8800b262663d65, type: 2}
+  LoadFreeCoinsAdRecruitmentEvent: {fileID: 11400000, guid: 1ed482dfd21059045adefd5a1f0d0d83, type: 2}
+  LoadFreeCoinsAdStoreEvent: {fileID: 11400000, guid: 1c986e537d13ce844b82a46421727095, type: 2}

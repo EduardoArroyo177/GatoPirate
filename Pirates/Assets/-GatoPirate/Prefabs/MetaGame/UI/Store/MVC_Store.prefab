@@ -5563,9 +5563,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4840377786055907377}
-        m_TargetAssemblyTypeName: StoreItemView, Assembly-CSharp
-        m_MethodName: PurchaseItem
+      - m_Target: {fileID: 11400000, guid: 1c986e537d13ce844b82a46421727095, type: 2}
+        m_TargetAssemblyTypeName: UnityAtoms.BaseAtoms.VoidEvent, UnityAtoms.UnityAtomsBaseAtoms.Runtime
+        m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

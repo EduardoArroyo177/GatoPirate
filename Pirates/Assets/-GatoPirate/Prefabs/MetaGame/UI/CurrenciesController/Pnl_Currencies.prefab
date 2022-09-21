@@ -1027,11 +1027,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lbl_goldenCoinsAmnt: {fileID: 5007324710761362074}
-  lbl_spentGoldenCoins: {fileID: 5764260968421372787}
+  lbl_updatedGoldenCoins: {fileID: 5764260968421372787}
   lbl_woodAmnt: {fileID: 5007324710600826111}
-  lbl_spentWood: {fileID: 7477051049122709177}
+  lbl_updatedWood: {fileID: 7477051049122709177}
   lbl_gemAmnt: {fileID: 5007324710870272453}
-  lbl_spentGems: {fileID: 1430227725914278892}
+  lbl_updatedGems: {fileID: 1430227725914278892}
+  spentColor: {r: 1, g: 0, b: 0, a: 1}
+  rewardedColor: {r: 0.06587124, g: 1, b: 0, a: 1}
 --- !u!1 &5007324710398826821
 GameObject:
   m_ObjectHideFlags: 0

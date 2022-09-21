@@ -80,6 +80,8 @@ public class MetaGameBootstrapper : MonoBehaviour
     private VoidEvent CurrenciesUpdatedEvent;
     [SerializeField]
     private CurrencyTypeIntEvent ShowSpentCurrencyEvent;
+    [SerializeField]
+    private CurrencyTypeIntEvent ShowRewardedCurrencyEvent;
 
     [Header("Island")]
     [SerializeField]
@@ -156,6 +158,16 @@ public class MetaGameBootstrapper : MonoBehaviour
     [Header("Result screen")]
     [SerializeField]
     private MetaResultScreenController resultScreenController;
+
+    [Header("Ads")]
+    [SerializeField]
+    private HuaweiAdsControllerMenu adsControllerMenu;
+    [SerializeField]
+    private VoidEvent FreeCoinsRewardSuccessEvent;
+    [SerializeField]
+    private VoidEvent LoadFreeCoinsAdRecruitmentEvent;
+    [SerializeField]
+    private VoidEvent LoadFreeCoinsAdStoreEvent;
     #endregion
 
     private void Awake()
@@ -214,6 +226,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         {
             pnl_currenciesList[index].CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
             pnl_currenciesList[index].ShowSpentCurrencyEvent = ShowSpentCurrencyEvent;
+            pnl_currenciesList[index].ShowRewardedCurrencyEvent = ShowRewardedCurrencyEvent;
             pnl_currenciesList[index].OpenStoreEvent = OpenStoreEvent;
             pnl_currenciesList[index].Initialize();
         }
@@ -287,6 +300,13 @@ public class MetaGameBootstrapper : MonoBehaviour
         storeController.OpenStoreEvent = OpenStoreEvent;
         storeController.PurchaseStoreItemEvent = PurchaseStoreItemEvent;
         storeController.Initialize();
+
+        // Ads
+        adsControllerMenu.FreeCoinsRewardSuccessEvent = FreeCoinsRewardSuccessEvent;
+        adsControllerMenu.LoadFreeCoinsAdRecruitmentEvent = LoadFreeCoinsAdRecruitmentEvent;
+        adsControllerMenu.LoadFreeCoinsAdStoreEvent = LoadFreeCoinsAdStoreEvent;
+        adsControllerMenu.ShowRewardedCurrencyEvent = ShowRewardedCurrencyEvent;
+        adsControllerMenu.Initialize();
 
         // Init completed
         GameInitializationCompleted();

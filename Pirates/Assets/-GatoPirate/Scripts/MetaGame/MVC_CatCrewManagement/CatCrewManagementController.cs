@@ -279,10 +279,10 @@ public class CatCrewManagementController : MonoBehaviour
             selectedSlot.InitializeCat();
             selectedSlot.CurrentCatIndex = selectedCatIndex;
 
-            // TODO: Trigger cat switched sound
+            // Trigger cat switched sound
             TriggerCatSoundEvent.Raise(CatMeowSounds.CREW_SWITCHED_CAT1);
 
-            // TODO: Save new cat crew here?
+            // Save new cat crew here
             CatsDataSaveManager.Instance.UpdateCatIslandSlot(selectedSlot.CatID, selectedSlot.SlotIndex);
 
             // Remove selected cat from list
@@ -317,7 +317,6 @@ public class CatCrewManagementController : MonoBehaviour
         catCrewManagementView.EnabledCatalogues = SetEnabledCatalogues(ownedCatsList.Count - 1);
         ownedCatViewHelper.transform.SetParent(catCrewManagementView.OwnedCatsContentList[currentContentIndex]);
         catalogueNavigationView.Initialize(catCrewManagementView.EnabledCatalogues);
-        Debug.Log($"NEW CAT PURCHASED? cat scale after parent {catViewHelper.transform.localScale}");
     }
 
     private void CatUpdatedEventCallback(string _catID)

@@ -90,7 +90,7 @@ public class ResultScreenController : MonoBehaviour
         }
 
         score = totalAmount;
-        resultScreenView.Lbl_earnedCoins.text = $"x {score}";
+        resultScreenView.Lbl_earnedCoins.text = $"{score}";
         // TODO: Trigger animation or vfx for the total earned coins
 
         // TODO: Copy and paste previous block and update wood and gems if needed
@@ -149,4 +149,14 @@ public class ResultScreenController : MonoBehaviour
     }
     #endregion
 
+    #region OnDestroy
+    private void OnDestroy()
+    {
+        foreach (var item in _eventHandlers)
+        {
+            item.UnregisterListener();
+        }
+        _eventHandlers.Clear();
+    }
+    #endregion
 }

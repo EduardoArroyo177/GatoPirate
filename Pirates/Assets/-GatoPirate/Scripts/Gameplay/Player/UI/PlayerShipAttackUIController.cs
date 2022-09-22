@@ -26,7 +26,7 @@ public class PlayerShipAttackUIController : MonoBehaviour
     public FloatEvent InitializeSpecialAttackEvent { get; set; }
     public VoidEvent ShootSpecialAttackEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
-
+    public VoidEvent ResumeCombatEvent { get; set; }
     // Sounds
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
 
@@ -39,21 +39,13 @@ public class PlayerShipAttackUIController : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory<CannonSide, float>.BuildEventHandler(StartCoolDownTimerAnimationEvent, StartCoolDownTimerAnimationEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StopCombatEvent, StopCombatEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ResumeCombatEvent, ResumeCombatEventCallback));
 
         btn_leftCannon.ShootCannonEvent = ShootCannonEvent;
         btn_middleCannon.ShootCannonEvent = ShootCannonEvent;
         btn_rightCannon.ShootCannonEvent = ShootCannonEvent;
 
         SetCannons();
-    }
-
-    private void StopCombatEventCallback(Void _item)
-    {
-        btn_leftCannon.GetComponent<Button>().interactable = false;
-        btn_rightCannon.GetComponent<Button>().interactable = false;
-        btn_middleCannon.GetComponent<Button>().interactable = false;
-        specialAttackButtonController.StopAnimation();
-        specialAttackButtonController.gameObject.SetActive(false);
     }
 
     private void SetCannons()
@@ -81,6 +73,7 @@ public class PlayerShipAttackUIController : MonoBehaviour
         }
     }
 
+    #region Event callbacks
     private void StartCoolDownTimerAnimationEventCallback(CannonSide _cannonSide, float _duration)
     {
         switch (_cannonSide)
@@ -97,6 +90,25 @@ public class PlayerShipAttackUIController : MonoBehaviour
         }
     }
 
+    private void StopCombatEventCallback(Void _item)
+    {
+        btn_leftCannon.GetComponent<Button>().interactable = false;
+        btn_rightCannon.GetComponent<Button>().interactable = false;
+        btn_middleCannon.GetComponent<Button>().interactable = false;
+        specialAttackButtonController.StopAnimation();
+        specialAttackButtonController.gameObject.SetActive(false);
+    }
+
+    private void ResumeCombatEventCallback(Void _item)
+    {
+        btn_leftCannon.GetComponent<Button>().interactable = true;
+        btn_rightCannon.GetComponent<Button>().interactable = true;
+        btn_middleCannon.GetComponent<Button>().interactable = true;
+        specialAttackButtonController.gameObject.SetActive(true);
+    }
+    #endregion
+
+    #region On Destroy
     private void OnDestroy()
     {
         foreach (var item in _eventHandlers)
@@ -106,4 +118,5 @@ public class PlayerShipAttackUIController : MonoBehaviour
 
         _eventHandlers.Clear();
     }
+    #endregion
 }

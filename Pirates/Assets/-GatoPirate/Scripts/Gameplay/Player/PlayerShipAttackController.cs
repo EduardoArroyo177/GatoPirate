@@ -49,6 +49,7 @@ public class PlayerShipAttackController : MonoBehaviour
     public VoidEvent ShootSpecialAttackEvent { get; set; }
     public VoidEvent StartCombatEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
+    public VoidEvent ResumeCombatEvent { get; set; }
     public CombatShipSoundEvent TriggerPlayerShipSoundEvent { get; set; }
 
 
@@ -61,6 +62,7 @@ public class PlayerShipAttackController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ShootSpecialAttackEvent, ShootSpecialAttackEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartCombatEvent, StartCombatEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StopCombatEvent, StopCombatEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ResumeCombatEvent, ResumeCombatEventCallback));
 
         // Basic attack
         middleCannon.SetDamageValue(BasicAttackDamage * ShipLevelAttackMultiplier);
@@ -95,6 +97,7 @@ public class PlayerShipAttackController : MonoBehaviour
         specialCannon.TriggerShipSoundEvent = TriggerPlayerShipSoundEvent;
     }
 
+    #region Event callbacks
     private void StartCombatEventCallback(Void _item)
     {
         // Special attack
@@ -105,6 +108,12 @@ public class PlayerShipAttackController : MonoBehaviour
     private void StopCombatEventCallback(Void _item)
     {
         StopAllCoroutines();
+    }
+
+    private void ResumeCombatEventCallback(Void _item)
+    {
+        InitializeSpecialAttackEvent.Raise(SpecialAttackChargeTime);
+        StartCoroutine(AutomaticAttack());
     }
 
     private void ShootCannonEventCallback(CannonSide _side)
@@ -126,7 +135,6 @@ public class PlayerShipAttackController : MonoBehaviour
                 VibrationController.Instance.TriggerNormalAttackVibration();
                 break;
         }
-        
     }
 
     private void ShootSpecialAttackEventCallback(Void _item)
@@ -134,6 +142,7 @@ public class PlayerShipAttackController : MonoBehaviour
         specialCannon.ShootSpecialAttack();
         VibrationController.Instance.TriggerSpecialAttackVibration();
     }
+    #endregion
 
     private IEnumerator AutomaticAttack()
     {

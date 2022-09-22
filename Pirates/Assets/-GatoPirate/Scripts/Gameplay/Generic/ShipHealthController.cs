@@ -22,9 +22,14 @@ public class ShipHealthController : MonoBehaviour
     public FloatEvent CurrentHealthUIEvent { get; set; }
     public FloatEvent TriggerShakingCameraEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
+    public VoidEvent ResumeCombatEvent { get; set; }
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
     public VoidEvent TriggerEnemyLostAnimationEvent { get; set; }
     public VoidEvent TriggerPlayerLostAnimationEvent { get; set; }
+    // Ad events
+    public VoidEvent ReviveSuccessEvent { get; set; }
+
+    private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
     private float projectileDamage;
     private ProjectileType projectileType;
@@ -36,6 +41,9 @@ public class ShipHealthController : MonoBehaviour
         CurrentHealth = (int)ShipHealth;
         if (shipType.Equals(CharacterType.ENEMY))
             enemyResourcesDrop = GetComponent<EnemyResourcesDrop>();
+
+        if(ReviveSuccessEvent)
+            _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ReviveSuccessEvent, ReviveSuccessEventCallback));
     }
 
     private void OnTriggerEnter(Collider other)
@@ -92,4 +100,29 @@ public class ShipHealthController : MonoBehaviour
         else
             TriggerPlayerLostAnimationEvent.Raise();
     }
+
+    #region Event callbacks
+    private void ReviveSuccessEventCallback(Void _item)
+    {
+        if (shipType.Equals(CharacterType.PLAYER))
+        {
+            CurrentHealth = (int)ShipHealth;
+            CurrentHealthUIEvent.Raise(CurrentHealth / ShipHealth);
+            // TODO: Trigger resume combat event
+            ResumeCombatEvent.Raise();
+        }
+    }
+    #endregion
+
+    #region On Destroy
+    private void OnDestroy()
+    {
+        foreach (var item in _eventHandlers)
+        {
+            item.UnregisterListener();
+        }
+
+        _eventHandlers.Clear();
+    }
+    #endregion
 }

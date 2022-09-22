@@ -12,11 +12,16 @@ public class ResultScreenController : MonoBehaviour
     [SerializeField]
     private ReviveScreenView reviveScreenView;
 
-    // TODO: Revive screen referente
-
+    // Events
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
     public BoolEvent WinChestEvent { get; set; }
     public VoidEvent LoadMainMenuSceneEvent { get; set; }
+    // Ad events
+    public VoidEvent LoadReviveAdEvent { get; set; }
+    public VoidEvent LoadDoubleRewardAdEvent { get; set; }
+    public VoidEvent LoadCombatFinishedAdEvent { get; set; }
+    public VoidEvent ReviveSuccessEvent { get; set; }
+    public VoidEvent DoubleRewardSuccessEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
     private bool canWinChest;
@@ -25,7 +30,10 @@ public class ResultScreenController : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory<CharacterType>.BuildEventHandler(ShowResultScreenEvent, ShowResultScreenEventCallback));
         _eventHandlers.Add(EventHandlerFactory<bool>.BuildEventHandler(WinChestEvent, WinChestEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ReviveSuccessEvent, ReviveSuccessEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(DoubleRewardSuccessEvent, DoubleRewardSuccessEventCallback));
         resultScreenView.ResultScreenController = this;
+        reviveScreenView.ResultScreenController = this;
     }
 
     #region Event callbacks
@@ -53,6 +61,19 @@ public class ResultScreenController : MonoBehaviour
         {
             // TODO: Probably don't do anything
         }
+    }
+
+    private void ReviveSuccessEventCallback(Void _item)
+    {
+        // The callback should restart ship health
+        // Unpause the game
+        // Close reviveID screen
+        reviveScreenView.gameObject.SetActive(false);
+    }
+
+    private void DoubleRewardSuccessEventCallback(Void _item)
+    { 
+        
     }
     #endregion
 
@@ -136,16 +157,14 @@ public class ResultScreenController : MonoBehaviour
         // Reduce coins from data save
         // Restart ship health
         // Unpause game
-        // Close revive screen
+        // Close reviveID screen
     }
 
     public void ReviveWithAd()
     { 
         // TODO:
         // Trigger an ad
-        // The callback should restart ship health
-        // Unpause the game
-        // Close revive screen
+        LoadReviveAdEvent.Raise();
     }
     #endregion
 

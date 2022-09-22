@@ -75,8 +75,16 @@ MonoBehaviour:
   SkipInitialAnimationsEvent: {fileID: 11400000, guid: 3531e09e25fc9a7428b82f9722a53418, type: 2}
   StartCombatEvent: {fileID: 11400000, guid: a014a61bd5d2b3349b01e4bb9b126113, type: 2}
   StopCombatEvent: {fileID: 11400000, guid: cefadfdde67a02d4c9e08b95c5783ca0, type: 2}
+  ResumeCombatEvent: {fileID: 11400000, guid: e8d69959fff9ba944bea80f47cb8291e, type: 2}
   ShowResultScreenEvent: {fileID: 11400000, guid: c10eeb6d9b8ff214e8a5c79a89d8db35, type: 2}
   WinChestEvent: {fileID: 11400000, guid: efb8b85d1073bb645a2e832e31eb5713, type: 2}
   TriggerEnemyLostAnimationEvent: {fileID: 11400000, guid: 811d3d3e0b90f9a4c99e0108588d84ec, type: 2}
   TriggerPlayerLostAnimationEvent: {fileID: 11400000, guid: 7d62e8b4b697c5c47ba2582a558eb14e, type: 2}
   TriggerShakingCameraEvent: {fileID: 11400000, guid: d22614e6bf7d44447a7a6ca5dbd86781, type: 2}
+  huaweiAdsController: {fileID: 0}
+  LoadReviveAdEvent: {fileID: 11400000, guid: a33bbfbbb5fa7de4d9aacd0703dfa273, type: 2}
+  LoadDoubleRewardAdEvent: {fileID: 11400000, guid: ed78111872f9ece40a3e713fffdd7dae, type: 2}
+  LoadCombatFinishedAdEvent: {fileID: 11400000, guid: fc761743d6635b049ba8d096f6546f18, type: 2}
+  CombatRewardAdSuccessEvent: {fileID: 11400000, guid: 654af77652625ea4bab74c236b0449b4, type: 2}
+  ReviveSuccessEvent: {fileID: 11400000, guid: 419bd120349a83c459ae921fd4cc578f, type: 2}
+  DoubleRewardSuccessEvent: {fileID: 11400000, guid: e5b9a31a33f5b55489d24b0ab1bdd082, type: 2}

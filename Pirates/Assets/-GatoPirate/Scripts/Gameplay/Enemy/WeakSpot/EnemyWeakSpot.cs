@@ -17,6 +17,7 @@ public class EnemyWeakSpot : MonoBehaviour
         if (other.CompareTag("Projectile"))
         {
             projectileDamage = other.GetComponent<Projectile>().ProjectileDamage * WeakSpotPlayerDamageMultiplier;
+            Debug.Log($"PROJECTILE DAMAGE {projectileDamage}");
             CauseDamage();
         }
         else if (other.CompareTag("SpecialAttack"))

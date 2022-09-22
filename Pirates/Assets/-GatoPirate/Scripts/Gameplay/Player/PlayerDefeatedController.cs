@@ -18,18 +18,27 @@ public class PlayerDefeatedController : MonoBehaviour
     public VoidEvent TriggerPlayerLostAnimationEvent { get; set; }
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
     public FloatEvent TriggerShakingCameraEvent { get; set; }
+    public VoidEvent ResumeCombatEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerPlayerLostAnimationEvent, TriggerPlayerLostAnimationEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ResumeCombatEvent, ResumeCombatEventCallback));
     }
 
+    #region Event callbacks
     private void TriggerPlayerLostAnimationEventCallback(Void _item)
     {
         StartCoroutine("DefeatedAnimation");
     }
+
+    private void ResumeCombatEventCallback(Void _item)
+    {
+        doTweenAnimation.DOPlayBackwardsAllById("Defeated");
+    }
+    #endregion
 
     private IEnumerator DefeatedAnimation()
     {
@@ -46,7 +55,6 @@ public class PlayerDefeatedController : MonoBehaviour
         yield return new WaitForSeconds(animationDelay);
         // TODO: Trigger cats faces animations
         // Trigger dotween animation
-        
         doTweenAnimation.DOPlayAllById("Defeated");
     }
 

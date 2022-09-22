@@ -33,6 +33,7 @@ public class EnemyShipWeakSpotController : MonoBehaviour
     // Events
     public VoidEvent StartCombatEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
+    public VoidEvent ResumeCombatEvent { get; set; }
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
 
 
@@ -47,12 +48,14 @@ public class EnemyShipWeakSpotController : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartCombatEvent, StartCombatEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StopCombatEvent, StopCombatEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ResumeCombatEvent, ResumeCombatEventCallback));
 
         weakSpotIndicator.EnemyShipHealthController = EnemyShipHealthController;
         weakSpotIndicator.WeakSpotPlayerDamageMultiplier = WeakSpotPlayerDamageMultiplier;
         weakSpotIndicator.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
     }
 
+    #region Event callbacks
     private void StartCombatEventCallback(Void _item)
     {
         StartCoroutine(HandleWeakSpot());
@@ -62,6 +65,12 @@ public class EnemyShipWeakSpotController : MonoBehaviour
     {
         StopAllCoroutines();
     }
+
+    private void ResumeCombatEventCallback(Void _item)
+    {
+        StartCoroutine(HandleWeakSpot());
+    }
+    #endregion
 
     private IEnumerator HandleWeakSpot()
     {

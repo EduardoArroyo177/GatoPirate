@@ -100,7 +100,7 @@ MonoBehaviour:
   m_fontSizeMin: 5
   m_fontSizeMax: 35
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_fontSizeMin: 5
   m_fontSizeMax: 35
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -460,8 +460,8 @@ RectTransform:
   m_Father: {fileID: 2996746958859103541}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.13786916, y: 0.12338667}
-  m_AnchorMax: {x: 0.8621305, y: 0.8766137}
+  m_AnchorMin: {x: -0.0000019297372, y: -0.0051714387}
+  m_AnchorMax: {x: 1.0000004, y: 1.0000001}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -493,9 +493,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 899687626ff3842d99b58510c063abe0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d87ea160d3b9ef74c8fa1721fe3d8ed7, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -778,9 +778,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1d54ab33461ad468a86a5cfa99949002, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0672b12d3d487634494a5a5bcb38c352, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -854,7 +854,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9dde46eb5e29d40d7bfcfe0245d0377e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c5339ab24fb8fe4c82638f96b2c715c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1233,7 +1233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.801008, y: 0.8261529}
   m_AnchorMax: {x: 1.0000002, y: 0.9026191}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.7000122}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2996746959469154907
@@ -1318,10 +1318,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 11400000, guid: cca5c0e0bc078384d8b2df9a32fb77cc, type: 2}
+        m_TargetAssemblyTypeName: UnityAtoms.BaseAtoms.VoidEvent, UnityAtoms.UnityAtomsBaseAtoms.Runtime
+        m_MethodName: Raise
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1454,7 +1454,7 @@ MonoBehaviour:
   m_fontSizeMin: 5
   m_fontSizeMax: 35
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1496,6 +1496,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2996746958769714656}
     m_Modifications:
+    - target: {fileID: 1724973752735257734, guid: c1c4bf7f42a96b74ba3e42aaa3e33c76, type: 3}
+      propertyPath: m_Name
+      value: Lbl_CurrencyUpdatedAmnt
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125156970541886174, guid: c1c4bf7f42a96b74ba3e42aaa3e33c76, type: 3}
+      propertyPath: m_Name
+      value: Lbl_CurrencyUpdatedAmnt
+      objectReference: {fileID: 0}
     - target: {fileID: 5007324709220367805, guid: c1c4bf7f42a96b74ba3e42aaa3e33c76, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1671,6 +1679,10 @@ PrefabInstance:
     - target: {fileID: 5007324710761362074, guid: c1c4bf7f42a96b74ba3e42aaa3e33c76, type: 3}
       propertyPath: m_fontSize
       value: 63.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938214608016238076, guid: c1c4bf7f42a96b74ba3e42aaa3e33c76, type: 3}
+      propertyPath: m_Name
+      value: Lbl_CurrencyUpdatedAmnt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c4bf7f42a96b74ba3e42aaa3e33c76, type: 3}

@@ -79,6 +79,9 @@ public class ShipHealthUIController : MonoBehaviour
 
             // TODO: Ask for a 20%
 
+            if(lifeBar.localScale.x == 1)
+                lifeBarRenderer.color = highHealthColor;
+
             if (lifeBar.localScale.x < 1
                 && lifeBar.localScale.x > highHealthValue)
             {
@@ -105,6 +108,7 @@ public class ShipHealthUIController : MonoBehaviour
 
     }
 
+    #region On Destroy
     private void OnDestroy()
     {
         foreach (var item in _eventHandlers)
@@ -114,4 +118,5 @@ public class ShipHealthUIController : MonoBehaviour
 
         _eventHandlers.Clear();
     }
+    #endregion
 }

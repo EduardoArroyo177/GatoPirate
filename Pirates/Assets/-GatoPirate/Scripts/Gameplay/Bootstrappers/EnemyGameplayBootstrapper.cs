@@ -48,6 +48,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     // Events
     public VoidEvent StartCombatEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
+    public VoidEvent ResumeCombatEvent { get; set; }
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
     public BoolEvent WinChestEvent { get; set; }
     public VoidEvent TriggerEnemyStartingAnimationEvent { get; set; }
@@ -107,6 +108,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         // Events
         enemyShipAttackController.StartCombatEvent = StartCombatEvent;
         enemyShipAttackController.StopCombatEvent = StopCombatEvent;
+        enemyShipAttackController.ResumeCombatEvent = ResumeCombatEvent;
         enemyShipAttackController.TriggerEnemyShipSoundEvent = TriggerEnemyShipSoundEvent;
         enemyShipAttackController.Initialize();
 
@@ -131,6 +133,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         // Events
         enemyShipWeakSpotController.StartCombatEvent = StartCombatEvent;
         enemyShipWeakSpotController.StopCombatEvent = StopCombatEvent;
+        enemyShipWeakSpotController.ResumeCombatEvent = ResumeCombatEvent;
         enemyShipWeakSpotController.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
         enemyShipWeakSpotController.Initialize();
 

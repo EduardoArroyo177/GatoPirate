@@ -52,12 +52,14 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     public FloatEvent TriggerShakingCameraEvent { get; set; }
     public VoidEvent StartCombatEvent { get; set; }
     public VoidEvent StopCombatEvent { get; set; }
+    public VoidEvent ResumeCombatEvent { get; set; }
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
     public VoidEvent TriggerPlayerStartingAnimationEvent { get; set; }
     public VoidEvent TriggerEnemyStartingAnimationEvent { get; set; }
     public VoidEvent TriggerPlayerLostAnimationEvent { get; set; }
     public VoidEvent SkipInitialAnimationsEvent { get; set; }
     public FloatEvent SetSoundsVolumeEvent { get; set; }
+    public VoidEvent ReviveSuccessEvent { get; set; }
 
 
     // Properties
@@ -87,6 +89,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipAttackUIController.InitializeSpecialAttackEvent = InitializeSpecialAttackEvent;
         playerShipAttackUIController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
         playerShipAttackUIController.StopCombatEvent = StopCombatEvent;
+        playerShipAttackUIController.ResumeCombatEvent = ResumeCombatEvent;
         playerShipAttackUIController.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
         playerShipAttackUIController.Initialize();
 
@@ -124,6 +127,7 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipAttackController.ShootSpecialAttackEvent = ShootSpecialAttackEvent;
         playerShipAttackController.StartCombatEvent = StartCombatEvent;
         playerShipAttackController.StopCombatEvent = StopCombatEvent;
+        playerShipAttackController.ResumeCombatEvent = ResumeCombatEvent;
         playerShipAttackController.TriggerPlayerShipSoundEvent = TriggerPlayerShipSoundEvent;
         playerShipAttackController.Initialize();
 
@@ -136,14 +140,17 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipHealthController.CurrentHealthUIEvent = CurrentPlayerHealthUIEvent;
         playerShipHealthController.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
         playerShipHealthController.StopCombatEvent = StopCombatEvent;
+        playerShipHealthController.ResumeCombatEvent = ResumeCombatEvent;
         playerShipHealthController.ShowResultScreenEvent = ShowResultScreenEvent;
         playerShipHealthController.TriggerPlayerLostAnimationEvent = TriggerPlayerLostAnimationEvent;
+        playerShipHealthController.ReviveSuccessEvent = ReviveSuccessEvent;
         playerShipHealthController.Initialize();
 
         // Player defeated
         playerDefeatedController.ShowResultScreenEvent = ShowResultScreenEvent;
         playerDefeatedController.TriggerPlayerLostAnimationEvent = TriggerPlayerLostAnimationEvent;
         playerDefeatedController.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
+        playerDefeatedController.ResumeCombatEvent = ResumeCombatEvent;
         playerDefeatedController.Initialize();
 
         // Sounds

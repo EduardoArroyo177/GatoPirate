@@ -91,6 +91,8 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private VoidEvent StopCombatEvent;
     [SerializeField]
+    private VoidEvent ResumeCombatEvent;
+    [SerializeField]
     private CharacterTypeEvent ShowResultScreenEvent;
     [SerializeField]
     private BoolEvent WinChestEvent;
@@ -102,6 +104,22 @@ public class StartCombatBootstrapper : MonoBehaviour
     [Header("Other events")]
     [SerializeField]
     private FloatEvent TriggerShakingCameraEvent;
+
+    [Header("Ads")]
+    [SerializeField]
+    private HuaweiAdsControllerCombat huaweiAdsController;
+    [SerializeField]
+    private VoidEvent LoadReviveAdEvent;
+    [SerializeField]
+    private VoidEvent LoadDoubleRewardAdEvent;
+    [SerializeField]
+    private VoidEvent LoadCombatFinishedAdEvent;
+    [SerializeField]
+    private VoidEvent CombatRewardAdSuccessEvent;
+    [SerializeField]
+    private VoidEvent ReviveSuccessEvent;
+    [SerializeField]
+    private VoidEvent DoubleRewardSuccessEvent;
 
     private int playerActiveCannons;
 
@@ -172,6 +190,11 @@ public class StartCombatBootstrapper : MonoBehaviour
         uiCanvasBootstrapper.SetPreviousMusicVolumeEvent = SetPreviousMusicVolumeEvent;
         uiCanvasBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         uiCanvasBootstrapper.WinChestEvent = WinChestEvent;
+        uiCanvasBootstrapper.LoadReviveAdEvent = LoadReviveAdEvent;
+        uiCanvasBootstrapper.LoadDoubleRewardAdEvent = LoadDoubleRewardAdEvent;
+        uiCanvasBootstrapper.LoadCombatFinishedAdEvent = LoadCombatFinishedAdEvent;
+        uiCanvasBootstrapper.ReviveSuccessEvent = ReviveSuccessEvent;
+        uiCanvasBootstrapper.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
         uiCanvasBootstrapper.Initialize();
 
         // Player
@@ -184,8 +207,10 @@ public class StartCombatBootstrapper : MonoBehaviour
         playerGameplayBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         playerGameplayBootstrapper.TriggerShakingCameraEvent = TriggerShakingCameraEvent;
         playerGameplayBootstrapper.StopCombatEvent = StopCombatEvent;
+        playerGameplayBootstrapper.ResumeCombatEvent = ResumeCombatEvent;
         playerGameplayBootstrapper.SkipInitialAnimationsEvent = SkipInitialAnimationsEvent;
         playerGameplayBootstrapper.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        playerGameplayBootstrapper.ReviveSuccessEvent = ReviveSuccessEvent;
 
         playerGameplayBootstrapper.TriggerPlayerStartingAnimationEvent = TriggerPlayerStartingAnimationEvent;
         playerGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
@@ -198,6 +223,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         // Events
         enemyGameplayBootstrapper.StartCombatEvent = StartCombatEvent;
         enemyGameplayBootstrapper.StopCombatEvent = StopCombatEvent;
+        enemyGameplayBootstrapper.ResumeCombatEvent = ResumeCombatEvent;
         enemyGameplayBootstrapper.ShowResultScreenEvent = ShowResultScreenEvent;
         enemyGameplayBootstrapper.WinChestEvent = WinChestEvent;
         enemyGameplayBootstrapper.TriggerEnemyLostAnimationEvent = TriggerEnemyLostAnimationEvent;
@@ -208,6 +234,15 @@ public class StartCombatBootstrapper : MonoBehaviour
         enemyGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         enemyGameplayBootstrapper.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
         enemyGameplayBootstrapper.InitializeBootstrapper();
+
+        // Ads
+        huaweiAdsController.LoadReviveAdEvent = LoadReviveAdEvent;
+        huaweiAdsController.LoadDoubleRewardAdEvent = LoadDoubleRewardAdEvent;
+        huaweiAdsController.LoadCombatFinishedAdEvent = LoadCombatFinishedAdEvent;
+        huaweiAdsController.CombatRewardAdSuccessEvent = CombatRewardAdSuccessEvent;
+        huaweiAdsController.ReviveSuccessEvent = ReviveSuccessEvent;
+        huaweiAdsController.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
+        huaweiAdsController.Initialize();
 
         Invoke("StartingAnimation", 0.5f);
     }

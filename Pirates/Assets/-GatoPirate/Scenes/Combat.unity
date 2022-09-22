@@ -17845,6 +17845,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2117174190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2117174192}
+  - component: {fileID: 2117174191}
+  m_Layer: 0
+  m_Name: HuaweiAdsControllerCombat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2117174191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117174190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4015fa8ce616c34e83acc3c74271646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageAdsID: teste9ih9j0rc3
+  videoAdsID: testb4znbuh3n2
+  rewardedAdsID: testx9dtjwj8hp
+  doubleRewardID: o0izmsn4b6
+  reviveID: g33hadab96
+  combatsPlayedID: c5iqbwa8h5
+--- !u!4 &2117174192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117174190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 870.1927, y: 1657.8788, z: -32.10579}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2131583368
 GameObject:
   m_ObjectHideFlags: 0
@@ -20147,7 +20197,7 @@ MonoBehaviour:
   isRelative: 0
   isFrom: 0
   isIndependentUpdate: 0
-  autoKill: 1
+  autoKill: 0
   autoGenerate: 1
   isActive: 1
   isValid: 1
@@ -22814,7 +22864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248634552620809941, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3603908628849082624, guid: 29914ef26d2f69c42947dcc9cb55f44a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -33158,6 +33208,10 @@ PrefabInstance:
       propertyPath: settingsController
       value: 
       objectReference: {fileID: 32640325}
+    - target: {fileID: 4031626127902435113, guid: ebb90f2a082939d45a0741a0691c0e4e, type: 3}
+      propertyPath: huaweiAdsController
+      value: 
+      objectReference: {fileID: 2117174191}
     - target: {fileID: 4031626127902435113, guid: ebb90f2a082939d45a0741a0691c0e4e, type: 3}
       propertyPath: ambienceAudioManager
       value: 
@@ -54811,11 +54865,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 436752942564045142, guid: fa26ab5a86d5fd848bcec563c84fea75, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 924255505148296778, guid: fa26ab5a86d5fd848bcec563c84fea75, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3458356168105864101, guid: fa26ab5a86d5fd848bcec563c84fea75, type: 3}
       propertyPath: m_IsActive

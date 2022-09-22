@@ -23,8 +23,14 @@ public class UICanvasBootstrapper : MonoBehaviour
     // Result screen events
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
     public BoolEvent WinChestEvent { get; set; }
+    // Ad events
+    public VoidEvent LoadReviveAdEvent { get; set; }
+    public VoidEvent LoadDoubleRewardAdEvent { get; set; }
+    public VoidEvent LoadCombatFinishedAdEvent { get; set; }
+    public VoidEvent ReviveSuccessEvent { get; set; }
+    public VoidEvent DoubleRewardSuccessEvent { get; set; }
 
-    
+
     public void Initialize()
     {
         // Pause
@@ -43,6 +49,11 @@ public class UICanvasBootstrapper : MonoBehaviour
         resultScreenController.ShowResultScreenEvent = ShowResultScreenEvent;
         resultScreenController.WinChestEvent = WinChestEvent;
         resultScreenController.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
+        resultScreenController.LoadReviveAdEvent = LoadReviveAdEvent;
+        resultScreenController.LoadDoubleRewardAdEvent = LoadDoubleRewardAdEvent;
+        resultScreenController.LoadCombatFinishedAdEvent = LoadCombatFinishedAdEvent;
+        resultScreenController.ReviveSuccessEvent = ReviveSuccessEvent;
+        resultScreenController.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
         resultScreenController.Initialize();
     }
 }

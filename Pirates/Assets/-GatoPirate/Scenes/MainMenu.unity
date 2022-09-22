@@ -5475,7 +5475,7 @@ MonoBehaviour:
   imageAdsID: teste9ih9j0rc3
   videoAdsID: testb4znbuh3n2
   rewardedAdsID: testx9dtjwj8hp
-  freeCoinsRecruitmentID: 
+  freeCoinsRecruitmentID: y0hqzry36u
   freeCoinsStoreID: q2qapeazzy
   freeCoinsAmount: 250
 --- !u!21 &443574476
@@ -31796,14 +31796,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 886557163}
     m_Modifications:
-    - target: {fileID: 910430110338282084, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
-      propertyPath: m_Name
-      value: Lbl_CurrencyUpdatedAmnt
-      objectReference: {fileID: 0}
-    - target: {fileID: 2996746957747447042, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -3677534107435600715, guid: bf096d0b3586ce648ba381d55a5af1f0, type: 2}
     - target: {fileID: 2996746957771296390, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -31919,38 +31911,6 @@ PrefabInstance:
     - target: {fileID: 2996746959375082849, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
       propertyPath: m_Name
       value: MVC_MainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 2996746959469154909, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2996746959469154909, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 11400000, guid: cca5c0e0bc078384d8b2df9a32fb77cc, type: 2}
-    - target: {fileID: 2996746959469154909, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Raise
-      objectReference: {fileID: 0}
-    - target: {fileID: 2996746959469154909, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityAtoms.BaseAtoms.VoidEvent, UnityAtoms.UnityAtomsBaseAtoms.Runtime
-      objectReference: {fileID: 0}
-    - target: {fileID: 2996746959469154910, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -17.267822
-      objectReference: {fileID: 0}
-    - target: {fileID: 5167259917719944518, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
-      propertyPath: m_Name
-      value: Lbl_CurrencyUpdatedAmnt
-      objectReference: {fileID: 0}
-    - target: {fileID: 5167259917719944518, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870776581985649438, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
-      propertyPath: m_Name
-      value: Lbl_CurrencyUpdatedAmnt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
@@ -32461,6 +32421,14 @@ PrefabInstance:
     - target: {fileID: 739659201495408920, guid: c2db0f5af66aae6468c498ba5d1ab9e6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945189834671434326, guid: c2db0f5af66aae6468c498ba5d1ab9e6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000091552734
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945189834671434326, guid: c2db0f5af66aae6468c498ba5d1ab9e6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4.9000015
       objectReference: {fileID: 0}
     - target: {fileID: 3282263991218875049, guid: c2db0f5af66aae6468c498ba5d1ab9e6, type: 3}
       propertyPath: m_AnchorMax.x

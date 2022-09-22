@@ -2113,6 +2113,10 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 7515917700143773469}
+    - target: {fileID: 8111946667674230708, guid: 37ee5c5071786654d88fe6c42ec5e7b3, type: 3}
+      propertyPath: m_fontSize
+      value: 70
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37ee5c5071786654d88fe6c42ec5e7b3, type: 3}
 --- !u!224 &1365639443645597111 stripped
@@ -2125,21 +2129,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8993990880450051107, guid: 37ee5c5071786654d88fe6c42ec5e7b3, type: 3}
   m_PrefabInstance: {fileID: 5145749006403664845}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &870566989694445328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4303273524519340014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 40306178, guid: aa0b1eebb5db27a419fa4564bbe5c9c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  preset: 0
-  onEnableBehaviour: 1
-  onDisableBehaviour: 2
 --- !u!114 &27369816126622404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2256,6 +2245,21 @@ MonoBehaviour:
   optionalRotationMode: 0
   optionalScrambleMode: 0
   optionalString: 
+--- !u!114 &870566989694445328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303273524519340014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40306178, guid: aa0b1eebb5db27a419fa4564bbe5c9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preset: 0
+  onEnableBehaviour: 1
+  onDisableBehaviour: 2
 --- !u!224 &6748670543950164852 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1927900660515784889, guid: 37ee5c5071786654d88fe6c42ec5e7b3, type: 3}
@@ -2446,6 +2450,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -38.86664
       objectReference: {fileID: 0}
+    - target: {fileID: 5007324710761362074, guid: c1c4bf7f42a96b74ba3e42aaa3e33c76, type: 3}
+      propertyPath: m_fontSize
+      value: 63.45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c4bf7f42a96b74ba3e42aaa3e33c76, type: 3}
 --- !u!224 &2776570373931025202 stripped
@@ -2464,6 +2472,10 @@ PrefabInstance:
       propertyPath: m_text
       value: TRAJES
       objectReference: {fileID: 0}
+    - target: {fileID: 4739816450826041256, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
+      propertyPath: m_fontSize
+      value: 69
+      objectReference: {fileID: 0}
     - target: {fileID: 7164356791774511081, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
@@ -2471,6 +2483,10 @@ PrefabInstance:
     - target: {fileID: 7896636124591892789, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
       propertyPath: m_text
       value: TRAJES
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896636124591892789, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
+      propertyPath: m_fontSize
+      value: 69
       objectReference: {fileID: 0}
     - target: {fileID: 7896636125387732130, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
       propertyPath: m_RaycastTarget

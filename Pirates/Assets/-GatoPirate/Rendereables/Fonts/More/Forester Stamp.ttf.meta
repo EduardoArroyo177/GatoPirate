@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6e03e65b52f27db4ba76268004816516
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Forester
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1b2db62155bbf9348882eae9bf6b75b7, type: 3}
+  - {fileID: 12800000, guid: 56b5611912924f541b47a5c6558bca1f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

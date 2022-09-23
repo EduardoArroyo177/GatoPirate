@@ -7,6 +7,8 @@ using DG.Tweening;
 public class DamageTextParticleController : MonoBehaviour
 {
     [SerializeField]
+    private TextMeshPro damageTextShadow;
+    [SerializeField]
     private TextMeshPro damageText;
     [SerializeField]
     private Color lightHitColor;
@@ -51,6 +53,7 @@ public class DamageTextParticleController : MonoBehaviour
                 break;
         }
 
+        damageTextShadow.text = $"-{_damage}";
         damageText.text = $"-{_damage}";
         gameObject.SetActive(true);
     }

@@ -16,12 +16,17 @@ public class ResultScreenController : MonoBehaviour
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
     public BoolEvent WinChestEvent { get; set; }
     public VoidEvent LoadMainMenuSceneEvent { get; set; }
+    public VoidEvent CurrenciesUpdatedEvent { get; set; }
     // Ad events
     public VoidEvent LoadReviveAdEvent { get; set; }
     public VoidEvent LoadDoubleRewardAdEvent { get; set; }
     public VoidEvent LoadCombatFinishedAdEvent { get; set; }
     public VoidEvent ReviveSuccessEvent { get; set; }
     public VoidEvent DoubleRewardSuccessEvent { get; set; }
+
+
+    // Properties
+    public int ReviveCurrencyPrice { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
     private bool canWinChest;
@@ -34,6 +39,8 @@ public class ResultScreenController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(DoubleRewardSuccessEvent, DoubleRewardSuccessEventCallback));
         resultScreenView.ResultScreenController = this;
         reviveScreenView.ResultScreenController = this;
+        reviveScreenView.PanelCurrenciesController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
+        reviveScreenView.PanelCurrenciesController.Initialize();
     }
 
     #region Event callbacks
@@ -125,8 +132,15 @@ public class ResultScreenController : MonoBehaviour
 
     private void LoadReviveScreen()
     {
-        // TODO: Set coins price
-        // TODO: Update button if there's no enough coins
+        // TODO: Update this with the correct currency
+        // Set coins price
+        reviveScreenView.SetRevivePrice(ReviveCurrencyPrice);
+        // Update button if there's no enough coins
+        int currentCoins = CurrencyDataSaveManager.Instance.GetCurrencyAmount(CurrencyType.GOLDEN_COINS);
+        if (currentCoins < ReviveCurrencyPrice)
+            reviveScreenView.SetCoinsButtonAsLocked();
+        // Show revive screen
+        CurrenciesUpdatedEvent.Raise();
         reviveScreenView.gameObject.SetActive(true);
     }
 
@@ -152,12 +166,10 @@ public class ResultScreenController : MonoBehaviour
 
     // Revive screen
     public void ReviveWithCoins()
-    { 
-        // TODO:
+    {
         // Reduce coins from data save
-        // Restart ship health
-        // Unpause game
-        // Close reviveID screen
+        CurrencyDataSaveManager.Instance.UpdateCurrency(CurrencyType.GOLDEN_COINS, -ReviveCurrencyPrice);
+        ReviveSuccessEvent.Raise();
     }
 
     public void ReviveWithAd()

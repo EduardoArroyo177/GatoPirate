@@ -59,6 +59,10 @@ public class ShipData : ScriptableObject
     [SerializeField]
     private float specialAttackChargeTime;
 
+    [Header("Revive")]
+    [SerializeField]
+    private int reviveCurrencyPrice;
+
     public string ShipID { get => shipID; set => shipID = value; }
     public ShipLevelType ShipLevelType { get => shipLevelType; set => shipLevelType = value; }
     public int ShipLevel { get => shipLevel; set => shipLevel = value; }
@@ -79,4 +83,6 @@ public class ShipData : ScriptableObject
     public float AutomaticAttackFireRate { get => automaticAttackFireRate; set => automaticAttackFireRate = value; }
     public int SpecialAttackDamage { get => specialAttackDamage; set => specialAttackDamage = value; }
     public float SpecialAttackChargeTime { get => specialAttackChargeTime; set => specialAttackChargeTime = value; }
+    // Revive
+    public int ReviveCurrencyPrice { get => reviveCurrencyPrice; set => reviveCurrencyPrice = value; }
 }

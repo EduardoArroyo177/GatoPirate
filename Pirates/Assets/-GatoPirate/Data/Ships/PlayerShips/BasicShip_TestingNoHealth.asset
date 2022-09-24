@@ -31,3 +31,4 @@ MonoBehaviour:
   automaticAttackFireRate: 0.8
   specialAttackDamage: 50
   specialAttackChargeTime: 5
+  reviveCurrencyPrice: 250

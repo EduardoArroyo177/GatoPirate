@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,12 +12,17 @@ public class ReviveScreenView : MonoBehaviour
     [SerializeField]
     private Button btn_payCoins;
 
-    public ResultScreenController ResultScreenController { get; set; }
+    [Header("Currencies")]
+    [SerializeField]
+    private PanelCurrenciesController panelCurrenciesController;
 
-    public void SetRevivePrice(int _coinsAmnt)
+    public ResultScreenController ResultScreenController { get; set; }
+    public PanelCurrenciesController PanelCurrenciesController { get => panelCurrenciesController; set => panelCurrenciesController = value; }
+
+    public void SetRevivePrice(int _currencyAmnt)
     {
         // TODO: Update this using localization
-        lbl_reviveCoinsPrice.text = $"Paga {_coinsAmnt} monedas";
+        lbl_reviveCoinsPrice.text = $"Pay {_currencyAmnt} coins";
     }
 
     public void SetCoinsButtonAsLocked()

@@ -99,7 +99,9 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private VoidEvent TriggerEnemyLostAnimationEvent;
     [SerializeField]
-    private VoidEvent TriggerPlayerLostAnimationEvent;    
+    private VoidEvent TriggerPlayerLostAnimationEvent;
+    [SerializeField]
+    private VoidEvent CurrenciesUpdatedEvent;
 
     [Header("Other events")]
     [SerializeField]
@@ -126,6 +128,7 @@ public class StartCombatBootstrapper : MonoBehaviour
     private void Awake()
     {
         // Load currency
+        CurrencyDataSaveManager.Instance.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
         CurrencyDataSaveManager.Instance.LoadCurrencySavedData();
         // Load settings
         SettingsDataSaveManager.Instance.LoadSettingsSavedData();
@@ -195,6 +198,8 @@ public class StartCombatBootstrapper : MonoBehaviour
         uiCanvasBootstrapper.LoadCombatFinishedAdEvent = LoadCombatFinishedAdEvent;
         uiCanvasBootstrapper.ReviveSuccessEvent = ReviveSuccessEvent;
         uiCanvasBootstrapper.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
+        uiCanvasBootstrapper.ReviveCurrencyPrice = combatData.PlayerShipData.ReviveCurrencyPrice;
+        uiCanvasBootstrapper.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
         uiCanvasBootstrapper.Initialize();
 
         // Player

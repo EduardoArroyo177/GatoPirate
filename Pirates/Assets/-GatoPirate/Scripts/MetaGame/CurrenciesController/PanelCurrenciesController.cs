@@ -47,8 +47,10 @@ public class PanelCurrenciesController : MonoBehaviour
     public void Initialize()
     {        
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CurrenciesUpdatedEvent, CurrenciesUpdatedEventCallback));
-        _eventHandlers.Add(EventHandlerFactory<CurrencyType, int>.BuildEventHandler(ShowSpentCurrencyEvent, ShowSpentCurrencyEventCallback));
-        _eventHandlers.Add(EventHandlerFactory<CurrencyType, int>.BuildEventHandler(ShowRewardedCurrencyEvent, ShowRewardedCurrencyEventCallback));
+        if(ShowSpentCurrencyEvent)
+            _eventHandlers.Add(EventHandlerFactory<CurrencyType, int>.BuildEventHandler(ShowSpentCurrencyEvent, ShowSpentCurrencyEventCallback));
+        if(ShowRewardedCurrencyEvent)
+            _eventHandlers.Add(EventHandlerFactory<CurrencyType, int>.BuildEventHandler(ShowRewardedCurrencyEvent, ShowRewardedCurrencyEventCallback));
     }
 
     #region Event callbacks

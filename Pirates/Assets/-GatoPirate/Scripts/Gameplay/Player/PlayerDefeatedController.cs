@@ -55,7 +55,7 @@ public class PlayerDefeatedController : MonoBehaviour
         yield return new WaitForSeconds(animationDelay);
         // TODO: Trigger cats faces animations
         // Trigger dotween animation
-        doTweenAnimation.DOPlayAllById("Defeated");
+        doTweenAnimation.DORestartAllById("Defeated");
     }
 
     public void DefeatedAnimationFinished()

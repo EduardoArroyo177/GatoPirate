@@ -23,12 +23,15 @@ public class UICanvasBootstrapper : MonoBehaviour
     // Result screen events
     public CharacterTypeEvent ShowResultScreenEvent { get; set; }
     public BoolEvent WinChestEvent { get; set; }
+    public VoidEvent CurrenciesUpdatedEvent { get; set; }
     // Ad events
     public VoidEvent LoadReviveAdEvent { get; set; }
     public VoidEvent LoadDoubleRewardAdEvent { get; set; }
     public VoidEvent LoadCombatFinishedAdEvent { get; set; }
     public VoidEvent ReviveSuccessEvent { get; set; }
     public VoidEvent DoubleRewardSuccessEvent { get; set; }
+    // Properties
+    public int ReviveCurrencyPrice { get; set; }
 
 
     public void Initialize()
@@ -54,6 +57,8 @@ public class UICanvasBootstrapper : MonoBehaviour
         resultScreenController.LoadCombatFinishedAdEvent = LoadCombatFinishedAdEvent;
         resultScreenController.ReviveSuccessEvent = ReviveSuccessEvent;
         resultScreenController.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
+        resultScreenController.ReviveCurrencyPrice = ReviveCurrencyPrice;
+        resultScreenController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
         resultScreenController.Initialize();
     }
 }

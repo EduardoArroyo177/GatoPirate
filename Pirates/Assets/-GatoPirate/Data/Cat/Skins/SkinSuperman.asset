@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkinSuperman
   m_EditorClassIdentifier: 
   skinType: 6
-  skinTier: 0
+  skinTier: 1
   skinName: SuperCat
   catHeadFrontSkinSprite: {fileID: 0}
   catHeadBackSkinSprite: {fileID: 0}

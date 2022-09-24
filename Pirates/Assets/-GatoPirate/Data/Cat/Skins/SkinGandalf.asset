@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkinGandalf
   m_EditorClassIdentifier: 
   skinType: 1
-  skinTier: 0
+  skinTier: 1
   skinName: Catdalf
   catHeadFrontSkinSprite: {fileID: 21300000, guid: e21872a2a46754e4cb341a0e20a64032, type: 3}
   catHeadBackSkinSprite: {fileID: 21300000, guid: 0c65e812357cf0449b9174685abb8fa2, type: 3}

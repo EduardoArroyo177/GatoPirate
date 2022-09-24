@@ -582,6 +582,7 @@ MonoBehaviour:
   pnl_earnedGems: {fileID: 2315342913514989021}
   lbl_earnedGems: {fileID: 2315342913227274302}
   resourcesAnimationDuration: 1.5
+  btn_watchAd: {fileID: 2315342914035124823}
 --- !u!114 &970353182598688895
 MonoBehaviour:
   m_ObjectHideFlags: 0

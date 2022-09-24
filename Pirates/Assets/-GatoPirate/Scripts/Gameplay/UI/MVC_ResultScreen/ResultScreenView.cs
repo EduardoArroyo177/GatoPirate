@@ -27,6 +27,10 @@ public class ResultScreenView : MonoBehaviour
     [SerializeField]
     private float resourcesAnimationDuration;
 
+    [Header("Ads")]
+    [SerializeField]
+    private GameObject btn_watchAd;
+
     public ResultScreenController ResultScreenController { get; set; }
 
     public TextMeshProUGUI Lbl_earnedCoins { get => lbl_earnedCoins; set => lbl_earnedCoins = value; }
@@ -36,6 +40,7 @@ public class ResultScreenView : MonoBehaviour
     public GameObject Pnl_earnedCoins { get => pnl_earnedCoins; set => pnl_earnedCoins = value; }
     public GameObject Pnl_earnedWood { get => pnl_earnedWood; set => pnl_earnedWood = value; }
     public GameObject Pnl_earnedGems { get => pnl_earnedGems; set => pnl_earnedGems = value; }
+    public GameObject Btn_watchAd { get => btn_watchAd; set => btn_watchAd = value; }
 
     public void StartResultScreenAnimations()
     {

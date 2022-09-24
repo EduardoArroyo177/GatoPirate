@@ -73,14 +73,21 @@ public class ResultScreenController : MonoBehaviour
     private void ReviveSuccessEventCallback(Void _item)
     {
         // The callback should restart ship health
-        // Unpause the game
         // Close reviveID screen
         reviveScreenView.gameObject.SetActive(false);
     }
 
     private void DoubleRewardSuccessEventCallback(Void _item)
-    { 
-        
+    {
+        // TODO: Update all rewards here (wood and gems/chests)
+        int startingRewardAmnt = CurrencyManager.Instance.GetCombatEarnedCoins();
+        // Save double reward
+        CurrencyDataSaveManager.Instance.UpdateEarnedCurrency(CurrencyType.GOLDEN_COINS, CurrencyManager.Instance.GetCombatEarnedCoins());
+        int totalAmnt = CurrencyDataSaveManager.Instance.GetEarnedCurrencyAmount(CurrencyType.GOLDEN_COINS);
+        // Play animation
+        StartCoroutine(CurrencyCounterAnimation(startingRewardAmnt, totalAmnt));
+        // Hide watch ad button
+        resultScreenView.Btn_watchAd.SetActive(false);
     }
     #endregion
 
@@ -100,12 +107,16 @@ public class ResultScreenController : MonoBehaviour
         //}
     }
 
-    private IEnumerator CurrencyCounterAnimation()
+    private IEnumerator CurrencyCounterAnimation(int _startingAmnt, int _totalAmnt = 0)
     {
-        int start = 0;
+        int start = _startingAmnt;
         float timer = 0;
         int score;
-        int totalAmount = CurrencyManager.Instance.GetCombatEarnedCoins();
+        int totalAmount;
+        if (_totalAmnt == 0)
+            totalAmount = CurrencyManager.Instance.GetCombatEarnedCoins();
+        else
+            totalAmount = _totalAmnt;
 
         resultScreenView.Pnl_earnedCoins.SetActive(true);
         while (timer < resultScreenView.ResourcesAnimationDuration)
@@ -149,14 +160,12 @@ public class ResultScreenController : MonoBehaviour
     // This is trigger after a certain tween
     public void TriggerResultScreenAnimations()
     {
-        StartCoroutine("CurrencyCounterAnimation");
+        StartCoroutine(CurrencyCounterAnimation(0));
     }
 
     public void WatchAdForDoubleReward()
     {
-        Debug.Log("SHOW AD!");
-        // TODO: Implement ad call
-        // TODO: Implement currency animation by increasing to double
+        LoadDoubleRewardAdEvent.Raise();
     }
 
     public void LoadMainMenuScene()

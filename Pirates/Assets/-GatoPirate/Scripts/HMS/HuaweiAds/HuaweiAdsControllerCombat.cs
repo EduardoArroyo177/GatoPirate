@@ -69,6 +69,7 @@ public class HuaweiAdsControllerCombat : MonoBehaviour
 
     private void LoadDoubleRewardAdEventCallback(Void _item)
     {
+        Debug.Log("LOADING DOUBLE REWARD");
         combatAdType = CombatAdType.DOUBLE;
 #if UNITY_EDITOR
         CombatRewardAdSuccessEventCallback(new Void());

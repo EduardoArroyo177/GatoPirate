@@ -22,4 +22,4 @@ MonoBehaviour:
     skinData: {fileID: 0}
   - catData: {fileID: 11400000, guid: ce7a3424ee52db84bb493c0ad5007a3b, type: 2}
     skinData: {fileID: 0}
-  enemyShipData: {fileID: 11400000, guid: 98208653d6ef88a45b7194246016b992, type: 2}
+  enemyShipData: {fileID: 11400000, guid: 03c28a5877ec3d74e9d8d5847b75a0f4, type: 2}

@@ -6,12 +6,27 @@ using UnityEngine;
 
 public class SoundsEffectsController : MonoBehaviour
 {
+    [Header("Combat sounds")]
     [SerializeField]
     private AudioClip specialCannonReady;
     [SerializeField]
     private AudioClip weakSpotActive;
     [SerializeField]
     private AudioClip weakSpotHit;
+
+    [Header("Result screen sounds")]
+    [SerializeField]
+    private AudioClip resultScreenShown;
+    [SerializeField]
+    private AudioClip coinsRewardShown;
+    [SerializeField]
+    private AudioClip coinsRewardFinished;
+
+    [Header("Revive screen sounds")]
+    [SerializeField]
+    private AudioClip reviveScreenShown;
+    [SerializeField]
+    private AudioClip reviveSuccess;
 
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
     public FloatEvent SetSoundsVolumeEvent { get; set; }
@@ -48,6 +63,16 @@ public class SoundsEffectsController : MonoBehaviour
                 return weakSpotActive;
             case CombatSounds.WEAK_SPOT_HIT:
                 return weakSpotHit;
+            case CombatSounds.RESULT_SCREEN_SHOWN:
+                return resultScreenShown;
+            case CombatSounds.COINS_REWARD_SHOWN:
+                return coinsRewardShown;
+            case CombatSounds.COINS_REWARD_FINISHED:
+                return coinsRewardFinished;
+            case CombatSounds.REVIVE_SCREEN_SHOWN:
+                return reviveScreenShown;
+            case CombatSounds.REVIVE_SUCCESS:
+                return reviveSuccess;
             default:
                 return specialCannonReady;
         }

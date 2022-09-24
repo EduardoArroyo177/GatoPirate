@@ -23,7 +23,8 @@ public class ResultScreenController : MonoBehaviour
     public VoidEvent LoadCombatFinishedAdEvent { get; set; }
     public VoidEvent ReviveSuccessEvent { get; set; }
     public VoidEvent DoubleRewardSuccessEvent { get; set; }
-
+    // Audio events
+    public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
 
     // Properties
     public int ReviveCurrencyPrice { get; set; }
@@ -75,6 +76,8 @@ public class ResultScreenController : MonoBehaviour
         // The callback should restart ship health
         // Close reviveID screen
         reviveScreenView.gameObject.SetActive(false);
+        // Trigger success sound
+        TriggerCombatSoundEvent.Raise(CombatSounds.REVIVE_SUCCESS);
     }
 
     private void DoubleRewardSuccessEventCallback(Void _item)
@@ -93,9 +96,12 @@ public class ResultScreenController : MonoBehaviour
 
     private void LoadResultScreen()
     {
-        resultScreenView.gameObject.SetActive(true);
 
-        // TODO: Save data in combat data
+        resultScreenView.gameObject.SetActive(true);
+        // Trigger result screen shown sound
+        TriggerCombatSoundEvent.Raise(CombatSounds.RESULT_SCREEN_SHOWN);
+
+        // Save data in combat data
         CurrencyDataSaveManager.Instance.UpdateEarnedCurrency(CurrencyType.GOLDEN_COINS, CurrencyManager.Instance.GetCombatEarnedCoins());
         // TODO: Uncomment this when wood is available in the game
         //CurrencyDataSaveManager.Instance.UpdateEarnedCurrency(CurrencyType.WOOD, CurrencyManager.Instance.GetCombatEarnedWood());
@@ -117,8 +123,9 @@ public class ResultScreenController : MonoBehaviour
             totalAmount = CurrencyManager.Instance.GetCombatEarnedCoins();
         else
             totalAmount = _totalAmnt;
-
         resultScreenView.Pnl_earnedCoins.SetActive(true);
+        // Trigger starting reward sound
+        TriggerCombatSoundEvent.Raise(CombatSounds.COINS_REWARD_SHOWN);
         while (timer < resultScreenView.ResourcesAnimationDuration)
         {
             float progress = timer / resultScreenView.ResourcesAnimationDuration;
@@ -130,6 +137,9 @@ public class ResultScreenController : MonoBehaviour
 
         score = totalAmount;
         resultScreenView.Lbl_earnedCoins.text = $"{score}";
+        // Trigger finished sound
+        TriggerCombatSoundEvent.Raise(CombatSounds.COINS_REWARD_FINISHED);
+
         // TODO: Trigger animation or vfx for the total earned coins
 
         // TODO: Copy and paste previous block and update wood and gems if needed
@@ -153,6 +163,8 @@ public class ResultScreenController : MonoBehaviour
         // Show revive screen
         CurrenciesUpdatedEvent.Raise();
         reviveScreenView.gameObject.SetActive(true);
+        // Trigger revive screen shown sound
+        TriggerCombatSoundEvent.Raise(CombatSounds.REVIVE_SCREEN_SHOWN);
     }
 
     #region Public methods
@@ -183,7 +195,6 @@ public class ResultScreenController : MonoBehaviour
 
     public void ReviveWithAd()
     { 
-        // TODO:
         // Trigger an ad
         LoadReviveAdEvent.Raise();
     }

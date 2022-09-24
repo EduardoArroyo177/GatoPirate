@@ -200,6 +200,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         uiCanvasBootstrapper.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
         uiCanvasBootstrapper.ReviveCurrencyPrice = combatData.PlayerShipData.ReviveCurrencyPrice;
         uiCanvasBootstrapper.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
+        uiCanvasBootstrapper.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
         uiCanvasBootstrapper.Initialize();
 
         // Player

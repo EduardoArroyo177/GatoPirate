@@ -30,6 +30,9 @@ public class UICanvasBootstrapper : MonoBehaviour
     public VoidEvent LoadCombatFinishedAdEvent { get; set; }
     public VoidEvent ReviveSuccessEvent { get; set; }
     public VoidEvent DoubleRewardSuccessEvent { get; set; }
+    // Audio events
+    public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
+
     // Properties
     public int ReviveCurrencyPrice { get; set; }
 
@@ -59,6 +62,7 @@ public class UICanvasBootstrapper : MonoBehaviour
         resultScreenController.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
         resultScreenController.ReviveCurrencyPrice = ReviveCurrencyPrice;
         resultScreenController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
+        resultScreenController.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
         resultScreenController.Initialize();
     }
 }

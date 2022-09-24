@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catType: 6
   catTier: 0
-  catName: Tulus
+  catName: Orange cat
   catHeadSprite: {fileID: 21300000, guid: bc3e506d5f553b54888268c039a91c30, type: 3}
   catBodySprite: {fileID: 21300000, guid: 71db4b099d6b0d640b77da0e5b2100d2, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: c76df101109bfb946b69ad0089acf93d, type: 3}
@@ -24,8 +24,10 @@ MonoBehaviour:
   catTailSprite: {fileID: 21300000, guid: 66565c9177da788499c2e12a5fa4bf1d, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 144abb7f82e4fd24bbe8b234705bc190, type: 3}
   catColor: {r: 1, g: 1, b: 1, a: 1}
-  catDescription: Tulus
+  catDescription: Wait, didn't we see another orange cat already?
   catPreviewSprite: {fileID: 21300000, guid: 39c15ee05c7023548b97ebf5188d1e4e, type: 3}
   catPrice: 100
+  currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0
+  meowSound: 0

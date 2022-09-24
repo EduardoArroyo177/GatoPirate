@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catType: 4
   catTier: 0
-  catName: Blanco
+  catName: White cat
   catHeadSprite: {fileID: 21300000, guid: b9918b4af97d8e74cbbd598e44963f80, type: 3}
   catBodySprite: {fileID: 21300000, guid: f3bf5c342f94206439b9f0736429e683, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 07c8c827b1d4a3247b95c39c8d8a7e6b, type: 3}
@@ -24,7 +24,7 @@ MonoBehaviour:
   catTailSprite: {fileID: 21300000, guid: c46729e2787a51646b89214c2e245aa6, type: 3}
   catEyesSprite: {fileID: 21300000, guid: d8801c9afd7566a4db7e2485b0b714ce, type: 3}
   catColor: {r: 1, g: 1, b: 1, a: 1}
-  catDescription: Gato blanco
+  catDescription: I want you to pet me... but only exactly 3 times, then I'll bite
   catPreviewSprite: {fileID: 21300000, guid: bd4b6283ff9428e4bbdb0cff0d715da3, type: 3}
   catPrice: 100
   currencyType: 0

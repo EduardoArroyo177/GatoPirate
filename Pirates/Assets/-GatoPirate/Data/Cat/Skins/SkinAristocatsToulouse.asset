@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinType: 3
   skinTier: 0
-  skinName: "Tul\xFAs"
+  skinName: Tulus
   catHeadFrontSkinSprite: {fileID: 0}
   catHeadBackSkinSprite: {fileID: 0}
   catBodyFrontSkinSprite: {fileID: 21300000, guid: 0f65efad1e096d54c87ccf0ff2f3faa7, type: 3}
@@ -29,7 +29,7 @@ MonoBehaviour:
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
   skinColor: {r: 1, g: 1, b: 1, a: 1}
-  skinDescription: 
+  skinDescription: MEOWW! pfff pfff pff pfffts
   skinPreviewSprite: {fileID: 21300000, guid: 561e651cc71a3b74b98f8f03dfbb75c4, type: 3}
   skinPrice: 100
   currencyType: 0

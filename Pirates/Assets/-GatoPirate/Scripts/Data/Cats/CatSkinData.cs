@@ -58,7 +58,7 @@ public class CatSkinData : ScriptableObject
 
     [Header("Catalogue data")]
     [Header("Cat data")]
-    [SerializeField]
+    [SerializeField, TextArea]
     private string skinDescription;
     [SerializeField]
     private Sprite skinPreviewSprite;

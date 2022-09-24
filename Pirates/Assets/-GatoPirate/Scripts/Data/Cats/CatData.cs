@@ -37,7 +37,7 @@ public class CatData : ScriptableObject
 
     [Header("Catalogue data")]
     [Header("Cat data")]
-    [SerializeField]
+    [SerializeField, TextArea]
     private string catDescription;
     [SerializeField]
     private Sprite catPreviewSprite;

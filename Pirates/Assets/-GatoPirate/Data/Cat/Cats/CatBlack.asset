@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catType: 3
   catTier: 0
-  catName: Negro
+  catName: Black Cat
   catHeadSprite: {fileID: 21300000, guid: c9bc6e6810fd44949a15d076813e4bc9, type: 3}
   catBodySprite: {fileID: 21300000, guid: 634f9c52c67e9bb45b735bc6f2fcb304, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: aaa5477b7ab771b418c3577c32e8f516, type: 3}
@@ -24,7 +24,8 @@ MonoBehaviour:
   catTailSprite: {fileID: 21300000, guid: d48f650a14c74ef49a38bb035ce7e576, type: 3}
   catEyesSprite: {fileID: 21300000, guid: c778bfdc8c1abf447995579f0d511f9a, type: 3}
   catColor: {r: 1, g: 1, b: 1, a: 1}
-  catDescription: Gato negro
+  catDescription: Bad luck is just a myth!... Ok, maybe you can fall down and break
+    a leg while having this by your side, but not because of bad luck!
   catPreviewSprite: {fileID: 21300000, guid: 7f660bfa0b10711499c6bda1657c9ba7, type: 3}
   catPrice: 100
   currencyType: 0

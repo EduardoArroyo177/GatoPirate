@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catType: 5
   catTier: 0
-  catName: "Siam\xE9s"
+  catName: Siamese cat
   catHeadSprite: {fileID: 21300000, guid: 9d69be54ba9c49942a500d920835b09f, type: 3}
   catBodySprite: {fileID: 21300000, guid: 5ecad0a7f3d229a4f81efceb0870f868, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: d8d0bd847058a1743bad05a7e8240a4d, type: 3}
@@ -24,7 +24,7 @@ MonoBehaviour:
   catTailSprite: {fileID: 21300000, guid: 7b35564b9316b6f4992e50cad41bc65c, type: 3}
   catEyesSprite: {fileID: 21300000, guid: ecfa942489356144c96e875e4b18dfa9, type: 3}
   catColor: {r: 1, g: 1, b: 1, a: 1}
-  catDescription: "Gato siam\xE9s"
+  catDescription: "\"Look into my eyes... \nNow give me all your foods\""
   catPreviewSprite: {fileID: 21300000, guid: acb436ce602576f49976c803f4ae273d, type: 3}
   catPrice: 100
   currencyType: 0

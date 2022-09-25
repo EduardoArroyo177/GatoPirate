@@ -27,7 +27,7 @@ MonoBehaviour:
   catDescription: Bad luck is just a myth!... Ok, maybe you can fall down and break
     a leg while having this by your side, but not because of bad luck!
   catPreviewSprite: {fileID: 21300000, guid: 7f660bfa0b10711499c6bda1657c9ba7, type: 3}
-  catPrice: 100
+  catPrice: 1200
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

@@ -101,3 +101,23 @@ public class DataSaveSettingsStructure
     }
 }
 #endregion
+
+#region Tutorial management
+[Serializable]
+public class DataSaveTutorialStructure
+{
+    public string TutorialType;
+    public bool IsCompleted;
+}
+
+[Serializable]
+public class DataSaveTutorialListStructure
+{
+    public List<DataSaveTutorialStructure> TutorialList;
+
+    public DataSaveTutorialListStructure()
+    {
+        TutorialList = new List<DataSaveTutorialStructure>();
+    }
+}
+#endregion

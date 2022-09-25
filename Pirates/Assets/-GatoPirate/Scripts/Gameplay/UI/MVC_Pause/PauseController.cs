@@ -14,6 +14,8 @@ public class PauseController : MonoBehaviour
     private float pauseMusicVolume;
 
     public VoidEvent PauseGameEvent { get; set; }
+    public VoidEvent PauseWihtoutScreenEvent { get; set; }
+    public VoidEvent ResumeGameEvent { get; set; }
     public VoidEvent LoadCombatSceneEvent { get; set; }
     public VoidEvent LoadMainMenuSceneEvent { get; set; }
     public FloatEvent SetMusicVolumeEvent { get; set; }
@@ -24,6 +26,8 @@ public class PauseController : MonoBehaviour
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(PauseGameEvent, PauseGameEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(PauseWihtoutScreenEvent, PauseWihtoutScreenEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ResumeGameEvent, ResumeGameEventCallback));
         pauseView.PauseController = this;
         popUpView.PauseController = this;
     }
@@ -33,8 +37,22 @@ public class PauseController : MonoBehaviour
     {
         Time.timeScale = 0;
         pauseView.gameObject.SetActive(true);
-        // TODO: Lower music volume
+        // Lower music volume
         SetMusicVolumeEvent.Raise(pauseMusicVolume);
+    }
+
+    private void PauseWihtoutScreenEventCallback(Void _item)
+    {
+        Time.timeScale = 0;
+        // Lower music volume
+        SetMusicVolumeEvent.Raise(pauseMusicVolume);
+    }
+
+    private void ResumeGameEventCallback(Void _item)
+    {
+        pauseView.gameObject.SetActive(false);
+        Time.timeScale = 1;
+        SetPreviousMusicVolumeEvent.Raise();
     }
     #endregion
 
@@ -55,7 +73,7 @@ public class PauseController : MonoBehaviour
 
     public void ShowQuitPopUp()
     {
-        // TODO: show quit confirmation pop up
+        // show quit confirmation pop up
         popUpView.gameObject.SetActive(true);
     }
 

@@ -74,6 +74,10 @@ public class StartCombatBootstrapper : MonoBehaviour
     private UICanvasBootstrapper uiCanvasBootstrapper;
     [SerializeField]
     private VoidEvent PauseGameEvent;
+    [SerializeField]
+    private VoidEvent PauseWihtoutScreenEvent;
+    [SerializeField]
+    private VoidEvent ResumeGameEvent;
 
     [Header("Starting animations events")]
     [SerializeField]
@@ -123,6 +127,14 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private VoidEvent DoubleRewardSuccessEvent;
 
+    [Header("Tutorial events")]
+    [SerializeField]
+    private VoidEvent TriggerCombatTutorialEvent;
+    [SerializeField]
+    private VoidEvent TriggerCombatWeakSpotTutorialEvent;
+    [SerializeField]
+    private VoidEvent TriggerCombatResourcesBoxTutorialEvent;
+
     private int playerActiveCannons;
 
     private void Awake()
@@ -132,6 +144,8 @@ public class StartCombatBootstrapper : MonoBehaviour
         CurrencyDataSaveManager.Instance.LoadCurrencySavedData();
         // Load settings
         SettingsDataSaveManager.Instance.LoadSettingsSavedData();
+        // Load tutorial data
+        TutorialDataSaveManager.Instance.LoadTutorialSavedData();
 
         // Scene loader
         sceneLoaderManager.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
@@ -175,7 +189,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         VibrationController.Instance.Initialize();
 
         // Start combat controller
-        startCombatController.StartCombatEvent = StartCombatEvent;
+        startCombatController.TriggerCombatTutorialEvent = TriggerCombatTutorialEvent;
         startCombatController.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
         startCombatController.Initialize();
 
@@ -187,6 +201,8 @@ public class StartCombatBootstrapper : MonoBehaviour
         virtualCameraController.Initialize();
 
         uiCanvasBootstrapper.PauseGameEvent = PauseGameEvent;
+        uiCanvasBootstrapper.PauseWihtoutScreenEvent = PauseWihtoutScreenEvent;
+        uiCanvasBootstrapper.ResumeGameEvent = ResumeGameEvent;
         uiCanvasBootstrapper.LoadCombatSceneEvent = LoadCombatSceneEvent;
         uiCanvasBootstrapper.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
         uiCanvasBootstrapper.SetMusicVolumeEvent = SetMusicVolumeEvent;
@@ -200,7 +216,11 @@ public class StartCombatBootstrapper : MonoBehaviour
         uiCanvasBootstrapper.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
         uiCanvasBootstrapper.ReviveCurrencyPrice = combatData.PlayerShipData.ReviveCurrencyPrice;
         uiCanvasBootstrapper.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
+        uiCanvasBootstrapper.StartCombatEvent = StartCombatEvent;
         uiCanvasBootstrapper.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
+        uiCanvasBootstrapper.TriggerCombatTutorialEvent = TriggerCombatTutorialEvent;
+        uiCanvasBootstrapper.TriggerCombatWeakSpotTutorialEvent = TriggerCombatWeakSpotTutorialEvent;
+        uiCanvasBootstrapper.TriggerCombatResourcesBoxTutorialEvent = TriggerCombatResourcesBoxTutorialEvent;
         uiCanvasBootstrapper.Initialize();
 
         // Player
@@ -236,6 +256,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         enemyGameplayBootstrapper.SkipInitialAnimationsEvent = SkipInitialAnimationsEvent;
         enemyGameplayBootstrapper.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
         enemyGameplayBootstrapper.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        enemyGameplayBootstrapper.TriggerCombatWeakSpotTutorialEvent = TriggerCombatWeakSpotTutorialEvent;
 
         enemyGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         enemyGameplayBootstrapper.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;

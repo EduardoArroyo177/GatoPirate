@@ -127,6 +127,16 @@ public enum ItemTier
 }
 #endregion
 
+#region Tutorial
+public enum TutorialType
+{ 
+    COMBAT,
+    COMBAT_WEAK_SPOT,
+    COMBAT_RESOURCES_BOX,
+    META_GAME
+}
+#endregion
+
 #region Islands
 public enum Island
 { 

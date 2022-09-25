@@ -35,6 +35,7 @@ public class EnemyShipWeakSpotController : MonoBehaviour
     public VoidEvent StopCombatEvent { get; set; }
     public VoidEvent ResumeCombatEvent { get; set; }
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
+    public VoidEvent TriggerCombatWeakSpotTutorialEvent { get; set; }
 
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
@@ -165,13 +166,16 @@ public class EnemyShipWeakSpotController : MonoBehaviour
     {
         // Trigger sound for weak spot active
         TriggerCombatSoundEvent.Raise(CombatSounds.WEAK_SPOT_ACTIVE);
-        // TODO: Show particles for weak spot active
+        // Show particles for weak spot active
         GameObject particles = ObjectPooling.Instance.GetWeakSpotActiveParticles();
         if (particles)
         {
             particles.transform.position = weakSpotIndicator.transform.position;
             particles.SetActive(true);
         }
+
+
+
         yield return new WaitForSeconds(WeakSpotCoolDownTime);
         // Disable weak spot
         weakSpotIndicator.gameObject.SetActive(false);

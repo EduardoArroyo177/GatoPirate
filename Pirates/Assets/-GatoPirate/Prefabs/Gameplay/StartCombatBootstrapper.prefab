@@ -69,6 +69,8 @@ MonoBehaviour:
   virtualCameraController: {fileID: 0}
   uiCanvasBootstrapper: {fileID: 0}
   PauseGameEvent: {fileID: 11400000, guid: b20c8ea02a6006f4ab22c9f8fbc845cf, type: 2}
+  PauseWihtoutScreenEvent: {fileID: 11400000, guid: 6e861e75904b154429524fb3e2cd933a, type: 2}
+  ResumeGameEvent: {fileID: 11400000, guid: 8a0ef0d59cb305a42905f95a9608d157, type: 2}
   TriggerPlayerStartingAnimationEvent: {fileID: 11400000, guid: 8cdce201dda29a6458a7936bf41dc226, type: 2}
   TriggerEnemyStartingAnimationEvent: {fileID: 11400000, guid: 9636546a6dde715419a86f6c27bff2c7, type: 2}
   StartingAnimationsFinishedEvent: {fileID: 11400000, guid: 20c09da1367f8954ebdac5dfd0f44a95, type: 2}
@@ -89,3 +91,6 @@ MonoBehaviour:
   CombatRewardAdSuccessEvent: {fileID: 11400000, guid: 654af77652625ea4bab74c236b0449b4, type: 2}
   ReviveSuccessEvent: {fileID: 11400000, guid: 419bd120349a83c459ae921fd4cc578f, type: 2}
   DoubleRewardSuccessEvent: {fileID: 11400000, guid: e5b9a31a33f5b55489d24b0ab1bdd082, type: 2}
+  TriggerCombatTutorialEvent: {fileID: 11400000, guid: c56e68bedb8b0a6479b9456660171d60, type: 2}
+  TriggerCombatWeakSpotTutorialEvent: {fileID: 11400000, guid: dfef225f63e564f49932286cb193daa8, type: 2}
+  TriggerCombatResourcesBoxTutorialEvent: {fileID: 11400000, guid: 1a39a1b1a7bd518459d8c15c829373d9, type: 2}

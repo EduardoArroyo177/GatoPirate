@@ -12,9 +12,13 @@ public class UICanvasBootstrapper : MonoBehaviour
     private PauseController pauseController;
     [SerializeField]
     private PlayerResourcesController playerResourcesController;
+    [SerializeField]
+    private TutorialCombatController tutorialCombatController;
 
     // Pause events
     public VoidEvent PauseGameEvent { get; set; }
+    public VoidEvent PauseWihtoutScreenEvent { get; set; }
+    public VoidEvent ResumeGameEvent { get; set; }
     public VoidEvent LoadCombatSceneEvent { get; set; }
     public VoidEvent LoadMainMenuSceneEvent { get; set; }
     public FloatEvent SetMusicVolumeEvent { get; set; }
@@ -33,6 +37,12 @@ public class UICanvasBootstrapper : MonoBehaviour
     // Audio events
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
 
+    // Tutorial events
+    public VoidEvent StartCombatEvent { get; set; }
+    public VoidEvent TriggerCombatTutorialEvent { get; set; }
+    public VoidEvent TriggerCombatWeakSpotTutorialEvent { get; set; }
+    public VoidEvent TriggerCombatResourcesBoxTutorialEvent { get; set; }
+
     // Properties
     public int ReviveCurrencyPrice { get; set; }
 
@@ -41,6 +51,8 @@ public class UICanvasBootstrapper : MonoBehaviour
     {
         // Pause
         pauseController.PauseGameEvent = PauseGameEvent;
+        pauseController.PauseWihtoutScreenEvent = PauseWihtoutScreenEvent;
+        pauseController.ResumeGameEvent = ResumeGameEvent;
         pauseController.LoadCombatSceneEvent = LoadCombatSceneEvent;
         pauseController.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
         pauseController.SetMusicVolumeEvent = SetMusicVolumeEvent;
@@ -64,5 +76,14 @@ public class UICanvasBootstrapper : MonoBehaviour
         resultScreenController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
         resultScreenController.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
         resultScreenController.Initialize();
+
+        // Tutorial 
+        tutorialCombatController.StartCombatEvent = StartCombatEvent;
+        tutorialCombatController.PauseWihtoutScreenEvent = PauseWihtoutScreenEvent;
+        tutorialCombatController.ResumeGameEvent = ResumeGameEvent;
+        tutorialCombatController.TriggerCombatTutorialEvent = TriggerCombatTutorialEvent;
+        tutorialCombatController.TriggerCombatWeakSpotTutorialEvent = TriggerCombatWeakSpotTutorialEvent;
+        tutorialCombatController.TriggerCombatResourcesBoxTutorialEvent = TriggerCombatResourcesBoxTutorialEvent;
+        tutorialCombatController.Initialize();
     }
 }

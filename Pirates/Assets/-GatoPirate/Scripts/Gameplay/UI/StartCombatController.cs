@@ -12,7 +12,8 @@ public class StartCombatController : MonoBehaviour
     private float startCombatDelay;
     [SerializeField]
     private GameObject btn_skipIntro;
-    public VoidEvent StartCombatEvent { get; set; }
+
+    public VoidEvent TriggerCombatTutorialEvent { get; set; }
     public VoidEvent StartingAnimationsFinishedEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -34,7 +35,7 @@ public class StartCombatController : MonoBehaviour
 
     private void StartCombatDelayed()
     {
-        StartCombatEvent.Raise();
+        TriggerCombatTutorialEvent.Raise();
         btn_skipIntro.SetActive(false);
         startCombatView.SetActive(false);
     }

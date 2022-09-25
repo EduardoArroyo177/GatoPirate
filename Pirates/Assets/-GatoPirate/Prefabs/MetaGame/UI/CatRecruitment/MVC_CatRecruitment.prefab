@@ -5666,7 +5666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134f367872ff73443a639726b65243d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lbl_itemName: {fileID: 0}
+  lbl_itemName: {fileID: 6813157023904813562}
   img_selectedItem: {fileID: 1035045328555274038}
   lbl_itemDescription: {fileID: 1035045328435590902}
   lbl_itemPrice: {fileID: 1035045329533612253}

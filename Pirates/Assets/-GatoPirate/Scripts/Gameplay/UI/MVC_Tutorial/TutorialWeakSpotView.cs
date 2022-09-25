@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class TutorialWeakSpotView : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private float tutorialShownDelay;
 
-    // Update is called once per frame
-    void Update()
+    public TutorialCombatController TutorialCombatController { get; set; }
+    public float TutorialShownDelay { get => tutorialShownDelay; set => tutorialShownDelay = value; }
+
+    #region Button methods
+    public void FinishTutorial()
     {
-        
+        TutorialCombatController.CompleteWeakSpotTutorial();
     }
+    #endregion
 }

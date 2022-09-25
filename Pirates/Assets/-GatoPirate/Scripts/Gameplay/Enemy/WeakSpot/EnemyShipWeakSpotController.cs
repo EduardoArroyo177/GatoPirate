@@ -174,7 +174,8 @@ public class EnemyShipWeakSpotController : MonoBehaviour
             particles.SetActive(true);
         }
 
-
+        if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.COMBAT_WEAK_SPOT))
+            TriggerCombatWeakSpotTutorialEvent.Raise();
 
         yield return new WaitForSeconds(WeakSpotCoolDownTime);
         // Disable weak spot

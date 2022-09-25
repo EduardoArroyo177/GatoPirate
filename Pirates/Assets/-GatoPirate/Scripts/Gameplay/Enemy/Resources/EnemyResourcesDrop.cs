@@ -39,6 +39,9 @@ public class EnemyResourcesDrop : MonoBehaviour
     public float ChanceToGiveChest { get; set; }
     public BoolEvent WinChestEvent { get; set; }
 
+    // Tutorial
+    public VoidEvent TriggerCombatResourcesBoxTutorialEvent { get; set; }
+
     private int currentAvailableResourcesBoxes;
 
     public void Initialize()
@@ -127,6 +130,9 @@ public class EnemyResourcesDrop : MonoBehaviour
 
             if (Random.value > (1.0 - boxDecimalPercentage))
             {
+                if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.COMBAT_RESOURCES_BOX))
+                    TriggerCombatResourcesBoxTutorialEvent.Raise();
+
                 switch (Random.Range(0, 3))
                 {
                     case 0:

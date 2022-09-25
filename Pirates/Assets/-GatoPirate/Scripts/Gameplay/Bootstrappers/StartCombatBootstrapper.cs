@@ -257,6 +257,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         enemyGameplayBootstrapper.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
         enemyGameplayBootstrapper.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
         enemyGameplayBootstrapper.TriggerCombatWeakSpotTutorialEvent = TriggerCombatWeakSpotTutorialEvent;
+        enemyGameplayBootstrapper.TriggerCombatResourcesBoxTutorialEvent = TriggerCombatResourcesBoxTutorialEvent;
 
         enemyGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         enemyGameplayBootstrapper.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;

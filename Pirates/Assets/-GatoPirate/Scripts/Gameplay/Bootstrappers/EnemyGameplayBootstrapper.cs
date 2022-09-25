@@ -58,7 +58,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
     public FloatEvent SetSoundsVolumeEvent { get; set; }
     public VoidEvent TriggerCombatWeakSpotTutorialEvent { get; set; }
-
+    public VoidEvent TriggerCombatResourcesBoxTutorialEvent { get; set; }
 
     // Properties
     public EnemyShipData EnemyShipData { get => enemyShipData; set => enemyShipData = value; }
@@ -157,6 +157,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyResourcesDrop.GoldResourcesDroppedEvent = GoldResourcesDroppedEvent;
         enemyResourcesDrop.WoodResourcesDroppedEvent = WoodResourcesDroppedEvent;
         enemyResourcesDrop.WinChestEvent = WinChestEvent;
+        enemyResourcesDrop.TriggerCombatResourcesBoxTutorialEvent = TriggerCombatResourcesBoxTutorialEvent; ;
 
         enemyResourcesDrop.Initialize();
 

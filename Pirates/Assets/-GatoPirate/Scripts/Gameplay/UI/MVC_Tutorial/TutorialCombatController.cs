@@ -29,6 +29,8 @@ public class TutorialCombatController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerCombatResourcesBoxTutorialEvent, TriggerCombatResourcesBoxTutorialEventCallback));
 
         tutorialCombatView.TutorialCombatController = this;
+        tutorialWeakSpotView.TutorialCombatController = this;
+        tutorialResourcesBoxView.TutorialCombatController = this;
     }
 
     #region Event callbacks
@@ -49,9 +51,8 @@ public class TutorialCombatController : MonoBehaviour
     {
         if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.COMBAT_WEAK_SPOT))
         {
-            // TODO: Pause the game
-            PauseWihtoutScreenEvent.Raise();
-            // TODO: Show weak spot tutorial
+            // Trigger tutorial with delay
+            StartCoroutine("ShowWeakSpotTutorialDelayed");
         }
     }
 
@@ -59,10 +60,28 @@ public class TutorialCombatController : MonoBehaviour
     {
         if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.COMBAT_RESOURCES_BOX))
         {
-            // TODO: Pause the game
-            PauseWihtoutScreenEvent.Raise();
-            // TODO: Show resources box tutorial
+            StartCoroutine("ShowResourcesBoxTutorialDelayed");
         }
+    }
+    #endregion
+
+    #region Tutorial helper methods
+    private IEnumerator ShowWeakSpotTutorialDelayed()
+    {
+        yield return new WaitForSeconds(tutorialWeakSpotView.TutorialShownDelay);
+        // Pause the game
+        PauseWihtoutScreenEvent.Raise();
+        // Show weak spot tutorial
+        tutorialWeakSpotView.gameObject.SetActive(true);
+    }
+
+    private IEnumerator ShowResourcesBoxTutorialDelayed()
+    {
+        yield return new WaitForSeconds(tutorialResourcesBoxView.TutorialShownDelay);
+        // Pause the game
+        PauseWihtoutScreenEvent.Raise();
+        // Show resources box tutorial
+        tutorialResourcesBoxView.gameObject.SetActive(true);
     }
     #endregion
 
@@ -77,13 +96,16 @@ public class TutorialCombatController : MonoBehaviour
 
     public void CompleteWeakSpotTutorial()
     {
+        TutorialDataSaveManager.Instance.UpdateTutorialCompleted(TutorialType.COMBAT_WEAK_SPOT);
         ResumeGameEvent.Raise();
-
+        tutorialWeakSpotView.gameObject.SetActive(false);
     }
 
     public void CompleteResourcesBoxTutorial()
     {
+        TutorialDataSaveManager.Instance.UpdateTutorialCompleted(TutorialType.COMBAT_RESOURCES_BOX);
         ResumeGameEvent.Raise();
+        tutorialResourcesBoxView.gameObject.SetActive(false);
     }
     #endregion
 

@@ -31,6 +31,7 @@ MonoBehaviour:
   automaticAttackFireRate: 0
   specialAttackDamage: 150
   specialAttackChargeTime: 10
+  reviveCurrencyPrice: 0
   numberOfActiveCannons: 4
   cannonAttackRateMin: 1.3
   cannonAttackRateMax: 1.8
@@ -43,7 +44,7 @@ MonoBehaviour:
   basicResourcesDroppedAmntMax: 3
   normalResourcesDroppedAmntMin: 25
   normalResourcesDroppedAmntMax: 40
-  chanceToDropResourcesBox: 30
+  chanceToDropResourcesBox: 100
   resourcesBoxesPerCombat: 3
   resourcesBoxAmntMin: 100
   resourcesBoxAmntMax: 250

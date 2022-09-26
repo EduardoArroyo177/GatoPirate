@@ -22,6 +22,7 @@ public class CatRecruitmentView : MonoBehaviour
     [SerializeField]
     private Transform skinPremiumCatalogueContent;
 
+    public CatRecruitmentController CatRecruitmentController { get; set; }
     public GameObject CatalogueItemView { get => catalogueItemView; set => catalogueItemView = value; }
     // Cat content
     public Transform CatBasicCatalogueContent { get => catBasicCatalogueContent; set => catBasicCatalogueContent = value; }
@@ -30,4 +31,9 @@ public class CatRecruitmentView : MonoBehaviour
     public Transform SkinBasicCatalogueContent { get => skinBasicCatalogueContent; set => skinBasicCatalogueContent = value; }
     public Transform SkinSpecialCatalogueContent { get => skinSpecialCatalogueContent; set => skinSpecialCatalogueContent = value; }
     public Transform SkinPremiumCatalogueContent { get => skinPremiumCatalogueContent; set => skinPremiumCatalogueContent = value; }
+
+    public void CloseRecruitmentView()
+    {
+        CatRecruitmentController.ClosedRecruitmentView();
+    }
 }

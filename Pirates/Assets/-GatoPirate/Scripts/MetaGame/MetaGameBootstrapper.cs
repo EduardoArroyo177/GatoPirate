@@ -168,6 +168,20 @@ public class MetaGameBootstrapper : MonoBehaviour
     private VoidEvent LoadFreeCoinsAdRecruitmentEvent;
     [SerializeField]
     private VoidEvent LoadFreeCoinsAdStoreEvent;
+
+    [Header("Tutorial")]
+    [SerializeField]
+    private TutorialMetaGameController tutorialMetaGameController;
+    [SerializeField]
+    private VoidEvent TriggerMetaGameTutorialEvent;
+    [SerializeField]
+    private VoidEvent TriggerMetaGameRecruitmentTutorialEvent;
+    [SerializeField] 
+    private VoidEvent TriggerMetaGameIslandTutorialEvent;
+    [SerializeField] 
+    private VoidEvent TriggerMetaGameCrewTutorialEvent;
+    [SerializeField] 
+    private VoidEvent FreeRecruitmentTutorialEvent;
     #endregion
 
     private void Awake()
@@ -177,6 +191,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         CurrencyDataSaveManager.Instance.LoadCurrencySavedData();
         CurrencyDataSaveManager.Instance.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
         SettingsDataSaveManager.Instance.LoadSettingsSavedData();
+        TutorialDataSaveManager.Instance.LoadTutorialSavedData();
 
         // Music and audio
         musicManager.TriggerIslandMusicEvent = TriggerIslandMusicEvent;
@@ -256,6 +271,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catCrewManagementController.OpenCatCrewManagementNoIDEvent = OpenCatCrewManagementNoIDEvent;
         catCrewManagementController.StartCombatEvent = StartCombatEvent;
         catCrewManagementController.TriggerCatSoundEvent = TriggerCatSoundEvent;
+        catCrewManagementController.TriggerMetaGameCrewTutorialEvent = TriggerMetaGameCrewTutorialEvent;
         catCrewManagementController.Initialize();
 
         // Cat recruitment
@@ -270,6 +286,9 @@ public class MetaGameBootstrapper : MonoBehaviour
         catRecruitmentController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
         catRecruitmentController.ShowSpentCurrencyEvent = ShowSpentCurrencyEvent;
         catRecruitmentController.TriggerUISoundEvent = TriggerUISoundEvent;
+        catRecruitmentController.TriggerMetaGameRecruitmentTutorialEvent = TriggerMetaGameRecruitmentTutorialEvent;
+        catRecruitmentController.FreeRecruitmentTutorialEvent = FreeRecruitmentTutorialEvent;
+        catRecruitmentController.TriggerMetaGameIslandTutorialEvent = TriggerMetaGameIslandTutorialEvent;
         catRecruitmentController.Initialize();
 
         // Cat options
@@ -308,11 +327,20 @@ public class MetaGameBootstrapper : MonoBehaviour
         adsControllerMenu.ShowRewardedCurrencyEvent = ShowRewardedCurrencyEvent;
         adsControllerMenu.Initialize();
 
+        // Tutorial
+        tutorialMetaGameController.TriggerMetaGameTutorialEvent = TriggerMetaGameTutorialEvent;
+        tutorialMetaGameController.TriggerMetaGameRecruitmentTutorialEvent = TriggerMetaGameRecruitmentTutorialEvent;
+        tutorialMetaGameController.TriggerMetaGameIslandTutorialEvent = TriggerMetaGameIslandTutorialEvent;
+        tutorialMetaGameController.TriggerMetaGameCrewTutorialEvent = TriggerMetaGameCrewTutorialEvent;
+        tutorialMetaGameController.FreeRecruitmentTutorialEvent = FreeRecruitmentTutorialEvent;
+        tutorialMetaGameController.Initialize();
+
         // Init completed
         GameInitializationCompleted();
 
         // Result screen
         resultScreenController.TriggerUISoundEvent = TriggerUISoundEvent;
+        resultScreenController.TriggerMetaGameTutorialEvent = TriggerMetaGameTutorialEvent;
         resultScreenController.Initialize();
     }
 

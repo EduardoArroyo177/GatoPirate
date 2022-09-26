@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class TutorialMetaGameCrewView : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private float tutorialShownDelay;
 
-    // Update is called once per frame
-    void Update()
+    public TutorialMetaGameController TutorialMetaGameController { get; set; }
+    public float TutorialShownDelay { get => tutorialShownDelay; set => tutorialShownDelay = value; }
+
+
+    #region Button methods
+    public void FinishTutorial()
     {
-        
+        TutorialMetaGameController.CompleteCrewTutorial();
     }
+    #endregion
 }

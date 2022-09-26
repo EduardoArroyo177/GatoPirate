@@ -47,6 +47,13 @@ public class CatRecruitmentController : MonoBehaviour
 
     // Sounds
     public UISoundsEvent TriggerUISoundEvent { get; set; }
+
+    // Tutorial
+    public VoidEvent TriggerMetaGameRecruitmentTutorialEvent { get; set; }
+    public VoidEvent FreeRecruitmentTutorialEvent { get; set; }
+    public VoidEvent TriggerMetaGameIslandTutorialEvent { get; set; }
+
+
     #endregion
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -65,7 +72,9 @@ public class CatRecruitmentController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedCatInfoEvent, ShowSelectedCatEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedSkinInfoEvent, ShowSelectedSkinInfoEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CurrenciesUpdatedEvent, CurrenciesUpdatedEventCallback));
-
+        
+        catRecruitmentView.CatRecruitmentController = this;
+       
         catRecruitmentPopUpsView.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
         catRecruitmentPopUpsView.Initialize();
 
@@ -125,6 +134,10 @@ public class CatRecruitmentController : MonoBehaviour
         }
 
         catCatalogueNavigationView.Initialize();
+
+        // Check if free recruitment has been made
+        if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.FREE_FIRST_RECRUITMENT))
+            catBasicItemList[0].SetPurchasePrice(0);
     }
 
     private void FillSkinCatalogueData()
@@ -194,6 +207,10 @@ public class CatRecruitmentController : MonoBehaviour
     {
         catRecruitmentView.gameObject.SetActive(true);
         catRecruitmentNavigationView.SelectCatsMenu();
+
+        // Check if tutorial hasn't been completed
+        if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.META_GAME_RECRUITMENT))
+            TriggerMetaGameRecruitmentTutorialEvent.Raise();
     }
 
     private void PurchaseCatalogueCatEventCallback(int _itemIndex, ItemTier _itemTier)
@@ -246,6 +263,19 @@ public class CatRecruitmentController : MonoBehaviour
         // Play item purchased sound
         TriggerUISoundEvent.Raise(UISounds.STORE_ITEM_PURCHASED);
         // TODO: Play celebration sound
+
+        // Tutorial
+        if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.FREE_FIRST_RECRUITMENT))
+        {
+            if (itemPrice == 0) // Purchased the free cat
+            {
+                catBasicItemList[0].SetPurchasePrice(CatsModel.Instance.CatsDataList[0].CatPrice);
+                FreeRecruitmentTutorialEvent.Raise();
+            }
+        }
+
+        if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.META_GAME_ISLAND))
+            TutorialDataSaveManager.Instance.PurchasedCat = true;
     }
 
     private void PurchaseCatalogueSkinEventCallback(int _itemIndex, ItemTier _itemTier)
@@ -492,6 +522,17 @@ public class CatRecruitmentController : MonoBehaviour
             {
                 skinPremiumItemList[index].SetItemUnlocked();
             }
+        }
+    }
+    #endregion
+
+    #region Pulbic methods
+    public void ClosedRecruitmentView()
+    {
+        if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.META_GAME_ISLAND))
+        {
+            if(TutorialDataSaveManager.Instance.PurchasedCat)
+                TriggerMetaGameIslandTutorialEvent.Raise();
         }
     }
     #endregion

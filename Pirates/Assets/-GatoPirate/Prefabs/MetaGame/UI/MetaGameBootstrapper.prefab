@@ -112,3 +112,9 @@ MonoBehaviour:
   FreeCoinsRewardSuccessEvent: {fileID: 11400000, guid: 63c343543bc5ace4cb8800b262663d65, type: 2}
   LoadFreeCoinsAdRecruitmentEvent: {fileID: 11400000, guid: 1ed482dfd21059045adefd5a1f0d0d83, type: 2}
   LoadFreeCoinsAdStoreEvent: {fileID: 11400000, guid: 1c986e537d13ce844b82a46421727095, type: 2}
+  tutorialMetaGameController: {fileID: 0}
+  TriggerMetaGameTutorialEvent: {fileID: 11400000, guid: cfd0a3c58a310134abb7d4838ae74c79, type: 2}
+  TriggerMetaGameRecruitmentTutorialEvent: {fileID: 11400000, guid: 55d8888f01296d44182b0a4886ec2efc, type: 2}
+  TriggerMetaGameIslandTutorialEvent: {fileID: 11400000, guid: d8f73565977cac740acd154d14ae525b, type: 2}
+  TriggerMetaGameCrewTutorialEvent: {fileID: 11400000, guid: 44c4b05643939a04fb860eedfa95a414, type: 2}
+  FreeRecruitmentTutorialEvent: {fileID: 11400000, guid: 41a036874f3486f4abfc2fabc2b615a7, type: 2}

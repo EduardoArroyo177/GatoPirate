@@ -24,7 +24,8 @@ public class CatCrewManagementController : MonoBehaviour
     public VoidEvent StartCombatEvent { get; set; }
     // Sounds
     public CatSoundEvent TriggerCatSoundEvent { get; set; }
-
+    // Tutorial
+    public VoidEvent TriggerMetaGameCrewTutorialEvent { get; set; }
 
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -183,11 +184,15 @@ public class CatCrewManagementController : MonoBehaviour
     {
         // TODO: Get cat from cat id and select it by default through this
         catCrewManagementView.gameObject.SetActive(true);
+        if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.META_GAME_CREW))
+            TriggerMetaGameCrewTutorialEvent.Raise();
     }
 
     private void OpenCatCrewManagementNoIDEventCallback(UnityAtoms.Void _item)
     {
         catCrewManagementView.gameObject.SetActive(true);
+        if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.META_GAME_CREW))
+            TriggerMetaGameCrewTutorialEvent.Raise();
     }
 
     private void SelectCatEventCallback(int _catIndex)

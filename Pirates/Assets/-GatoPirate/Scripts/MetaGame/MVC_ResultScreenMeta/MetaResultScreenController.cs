@@ -12,6 +12,7 @@ public class MetaResultScreenController : MonoBehaviour
     private MetaResultScreenView resultScreenView;
 
     public UISoundsEvent TriggerUISoundEvent { get; set; }
+    public VoidEvent TriggerMetaGameTutorialEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private int earnedCoins;
@@ -90,6 +91,10 @@ public class MetaResultScreenController : MonoBehaviour
         CurrencyDataSaveManager.Instance.UpdateCurrency(CurrencyType.GOLDEN_COINS, earnedCoins);
         // Remove earned resources
         CurrencyDataSaveManager.Instance.UpdateEarnedCurrency(CurrencyType.GOLDEN_COINS, -earnedCoins);
+
+        // Trigger tutorial if available
+        if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.META_GAME))
+            TriggerMetaGameTutorialEvent.Raise();
     }
 
     public void TriggerCurrencyAnimation()

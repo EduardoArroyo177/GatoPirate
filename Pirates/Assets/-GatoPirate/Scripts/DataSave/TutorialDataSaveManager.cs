@@ -10,6 +10,7 @@ public class TutorialDataSaveManager : SceneSingleton<TutorialDataSaveManager>
     public const string TUTORIAL_SAVING_DATA_KEY = "TUTORIAL_COMPLETED";
 
     public DataSaveTutorialListStructure TutorialCompleted { get => tutorialCompleted; set => tutorialCompleted = value; }
+    public bool PurchasedCat { get; set; }
 
     #region Initialization
     public void LoadTutorialSavedData()
@@ -36,6 +37,26 @@ public class TutorialDataSaveManager : SceneSingleton<TutorialDataSaveManager>
             // Meta game tutorial
             initialTutorialStructure = new DataSaveTutorialStructure();
             initialTutorialStructure.TutorialType = TutorialType.META_GAME.ToString();
+            initialTutorialStructure.IsCompleted = false;
+            TutorialCompleted.TutorialList.Add(initialTutorialStructure);
+            // Meta game recruitment tutorial
+            initialTutorialStructure = new DataSaveTutorialStructure();
+            initialTutorialStructure.TutorialType = TutorialType.META_GAME_RECRUITMENT.ToString();
+            initialTutorialStructure.IsCompleted = false;
+            TutorialCompleted.TutorialList.Add(initialTutorialStructure);
+            // Meta game island tutorial
+            initialTutorialStructure = new DataSaveTutorialStructure();
+            initialTutorialStructure.TutorialType = TutorialType.META_GAME_ISLAND.ToString();
+            initialTutorialStructure.IsCompleted = false;
+            TutorialCompleted.TutorialList.Add(initialTutorialStructure);
+            // Meta game crew tutorial
+            initialTutorialStructure = new DataSaveTutorialStructure();
+            initialTutorialStructure.TutorialType = TutorialType.META_GAME_CREW.ToString();
+            initialTutorialStructure.IsCompleted = false;
+            TutorialCompleted.TutorialList.Add(initialTutorialStructure);
+            // Meta game free recruitment tutorial
+            initialTutorialStructure = new DataSaveTutorialStructure();
+            initialTutorialStructure.TutorialType = TutorialType.FREE_FIRST_RECRUITMENT.ToString();
             initialTutorialStructure.IsCompleted = false;
             TutorialCompleted.TutorialList.Add(initialTutorialStructure);
 

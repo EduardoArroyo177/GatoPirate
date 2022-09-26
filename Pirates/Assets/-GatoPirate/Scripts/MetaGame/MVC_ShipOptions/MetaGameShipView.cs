@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipOptionsView : MonoBehaviour
+public class MetaGameShipView : MonoBehaviour
 {
-    public ShipOptionsController ShipOptionsController { get; set; }
+    public MetaGameShipController ShipOptionsController { get; set; }
 
     public void ClosePopUp()
     {

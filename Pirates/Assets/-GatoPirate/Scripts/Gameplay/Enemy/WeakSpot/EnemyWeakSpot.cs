@@ -47,6 +47,12 @@ public class EnemyWeakSpot : MonoBehaviour
         else
             EnemyShipHealthController.CurrentHealth -= (int)projectileDamage;
 
+        GameObject damageTextHelper = ObjectPooling.Instance.GetEnemyDamageTextParticle();
+        
+        damageTextHelper.transform.position = transform.position;
+        damageTextHelper.GetComponent<DamageTextParticleController>().ShowTextParticle(ProjectileType.SPECIAL, (int)projectileDamage, true);
+
+
         // Calculate percentage and send it to UI
         EnemyShipHealthController.CurrentHealthUIEvent
             .Raise(EnemyShipHealthController.CurrentHealth / EnemyShipHealthController.ShipHealth);

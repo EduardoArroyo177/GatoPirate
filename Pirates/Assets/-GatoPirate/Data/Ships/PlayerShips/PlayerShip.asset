@@ -30,5 +30,5 @@ MonoBehaviour:
   automaticAttackCoolDownTime: 2.5
   automaticAttackFireRate: 0.8
   specialAttackDamage: 50
-  specialAttackChargeTime: 35
-  reviveCurrencyPrice: 250
+  specialAttackChargeTime: 20
+  reviveCurrencyPrice: 350

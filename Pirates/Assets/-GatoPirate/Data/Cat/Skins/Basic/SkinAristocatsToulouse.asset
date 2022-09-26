@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
-  m_Name: SkinAristocatsMarie
+  m_Name: SkinAristocatsToulouse
   m_EditorClassIdentifier: 
-  skinType: 2
+  skinType: 3
   skinTier: 0
-  skinName: Marie
-  catHeadFrontSkinSprite: {fileID: 21300000, guid: a2eb5319bea2956498abd5371c95e4dd, type: 3}
-  catHeadBackSkinSprite: {fileID: 21300000, guid: 84b41134a413e76458d6ae25ba40b7a0, type: 3}
-  catBodyFrontSkinSprite: {fileID: 21300000, guid: bb907bf615c232d4e9c8ee4f499b63ad, type: 3}
-  catBodyBackSkinSprite: {fileID: 21300000, guid: 6583caa1e8d00f440afb571d34a22308, type: 3}
+  skinName: Tulus
+  catHeadFrontSkinSprite: {fileID: 0}
+  catHeadBackSkinSprite: {fileID: 0}
+  catBodyFrontSkinSprite: {fileID: 21300000, guid: 0f65efad1e096d54c87ccf0ff2f3faa7, type: 3}
+  catBodyBackSkinSprite: {fileID: 0}
   catLeftPawSkinSprite: {fileID: 0}
   catLeftPawAccesorySkinSprite: {fileID: 0}
   catRightPawSkinSprite: {fileID: 0}
@@ -29,9 +29,9 @@ MonoBehaviour:
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
   skinColor: {r: 1, g: 1, b: 1, a: 1}
-  skinDescription: Ladies don't start fights, but they can finish them
-  skinPreviewSprite: {fileID: 21300000, guid: da5312307855fde48855845228128249, type: 3}
-  skinPrice: 1200
+  skinDescription: MEOWW! pfff pfff pff pfffts
+  skinPreviewSprite: {fileID: 21300000, guid: 561e651cc71a3b74b98f8f03dfbb75c4, type: 3}
+  skinPrice: 2000
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

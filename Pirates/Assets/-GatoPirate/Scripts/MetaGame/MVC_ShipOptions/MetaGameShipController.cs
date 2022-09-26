@@ -4,11 +4,17 @@ using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
-public class ShipOptionsController : MonoBehaviour
+public class MetaGameShipController : MonoBehaviour
 {
     
     [SerializeField]
-    private ShipOptionsView shipOptionsView;
+    private MetaGameShipView shipOptionsView;
+
+    [Header("Combat data")]
+    [SerializeField]
+    private PlayerShipData playerShipData;
+    [SerializeField]
+    private IslandEnemyShipDataList islandEnemyShipList;
 
     public CombatData CombatData { get; set; }
 
@@ -73,6 +79,9 @@ public class ShipOptionsController : MonoBehaviour
             catCombatDataHelper.SkinData = skinData;
             CombatData.CatCrewDataList[catCrewList[index].IslandSlot] = catCombatDataHelper;
         }
+        // Load enemy and player ships data
+        CombatData.PlayerShipData = playerShipData;
+        CombatData.EnemyShipData = islandEnemyShipList.EnemyShipDataList[Random.Range(0, islandEnemyShipList.EnemyShipDataList.Count)];
         // TODO: Trigger ship animation
         LoadCombatSceneEvent.Raise();
     }

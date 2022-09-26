@@ -49,9 +49,9 @@ public class HuaweiAdsControllerMenu : MonoBehaviour
 #if UNITY_EDITOR
         FreeCoinsRewardSuccessEventCallback(new Void());
 #else
-        RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
+        //RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
         // TODO: Uncomment this for publishing
-        //RewardAd ad = new RewardAd(new Context(), freeCoinsRecruitmentID);
+        RewardAd ad = new RewardAd(new Context(), freeCoinsRecruitmentID);
         AdParam adParam = new AdParam.Builder().build();
         MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad, FreeCoinsRewardSuccessEvent);
         ad.loadAd(adParam, rewardAdLoadListener);
@@ -63,9 +63,9 @@ public class HuaweiAdsControllerMenu : MonoBehaviour
 #if UNITY_EDITOR
         FreeCoinsRewardSuccessEventCallback(new Void());
 #else
-        RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
+        //RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
         // TODO: Uncomment this for publishing
-        //RewardAd ad = new RewardAd(new Context(), freeCoinsStoreID);
+        RewardAd ad = new RewardAd(new Context(), freeCoinsStoreID);
         AdParam adParam = new AdParam.Builder().build();
         MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad, FreeCoinsRewardSuccessEvent);
         ad.loadAd(adParam, rewardAdLoadListener);
@@ -80,14 +80,6 @@ public class HuaweiAdsControllerMenu : MonoBehaviour
         // TODO: Trigger sound
     }
 #endregion
-
-    //public void LoadRewardAds()
-    //{
-    //    RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
-    //    AdParam adParam = new AdParam.Builder().build();
-    //    MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad);
-    //    ad.loadAd(adParam, rewardAdLoadListener);
-    //}
 
 #region Other ad methods
     public void SetConsentStatus(bool personal)

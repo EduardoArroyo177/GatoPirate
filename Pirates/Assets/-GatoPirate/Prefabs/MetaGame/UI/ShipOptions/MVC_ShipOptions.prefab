@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 3934546659118696737}
   - component: {fileID: 3934546659118696736}
   m_Layer: 5
-  m_Name: View_ShipOptions
+  m_Name: View_Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -556,6 +556,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipOptionsView: {fileID: 3934546659118696736}
+  playerShipData: {fileID: 11400000, guid: 269b5ceab8369614d847b4e39b4ad43e, type: 2}
+  islandEnemyShipList: {fileID: 11400000, guid: 601a8d841d68e224cb5b8d6533547e9d, type: 2}
 --- !u!1 &3934546659810708091
 GameObject:
   m_ObjectHideFlags: 0

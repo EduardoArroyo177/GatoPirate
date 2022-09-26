@@ -12,9 +12,9 @@ public class CurrencyDataSaveManager : SceneSingleton<CurrencyDataSaveManager>
     private DataSaveCurrencyListStructure earnedCurrencyList;
 
     public const string CURRENCY_SAVING_DATA_KEY = "CURRENCY_OWNED";
-    public const int INITIAL_COINS_AMOUNT = 1000;
-    public const int INITIAL_WOOD_AMOUNT = 1000;
-    public const int INITIAL_GEMS_AMOUNT = 5;
+    public const int INITIAL_COINS_AMOUNT = 5000;
+    public const int INITIAL_WOOD_AMOUNT = 5000;
+    public const int INITIAL_GEMS_AMOUNT = 3;
     public const string EARNED_CURRENCY_IN_BATTLE_KEY = "EARNED_CURRENCY";
 
     public VoidEvent CurrenciesUpdatedEvent { get; set; }

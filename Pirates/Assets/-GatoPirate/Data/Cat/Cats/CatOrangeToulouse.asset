@@ -26,7 +26,7 @@ MonoBehaviour:
   catColor: {r: 1, g: 1, b: 1, a: 1}
   catDescription: Wait, didn't we see another orange cat already?
   catPreviewSprite: {fileID: 21300000, guid: 39c15ee05c7023548b97ebf5188d1e4e, type: 3}
-  catPrice: 1200
+  catPrice: 1800
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

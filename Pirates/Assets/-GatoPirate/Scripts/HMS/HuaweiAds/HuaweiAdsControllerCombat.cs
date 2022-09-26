@@ -58,9 +58,9 @@ public class HuaweiAdsControllerCombat : MonoBehaviour
 #if UNITY_EDITOR
         CombatRewardAdSuccessEventCallback(new Void());
 #else
-        RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
+        //RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
         // TODO: Uncomment this for publishing
-        //RewardAd ad = new RewardAd(new Context(), reviveID);
+        RewardAd ad = new RewardAd(new Context(), reviveID);
         AdParam adParam = new AdParam.Builder().build();
         MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad, CombatRewardAdSuccessEvent);
         ad.loadAd(adParam, rewardAdLoadListener);
@@ -73,9 +73,9 @@ public class HuaweiAdsControllerCombat : MonoBehaviour
 #if UNITY_EDITOR
         CombatRewardAdSuccessEventCallback(new Void());
 #else
-        RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
+        //RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
         // TODO: Uncomment this for publishing
-        //RewardAd ad = new RewardAd(new Context(), doubleRewardID);
+        RewardAd ad = new RewardAd(new Context(), doubleRewardID);
         AdParam adParam = new AdParam.Builder().build();
         MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad, CombatRewardAdSuccessEvent);
         ad.loadAd(adParam, rewardAdLoadListener);

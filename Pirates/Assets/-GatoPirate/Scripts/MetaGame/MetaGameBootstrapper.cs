@@ -141,7 +141,7 @@ public class MetaGameBootstrapper : MonoBehaviour
 
     [Header("Ship options")]
     [SerializeField]
-    private ShipOptionsController shipOptionsController;
+    private MetaGameShipController shipOptionsController;
     [SerializeField]
     private VoidEvent OpenShipOptionsEvent;
     [SerializeField]

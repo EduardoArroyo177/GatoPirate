@@ -5,13 +5,6 @@ using UnityAtoms.BaseAtoms;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// TODO: Update with final game scenes name
-public enum GameScenes
-{
-    Combat,
-    MainMenu
-}
-
 public class SceneLoaderManager : MonoBehaviour
 {
     [SerializeField]

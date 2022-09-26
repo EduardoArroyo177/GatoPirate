@@ -105,12 +105,15 @@ public class ResultScreenController : MonoBehaviour
         CurrencyDataSaveManager.Instance.UpdateEarnedCurrency(CurrencyType.GOLDEN_COINS, CurrencyManager.Instance.GetCombatEarnedCoins());
         // TODO: Uncomment this when wood is available in the game
         //CurrencyDataSaveManager.Instance.UpdateEarnedCurrency(CurrencyType.WOOD, CurrencyManager.Instance.GetCombatEarnedWood());
-        
+
         // TODO: Set chest earned data here
         //if (combatWon && canWinChest)
         //{
 
         //}
+
+        if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.FIRST_COMBAT))
+            TutorialDataSaveManager.Instance.UpdateTutorialCompleted(TutorialType.FIRST_COMBAT);
     }
 
     private IEnumerator CurrencyCounterAnimation(int _startingAmnt, int _totalAmnt = 0)

@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#region Scenes
+public enum GameScenes
+{
+    Combat,
+    MainMenu
+}
+#endregion
+
 #region Combat
 public enum ShipLevelType
 { 
@@ -130,6 +138,7 @@ public enum ItemTier
 #region Tutorial
 public enum TutorialType
 { 
+    FIRST_COMBAT,
     COMBAT,
     COMBAT_WEAK_SPOT,
     COMBAT_RESOURCES_BOX,

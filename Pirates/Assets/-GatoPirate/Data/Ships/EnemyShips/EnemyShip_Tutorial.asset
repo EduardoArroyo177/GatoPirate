@@ -25,7 +25,7 @@ MonoBehaviour:
   cannonBallSpeed: 20
   basicAttackDamage: 5
   normalAttackDamage: 25
-  normalAttackCoolDownTime: 1.3
+  normalAttackCoolDownTime: 1.6
   automaticAttackDamage: 5
   automaticAttackCoolDownTime: 2.5
   automaticAttackFireRate: 0
@@ -33,9 +33,9 @@ MonoBehaviour:
   specialAttackChargeTime: 60
   reviveCurrencyPrice: 250
   numberOfActiveCannons: 4
-  cannonAttackRateMin: 1.3
-  cannonAttackRateMax: 1.8
-  weakSpotAppearanceRateMin: 3.7
+  cannonAttackRateMin: 1.8
+  cannonAttackRateMax: 2.3
+  weakSpotAppearanceRateMin: 7.5
   weakSpotAppearanceRateMax: 15.4
   weakSpotCoolDownTime: 5
   weakSpotPlayerDamageMultiplier: 1.5

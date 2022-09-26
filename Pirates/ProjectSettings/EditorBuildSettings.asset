@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/-GatoPirate/Scenes/LoaderScene.unity
+    guid: 1a44800a5eec3124e83bc3df4ea52a40
+  - enabled: 1
     path: Assets/-GatoPirate/Scenes/MainMenu.unity
     guid: 4081d898ee16706418c33cbcc80c9659
   - enabled: 1

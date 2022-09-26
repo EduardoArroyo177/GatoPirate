@@ -19,8 +19,13 @@ public class TutorialDataSaveManager : SceneSingleton<TutorialDataSaveManager>
         if (string.IsNullOrEmpty(dataSave))
         {
             TutorialCompleted = new DataSaveTutorialListStructure();
-            // Combat tutorial
+            // First combat
             DataSaveTutorialStructure initialTutorialStructure = new DataSaveTutorialStructure();
+            initialTutorialStructure.TutorialType = TutorialType.FIRST_COMBAT.ToString();
+            initialTutorialStructure.IsCompleted = false;
+            TutorialCompleted.TutorialList.Add(initialTutorialStructure);
+            // Combat tutorial
+            initialTutorialStructure = new DataSaveTutorialStructure();
             initialTutorialStructure.TutorialType = TutorialType.COMBAT.ToString();
             initialTutorialStructure.IsCompleted = false;
             TutorialCompleted.TutorialList.Add(initialTutorialStructure);

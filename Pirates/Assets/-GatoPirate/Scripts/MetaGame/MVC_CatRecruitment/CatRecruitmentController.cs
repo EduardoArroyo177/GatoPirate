@@ -320,6 +320,7 @@ public class CatRecruitmentController : MonoBehaviour
         currencyType = selectedItem.CurrencyType;
         itemPrice = selectedItem.ItemPrice;
         // TODO: (if needed) Get island and its slot to save it, then call event to place it there
+        selectedItem.SetAsPurchased();
         // Reduce currency Amount with item price
         CurrencyDataSaveManager.Instance.UpdateCurrency(currencyType, -itemPrice);
         ShowSpentCurrencyEvent.Raise(currencyType, itemPrice);
@@ -332,8 +333,6 @@ public class CatRecruitmentController : MonoBehaviour
         // TODO: Play item purchased sound
         TriggerUISoundEvent.Raise(UISounds.STORE_ITEM_PURCHASED);
         // TODO: Play celebration sound
-
-        selectedItem.SetAsPurchased();
     }
 
     private void ShowSelectedCatEventCallback(int _itemIndex, ItemTier _itemType)

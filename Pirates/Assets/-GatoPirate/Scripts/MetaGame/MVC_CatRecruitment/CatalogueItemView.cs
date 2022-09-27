@@ -52,8 +52,8 @@ public class CatalogueItemView : MonoBehaviour
     public Sprite CurrencySprite { get; set; }
     public CurrencyType CurrencyType { get; set; }
     public bool ItemUnlocked { get; set; }
+    public bool ItemPurchased { get; set; }
 
-    private bool itemPurchased;
     private UIShiny itemShinyEffect;
 
     #region Data set
@@ -101,6 +101,9 @@ public class CatalogueItemView : MonoBehaviour
 
     public void SetItemLocked()
     {
+        if (ItemPurchased)
+            return;
+
         btn_purchaseItem.gameObject.SetActive(false);
         btn_goToStore.SetActive(true);
         img_lockedOverlay.SetActive(true);
@@ -109,8 +112,9 @@ public class CatalogueItemView : MonoBehaviour
 
     public void SetItemUnlocked()
     {
-        if (itemPurchased)
+        if (ItemPurchased)
             return;
+
         btn_purchaseItem.gameObject.SetActive(true);
         btn_goToStore.SetActive(false);
         img_lockedOverlay.SetActive(false);
@@ -119,7 +123,7 @@ public class CatalogueItemView : MonoBehaviour
 
     public void SetAsPurchased()
     {
-        itemPurchased = true;
+        ItemPurchased = true;
         btn_purchaseItem.gameObject.SetActive(false);
         pnl_purchasedItem.SetActive(true);
     }

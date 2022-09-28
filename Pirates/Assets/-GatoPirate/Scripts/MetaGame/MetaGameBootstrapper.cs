@@ -155,6 +155,18 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField]
     private StringEvent PurchaseStoreItemEvent;
 
+    [Header("IAP")]
+    [SerializeField]
+    private ProductInfoListEvent StoreProductsListEvent;
+    [SerializeField]
+    private PurchaseInfoListEvent StorePurchasesListEvent;
+    [SerializeField]
+    private PurchaseInfoEvent PurchaseItemSuccesfulEvent;
+    [SerializeField] 
+    private StringPurchaseInfoEvent PurchaseResultEvent;
+    [SerializeField]
+    private PurchaseInfoEvent ConsumedItemSuccesfulEvent;
+
     [Header("Result screen")]
     [SerializeField]
     private MetaResultScreenController resultScreenController;
@@ -316,8 +328,13 @@ public class MetaGameBootstrapper : MonoBehaviour
         shipOptionsController.Initialize();
 
         // Store
+        storeController.StoreProductsListEvent = StoreProductsListEvent;
+        storeController.StorePurchasesListEvent = StorePurchasesListEvent;
         storeController.OpenStoreEvent = OpenStoreEvent;
         storeController.PurchaseStoreItemEvent = PurchaseStoreItemEvent;
+        storeController.PurchaseItemSuccesfulEvent = PurchaseItemSuccesfulEvent;
+        storeController.PurchaseResultEvent = PurchaseResultEvent;
+        storeController.ConsumedItemSuccesfulEvent = ConsumedItemSuccesfulEvent;
         storeController.Initialize();
 
         // Ads

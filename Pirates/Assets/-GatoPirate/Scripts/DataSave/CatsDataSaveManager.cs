@@ -38,7 +38,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             DataSaveCatStructure initialCatStructure = new DataSaveCatStructure();
             initialCatStructure.CatType = CatType.ORANGE.ToString();
             initialCatStructure.CatID = "captain01";
-            initialCatStructure.CatName = "Captain"; // TODO: Update with final name
+            initialCatStructure.CatName = "Tabby cat"; // TODO: Update with final name
             initialCatStructure.IslandSlot = 0;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
             initialCatStructure.SkinType = SkinType.NONE.ToString(); // TODO: Check if first cat will have a special skin by default
@@ -54,7 +54,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure = new DataSaveCatStructure();
             initialCatStructure.CatType = CatType.ORANGE.ToString();
             initialCatStructure.CatID = "catsailor01";
-            initialCatStructure.CatName = "Sailor";
+            initialCatStructure.CatName = "Tabby cat";
             initialCatStructure.IslandSlot = 1;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
             initialCatStructure.SkinType = SkinType.NONE.ToString();
@@ -63,7 +63,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure = new DataSaveCatStructure();
             initialCatStructure.CatType = CatType.ORANGE.ToString();
             initialCatStructure.CatID = "catsailor02";
-            initialCatStructure.CatName = "Sailor";
+            initialCatStructure.CatName = "Tabby cat";
             initialCatStructure.IslandSlot = 2;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
             initialCatStructure.SkinType = SkinType.NONE.ToString();
@@ -72,7 +72,7 @@ public class CatsDataSaveManager : SceneSingleton<CatsDataSaveManager>
             initialCatStructure = new DataSaveCatStructure();
             initialCatStructure.CatType = CatType.ORANGE.ToString();
             initialCatStructure.CatID = "catsailor03";
-            initialCatStructure.CatName = "Sailor";
+            initialCatStructure.CatName = "Tabby cat";
             initialCatStructure.IslandSlot = 3;
             initialCatStructure.CurrentIsland = Island.ISLAND1.ToString();
             initialCatStructure.SkinType = SkinType.NONE.ToString();

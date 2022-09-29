@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
@@ -17,11 +18,22 @@ public class StoreItemView : MonoBehaviour
 
     [Header("Purchased")]
     [SerializeField]
+    private GameObject img_purchasedBg;
+    [SerializeField]
     private GameObject btn_purchase;
     [SerializeField]
     private GameObject pnl_purchased;
 
+    [Header("No ads")]
+    [SerializeField]
+    private GameObject pnl_watchAd;
+    [SerializeField]
+    private GameObject pnl_freeCoins;
+    [SerializeField]
+    private TextMeshProUGUI lbl_freeCoins;
+
     public StringEvent PurchaseStoreItemEvent { get; set; }
+    public UISoundsEvent TriggerUISoundEvent { get; set; }
     public string StoreItemID { get => storeItemID;}
 
     #region Data set
@@ -50,7 +62,20 @@ public class StoreItemView : MonoBehaviour
     public void PlayPurchasedAnimation()
     {
         // Show animation
+        img_purchasedBg.SetActive(true);
         // Trigger sound
+        TriggerUISoundEvent.Raise(UISounds.STORE_ITEM_PURCHASED);
+    }
+
+    public void RemoveAdsPurchased()
+    {
+        pnl_watchAd.SetActive(false);
+        pnl_freeCoins.SetActive(true);
+    }
+
+    public void UpdateRemainingFreeCalls(int _remainingCalls)
+    {
+        lbl_freeCoins.text = $"Free coins! x{_remainingCalls}";
     }
     #endregion
 

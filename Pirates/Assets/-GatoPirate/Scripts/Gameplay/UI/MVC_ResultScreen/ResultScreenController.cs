@@ -25,6 +25,8 @@ public class ResultScreenController : MonoBehaviour
     public VoidEvent DoubleRewardSuccessEvent { get; set; }
     // Audio events
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
+    // IAP events
+    public VoidEvent RemoveAdsPurchasedEvent { get; set; }
 
     // Properties
     public int ReviveCurrencyPrice { get; set; }
@@ -38,6 +40,7 @@ public class ResultScreenController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<bool>.BuildEventHandler(WinChestEvent, WinChestEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ReviveSuccessEvent, ReviveSuccessEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(DoubleRewardSuccessEvent, DoubleRewardSuccessEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(RemoveAdsPurchasedEvent, RemoveAdsPurchasedEventCallback));
         resultScreenView.ResultScreenController = this;
         reviveScreenView.ResultScreenController = this;
         reviveScreenView.PanelCurrenciesController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
@@ -91,6 +94,13 @@ public class ResultScreenController : MonoBehaviour
         StartCoroutine(CurrencyCounterAnimation(startingRewardAmnt, totalAmnt));
         // Hide watch ad button
         resultScreenView.Btn_watchAd.SetActive(false);
+        resultScreenView.Btn_freeReward.SetActive(false);
+    }
+
+    private void RemoveAdsPurchasedEventCallback(Void _item)
+    {
+        resultScreenView.RemoveAdsPurchased();
+        reviveScreenView.RemoveAdsPurchased();
     }
     #endregion
 

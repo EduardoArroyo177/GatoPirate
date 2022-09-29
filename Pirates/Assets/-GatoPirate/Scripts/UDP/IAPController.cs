@@ -111,8 +111,8 @@ public class PurchaseListener : IPurchaseListener
         // The consumption succeeded.
         // You should deliver the product here.
         Debug.Log("Purchase consume success");
-        // TODO: Trigger event to give reward
-        ConsumedItemSuccesfulEvent?.Raise();
+        // Trigger event to give reward
+        ConsumedItemSuccesfulEvent?.Raise(purchaseInfo);
     }
 
     public void OnPurchaseConsumeFailed(string message, PurchaseInfo purchaseInfo)
@@ -130,6 +130,8 @@ public class PurchaseListener : IPurchaseListener
 
         IList<PurchaseInfo> PurchaseInfoList = inventory.GetPurchaseList();
         StorePurchasesListEvent?.Raise(PurchaseInfoList);
+
+       // IDictionary<string, PurchaseInfo> purchaseDicc = inventory.GetPurchaseDictionary();
 
     }
 

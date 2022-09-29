@@ -36,6 +36,8 @@ public class UICanvasBootstrapper : MonoBehaviour
     public VoidEvent DoubleRewardSuccessEvent { get; set; }
     // Audio events
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
+    // IAP events
+    public VoidEvent RemoveAdsPurchasedEvent { get; set; }
 
     // Tutorial events
     public VoidEvent StartCombatEvent { get; set; }
@@ -72,6 +74,7 @@ public class UICanvasBootstrapper : MonoBehaviour
         resultScreenController.LoadCombatFinishedAdEvent = LoadCombatFinishedAdEvent;
         resultScreenController.ReviveSuccessEvent = ReviveSuccessEvent;
         resultScreenController.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
+        resultScreenController.RemoveAdsPurchasedEvent = RemoveAdsPurchasedEvent;
         resultScreenController.ReviveCurrencyPrice = ReviveCurrencyPrice;
         resultScreenController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
         resultScreenController.TriggerCombatSoundEvent = TriggerCombatSoundEvent;

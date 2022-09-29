@@ -135,6 +135,10 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private VoidEvent TriggerCombatResourcesBoxTutorialEvent;
 
+    [Header("IAP")]
+    [SerializeField]
+    private VoidEvent RemoveAdsPurchasedEvent;
+
     private int playerActiveCannons;
 
     private void Awake()
@@ -146,6 +150,9 @@ public class StartCombatBootstrapper : MonoBehaviour
         SettingsDataSaveManager.Instance.LoadSettingsSavedData();
         // Load tutorial data
         TutorialDataSaveManager.Instance.LoadTutorialSavedData();
+        // Load IAP data
+        PurchasesDataSaveManager.Instance.RemoveAdsPurchasedEvent = RemoveAdsPurchasedEvent;
+        PurchasesDataSaveManager.Instance.LoadPurchaseIAPSavedData();
 
         // Scene loader
         sceneLoaderManager.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
@@ -218,6 +225,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         uiCanvasBootstrapper.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
         uiCanvasBootstrapper.StartCombatEvent = StartCombatEvent;
         uiCanvasBootstrapper.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
+        uiCanvasBootstrapper.RemoveAdsPurchasedEvent = RemoveAdsPurchasedEvent;
         uiCanvasBootstrapper.TriggerCombatTutorialEvent = TriggerCombatTutorialEvent;
         uiCanvasBootstrapper.TriggerCombatWeakSpotTutorialEvent = TriggerCombatWeakSpotTutorialEvent;
         uiCanvasBootstrapper.TriggerCombatResourcesBoxTutorialEvent = TriggerCombatResourcesBoxTutorialEvent;
@@ -271,6 +279,9 @@ public class StartCombatBootstrapper : MonoBehaviour
         huaweiAdsController.ReviveSuccessEvent = ReviveSuccessEvent;
         huaweiAdsController.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
         huaweiAdsController.Initialize();
+
+        // IAP
+        PurchasesDataSaveManager.Instance.CallForPurchasedIAP();
 
         Invoke("StartingAnimation", 0.5f);
     }

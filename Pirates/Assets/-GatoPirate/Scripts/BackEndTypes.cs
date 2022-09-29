@@ -121,3 +121,23 @@ public class DataSaveTutorialListStructure
     }
 }
 #endregion
+
+#region IAP 
+[Serializable]
+public class DataSaveNonConsumableIAPStructure
+{
+    public string PurchasedIAPType;
+    public bool IsPurchased;
+}
+
+[Serializable]
+public class DataSaveNonConsumableIAPListStructure
+{
+    public List<DataSaveNonConsumableIAPStructure> PurchasedIAPList;
+
+    public DataSaveNonConsumableIAPListStructure()
+    {
+        PurchasedIAPList = new List<DataSaveNonConsumableIAPStructure>();
+    }
+}
+#endregion

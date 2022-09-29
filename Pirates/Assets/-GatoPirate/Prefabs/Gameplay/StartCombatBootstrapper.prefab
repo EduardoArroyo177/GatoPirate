@@ -94,3 +94,4 @@ MonoBehaviour:
   TriggerCombatTutorialEvent: {fileID: 11400000, guid: c56e68bedb8b0a6479b9456660171d60, type: 2}
   TriggerCombatWeakSpotTutorialEvent: {fileID: 11400000, guid: dfef225f63e564f49932286cb193daa8, type: 2}
   TriggerCombatResourcesBoxTutorialEvent: {fileID: 11400000, guid: 1a39a1b1a7bd518459d8c15c829373d9, type: 2}
+  RemoveAdsPurchasedEvent: {fileID: 11400000, guid: d995a89fa15a11c46aefe2dcedc23014, type: 2}

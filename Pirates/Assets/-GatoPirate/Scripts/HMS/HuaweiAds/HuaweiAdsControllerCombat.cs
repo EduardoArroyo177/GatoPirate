@@ -56,14 +56,21 @@ public class HuaweiAdsControllerCombat : MonoBehaviour
     {
         combatAdType = CombatAdType.REVIVE;
 #if UNITY_EDITOR
+        if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsumableIAP.REMOVE_ADS))
+            Debug.Log("Remove ads purchased, giving reward for free");
         CombatRewardAdSuccessEventCallback(new Void());
 #else
+        if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsumableIAP.REMOVE_ADS))
+            CombatRewardAdSuccessEventCallback(new Void());
+        else
+        {
         //RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
         // TODO: Uncomment this for publishing
         RewardAd ad = new RewardAd(new Context(), reviveID);
         AdParam adParam = new AdParam.Builder().build();
         MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad, CombatRewardAdSuccessEvent);
         ad.loadAd(adParam, rewardAdLoadListener);
+        }
 #endif
     }
 
@@ -71,14 +78,21 @@ public class HuaweiAdsControllerCombat : MonoBehaviour
     {
         combatAdType = CombatAdType.DOUBLE;
 #if UNITY_EDITOR
+        if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsumableIAP.REMOVE_ADS))
+            Debug.Log("Remove ads purchased, giving reward for free");
         CombatRewardAdSuccessEventCallback(new Void());
 #else
+if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsumableIAP.REMOVE_ADS))
+            CombatRewardAdSuccessEventCallback(new Void());
+        else
+        {
         //RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
         // TODO: Uncomment this for publishing
         RewardAd ad = new RewardAd(new Context(), doubleRewardID);
         AdParam adParam = new AdParam.Builder().build();
         MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad, CombatRewardAdSuccessEvent);
         ad.loadAd(adParam, rewardAdLoadListener);
+        }
 #endif  
     }
 

@@ -22,12 +22,16 @@ public class StoreController : MonoBehaviour
 
     public VoidEvent OpenStoreEvent { get; set; }
     public StringEvent PurchaseStoreItemEvent { get; set; }
+    public UISoundsEvent TriggerUISoundEvent { get; set; }
+    public VoidEvent LoadFreeCoinsAdStoreEvent { get; set; }
+    public CurrencyTypeIntEvent ShowRewardedCurrencyEvent { get; set; }
     // IAP Events
     public ProductInfoListEvent StoreProductsListEvent { get; set; }
     public PurchaseInfoListEvent StorePurchasesListEvent { get; set; }
     public PurchaseInfoEvent PurchaseItemSuccesfulEvent { get; set; }
     public StringPurchaseInfoEvent PurchaseResultEvent { get; set; }
     public PurchaseInfoEvent ConsumedItemSuccesfulEvent { get; set; }
+    public VoidEvent RemoveAdsPurchasedEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -40,6 +44,7 @@ public class StoreController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<PurchaseInfo>.BuildEventHandler(PurchaseItemSuccesfulEvent, PurchaseItemSuccesfulEventCallback));
         _eventHandlers.Add(EventHandlerFactory<PurchaseInfo>.BuildEventHandler(ConsumedItemSuccesfulEvent, ConsumedItemSuccesfulEventCallback));
         _eventHandlers.Add(EventHandlerFactory<string,PurchaseInfo>.BuildEventHandler(PurchaseResultEvent, PurchaseResultEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(RemoveAdsPurchasedEvent, RemoveAdsPurchasedEventCallback));
 
         iapController.StoreProductsListEvent = StoreProductsListEvent;
         iapController.StorePurchasesListEvent = StorePurchasesListEvent;
@@ -52,7 +57,6 @@ public class StoreController : MonoBehaviour
     #region Event callbacks
     private void StoreProductsListEventCallback(IList<ProductInfo> _productsList)
     {
-        Debug.Log($"Products list received! {_productsList.Count}");
         int productIndex = -1;
         for (int index = 0; index < _productsList.Count; index++)
         {
@@ -61,30 +65,44 @@ public class StoreController : MonoBehaviour
                 continue;
 
             storeItemViewList[productIndex].PurchaseStoreItemEvent = PurchaseStoreItemEvent;
+            storeItemViewList[productIndex].TriggerUISoundEvent = TriggerUISoundEvent;
             storeItemViewList[productIndex].SetStoreItemData(_productsList[index].Title,
                 _productsList[index].Description, 
                 $"{_productsList[index].Currency} {_productsList[index].Price}");
         }
+
+        // Free coins item
+        productIndex = storeItemViewList.FindIndex(x => x.StoreItemID.Equals("free_coins"));
+        if (productIndex < 0)
+            return;
+        storeItemViewList[productIndex].PurchaseStoreItemEvent = PurchaseStoreItemEvent;
+        storeItemViewList[productIndex].TriggerUISoundEvent = TriggerUISoundEvent;
     }
 
     private void StorePurchasesListEventCallback(IList<PurchaseInfo> _purchasesList)
     {
-        Debug.Log($"Purchases list received! {_purchasesList.Count}");
-
         int purchaseIndex = -1;
         for (int index = 0; index < _purchasesList.Count; index++)
         {
-            purchaseIndex = storeItemViewList.FindIndex(x => x.StoreItemID.Equals(_purchasesList[index].ProductId));
-            
-            if (purchaseIndex < 0)
-                continue;
+            // Remove Ads
+            if (_purchasesList[index].ProductId.Equals("the_treasure")
+                || _purchasesList[index].ProductId.Equals("remove_ads"))
+            {
+                purchaseIndex = storeItemViewList.FindIndex(x => x.StoreItemID.Equals("the_treasure"));
+                if (purchaseIndex >= 0)
+                    storeItemViewList[purchaseIndex].SetAsPurchased();
 
-            int consumableIndex = nonConsumableIDList.FindIndex(x => x.Equals(_purchasesList[index].ProductId));
+                purchaseIndex = storeItemViewList.FindIndex(x => x.StoreItemID.Equals("remove_ads"));
+                if (purchaseIndex >= 0)
+                    storeItemViewList[purchaseIndex].SetAsPurchased();
 
-            if (consumableIndex >= 0)
-                storeItemViewList[purchaseIndex].SetAsPurchased();
-
-            // Trigger event with purchased product id, to enable feature
+                // Trigger Save No Ads
+                PurchasesDataSaveManager.Instance.UpdatePurchasedNonConsumable(NonConsumableIAP.REMOVE_ADS);
+            }
+            else
+            {
+                iapController.ConsumePurchasedItem(_purchasesList[index]);
+            }
         }
     }
 
@@ -95,10 +113,13 @@ public class StoreController : MonoBehaviour
 
     private void PurchaseStoreItemEventCallback(string _storeItemID)
     {
-        Debug.Log($"Purchasing {_storeItemID}");
-        // Trigger purchase animation with IAP callback
-        // Update the button with "Already owned" text
-        iapController.PurchaseItem(_storeItemID);
+        //Debug.Log($"Purchasing {_storeItemID}");
+        if (_storeItemID.Equals("free_coins"))
+        {
+            LoadFreeCoinsAdStoreEvent.Raise();
+        }
+        else
+            iapController.PurchaseItem(_storeItemID);
     }
 
     private void PurchaseItemSuccesfulEventCallback(PurchaseInfo _purchaseInfo)
@@ -107,29 +128,28 @@ public class StoreController : MonoBehaviour
 
         if (nonConsumableIndex >= 0) 
         {
-            int productIndex;
+            // If remove ads or treasure is purchased, both items become unavailable
+            int productIndex = storeItemViewList.FindIndex(x => x.StoreItemID.Equals("remove_ads"));
 
-            switch (_purchaseInfo.ProductId)
+            // Remove ads
+            if (productIndex >= 0)
             {
-                case "remove_ads":
-                    // TODO: Trigger event to not show ads anymore
-                    productIndex = storeItemViewList.FindIndex(x => x.StoreItemID.Equals("remove_ads"));
-                    if (productIndex >= 0)
-                    {
-                        storeItemViewList[productIndex].PlayPurchasedAnimation();
-                    }
-                    break;
-                case "the_treasure":
-                    // TODO: Trigger event to not show ads anymore
-                    // Give 15,000 coins (play animation)
-                    productIndex = storeItemViewList.FindIndex(x => x.StoreItemID.Equals("the_treasure"));
-                    if (productIndex >= 0)
-                    {
-                        storeItemViewList[productIndex].PlayPurchasedAnimation();
-                    }
-                    break;
+                storeItemViewList[productIndex].PlayPurchasedAnimation();
+                storeItemViewList[productIndex].SetAsPurchased();
+            }
+            // Treasure
+            productIndex = storeItemViewList.FindIndex(x => x.StoreItemID.Equals("the_treasure"));
+            if (productIndex >= 0)
+            {
+                storeItemViewList[productIndex].PlayPurchasedAnimation();
+                storeItemViewList[productIndex].SetAsPurchased();
             }
 
+            if(_purchaseInfo.ProductId.Equals("the_treasure"))
+                GiveCoins(15000);
+
+            // Trigger Save No Ads
+            PurchasesDataSaveManager.Instance.UpdatePurchasedNonConsumable(NonConsumableIAP.REMOVE_ADS);
         }
         else // Needs to be consumed
         {
@@ -144,6 +164,7 @@ public class StoreController : MonoBehaviour
         {
             case "coins_2500":
                 // Give 2500 coins (play animation)
+                GiveCoins(2500);
                 productIndex = storeItemViewList.FindIndex(x => x.StoreItemID.Equals("coins_2500"));
                 if (productIndex >= 0)
                 {
@@ -152,6 +173,7 @@ public class StoreController : MonoBehaviour
                 break;
             case "coins_10000":
                 // Give 10,000 coins (play animation)
+                GiveCoins(10000);
                 productIndex = storeItemViewList.FindIndex(x => x.StoreItemID.Equals("coins_10000"));
                 if (productIndex >= 0)
                 {
@@ -160,6 +182,7 @@ public class StoreController : MonoBehaviour
                 break;
             case "coins_30000":
                 // Give 30,000 coins (play animation)
+                GiveCoins(30000);
                 productIndex = storeItemViewList.FindIndex(x => x.StoreItemID.Equals("coins_30000"));
                 if (productIndex >= 0)
                 {
@@ -168,6 +191,7 @@ public class StoreController : MonoBehaviour
                 break;
             case "coins_80000":
                 // Give 80,000 coins (play animation)
+                GiveCoins(80000);
                 productIndex = storeItemViewList.FindIndex(x => x.StoreItemID.Equals("coins_80000"));
                 if (productIndex >= 0)
                 {
@@ -189,7 +213,22 @@ public class StoreController : MonoBehaviour
             // Show pop up with message
         }
     }
+
+    private void RemoveAdsPurchasedEventCallback(UnityAtoms.Void _item)
+    {
+        int index = storeItemViewList.FindIndex(x => x.StoreItemID.Equals("free_coins"));
+        if (index < 0)
+            return;
+
+        storeItemViewList[index].RemoveAdsPurchased();
+    }
     #endregion
+
+    private void GiveCoins(int _coinsAmnt)
+    {
+        CurrencyDataSaveManager.Instance.UpdateCurrency(CurrencyType.GOLDEN_COINS, _coinsAmnt);
+        ShowRewardedCurrencyEvent.Raise(CurrencyType.GOLDEN_COINS, _coinsAmnt);
+    }
 
 
     #region OnDestroy

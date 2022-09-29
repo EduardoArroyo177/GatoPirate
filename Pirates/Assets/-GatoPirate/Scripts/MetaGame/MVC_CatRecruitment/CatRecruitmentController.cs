@@ -30,6 +30,8 @@ public class CatRecruitmentController : MonoBehaviour
 
     // Pop ups
     public VoidEvent OpenGoToStorePopUpEvent { get; set; }
+    public VoidEvent OpenStoreEvent { get; set; }
+    public VoidEvent RemoveAdsPurchasedEvent { get; set; }
 
     // Information view
     public IntCatalogueTypeEvent ShowSelectedCatInfoEvent { get; set; }
@@ -76,6 +78,8 @@ public class CatRecruitmentController : MonoBehaviour
         catRecruitmentView.CatRecruitmentController = this;
        
         catRecruitmentPopUpsView.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
+        catRecruitmentPopUpsView.OpenStoreEvent = OpenStoreEvent;
+        catRecruitmentPopUpsView.RemoveAdsPurchasedEvent = RemoveAdsPurchasedEvent;
         catRecruitmentPopUpsView.Initialize();
 
         catRecruitmentSelectedItemView.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;

@@ -166,6 +166,8 @@ public class MetaGameBootstrapper : MonoBehaviour
     private StringPurchaseInfoEvent PurchaseResultEvent;
     [SerializeField]
     private PurchaseInfoEvent ConsumedItemSuccesfulEvent;
+    [SerializeField]
+    private VoidEvent RemoveAdsPurchasedEvent;
 
     [Header("Result screen")]
     [SerializeField]
@@ -204,6 +206,8 @@ public class MetaGameBootstrapper : MonoBehaviour
         CurrencyDataSaveManager.Instance.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
         SettingsDataSaveManager.Instance.LoadSettingsSavedData();
         TutorialDataSaveManager.Instance.LoadTutorialSavedData();
+        PurchasesDataSaveManager.Instance.RemoveAdsPurchasedEvent = RemoveAdsPurchasedEvent;
+        PurchasesDataSaveManager.Instance.LoadPurchaseIAPSavedData();
 
         // Music and audio
         musicManager.TriggerIslandMusicEvent = TriggerIslandMusicEvent;
@@ -293,6 +297,8 @@ public class MetaGameBootstrapper : MonoBehaviour
         catRecruitmentController.ShowSelectedCatInfoEvent = ShowSelectedItemEvent;
         catRecruitmentController.ShowSelectedSkinInfoEvent = ShowSelectedSkinInfoEvent;
         catRecruitmentController.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
+        catRecruitmentController.OpenStoreEvent = OpenStoreEvent;
+        catRecruitmentController.RemoveAdsPurchasedEvent = RemoveAdsPurchasedEvent;
         catRecruitmentController.NewCatPurchasedEvent = NewCatPurchasedEvent;
         catRecruitmentController.SkinPurchasedEvent = SkinPurchasedEvent;
         catRecruitmentController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
@@ -332,9 +338,13 @@ public class MetaGameBootstrapper : MonoBehaviour
         storeController.StorePurchasesListEvent = StorePurchasesListEvent;
         storeController.OpenStoreEvent = OpenStoreEvent;
         storeController.PurchaseStoreItemEvent = PurchaseStoreItemEvent;
+        storeController.TriggerUISoundEvent = TriggerUISoundEvent;
+        storeController.LoadFreeCoinsAdStoreEvent = LoadFreeCoinsAdStoreEvent;
+        storeController.ShowRewardedCurrencyEvent = ShowRewardedCurrencyEvent;
         storeController.PurchaseItemSuccesfulEvent = PurchaseItemSuccesfulEvent;
         storeController.PurchaseResultEvent = PurchaseResultEvent;
         storeController.ConsumedItemSuccesfulEvent = ConsumedItemSuccesfulEvent;
+        storeController.RemoveAdsPurchasedEvent = RemoveAdsPurchasedEvent;
         storeController.Initialize();
 
         // Ads
@@ -359,6 +369,9 @@ public class MetaGameBootstrapper : MonoBehaviour
         resultScreenController.TriggerUISoundEvent = TriggerUISoundEvent;
         resultScreenController.TriggerMetaGameTutorialEvent = TriggerMetaGameTutorialEvent;
         resultScreenController.Initialize();
+
+        // Load purchased items
+        PurchasesDataSaveManager.Instance.CallForPurchasedIAP();
     }
 
     private void GameInitializationCompleted()

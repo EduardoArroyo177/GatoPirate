@@ -40,35 +40,49 @@ public class HuaweiAdsControllerMenu : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(FreeCoinsRewardSuccessEvent, FreeCoinsRewardSuccessEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadFreeCoinsAdRecruitmentEvent, LoadFreeCoinsAdRecruitmentEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadFreeCoinsAdStoreEvent, LoadFreeCoinsAdStoreEventCallback));
-
     }
 
     #region Event callbacks
     private void LoadFreeCoinsAdRecruitmentEventCallback(Void _item)
     {
 #if UNITY_EDITOR
+        if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsumableIAP.REMOVE_ADS))
+            Debug.Log("No Ads Purchased, giving reward for free");
         FreeCoinsRewardSuccessEventCallback(new Void());
 #else
+        if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsumableIAP.REMOVE_ADS))
+            FreeCoinsRewardSuccessEventCallback(new Void());
+        else
+        {
         //RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
         // TODO: Uncomment this for publishing
         RewardAd ad = new RewardAd(new Context(), freeCoinsRecruitmentID);
         AdParam adParam = new AdParam.Builder().build();
         MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad, FreeCoinsRewardSuccessEvent);
         ad.loadAd(adParam, rewardAdLoadListener);
+        }
 #endif
     }
 
     private void LoadFreeCoinsAdStoreEventCallback(Void _item)
     {
 #if UNITY_EDITOR
+        if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsumableIAP.REMOVE_ADS))
+            Debug.Log("No Ads Purchased, giving reward for free");
+
         FreeCoinsRewardSuccessEventCallback(new Void());
 #else
+        if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsumableIAP.REMOVE_ADS))
+            FreeCoinsRewardSuccessEventCallback(new Void());
+        else
+        {
         //RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
         // TODO: Uncomment this for publishing
         RewardAd ad = new RewardAd(new Context(), freeCoinsStoreID);
         AdParam adParam = new AdParam.Builder().build();
         MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad, FreeCoinsRewardSuccessEvent);
         ad.loadAd(adParam, rewardAdLoadListener);
+        }
 #endif
     }
 

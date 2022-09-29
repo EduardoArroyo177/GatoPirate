@@ -150,6 +150,13 @@ public enum TutorialType
 }
 #endregion
 
+#region IAP
+public enum NonConsumableIAP
+{ 
+    REMOVE_ADS
+}
+#endregion
+
 #region Islands
 public enum Island
 { 

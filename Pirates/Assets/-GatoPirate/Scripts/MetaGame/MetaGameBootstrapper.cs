@@ -196,6 +196,26 @@ public class MetaGameBootstrapper : MonoBehaviour
     private VoidEvent TriggerMetaGameCrewTutorialEvent;
     [SerializeField] 
     private VoidEvent FreeRecruitmentTutorialEvent;
+
+    [Header("Game services")]
+    [SerializeField]
+    private HuaweiGameServicesController servicesController;
+    [SerializeField]
+    private VoidEvent PlayerLoginEvent;
+    [SerializeField]
+    private BoolEvent LoginSuccessfulEvent;
+
+    [Header("Leaderboards")]
+    [SerializeField]
+    private LeaderboardsController leaderboardsController;
+    [SerializeField] 
+    private VoidEvent OpenLeaderboardsEvent;
+    [SerializeField] 
+    private StringEvent RequestLeaderboardsDataEvent;
+    [SerializeField] 
+    private LeaderboardDataEvent PlayerRankDataEvent;
+    [SerializeField] 
+    private LeaderboardDataListEvent LeaderboardRankDataListEvent;
     #endregion
 
     private void Awake()
@@ -208,6 +228,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         TutorialDataSaveManager.Instance.LoadTutorialSavedData();
         PurchasesDataSaveManager.Instance.RemoveAdsPurchasedEvent = RemoveAdsPurchasedEvent;
         PurchasesDataSaveManager.Instance.LoadPurchaseIAPSavedData();
+        LeaderboardsDataSaveManager.Instance.LoadLeaderboardsSavedData();
 
         // Music and audio
         musicManager.TriggerIslandMusicEvent = TriggerIslandMusicEvent;
@@ -372,11 +393,37 @@ public class MetaGameBootstrapper : MonoBehaviour
 
         // Load purchased items
         PurchasesDataSaveManager.Instance.CallForPurchasedIAP();
+
+        // Game services
+        servicesController.PlayerLoginEvent = PlayerLoginEvent;
+        servicesController.LoginSuccessfulEvent = LoginSuccessfulEvent;
+        servicesController.RequestLeaderboardsDataEvent = RequestLeaderboardsDataEvent;
+        servicesController.PlayerRankDataEvent = PlayerRankDataEvent;
+        servicesController.LeaderboardRankDataListEvent = LeaderboardRankDataListEvent;
+        servicesController.Initialize();
+
+        // Leaderboards
+        leaderboardsController.OpenLeaderboardsEvent = OpenLeaderboardsEvent;
+        leaderboardsController.RequestLeaderboardsDataEvent = RequestLeaderboardsDataEvent;
+        leaderboardsController.PlayerRankDataEvent = PlayerRankDataEvent;
+        leaderboardsController.LeaderboardRankDataListEvent = LeaderboardRankDataListEvent;
+        leaderboardsController.Initialize();
+
+        PlayerLogin();
     }
 
     private void GameInitializationCompleted()
     {
         TriggerIslandMusicEvent.Raise();
         CurrenciesUpdatedEvent.Raise();
+    }
+
+    private void PlayerLogin()
+    {
+        if (LeaderboardsDataSaveManager.Instance.GetFirstTimeLoginStatus()
+            || LeaderboardsDataSaveManager.Instance.GetLoginStatus())
+        {
+            PlayerLoginEvent.Raise();
+        }
     }
 }

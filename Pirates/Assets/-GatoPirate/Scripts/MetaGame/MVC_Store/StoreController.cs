@@ -45,7 +45,11 @@ public class StoreController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<PurchaseInfo>.BuildEventHandler(ConsumedItemSuccesfulEvent, ConsumedItemSuccesfulEventCallback));
         _eventHandlers.Add(EventHandlerFactory<string,PurchaseInfo>.BuildEventHandler(PurchaseResultEvent, PurchaseResultEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(RemoveAdsPurchasedEvent, RemoveAdsPurchasedEventCallback));
-
+        for (int i = 0; i < storeItemViewList.Count; i++)
+        {
+            storeItemViewList[i].PurchaseStoreItemEvent = PurchaseStoreItemEvent;
+            storeItemViewList[i].TriggerUISoundEvent = TriggerUISoundEvent;
+        }
         iapController.StoreProductsListEvent = StoreProductsListEvent;
         iapController.StorePurchasesListEvent = StorePurchasesListEvent;
         iapController.PurchaseItemSuccesfulEvent = PurchaseItemSuccesfulEvent;

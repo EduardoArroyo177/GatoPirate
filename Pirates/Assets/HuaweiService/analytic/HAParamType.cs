@@ -47,7 +47,7 @@ namespace HuaweiService.analytic
         public const string ROLENAME = "$RoleName";
         public const string LEVELID = "$LevelId";
         public const string CHANNEL = "$Channel";
-        public const string SCORE = "$Score";
+        public const string SCORE = "$PendingCombatScore";
         public const string SEARCHKEYWORDS = "$SearchKeywords";
         public const string CONTENTTYPE = "$ContentType";
         public const string ACHIEVEMENTID = "$AchievementId";

@@ -126,6 +126,7 @@ public class PurchaseListener : IPurchaseListener
     {
         // Querying inventory succeeded.
         IList<ProductInfo> ProductInfoList = inventory.GetProductList();
+        Debug.Log($"Product list found with {ProductInfoList.Count} items");
         StoreProductsListEvent?.Raise(ProductInfoList);
 
         IList<PurchaseInfo> PurchaseInfoList = inventory.GetPurchaseList();

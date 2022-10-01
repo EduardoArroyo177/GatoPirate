@@ -157,6 +157,13 @@ public enum NonConsumableIAP
 }
 #endregion
 
+#region Leaderboards
+public enum LeaderboardType
+{ 
+    COMBATS_WON
+}
+#endregion
+
 #region Islands
 public enum Island
 { 

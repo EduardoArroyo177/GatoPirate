@@ -141,3 +141,34 @@ public class DataSaveNonConsumableIAPListStructure
     }
 }
 #endregion
+
+#region Leaderboards 
+[Serializable]
+public class LeaderboardScoreData
+{
+    public string playerDisplayRank;
+    public string playerName;
+    public long playerScore;
+    public long playerRank;
+}
+
+[Serializable]
+public class DataSaveLeaderboardStructure
+{
+    public string LeaderboardType;
+    public int PendingCombatScore;
+}
+
+[Serializable]
+public class DataSaveLeaderboardListStructure
+{
+    public bool FirstTimeLoginAttempted;
+    public bool IsLoginAccepted;
+    public List<DataSaveLeaderboardStructure> LeaderboardsList;
+
+    public DataSaveLeaderboardListStructure()
+    {
+        LeaderboardsList = new List<DataSaveLeaderboardStructure>();
+    }
+}
+#endregion

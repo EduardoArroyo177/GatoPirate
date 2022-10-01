@@ -124,3 +124,11 @@ MonoBehaviour:
   TriggerMetaGameIslandTutorialEvent: {fileID: 11400000, guid: d8f73565977cac740acd154d14ae525b, type: 2}
   TriggerMetaGameCrewTutorialEvent: {fileID: 11400000, guid: 44c4b05643939a04fb860eedfa95a414, type: 2}
   FreeRecruitmentTutorialEvent: {fileID: 11400000, guid: 41a036874f3486f4abfc2fabc2b615a7, type: 2}
+  servicesController: {fileID: 0}
+  PlayerLoginEvent: {fileID: 11400000, guid: 376e2ed492f67834588d8ecec918a10c, type: 2}
+  LoginSuccessfulEvent: {fileID: 11400000, guid: 2e7c9fa1cd9c1574ab198496f18fdf6c, type: 2}
+  leaderboardsController: {fileID: 0}
+  OpenLeaderboardsEvent: {fileID: 11400000, guid: 668f5dab518f396499e4f8db35c81d38, type: 2}
+  RequestLeaderboardsDataEvent: {fileID: 11400000, guid: af64aeafb2c60e14bbcdffb1f5dfeca3, type: 2}
+  PlayerRankDataEvent: {fileID: 11400000, guid: a287730cc6b7cb94a9cf8e4bcd2adb4a, type: 2}
+  LeaderboardRankDataListEvent: {fileID: 11400000, guid: b1ad2143a86606c498773cb853a96e07, type: 2}

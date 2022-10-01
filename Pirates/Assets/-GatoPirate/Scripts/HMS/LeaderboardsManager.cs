@@ -2,14 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeaderboardScoreData
-{
-    public string playerDisplayRank;
-    public string playerName;
-    public long playerScore;
-    public long playerRank;
-}
-
 public class LeaderboardsManager : MonoBehaviour
 {
     [SerializeField]

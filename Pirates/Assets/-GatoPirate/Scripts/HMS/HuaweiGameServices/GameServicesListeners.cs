@@ -78,6 +78,11 @@ public class MyGetPlayerListener : IGetPlayerListener
 #region Leaderboards
 public class MySubmitScoreListener : ISubmitScoreListener
 {
+    private VoidEvent ScoreSubmittedEvent;
+    public MySubmitScoreListener(VoidEvent _scoreSubmittedEvent = null)
+    {
+        ScoreSubmittedEvent = _scoreSubmittedEvent;
+    }
     public void OnSuccess(ScoreSubmission scoreSubmission)
     {
         if (scoreSubmission == null)
@@ -88,7 +93,7 @@ public class MySubmitScoreListener : ISubmitScoreListener
         string msg = "success submitted.";
         msg += string.Format("leaderboard id:{0}, playerId:{1}, scoreResults: \n", scoreSubmission.LeaderboardId,
             scoreSubmission.PlayerId);
-
+        
         foreach (KeyValuePair<int, ScoreSubmission.Result> r in scoreSubmission.ScoreResults)
         {
             msg += string.Format("key: {0}, rawScore:{1}, formattedScore:{2}, scoreTag:{3}, isBest:{4}; \n", r.Key,
@@ -96,6 +101,7 @@ public class MySubmitScoreListener : ISubmitScoreListener
         }
 
         Debug.Log(msg);
+        ScoreSubmittedEvent?.Raise();
     }
 
     public void OnFailure(int code, string message)

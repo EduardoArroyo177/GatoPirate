@@ -16,31 +16,34 @@ public class HuaweiGameServicesController : MonoBehaviour
 
     // Leaderboards
     public StringEvent RequestLeaderboardsDataEvent { get; set; }
+    public LeaderboardDataEvent PlayerInitialRankDataEvent { get; set; }
     public LeaderboardDataEvent PlayerRankDataEvent { get; set; }
     public LeaderboardDataListEvent LeaderboardRankDataListEvent { get; set; }
+    public StringEvent RequestPlayerScoreEvent { get; set; }
+    public StringIntEvent SubmitHighScoreEvent { get; set; }
+    public VoidEvent ScoreSubmittedEvent { get; set; }
+
     #endregion
 
     private ILoginListener _loginListener;
     private IGetLeaderboardScoreListener _getLeaderboardScoreListener; // Get player rank
     private IGetLeaderboardScoresListener _getLeaderboardScoresListener; // Get rank list
 
-    private ISubmitScoreListener _submitScoreListener = new MySubmitScoreListener();
+    private ISubmitScoreListener _submitScoreListener;
     private IGetLeaderboardsListener _getLeaderboardsListener = new MyGetLeaderboardsListener();
     private IGetLeaderboardListener _getLeaderboardListener = new MyGetLeaderboardListener();
     private IGetPlayerListener _getPlayerListener = new MyGetPlayerListener();
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
-    private bool playerLogin;
-
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(PlayerLoginEvent, PlayerLoginEventCallback));
-        _eventHandlers.Add(EventHandlerFactory<bool>.BuildEventHandler(LoginSuccessfulEvent, LoginSuccessfulEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(RequestPlayerScoreEvent, RequestPlayerScoreEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<string,int>.BuildEventHandler(SubmitHighScoreEvent, SubmitHighScoreEventCallback));
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(RequestLeaderboardsDataEvent, RequestLeaderboardsDataEventCallback));
 
-        _getLeaderboardScoreListener = new MyGetLeaderboardScoreListener(PlayerRankDataEvent);
-        _getLeaderboardScoresListener = new MyGetLeaderboardScoresListener(LeaderboardRankDataListEvent);
+        
 #if UNITY_ANDROID && !UNITY_EDITOR
         InitService();
         InitApp();
@@ -68,22 +71,24 @@ public class HuaweiGameServicesController : MonoBehaviour
         Login();
     }
 
-    private void LoginSuccessfulEventCallback(bool _loginSuccesful)
+    private void RequestPlayerScoreEventCallback(string _leaderboardID)
     {
-        playerLogin = _loginSuccesful;
-        // If login is succesful, it will automatically login everytime
-        LeaderboardsDataSaveManager.Instance.UpdateLoginStatus(_loginSuccesful);
-        // If login failed (user canceled), it won't try to login automatically
-        // Show a message to try again later
-
-        if (LeaderboardsDataSaveManager.Instance.GetFirstTimeLoginStatus())
-            LeaderboardsDataSaveManager.Instance.UpdateFirstTimeLoginStatus();
+        _getLeaderboardScoreListener = new MyGetLeaderboardScoreListener(PlayerInitialRankDataEvent);
+        GetCurrentPlayerScores(_leaderboardID);
     }
 
     private void RequestLeaderboardsDataEventCallback(string _leaderboardID)
     {
+        _getLeaderboardScoreListener = new MyGetLeaderboardScoreListener(PlayerRankDataEvent);
         GetCurrentPlayerScores(_leaderboardID);
-        GetSpecificLeaderboard(_leaderboardID);
+        _getLeaderboardScoresListener = new MyGetLeaderboardScoresListener(LeaderboardRankDataListEvent);
+        GetLeaderboardScores(_leaderboardID);
+    }
+
+    private void SubmitHighScoreEventCallback(string _leaderboardID, int _score)
+    {
+        _submitScoreListener = new MySubmitScoreListener(ScoreSubmittedEvent);
+        SubmitScore(_leaderboardID, _score);
     }
     #endregion
 
@@ -94,14 +99,11 @@ public class HuaweiGameServicesController : MonoBehaviour
 #if UNITY_EDITOR
         return;
 #endif
-        if (!playerLogin)
-        {
-            Debug.Log("starting login");
+
             _loginListener = new MyLoginListener(LoginSuccessfulEvent);
             AccountAuthParamsHelper authParamsHelper = new AccountAuthParamsHelper();
             authParamsHelper.SetAuthorizationCode().SetAccessToken().SetIdToken().SetUid().SetId().SetEmail().CreateParams();
             HuaweiGameService.Login(_loginListener);
-        }
     }
 
     public void GetCurrentPlayer()
@@ -114,15 +116,11 @@ public class HuaweiGameServicesController : MonoBehaviour
     #region Leaderboards
     public void GetCurrentPlayerScores(string _leaderboardID)
     {
-        if (!playerLogin)
-            return;
         HuaweiGameService.GetCurrentPlayerLeaderboardScore(_leaderboardID, 1, _getLeaderboardScoreListener);
     }
 
     public void GetLeaderboardScores(string _leaderboardID)
     {
-        if (!playerLogin)
-            return;
         Debug.Log("start GetRankingTopScores-String rankingId, int timeDimension, int maxResults, long offsetPlayerRank");
         HuaweiGameService.GetLeaderboardTopScores(_leaderboardID, 1, 10, 0, 0, _getLeaderboardScoresListener);
     }
@@ -130,8 +128,6 @@ public class HuaweiGameServicesController : MonoBehaviour
     
     public void SubmitScore(string _leaderboardID, int score)
     {
-        if (!playerLogin)
-            return;
         Debug.Log("start AsyncSubmitScore with ranking id: " + _leaderboardID + " score: " + 2);
         HuaweiGameService.AsyncSubmitScore(_leaderboardID, score, _submitScoreListener);
     }

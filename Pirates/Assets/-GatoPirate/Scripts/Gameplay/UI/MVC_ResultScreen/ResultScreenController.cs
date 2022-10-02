@@ -124,6 +124,8 @@ public class ResultScreenController : MonoBehaviour
 
         if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.FIRST_COMBAT))
             TutorialDataSaveManager.Instance.UpdateTutorialCompleted(TutorialType.FIRST_COMBAT);
+
+        LeaderboardsDataSaveManager.Instance.UpdateLeaderboardScore(LeaderboardType.COMBATS_WON, 1);
     }
 
     private IEnumerator CurrencyCounterAnimation(int _startingAmnt, int _totalAmnt = 0)

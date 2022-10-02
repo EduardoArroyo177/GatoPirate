@@ -7,11 +7,17 @@ public class LeaderboardsView : MonoBehaviour
     [SerializeField]
     private GameObject pnl_LoginMissing;
     [SerializeField]
+    private GameObject pnl_LoadingData;
+    [SerializeField]
     private Transform rankViewContent;
 
     [Header("Current player rank")]
     [SerializeField]
     private PlayerRankView currentPlayerRankView;
+
+    [Header("Top 10 rank")]
+    [SerializeField]
+    private List<PlayerRankView> top10RankList;
 
     [Header("Prefab")]
     [SerializeField]
@@ -27,6 +33,8 @@ public class LeaderboardsView : MonoBehaviour
     [SerializeField]
     private Sprite genericPositionSprite;
 
+    public LeaderboardsController LeaderboardsController { get; set; }
+
     public Transform RankViewContent { get => rankViewContent; set => rankViewContent = value; }
 
     // Current player
@@ -38,10 +46,24 @@ public class LeaderboardsView : MonoBehaviour
     public Sprite SecondPlaceSprite { get => secondPlaceSprite; set => secondPlaceSprite = value; }
     public Sprite ThirdPlaceSprite { get => thirdPlaceSprite; set => thirdPlaceSprite = value; }
     public Sprite GenericPositionSprite { get => genericPositionSprite; set => genericPositionSprite = value; }
+    public List<PlayerRankView> Top10RankList { get => top10RankList; set => top10RankList = value; }
 
-
-    public void ShowLoginMissingView()
+    // Login needed
+    public void ShowLoginMissingView(bool _show)
     {
-        pnl_LoginMissing.SetActive(true);
+        pnl_LoginMissing.SetActive(_show);
     }
+
+    // Loading data
+    public void ShowLoadingDataView(bool _show)
+    {
+        pnl_LoadingData.SetActive(_show); 
+    }
+
+    #region Button methods
+    public void Login()
+    {
+        LeaderboardsController.RequestLogin();
+    }
+    #endregion
 }

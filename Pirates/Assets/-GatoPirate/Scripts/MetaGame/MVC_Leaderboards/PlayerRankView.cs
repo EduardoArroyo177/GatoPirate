@@ -26,7 +26,6 @@ public class PlayerRankView : MonoBehaviour
 
     public void SetPlayerRankData(string _rank, string _score, string _playerName)
     {
-        
         lbl_rank.text = _rank;
         lbl_score.text = _score;    
         lbl_playerName.text = _playerName;

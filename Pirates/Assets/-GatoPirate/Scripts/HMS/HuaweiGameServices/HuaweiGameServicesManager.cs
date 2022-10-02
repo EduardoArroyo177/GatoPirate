@@ -533,28 +533,20 @@ public class HuaweiGameServicesManager : MonoBehaviour
 
     public void SubmitScore(int score)
     {
-        if (!playerLogin)
-            return;
         Debug.Log("start AsyncSubmitScore with ranking id: " + leaderboardID + " score: " + 2);
         HuaweiGameService.AsyncSubmitScore(leaderboardID, score, _submitScoreListener);
     }
 
     public void GetLeaderboardScores()
     {
-        if (!playerLogin)
-            return;
         Debug.Log("start GetRankingTopScores-String rankingId, int timeDimension, int maxResults, long offsetPlayerRank");
         HuaweiGameService.GetLeaderboardTopScores(leaderboardID, 1, 10, 0, 0, _getLeaderboardScoresListener);
     }
 
     public void GetCurrentPlayerScores()
     {
-        if (!playerLogin)
-            return;
         HuaweiGameService.GetCurrentPlayerLeaderboardScore(leaderboardID, 1, _getLeaderboardScoreListener);
     }
-
-    
 
     public class MyCancelAuthListener : ICancelAuthListener
     {

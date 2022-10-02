@@ -548,6 +548,8 @@ public class CatRecruitmentController : MonoBehaviour
             item.UnregisterListener();
         }
         _eventHandlers.Clear();
+
+        catRecruitmentPopUpsView.CleanListeners();
     }
     #endregion
 }

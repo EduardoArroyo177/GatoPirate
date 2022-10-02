@@ -153,6 +153,8 @@ public class StartCombatBootstrapper : MonoBehaviour
         // Load IAP data
         PurchasesDataSaveManager.Instance.RemoveAdsPurchasedEvent = RemoveAdsPurchasedEvent;
         PurchasesDataSaveManager.Instance.LoadPurchaseIAPSavedData();
+        // Load leaderboard data
+        LeaderboardsDataSaveManager.Instance.LoadLeaderboardsSavedData();
 
         // Scene loader
         sceneLoaderManager.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;

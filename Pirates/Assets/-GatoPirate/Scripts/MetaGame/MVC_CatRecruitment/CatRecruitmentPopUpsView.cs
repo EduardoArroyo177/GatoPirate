@@ -57,6 +57,11 @@ public class CatRecruitmentPopUpsView : MonoBehaviour
     // On destroy
     private void OnDestroy()
     {
+        CleanListeners();
+    }
+
+    public void CleanListeners()
+    {
         foreach (var item in _eventHandlers)
         {
             item.UnregisterListener();

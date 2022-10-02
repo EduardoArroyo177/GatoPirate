@@ -213,9 +213,18 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField] 
     private StringEvent RequestLeaderboardsDataEvent;
     [SerializeField] 
+    private LeaderboardDataEvent PlayerInitialRankDataEvent;
+    [SerializeField]
     private LeaderboardDataEvent PlayerRankDataEvent;
     [SerializeField] 
     private LeaderboardDataListEvent LeaderboardRankDataListEvent;
+    [SerializeField]
+    private StringEvent RequestPlayerScoreEvent;
+    [SerializeField]
+    private StringIntEvent SubmitHighScoreEvent;
+    [SerializeField] 
+    private VoidEvent ScoreSubmittedEvent;
+
     #endregion
 
     private void Awake()
@@ -398,32 +407,33 @@ public class MetaGameBootstrapper : MonoBehaviour
         servicesController.PlayerLoginEvent = PlayerLoginEvent;
         servicesController.LoginSuccessfulEvent = LoginSuccessfulEvent;
         servicesController.RequestLeaderboardsDataEvent = RequestLeaderboardsDataEvent;
+        servicesController.PlayerInitialRankDataEvent = PlayerInitialRankDataEvent;
         servicesController.PlayerRankDataEvent = PlayerRankDataEvent;
         servicesController.LeaderboardRankDataListEvent = LeaderboardRankDataListEvent;
+        servicesController.RequestPlayerScoreEvent = RequestPlayerScoreEvent;
+        servicesController.SubmitHighScoreEvent = SubmitHighScoreEvent;
+        servicesController.ScoreSubmittedEvent = ScoreSubmittedEvent;
         servicesController.Initialize();
 
         // Leaderboards
+        leaderboardsController.PlayerLoginEvent = PlayerLoginEvent;
+        leaderboardsController.LoginSuccessfulEvent = LoginSuccessfulEvent;
         leaderboardsController.OpenLeaderboardsEvent = OpenLeaderboardsEvent;
         leaderboardsController.RequestLeaderboardsDataEvent = RequestLeaderboardsDataEvent;
+        leaderboardsController.PlayerInitialRankDataEvent = PlayerInitialRankDataEvent;
         leaderboardsController.PlayerRankDataEvent = PlayerRankDataEvent;
         leaderboardsController.LeaderboardRankDataListEvent = LeaderboardRankDataListEvent;
+        leaderboardsController.RequestPlayerScoreEvent = RequestPlayerScoreEvent;
+        leaderboardsController.SubmitHighScoreEvent = SubmitHighScoreEvent;
+        leaderboardsController.ScoreSubmittedEvent = ScoreSubmittedEvent;
         leaderboardsController.Initialize();
 
-        PlayerLogin();
+        //PlayerLogin();
     }
 
     private void GameInitializationCompleted()
     {
         TriggerIslandMusicEvent.Raise();
         CurrenciesUpdatedEvent.Raise();
-    }
-
-    private void PlayerLogin()
-    {
-        if (LeaderboardsDataSaveManager.Instance.GetFirstTimeLoginStatus()
-            || LeaderboardsDataSaveManager.Instance.GetLoginStatus())
-        {
-            PlayerLoginEvent.Raise();
-        }
     }
 }

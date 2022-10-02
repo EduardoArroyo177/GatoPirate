@@ -11,6 +11,10 @@ public class LeaderboardsDataSaveManager : SceneSingleton<LeaderboardsDataSaveMa
 
     public DataSaveLeaderboardListStructure LeaderboardsData { get => leaderboardsData; set => leaderboardsData = value; }
 
+    public bool IsLoggedIn { get; set; }
+    public bool IsLeaderboardDataLoaded { get; set; }
+    public int ScoreToUpdate { get; set; }
+
     #region Initialization
     public void LoadLeaderboardsSavedData()
     {
@@ -73,7 +77,7 @@ public class LeaderboardsDataSaveManager : SceneSingleton<LeaderboardsDataSaveMa
         return LeaderboardsData.LeaderboardsList[index].PendingCombatScore;
     }
 
-    public void UpdateLeaderboardScore(LeaderboardType _leaderboardType, int _newScore)
+    public void UpdateLeaderboardScore(LeaderboardType _leaderboardType, int _score)
     {
         int index = LeaderboardsData.LeaderboardsList.FindIndex(x => x.LeaderboardType.Equals(_leaderboardType.ToString()));
 
@@ -83,9 +87,14 @@ public class LeaderboardsDataSaveManager : SceneSingleton<LeaderboardsDataSaveMa
             return;
         }
 
-        LeaderboardsData.LeaderboardsList[index].PendingCombatScore = _newScore;
+        if (_score == 0)
+            LeaderboardsData.LeaderboardsList[index].PendingCombatScore = 0;
+        else
+            LeaderboardsData.LeaderboardsList[index].PendingCombatScore++;
         SaveLeaderboardsData();
     }
+    
+    
     #endregion
 
     #region Save data

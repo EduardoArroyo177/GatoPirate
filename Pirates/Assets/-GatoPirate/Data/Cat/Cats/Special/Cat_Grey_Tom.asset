@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
+  m_Name: Cat_Grey_Tom
+  m_EditorClassIdentifier: 
+  catType: 0
+  catTier: 0
+  catName: 
+  catHeadSprite: {fileID: 21300000, guid: 0409c86c6166f4140b746a09d6a2fc74, type: 3}
+  catBodySprite: {fileID: 21300000, guid: f1dfe85cbcd4c8044b24c1efc14c9c9b, type: 3}
+  catLeftPawSprite: {fileID: 21300000, guid: 2f5c2e6c874cadb419eeb11b951e9572, type: 3}
+  catRightPawSprite: {fileID: 21300000, guid: d3ca3a134e63e0946bd7f8add0f8f66b, type: 3}
+  catLeftBottomPawSprite: {fileID: 21300000, guid: 0ed1df6b23db46a459e94011ea11e129, type: 3}
+  catRightBottomPawSprite: {fileID: 21300000, guid: c71a6e8d7307f284db02255d6a8db5e0, type: 3}
+  catTailSprite: {fileID: 21300000, guid: cbb98efc1394da141b02b9274c47429d, type: 3}
+  catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
+  catColor: {r: 0, g: 0, b: 0, a: 0}
+  catDescription: 
+  catPreviewSprite: {fileID: 21300000, guid: 3ac1e9c55329e504fbd6f08789577e36, type: 3}
+  catPrice: 0
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0
+  meowSound: 0

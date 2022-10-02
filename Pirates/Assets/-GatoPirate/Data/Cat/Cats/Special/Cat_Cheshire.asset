@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
+  m_Name: Cat_Cheshire
+  m_EditorClassIdentifier: 
+  catType: 0
+  catTier: 0
+  catName: 
+  catHeadSprite: {fileID: 21300000, guid: edfcab3d79c0888458de0e0256a305be, type: 3}
+  catBodySprite: {fileID: 21300000, guid: 47f9f299542477b4ea57dcdd24c2e86d, type: 3}
+  catLeftPawSprite: {fileID: 21300000, guid: a57bcc84b2d49d7409409fd165cb1b69, type: 3}
+  catRightPawSprite: {fileID: 21300000, guid: 4591132b0a6e3034aa1f54767a04500c, type: 3}
+  catLeftBottomPawSprite: {fileID: 21300000, guid: 553767a65f54ad94bbd5a7367784c466, type: 3}
+  catRightBottomPawSprite: {fileID: 21300000, guid: c7091a647fbb11544bf9da557585729b, type: 3}
+  catTailSprite: {fileID: 21300000, guid: a2377263d331ca747a6d4a34f0bb904a, type: 3}
+  catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
+  catColor: {r: 0, g: 0, b: 0, a: 0}
+  catDescription: 
+  catPreviewSprite: {fileID: 21300000, guid: 76d11a2a7e86f15489b6cc49f63fe5cc, type: 3}
+  catPrice: 0
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0
+  meowSound: 0

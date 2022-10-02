@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
+  m_Name: Cat_SailorMoon_Black
+  m_EditorClassIdentifier: 
+  catType: 0
+  catTier: 0
+  catName: 
+  catHeadSprite: {fileID: 21300000, guid: 1cf81957d7713844fb01482bf8788a60, type: 3}
+  catBodySprite: {fileID: 21300000, guid: 218b296a8b748354ea1fe71e7e45ee95, type: 3}
+  catLeftPawSprite: {fileID: 21300000, guid: 09b09376a22f392408430cee000b55e9, type: 3}
+  catRightPawSprite: {fileID: 21300000, guid: 3ae790e321de7dc4ca085ddada104b92, type: 3}
+  catLeftBottomPawSprite: {fileID: 21300000, guid: c91c51725a19b684db9892957482b47c, type: 3}
+  catRightBottomPawSprite: {fileID: 21300000, guid: 847ac7215cdaed74b94da82aa339e287, type: 3}
+  catTailSprite: {fileID: 21300000, guid: d7f64087f65c59f4bad8264863b6427b, type: 3}
+  catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
+  catColor: {r: 0, g: 0, b: 0, a: 0}
+  catDescription: 
+  catPreviewSprite: {fileID: 21300000, guid: d770bfd251c86c140adc7d2085904847, type: 3}
+  catPrice: 0
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0
+  meowSound: 0

@@ -3709,7 +3709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &540246945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16561,7 +16561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6094841081031449806, guid: d496f12fda2c90e4294a7c4e390e4b37, type: 3}
       propertyPath: catsDataList.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6094841081031449806, guid: d496f12fda2c90e4294a7c4e390e4b37, type: 3}
       propertyPath: catsDataList.Array.data[0]
@@ -16570,19 +16570,19 @@ PrefabInstance:
     - target: {fileID: 6094841081031449806, guid: d496f12fda2c90e4294a7c4e390e4b37, type: 3}
       propertyPath: catsDataList.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 37a7aba36eeab814ea8e95ed40480346, type: 2}
+      objectReference: {fileID: 11400000, guid: ce7a3424ee52db84bb493c0ad5007a3b, type: 2}
     - target: {fileID: 6094841081031449806, guid: d496f12fda2c90e4294a7c4e390e4b37, type: 3}
       propertyPath: catsDataList.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: ce7a3424ee52db84bb493c0ad5007a3b, type: 2}
+      objectReference: {fileID: 11400000, guid: 0f4de49c318f19e44a3e39d977877b52, type: 2}
     - target: {fileID: 6094841081031449806, guid: d496f12fda2c90e4294a7c4e390e4b37, type: 3}
       propertyPath: catsDataList.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 0f4de49c318f19e44a3e39d977877b52, type: 2}
+      objectReference: {fileID: 11400000, guid: fc0fa6a9bc04110408d1192c32f97568, type: 2}
     - target: {fileID: 6094841081031449806, guid: d496f12fda2c90e4294a7c4e390e4b37, type: 3}
       propertyPath: catsDataList.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: fc0fa6a9bc04110408d1192c32f97568, type: 2}
+      objectReference: {fileID: 11400000, guid: a4c207c42034b034b82a413b0b70bc07, type: 2}
     - target: {fileID: 6094841081031449806, guid: d496f12fda2c90e4294a7c4e390e4b37, type: 3}
       propertyPath: catsDataList.Array.data[5]
       value: 

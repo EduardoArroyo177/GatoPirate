@@ -11,6 +11,12 @@ public class IslandCatsController : MonoBehaviour
     [SerializeField]
     private IslandShipButton islandShipButton;
 
+    [Header("Cat faces")]
+    [SerializeField]
+    private CatFaceData catFaceDataGeneric;
+    [SerializeField]
+    private CatFaceData catFaceDataHappy;
+
     public CatTypeIDEvent NewCatPurchasedEvent { get; set; }
     public GameObjectEvent TriggerSelectedCatCameraEvent { get; set; }
     public StringEvent OpenSelectedCatOptionsEvent { get; set; }
@@ -69,6 +75,9 @@ public class IslandCatsController : MonoBehaviour
                     {
                         // Cat data
                         islandSlot.CatData = catData;
+                        // Get random face
+                        islandSlot.CatFaceSprite =
+                            catFaceDataGeneric.CatFaceSpriteList[Random.Range(0, catFaceDataGeneric.CatFaceSpriteList.Count)];
                         islandSlot.SkinData = skinData;
                         islandSlot.IsOccupied = true;
                         islandSlot.CatID = CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].CatID;
@@ -99,6 +108,11 @@ public class IslandCatsController : MonoBehaviour
                 {
                     // Cat data
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CatData = catData;
+                    int randomFaceIndex = Random.Range(0, catFaceDataGeneric.CatFaceSpriteList.Count);
+                    // Get random face
+                    slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CatFaceSprite =
+                            catFaceDataGeneric.CatFaceSpriteList[randomFaceIndex];
+
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].SkinData = skinData;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].IsOccupied = true;
                     slotList[CatsDataSaveManager.Instance.DataSaveCatCrewStructure.DataSaveCatCrewList[index].IslandSlot].CatID =
@@ -136,6 +150,10 @@ public class IslandCatsController : MonoBehaviour
             if (catData)
             {
                 islandSlot.CatData = catData;
+                // Get random face
+                islandSlot.CatFaceSprite =
+                    catFaceDataGeneric.CatFaceSpriteList[Random.Range(0, catFaceDataGeneric.CatFaceSpriteList.Count)];
+
                 islandSlot.IsOccupied = true;
                 islandSlot.CatID = _catID;
                 islandSlot.TriggerSelectedCatCameraEvent = TriggerSelectedCatCameraEvent;

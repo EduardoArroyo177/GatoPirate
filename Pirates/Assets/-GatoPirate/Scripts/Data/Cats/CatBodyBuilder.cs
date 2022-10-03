@@ -55,6 +55,7 @@ public class CatBodyBuilder : MonoBehaviour
     private SpriteRenderer catTailSkinRenderer;
 
     public CatData CatData { get => catData; set => catData = value; }
+    public Sprite CatFaceSprite { get; set; }
     public CatSkinData CatSkinData { get => catSkinData; set => catSkinData = value; }
 
     private void Awake()
@@ -96,7 +97,7 @@ public class CatBodyBuilder : MonoBehaviour
         catTailRenderer.color = CatData.CatColor;
 
         // TODO: Select random eyes?
-        catFaceRenderer.sprite = CatData.CatEyesSprite;
+        catFaceRenderer.sprite = CatFaceSprite;
         catFaceRenderer.color = CatData.CatColor;
     }
 

@@ -22,7 +22,7 @@ MonoBehaviour:
   catLeftBottomPawSprite: {fileID: 21300000, guid: ada5743c354a6cd468aa4914ab2dccaf, type: 3}
   catRightBottomPawSprite: {fileID: 21300000, guid: 58d456847c65a5c46842dba5df1eb1ed, type: 3}
   catTailSprite: {fileID: 21300000, guid: 7b35564b9316b6f4992e50cad41bc65c, type: 3}
-  catEyesSprite: {fileID: 21300000, guid: ecfa942489356144c96e875e4b18dfa9, type: 3}
+  catEyesSprite: {fileID: 21300000, guid: 3e2fd097912da3c47bb1142e4db324e6, type: 3}
   catColor: {r: 1, g: 1, b: 1, a: 1}
   catDescription: "\"Look into my eyes... \nNow give me all your foods\""
   catPreviewSprite: {fileID: 21300000, guid: acb436ce602576f49976c803f4ae273d, type: 3}

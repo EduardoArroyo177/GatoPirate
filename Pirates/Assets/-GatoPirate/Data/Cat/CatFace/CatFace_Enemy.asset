@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 698338b55cc602245888e2d708eceb71, type: 3}
+  m_Name: CatFace_Enemy
+  m_EditorClassIdentifier: 
+  catFaceType: 3
+  catFaceSpriteList:
+  - {fileID: 21300000, guid: 20c8c1aaf0de5c245b04cb8fefe1684f, type: 3}
+  - {fileID: 21300000, guid: e541eb0fa00fa5a4f94403fd3e4fd6f0, type: 3}
+  - {fileID: 21300000, guid: 583eedd377219c047bb2248da3d37b33, type: 3}
+  - {fileID: 21300000, guid: 631e2bfc360d3a64682a4e6ec55bdd36, type: 3}

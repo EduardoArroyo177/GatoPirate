@@ -141,6 +141,8 @@ public class LeaderboardsController : MonoBehaviour
         LeaderboardsDataSaveManager.Instance.IsLeaderboardDataLoaded = true;
         // Hide loading panel
         leaderboardsView.ShowLoadingDataView(false);
+        if (_leaderboardData.Count == 0)
+            leaderboardsView.ShowNoRecordsFoundView(true);
     }
 
     private void SubmitScore()

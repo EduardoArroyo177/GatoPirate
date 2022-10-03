@@ -14,6 +14,7 @@ public class IslandSlot : MonoBehaviour
     private string catID;
 
     public CatData CatData { get; set; }
+    public Sprite CatFaceSprite { get; set; }
     public CatSkinData SkinData { get; set; }
     public bool IsOccupied { get => isOccupied; set => isOccupied = value; }
     public string CatID { get => catID; set => catID = value; }
@@ -33,6 +34,7 @@ public class IslandSlot : MonoBehaviour
     public void InitializeCat()
     {
         catBodyBuilder.CatData = CatData;
+        catBodyBuilder.CatFaceSprite = CatFaceSprite;
         catBodyBuilder.CatSkinData = SkinData;
         catBodyBuilder.InitializeData();
 

@@ -133,6 +133,18 @@ public enum ItemTier
     SPECIAL,
     PREMIUM
 }
+
+public enum CatFaceType
+{ 
+    GENERIC, 
+    SURPRISED,
+    SAD,
+    ENEMY,
+    BRAVE,
+    HAPPY,
+    DEAD,
+    WORRIED
+}
 #endregion
 
 #region Tutorial

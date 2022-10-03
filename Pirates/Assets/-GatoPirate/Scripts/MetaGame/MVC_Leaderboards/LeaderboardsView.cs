@@ -10,14 +10,12 @@ public class LeaderboardsView : MonoBehaviour
     private GameObject pnl_LoadingData;
     [SerializeField]
     private Transform rankViewContent;
+    [SerializeField]
+    private GameObject pnl_NoRecordsFound;
 
     [Header("Current player rank")]
     [SerializeField]
     private PlayerRankView currentPlayerRankView;
-
-    [Header("Top 10 rank")]
-    [SerializeField]
-    private List<PlayerRankView> top10RankList;
 
     [Header("Prefab")]
     [SerializeField]
@@ -46,7 +44,6 @@ public class LeaderboardsView : MonoBehaviour
     public Sprite SecondPlaceSprite { get => secondPlaceSprite; set => secondPlaceSprite = value; }
     public Sprite ThirdPlaceSprite { get => thirdPlaceSprite; set => thirdPlaceSprite = value; }
     public Sprite GenericPositionSprite { get => genericPositionSprite; set => genericPositionSprite = value; }
-    public List<PlayerRankView> Top10RankList { get => top10RankList; set => top10RankList = value; }
 
     // Login needed
     public void ShowLoginMissingView(bool _show)
@@ -58,6 +55,12 @@ public class LeaderboardsView : MonoBehaviour
     public void ShowLoadingDataView(bool _show)
     {
         pnl_LoadingData.SetActive(_show); 
+    }
+
+    // No records found
+    public void ShowNoRecordsFoundView(bool _show)
+    {
+        pnl_NoRecordsFound.SetActive(true);
     }
 
     #region Button methods

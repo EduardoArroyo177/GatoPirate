@@ -36,6 +36,7 @@ public class PanelCurrenciesController : MonoBehaviour
     public CurrencyTypeIntEvent ShowSpentCurrencyEvent { get; set; }
     public CurrencyTypeIntEvent ShowRewardedCurrencyEvent { get; set; }
     public VoidEvent OpenStoreEvent { get; set; }
+    public VoidEvent CurrencyUpdateAnimationFinishedEvent { get; set; }
 
     // Properties
     public TextMeshProUGUI Lbl_goldenCoinsAmnt { get => lbl_goldenCoinsAmnt; set => lbl_goldenCoinsAmnt = value; }
@@ -47,7 +48,9 @@ public class PanelCurrenciesController : MonoBehaviour
     public void Initialize()
     {        
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CurrenciesUpdatedEvent, CurrenciesUpdatedEventCallback));
-        if(ShowSpentCurrencyEvent)
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CurrencyUpdateAnimationFinishedEvent, CurrencyUpdateAnimationFinishedEventCallback));
+
+        if (ShowSpentCurrencyEvent)
             _eventHandlers.Add(EventHandlerFactory<CurrencyType, int>.BuildEventHandler(ShowSpentCurrencyEvent, ShowSpentCurrencyEventCallback));
         if(ShowRewardedCurrencyEvent)
             _eventHandlers.Add(EventHandlerFactory<CurrencyType, int>.BuildEventHandler(ShowRewardedCurrencyEvent, ShowRewardedCurrencyEventCallback));
@@ -59,6 +62,13 @@ public class PanelCurrenciesController : MonoBehaviour
         Lbl_goldenCoinsAmnt.text = $"x{CurrencyDataSaveManager.Instance.GetCurrencyAmount(CurrencyType.GOLDEN_COINS)}";
         Lbl_woodAmnt.text = $"x{CurrencyDataSaveManager.Instance.GetCurrencyAmount(CurrencyType.WOOD)}";
         Lbl_gemAmnt.text = $"x{CurrencyDataSaveManager.Instance.GetCurrencyAmount(CurrencyType.PREMIUM_GEM)}";
+    }
+
+    private void CurrencyUpdateAnimationFinishedEventCallback(Void _item)
+    {
+        lbl_updatedGoldenCoins.gameObject.SetActive(false);
+        lbl_updatedWood.gameObject.SetActive(false);
+        lbl_updatedGems.gameObject.SetActive(false);
     }
 
     private void ShowSpentCurrencyEventCallback(CurrencyType _currency, int _spentAmount)
@@ -81,6 +91,7 @@ public class PanelCurrenciesController : MonoBehaviour
                 lbl_updatedGems.gameObject.SetActive(true);
                 break;
         }
+        // TODO: Trigger cancel animation
     }
 
     private void ShowRewardedCurrencyEventCallback(CurrencyType _currency, int _rewardedAmount)

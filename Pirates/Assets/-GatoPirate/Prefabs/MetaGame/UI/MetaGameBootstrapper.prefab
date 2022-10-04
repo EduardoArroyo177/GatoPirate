@@ -78,6 +78,7 @@ MonoBehaviour:
   CurrenciesUpdatedEvent: {fileID: 11400000, guid: 9905e4e1943c32e40ad1240a1ca41796, type: 2}
   ShowSpentCurrencyEvent: {fileID: 11400000, guid: 266e74c0680d52c47b2ea9f3f068d207, type: 2}
   ShowRewardedCurrencyEvent: {fileID: 11400000, guid: 54cc69683de42e242939fcee24845efe, type: 2}
+  CurrencyUpdateAnimationFinishedEvent: {fileID: 11400000, guid: 0c2920ecd31361345b88aa1b7ac1816f, type: 2}
   islandCatsController: {fileID: 0}
   NewCatPurchasedEvent: {fileID: 11400000, guid: 2d9fec4a4bb95aa488262de2e6dd95ab, type: 2}
   CatSelectedEvent: {fileID: 11400000, guid: 963afccacd2f255439faaf9048c153b7, type: 2}

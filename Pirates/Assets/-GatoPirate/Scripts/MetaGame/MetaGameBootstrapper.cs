@@ -82,6 +82,8 @@ public class MetaGameBootstrapper : MonoBehaviour
     private CurrencyTypeIntEvent ShowSpentCurrencyEvent;
     [SerializeField]
     private CurrencyTypeIntEvent ShowRewardedCurrencyEvent;
+    [SerializeField]
+    private VoidEvent CurrencyUpdateAnimationFinishedEvent;
 
     [Header("Island")]
     [SerializeField]
@@ -289,6 +291,7 @@ public class MetaGameBootstrapper : MonoBehaviour
             pnl_currenciesList[index].ShowSpentCurrencyEvent = ShowSpentCurrencyEvent;
             pnl_currenciesList[index].ShowRewardedCurrencyEvent = ShowRewardedCurrencyEvent;
             pnl_currenciesList[index].OpenStoreEvent = OpenStoreEvent;
+            pnl_currenciesList[index].CurrencyUpdateAnimationFinishedEvent = CurrencyUpdateAnimationFinishedEvent;
             pnl_currenciesList[index].Initialize();
         }
 

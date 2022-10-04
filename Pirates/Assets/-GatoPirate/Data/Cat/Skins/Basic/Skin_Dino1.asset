@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
   m_Name: Skin_Dino1
   m_EditorClassIdentifier: 
-  skinType: 0
+  skinType: 12
   skinTier: 0
-  skinName: 
+  skinName: Dino Cat
   catHeadFrontSkinSprite: {fileID: 21300000, guid: 3834fa86f44a1e74fbd22fa86a4673c5, type: 3}
   catHeadBackSkinSprite: {fileID: 21300000, guid: 3908dc4a61b85e1488ff41d11d78aa3c, type: 3}
   catBodyFrontSkinSprite: {fileID: 21300000, guid: 14db8c153c564584aaee1f0e0bdc1635, type: 3}
@@ -28,10 +28,10 @@ MonoBehaviour:
   catTailSkinSprite: {fileID: 21300000, guid: 51ef1b24c0b015343b5d7394e60393f7, type: 3}
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
-  skinColor: {r: 0, g: 0, b: 0, a: 0}
-  skinDescription: 
+  skinColor: {r: 1, g: 1, b: 1, a: 1}
+  skinDescription: Rawr?... More like Meow!!
   skinPreviewSprite: {fileID: 21300000, guid: c140ed8c048358c4284224878c48ee04, type: 3}
-  skinPrice: 0
+  skinPrice: 2200
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

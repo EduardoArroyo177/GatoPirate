@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
   m_Name: Skin_JojoJotaro
   m_EditorClassIdentifier: 
-  skinType: 0
-  skinTier: 0
-  skinName: 
+  skinType: 22
+  skinTier: 1
+  skinName: Jocato Kujo
   catHeadFrontSkinSprite: {fileID: 21300000, guid: 9356b5090aaf9ef4c91d83e58e0a6077, type: 3}
   catHeadBackSkinSprite: {fileID: 21300000, guid: 5fe7703c2abc8d946bcde1561a3a1a91, type: 3}
   catBodyFrontSkinSprite: {fileID: 0}
@@ -28,10 +28,10 @@ MonoBehaviour:
   catTailSkinSprite: {fileID: 0}
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
-  skinColor: {r: 0, g: 0, b: 0, a: 0}
-  skinDescription: 
+  skinColor: {r: 1, g: 1, b: 1, a: 1}
+  skinDescription: Yare Yare Catze
   skinPreviewSprite: {fileID: 21300000, guid: cc39e3c21ac732c44ba33e38eaf987ec, type: 3}
-  skinPrice: 0
+  skinPrice: 2600
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

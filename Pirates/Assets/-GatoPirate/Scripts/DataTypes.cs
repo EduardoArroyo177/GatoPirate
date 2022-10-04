@@ -155,9 +155,25 @@ public enum SkinType
     GANDALF,
     ARISTOCATS_MARIE,
     ARISTOCATS_TOULOUSE,
+    ARISTOCATS_BERLIOZ,
     BATMAN,
     PANDA,
-    SUPERMAN
+    SUPERMAN,
+    BALLET,
+    TIE_BOW,
+    GLASSES1,
+    COLLAR_SOX,
+    DINO1,
+    DINO2,
+    HARRY_POTTER,
+    PIKACHU,
+    MEOWTH,
+    SUNGLASSES1,
+    JACK_SPARROW,
+    BARBOSA,
+    DAVY_JONES,
+    JACK_SPARROW_HAT,
+    JOJO_JOTARO
 }
 
 public enum ItemTier

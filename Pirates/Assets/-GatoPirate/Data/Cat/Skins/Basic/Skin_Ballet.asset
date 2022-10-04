@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
   m_Name: Skin_Ballet
   m_EditorClassIdentifier: 
-  skinType: 0
+  skinType: 8
   skinTier: 0
-  skinName: 
+  skinName: Ballet
   catHeadFrontSkinSprite: {fileID: 21300000, guid: 38a2202b05d71d6429d1d5666451ae68, type: 3}
   catHeadBackSkinSprite: {fileID: 0}
   catBodyFrontSkinSprite: {fileID: 21300000, guid: 2395440d11e6ff943a888584e42d231a, type: 3}
@@ -28,10 +28,10 @@ MonoBehaviour:
   catTailSkinSprite: {fileID: 0}
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
-  skinColor: {r: 0, g: 0, b: 0, a: 0}
-  skinDescription: 
+  skinColor: {r: 1, g: 1, b: 1, a: 1}
+  skinDescription: If ballet was easy it would be called Pirate Combat
   skinPreviewSprite: {fileID: 21300000, guid: 2bfb49bc29daf3645b10b6b655afbe3a, type: 3}
-  skinPrice: 0
+  skinPrice: 2200
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

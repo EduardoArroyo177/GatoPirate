@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
   m_Name: Skin_Barbosa
   m_EditorClassIdentifier: 
-  skinType: 0
-  skinTier: 0
+  skinType: 19
+  skinTier: 1
   skinName: 
   catHeadFrontSkinSprite: {fileID: 21300000, guid: 50b657af7806aee42a90342b941ca23f, type: 3}
   catHeadBackSkinSprite: {fileID: 21300000, guid: 4ebf336284cdd254ca533fddd80e16ec, type: 3}
@@ -28,10 +28,10 @@ MonoBehaviour:
   catTailSkinSprite: {fileID: 0}
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
-  skinColor: {r: 0, g: 0, b: 0, a: 0}
+  skinColor: {r: 1, g: 1, b: 1, a: 1}
   skinDescription: 
   skinPreviewSprite: {fileID: 21300000, guid: 43a2a2eaa7fb522418f3658c8b6a4850, type: 3}
-  skinPrice: 0
+  skinPrice: 2600
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

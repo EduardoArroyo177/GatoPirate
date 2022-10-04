@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catType: 6
   catTier: 0
-  catName: Toulouse
+  catName: Carrot
   catHeadSprite: {fileID: 21300000, guid: bc3e506d5f553b54888268c039a91c30, type: 3}
   catBodySprite: {fileID: 21300000, guid: 71db4b099d6b0d640b77da0e5b2100d2, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: c76df101109bfb946b69ad0089acf93d, type: 3}

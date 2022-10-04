@@ -33,7 +33,7 @@ public class CatData : ScriptableObject
 
     [Header("Color")]
     [SerializeField]
-    private Color catColor;
+    private Color catColor = Color.white;
 
     [Header("Catalogue data")]
     [Header("Cat data")]

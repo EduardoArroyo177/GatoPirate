@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_SailorMoon_Black
   m_EditorClassIdentifier: 
-  catType: 0
-  catTier: 0
-  catName: 
+  catType: 36
+  catTier: 1
+  catName: Luna
   catHeadSprite: {fileID: 21300000, guid: 1cf81957d7713844fb01482bf8788a60, type: 3}
   catBodySprite: {fileID: 21300000, guid: 218b296a8b748354ea1fe71e7e45ee95, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 09b09376a22f392408430cee000b55e9, type: 3}
@@ -23,10 +23,10 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: 847ac7215cdaed74b94da82aa339e287, type: 3}
   catTailSprite: {fileID: 21300000, guid: d7f64087f65c59f4bad8264863b6427b, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: I feel some kind of evil energy
   catPreviewSprite: {fileID: 21300000, guid: d770bfd251c86c140adc7d2085904847, type: 3}
-  catPrice: 0
+  catPrice: 2000
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

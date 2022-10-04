@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_SailorMoon_White
   m_EditorClassIdentifier: 
-  catType: 0
-  catTier: 0
-  catName: 
+  catType: 37
+  catTier: 1
+  catName: Artemis
   catHeadSprite: {fileID: 21300000, guid: aff2a82771af3f242ac4e466274f61fe, type: 3}
   catBodySprite: {fileID: 21300000, guid: 12b7702d9e86f6e4481bdf41cefef000, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: babac59a7fdda7a49b9a7ca360e28e3e, type: 3}
@@ -23,10 +23,10 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: 9fd8ce52bec71c84d8c65fc640bf519a, type: 3}
   catTailSprite: {fileID: 21300000, guid: 00b89fdb1e811274f8ccd29905a3e4b6, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: I'll always be here for you
   catPreviewSprite: {fileID: 21300000, guid: a0f3ff175b9f3b340a3394305a0a1fc8, type: 3}
-  catPrice: 0
+  catPrice: 2000
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

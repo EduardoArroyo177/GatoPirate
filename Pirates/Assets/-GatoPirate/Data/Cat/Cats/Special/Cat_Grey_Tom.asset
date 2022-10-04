@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_Grey_Tom
   m_EditorClassIdentifier: 
-  catType: 0
-  catTier: 0
-  catName: 
+  catType: 34
+  catTier: 1
+  catName: Tom
   catHeadSprite: {fileID: 21300000, guid: 0409c86c6166f4140b746a09d6a2fc74, type: 3}
   catBodySprite: {fileID: 21300000, guid: f1dfe85cbcd4c8044b24c1efc14c9c9b, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 2f5c2e6c874cadb419eeb11b951e9572, type: 3}
@@ -23,10 +23,10 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: c71a6e8d7307f284db02255d6a8db5e0, type: 3}
   catTailSprite: {fileID: 21300000, guid: cbb98efc1394da141b02b9274c47429d, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: '* Gets hit by a misterious mouse *'
   catPreviewSprite: {fileID: 21300000, guid: 3ac1e9c55329e504fbd6f08789577e36, type: 3}
-  catPrice: 0
+  catPrice: 2000
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

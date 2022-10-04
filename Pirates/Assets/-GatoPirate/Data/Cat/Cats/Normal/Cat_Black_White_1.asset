@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_Black_White_1
   m_EditorClassIdentifier: 
-  catType: 0
+  catType: 11
   catTier: 0
-  catName: 
+  catName: Sushi
   catHeadSprite: {fileID: 21300000, guid: 673be0350968457479bf593c7d9b6f72, type: 3}
   catBodySprite: {fileID: 21300000, guid: 56abdab7788820b4882817d8829989f5, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 76b775e21d8c782409d54fcae37e1327, type: 3}
@@ -23,10 +23,10 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: 683bd53a0b7524c46b1dcb5d492293c2, type: 3}
   catTailSprite: {fileID: 21300000, guid: 1b969ae3826f951408efc06ec88e3cc9, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: Nyan cat? That's a name I haven't heard in a long time
   catPreviewSprite: {fileID: 21300000, guid: b883c64e9480c0545a0eef6894dc8cbd, type: 3}
-  catPrice: 0
+  catPrice: 1800
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

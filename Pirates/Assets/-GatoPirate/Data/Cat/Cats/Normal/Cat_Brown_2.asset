@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_Brown_2
   m_EditorClassIdentifier: 
-  catType: 0
+  catType: 15
   catTier: 0
-  catName: 
+  catName: Picatso
   catHeadSprite: {fileID: 21300000, guid: dc9777c2f222702468d9d472ddd46f3d, type: 3}
   catBodySprite: {fileID: 21300000, guid: b9c3875a10b390349a275ddc7af2013f, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 024e07ad6e8e2ea4199f3b090fd7c387, type: 3}
@@ -23,10 +23,10 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: df2f786367578294593b0d2e6e3d03d0, type: 3}
   catTailSprite: {fileID: 21300000, guid: c0aed75f91f1ed9498bf653c0f379b3d, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: Wait a meow-ment, are you kitten me?
   catPreviewSprite: {fileID: 21300000, guid: f189a7a5f3cf58c4aa6b50f10bbc9f7b, type: 3}
-  catPrice: 0
+  catPrice: 1800
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

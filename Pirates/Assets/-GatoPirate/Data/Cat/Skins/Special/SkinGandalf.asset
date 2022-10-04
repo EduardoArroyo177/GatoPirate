@@ -32,7 +32,7 @@ MonoBehaviour:
   skinDescription: You shall not pass!... Just joking, you can pass, it's a free
     Island
   skinPreviewSprite: {fileID: 21300000, guid: 787f329889b09954b9cd05c41b7622a1, type: 3}
-  skinPrice: 2500
+  skinPrice: 2600
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

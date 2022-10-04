@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_Yellow
   m_EditorClassIdentifier: 
-  catType: 0
-  catTier: 0
-  catName: 
+  catType: 39
+  catTier: 1
+  catName: Yellow Cat
   catHeadSprite: {fileID: 21300000, guid: 93225a6054770974cb05c74dbd719ed9, type: 3}
   catBodySprite: {fileID: 21300000, guid: fca3b080d6a343449a5b4c3eb32945ee, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 903ae57ad5bf2e9448b4f57a5b6a9e59, type: 3}
@@ -23,10 +23,10 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: 40df6f2915eb55144a4673ad5482c849, type: 3}
   catTailSprite: {fileID: 21300000, guid: 92aa592649d79cd4a81d0e639f9b1f24, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: My favorite color? I guess I would say yellow
   catPreviewSprite: {fileID: 21300000, guid: 6ef06942db85e1c469dfd12b3b46cab1, type: 3}
-  catPrice: 0
+  catPrice: 2000
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

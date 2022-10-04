@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catType: 3
   catTier: 0
-  catName: Black Cat
+  catName: Raven
   catHeadSprite: {fileID: 21300000, guid: c9bc6e6810fd44949a15d076813e4bc9, type: 3}
   catBodySprite: {fileID: 21300000, guid: 634f9c52c67e9bb45b735bc6f2fcb304, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: aaa5477b7ab771b418c3577c32e8f516, type: 3}

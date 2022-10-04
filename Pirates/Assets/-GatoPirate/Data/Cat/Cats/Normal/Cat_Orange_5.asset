@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_Orange_5
   m_EditorClassIdentifier: 
-  catType: 0
+  catType: 24
   catTier: 0
-  catName: 
+  catName: Orangy
   catHeadSprite: {fileID: 21300000, guid: 475c6365d34dfc640823f318440d082e, type: 3}
   catBodySprite: {fileID: 21300000, guid: 88064ba9f72fadc4fb2651588841d065, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 57e15329e298134449f67d0a6c602fe7, type: 3}
@@ -23,11 +23,11 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: b306fb55f29a3ca4dae082db040749f9, type: 3}
   catTailSprite: {fileID: 21300000, guid: c8ecbb1880542544e956bd734705d783, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: Every day is Caturday if you're a cat
   catPreviewSprite: {fileID: 21300000, guid: 83a5d96ca9004814aa68fb3654dadab4, type: 3}
-  catPrice: 0
+  catPrice: 1800
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0
-  meowSound: 0
+  meowSound: 1

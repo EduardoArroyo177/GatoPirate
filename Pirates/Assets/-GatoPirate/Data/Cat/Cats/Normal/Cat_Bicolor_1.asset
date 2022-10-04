@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_Bicolor_1
   m_EditorClassIdentifier: 
-  catType: 0
+  catType: 7
   catTier: 0
-  catName: 
+  catName: Bubbles
   catHeadSprite: {fileID: 21300000, guid: c56df9d41641d0648aad65a6325e4789, type: 3}
   catBodySprite: {fileID: 21300000, guid: b459984dc6afd6e42b619b433afcdca7, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 4fe54e59e11bb2548a363eadac9576d4, type: 3}
@@ -23,10 +23,10 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: ed4f12094de681241be5a13914eb0d97, type: 3}
   catTailSprite: {fileID: 21300000, guid: b254b32c4b052dc43a5f98b21b10ac42, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: It ain't easy being purr-fect
   catPreviewSprite: {fileID: 21300000, guid: 65388955d19625d409d9e14b946c7694, type: 3}
-  catPrice: 0
+  catPrice: 1800
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

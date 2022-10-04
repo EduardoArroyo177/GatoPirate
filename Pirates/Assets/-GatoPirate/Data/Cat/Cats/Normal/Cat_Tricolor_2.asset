@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_Tricolor_2
   m_EditorClassIdentifier: 
-  catType: 0
+  catType: 27
   catTier: 0
-  catName: 
+  catName: Rocky
   catHeadSprite: {fileID: 21300000, guid: b178ab0edadde8e4da0a060b93c5d5bc, type: 3}
   catBodySprite: {fileID: 21300000, guid: 43e8dc16be2cd2645958f7356a2bbbb4, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 11e78ee4a2f0d2949ad78ba83ef2ae57, type: 3}
@@ -23,10 +23,11 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: f82fa97571283f8458d23039fbc18d37, type: 3}
   catTailSprite: {fileID: 21300000, guid: 7f1544d46587e7b4bb57a52eb2c18018, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: I meowed until hooman woke up... I didn't need anything, I was
+    just bored
   catPreviewSprite: {fileID: 21300000, guid: 9d61023e813912640b278cb85fde2a3f, type: 3}
-  catPrice: 0
+  catPrice: 1800
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

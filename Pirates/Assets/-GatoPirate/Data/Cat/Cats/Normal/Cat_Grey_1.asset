@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_Grey_1
   m_EditorClassIdentifier: 
-  catType: 0
+  catType: 19
   catTier: 0
-  catName: 
+  catName: Mouse
   catHeadSprite: {fileID: 21300000, guid: 7d84fb562a13d3d4c9ece1dd035c80a7, type: 3}
   catBodySprite: {fileID: 21300000, guid: eb31e283fa5df5d47ada0eefa764053a, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 037a58029fc80a24dbb9f4d0a1ca02ee, type: 3}
@@ -23,10 +23,10 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: c017c789f08138e4491caf100191ca38, type: 3}
   catTailSprite: {fileID: 21300000, guid: f555c29d70ea37e45afcbedefae1be50, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: What do you call a pile of cats? A meowntain!
   catPreviewSprite: {fileID: 21300000, guid: b56feada6fd166347b3490e502449145, type: 3}
-  catPrice: 0
+  catPrice: 1800
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_Orange_4
   m_EditorClassIdentifier: 
-  catType: 0
+  catType: 23
   catTier: 0
-  catName: 
+  catName: Catsup
   catHeadSprite: {fileID: 21300000, guid: 26a50de2ff50cb94db54d4bdc58cd577, type: 3}
   catBodySprite: {fileID: 21300000, guid: 99e97c236c0ef944fbc1f67803ba8142, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: bca6bf14f406ffb4daac742f2e88df7b, type: 3}
@@ -23,10 +23,11 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: c3853a1b0c827b448b4ebdf39e831853, type: 3}
   catTailSprite: {fileID: 21300000, guid: 27479a4d57fdda2409ced380e4045275, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: My biggest fear is to wake up and realize that the hooman is not
+    my pet
   catPreviewSprite: {fileID: 21300000, guid: c82c64fd6a5d3434fa7ee2c9d949c735, type: 3}
-  catPrice: 0
+  catPrice: 1800
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

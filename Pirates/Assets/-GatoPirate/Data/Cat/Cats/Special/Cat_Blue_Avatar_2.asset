@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_Blue_Avatar_2
   m_EditorClassIdentifier: 
-  catType: 0
-  catTier: 0
-  catName: 
+  catType: 31
+  catTier: 1
+  catName: Catvatar B
   catHeadSprite: {fileID: 21300000, guid: 207096816a9e30141b5c15596e6e2621, type: 3}
   catBodySprite: {fileID: 21300000, guid: d724cd917b8dd5240ab502263c943d92, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 25143c82325ffe54b9305c91fad572a4, type: 3}
@@ -23,10 +23,10 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: 4efc1735fa0e16f4b98d5efe924672d5, type: 3}
   catTailSprite: {fileID: 21300000, guid: 6079587231dd66d4193166c9d18809ed, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
+  catColor: {r: 1, g: 1, b: 1, a: 1}
   catDescription: 
   catPreviewSprite: {fileID: 21300000, guid: 2fb396a8f36e8d2428d982e40591bbf7, type: 3}
-  catPrice: 0
+  catPrice: 2000
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

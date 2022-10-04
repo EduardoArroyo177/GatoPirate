@@ -31,7 +31,7 @@ MonoBehaviour:
   skinColor: {r: 1, g: 1, b: 1, a: 1}
   skinDescription: Don't worry, it's all gonna panda out
   skinPreviewSprite: {fileID: 21300000, guid: 03616d9253b5b1447ae1764096bef66a, type: 3}
-  skinPrice: 2500
+  skinPrice: 2600
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

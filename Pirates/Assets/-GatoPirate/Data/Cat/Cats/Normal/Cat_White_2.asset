@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_White_2
   m_EditorClassIdentifier: 
-  catType: 0
+  catType: 28
   catTier: 0
-  catName: 
+  catName: Yeti
   catHeadSprite: {fileID: 21300000, guid: fb81492f09fd04f4db8572986c80b382, type: 3}
   catBodySprite: {fileID: 21300000, guid: 001605936cb3b0e4ea6c56b8d1c7bf15, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 68da1857efa547c4f9a27eae3523d080, type: 3}
@@ -23,11 +23,11 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: b989cd913072ce244aac9dd3b49839f6, type: 3}
   catTailSprite: {fileID: 21300000, guid: fdfab37e04ff683499191a9ba8ab705b, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: I wish I had brought my bongos
   catPreviewSprite: {fileID: 21300000, guid: 65ee9c90704657a4b8fa4f416bed9513, type: 3}
-  catPrice: 0
+  catPrice: 1800
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0
-  meowSound: 0
+  meowSound: 1

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990149b6d80b7b4abfb661e01cb89e5, type: 3}
   m_Name: Cat_Cheshire
   m_EditorClassIdentifier: 
-  catType: 0
-  catTier: 0
-  catName: 
+  catType: 32
+  catTier: 1
+  catName: Cheshire
   catHeadSprite: {fileID: 21300000, guid: edfcab3d79c0888458de0e0256a305be, type: 3}
   catBodySprite: {fileID: 21300000, guid: 47f9f299542477b4ea57dcdd24c2e86d, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: a57bcc84b2d49d7409409fd165cb1b69, type: 3}
@@ -23,10 +23,10 @@ MonoBehaviour:
   catRightBottomPawSprite: {fileID: 21300000, guid: c7091a647fbb11544bf9da557585729b, type: 3}
   catTailSprite: {fileID: 21300000, guid: a2377263d331ca747a6d4a34f0bb904a, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
-  catColor: {r: 0, g: 0, b: 0, a: 0}
-  catDescription: 
+  catColor: {r: 1, g: 1, b: 1, a: 1}
+  catDescription: "We\u2019re all mad here. I\u2019m mad. You\u2019re mad."
   catPreviewSprite: {fileID: 21300000, guid: 76d11a2a7e86f15489b6cc49f63fe5cc, type: 3}
-  catPrice: 0
+  catPrice: 2000
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

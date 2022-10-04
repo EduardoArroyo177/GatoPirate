@@ -139,6 +139,31 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private VoidEvent RemoveAdsPurchasedEvent;
 
+    [Header("Face controller player")]
+    [SerializeField]
+    private CombatCatFacesController playerCatFacesController;
+    [SerializeField]
+    private VoidEvent UpdateToSurprisedFacePlayerEvent;
+    [SerializeField] 
+    private VoidEvent UpdateToBraveFacePlayerEvent;
+    [SerializeField] 
+    private VoidEvent UpdateToHappyFacePlayerEvent;
+    [SerializeField] 
+    private VoidEvent UpdateToWorriedFacePlayerEvent;
+    [SerializeField] 
+    private VoidEvent UpdateToSadFacePlayerEvent;
+    
+
+    [Header("Face controller enemy")]
+    [SerializeField]
+    private CombatCatFacesController enemyCatFacesController;
+    [SerializeField]
+    private VoidEvent UpdateToWorriedFaceEnemyEvent;
+    [SerializeField]
+    private VoidEvent UpdateToSadFaceEnemyEvent;
+    [SerializeField]
+    private VoidEvent UpdateToDeadFaceEnemyEvent;
+
     private int playerActiveCannons;
 
     private void Awake()
@@ -251,6 +276,9 @@ public class StartCombatBootstrapper : MonoBehaviour
         playerGameplayBootstrapper.TriggerPlayerStartingAnimationEvent = TriggerPlayerStartingAnimationEvent;
         playerGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         playerGameplayBootstrapper.TriggerPlayerLostAnimationEvent = TriggerPlayerLostAnimationEvent;
+
+        playerGameplayBootstrapper.UpdateToWorriedFacePlayerEvent = UpdateToWorriedFacePlayerEvent;
+        playerGameplayBootstrapper.UpdateToSadFacePlayerEvent = UpdateToSadFacePlayerEvent;
         playerGameplayBootstrapper.InitializeBootstrapper();
 
         // Enemy
@@ -271,6 +299,10 @@ public class StartCombatBootstrapper : MonoBehaviour
 
         enemyGameplayBootstrapper.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         enemyGameplayBootstrapper.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
+
+        enemyGameplayBootstrapper.UpdateToWorriedFaceEnemyEvent = UpdateToWorriedFaceEnemyEvent;
+        enemyGameplayBootstrapper.UpdateToSadFaceEnemyEvent = UpdateToSadFaceEnemyEvent;
+        enemyGameplayBootstrapper.UpdateToDeadFaceEnemyEvent = UpdateToDeadFaceEnemyEvent;
         enemyGameplayBootstrapper.InitializeBootstrapper();
 
         // Ads
@@ -285,6 +317,20 @@ public class StartCombatBootstrapper : MonoBehaviour
         // IAP
         PurchasesDataSaveManager.Instance.CallForPurchasedIAP();
 
+        // Cat faces
+        playerCatFacesController.UpdateToSurprisedFaceEvent = UpdateToSurprisedFacePlayerEvent;
+        playerCatFacesController.UpdateToBraveFaceEvent = UpdateToBraveFacePlayerEvent;
+        playerCatFacesController.UpdateToHappyFaceEvent = UpdateToHappyFacePlayerEvent;
+        playerCatFacesController.UpdateToWorriedFaceEvent = UpdateToWorriedFacePlayerEvent;
+        playerCatFacesController.UpdateToSadFaceEvent = UpdateToSadFacePlayerEvent;
+        playerCatFacesController.Initialize();
+
+        enemyCatFacesController.UpdateToWorriedFaceEvent = UpdateToWorriedFaceEnemyEvent;
+        enemyCatFacesController.UpdateToSadFaceEvent = UpdateToSadFaceEnemyEvent;
+        enemyCatFacesController.UpdateToDeadFaceEvent = UpdateToDeadFaceEnemyEvent;
+        enemyCatFacesController.Initialize();
+
+        UpdateToHappyFacePlayerEvent.Raise();
         Invoke("StartingAnimation", 0.5f);
     }
 

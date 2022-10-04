@@ -97,8 +97,14 @@ public class CatBodyBuilder : MonoBehaviour
         catTailRenderer.color = CatData.CatColor;
 
         // TODO: Select random eyes?
-        catFaceRenderer.sprite = CatFaceSprite;
+        if(CatFaceSprite != null)
+            catFaceRenderer.sprite = CatFaceSprite;
         catFaceRenderer.color = CatData.CatColor;
+    }
+
+    public void UpdateFaceSprite(Sprite _newFaceSprite)
+    {
+        catFaceRenderer.sprite = _newFaceSprite;
     }
 
     public void InitializeSkin()

@@ -60,7 +60,9 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
     public VoidEvent SkipInitialAnimationsEvent { get; set; }
     public FloatEvent SetSoundsVolumeEvent { get; set; }
     public VoidEvent ReviveSuccessEvent { get; set; }
-
+    // Cat faces
+    public VoidEvent UpdateToWorriedFacePlayerEvent { get; set; }
+    public VoidEvent UpdateToSadFacePlayerEvent { get; set; }
 
     // Properties
     public CatCombatData[] CatCrewDataList { get; set; }
@@ -94,6 +96,8 @@ public class PlayerGameplayBootstrapper : MonoBehaviour
         playerShipAttackUIController.Initialize();
 
         playerShipHealthUIController.CurrentHealthUIEvent = CurrentPlayerHealthUIEvent;
+        playerShipHealthUIController.UpdateToSadFaceEvent = UpdateToSadFacePlayerEvent;
+        playerShipHealthUIController.UpdateToWorriedFaceEvent = UpdateToWorriedFacePlayerEvent;
         playerShipHealthUIController.Initialize();
 
         // Player build ship controller

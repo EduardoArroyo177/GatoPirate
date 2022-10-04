@@ -45,9 +45,14 @@ public class ShipHealthUIController : MonoBehaviour
 
 
     public FloatEvent CurrentHealthUIEvent { get; set; }
-    public FloatEvent TriggerShakingCameraEvent { get; set; }
-
+    // Cat faces
+    public VoidEvent UpdateToWorriedFaceEvent { get; set; }
+    public VoidEvent UpdateToSadFaceEvent { get; set; }
+    
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
+
+    private bool mediumHealthUpdated;
+    private bool lowHealthUpdated;
 
     public void Initialize()
     {
@@ -72,15 +77,19 @@ public class ShipHealthUIController : MonoBehaviour
 
             else if (Img_currentHealth.fillAmount < mediumHealthValue)
                 Img_currentHealth.color = lowHealthColor;
-        }
+        } // Not used anymore?
         else
         {
             lifeBar.localScale = new Vector3(_healthValue, 1, 1);
 
             // TODO: Ask for a 20%
 
-            if(lifeBar.localScale.x == 1)
+            if (lifeBar.localScale.x == 1)
+            {
                 lifeBarRenderer.color = highHealthColor;
+                mediumHealthUpdated = false;
+                lowHealthUpdated = false;
+            }
 
             if (lifeBar.localScale.x < 1
                 && lifeBar.localScale.x > highHealthValue)
@@ -89,19 +98,30 @@ public class ShipHealthUIController : MonoBehaviour
                     firstDamageGroup.SetActive(true);
             }
 
+            
             else if (lifeBar.localScale.x < highHealthValue
                 && lifeBar.localScale.x > mediumHealthValue)
             {
-                lifeBarRenderer.color = mediumHealthColor;
-                if(secondDamageGroup)
-                    secondDamageGroup.SetActive(true);
+                if (!mediumHealthUpdated)
+                {
+                    lifeBarRenderer.color = mediumHealthColor;
+                    if (secondDamageGroup)
+                        secondDamageGroup.SetActive(true);
+                    UpdateToWorriedFaceEvent.Raise();
+                    mediumHealthUpdated = true;
+                }
             }
 
             else if (lifeBar.localScale.x < mediumHealthValue)
             {
-                lifeBarRenderer.color = lowHealthColor;
-                if (thirdDamageGroup)
-                    thirdDamageGroup.SetActive(true);
+                if (!lowHealthUpdated)
+                {
+                    lifeBarRenderer.color = lowHealthColor;
+                    if (thirdDamageGroup)
+                        thirdDamageGroup.SetActive(true);
+                    UpdateToSadFaceEvent.Raise();
+                    lowHealthUpdated = true;
+                }
             }
 
         }

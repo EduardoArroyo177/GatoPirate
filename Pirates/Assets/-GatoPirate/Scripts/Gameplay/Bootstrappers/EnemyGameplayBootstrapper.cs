@@ -59,6 +59,10 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     public FloatEvent SetSoundsVolumeEvent { get; set; }
     public VoidEvent TriggerCombatWeakSpotTutorialEvent { get; set; }
     public VoidEvent TriggerCombatResourcesBoxTutorialEvent { get; set; }
+    // Cat faces
+    public VoidEvent UpdateToWorriedFaceEnemyEvent { get; set; }
+    public VoidEvent UpdateToSadFaceEnemyEvent { get; set; }
+    public VoidEvent UpdateToDeadFaceEnemyEvent { get; set; }
 
     // Properties
     public EnemyShipData EnemyShipData { get => enemyShipData; set => enemyShipData = value; }
@@ -74,6 +78,8 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
     {
         // UI Init 
         enemyShipHealthUIController.CurrentHealthUIEvent = CurrentEnemyHealthUIEvent;
+        enemyShipHealthUIController.UpdateToSadFaceEvent = UpdateToSadFaceEnemyEvent;
+        enemyShipHealthUIController.UpdateToWorriedFaceEvent = UpdateToWorriedFaceEnemyEvent;
         enemyShipHealthUIController.Initialize();
 
         enemyResourcesDropUIController.GoldResourcesDroppedEvent = GoldResourcesDroppedEvent;
@@ -121,6 +127,7 @@ public class EnemyGameplayBootstrapper : MonoBehaviour
         enemyShipHealthController.StopCombatEvent = StopCombatEvent;
         enemyShipHealthController.ShowResultScreenEvent = ShowResultScreenEvent;
         enemyShipHealthController.TriggerEnemyLostAnimationEvent = TriggerEnemyLostAnimationEvent;
+        enemyShipHealthController.UpdateToDeadFaceEnemyEvent = UpdateToDeadFaceEnemyEvent;
         enemyShipHealthController.Initialize();
 
         // Enemy ship weak spot controller

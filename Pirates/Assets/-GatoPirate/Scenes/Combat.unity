@@ -622,15 +622,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -15
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 631e2bfc360d3a64682a4e6ec55bdd36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 18.75, y: 18.75}
+  m_Size: {x: 26.400002, y: 19.800001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!21 &49044873
@@ -1537,15 +1537,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -15
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 20c8c1aaf0de5c245b04cb8fefe1684f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 18.75, y: 18.75}
+  m_Size: {x: 26.400002, y: 19.800001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &156693579
@@ -9033,8 +9033,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1069782710}
-  - component: {fileID: 1069782712}
   - component: {fileID: 1069782713}
+  - component: {fileID: 8882229184719862491}
+  - component: {fileID: 1069782712}
   - component: {fileID: 1069782714}
   - component: {fileID: 1069782715}
   - component: {fileID: 8882229184719862487}
@@ -9044,7 +9045,7 @@ GameObject:
   - component: {fileID: 2070584653823313252}
   - component: {fileID: 8882229184719862490}
   - component: {fileID: 8882229184719862489}
-  - component: {fileID: 8882229184719862491}
+  - component: {fileID: 8882229184719862492}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Enemy
@@ -16311,15 +16312,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -15
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 583eedd377219c047bb2248da3d37b33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 18.75, y: 18.75}
+  m_Size: {x: 26.400002, y: 19.800001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2013860877
@@ -16604,6 +16605,7 @@ GameObject:
   - component: {fileID: 2161882285810448938}
   - component: {fileID: 2161882285810448937}
   - component: {fileID: 2161882285810448939}
+  - component: {fileID: 2161882285810448940}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Player
@@ -17816,15 +17818,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -15
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 583eedd377219c047bb2248da3d37b33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 18.75, y: 18.75}
+  m_Size: {x: 26.400002, y: 19.800001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2117174190
@@ -20137,6 +20139,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 25b7c439a43549a4caed75cd95d41fd3, type: 2}
+        m_TargetAssemblyTypeName: UnityAtoms.BaseAtoms.VoidEvent, UnityAtoms.UnityAtomsBaseAtoms.Runtime
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onTweenCreated:
     m_PersistentCalls:
       m_Calls: []
@@ -20293,6 +20307,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2161882285810448935}
         m_TargetAssemblyTypeName: PlayerBuildShipController, Assembly-CSharp
         m_MethodName: TriggerEnemyEntranceAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 8c87036f835cc4144820adba3da0d99f, type: 2}
+        m_TargetAssemblyTypeName: UnityAtoms.BaseAtoms.VoidEvent, UnityAtoms.UnityAtomsBaseAtoms.Runtime
+        m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22471,6 +22497,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 124
   m_CollisionDetection: 0
+--- !u!114 &2161882285810448940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030053263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f9f3f170e786843974f18760973545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catFaceDataSurprised: {fileID: 11400000, guid: dca92b8a1a34d4f40974e22256907232, type: 2}
+  catFaceDataBrave: {fileID: 11400000, guid: 8b709bc49f072fc4c908b4baaf8a013b, type: 2}
+  catFaceDataWorried: {fileID: 11400000, guid: daa245f62ad4ac4498a7862b38162755, type: 2}
+  catFaceDataHappy: {fileID: 11400000, guid: 97c3c3322ffacc74eb3f7ebbe1ed2ef5, type: 2}
+  catFaceDataSad: {fileID: 11400000, guid: 4d727b1b9a65d7a418e8676040e89b70, type: 2}
+  catFaceDataDead: {fileID: 0}
+  catBodyBuilderList:
+  - {fileID: 6736298254298653768}
+  - {fileID: 668688190438691898}
+  - {fileID: 2010054797975145277}
+  - {fileID: 4571358770281297433}
 --- !u!4 &2171566088272732217
 Transform:
   m_ObjectHideFlags: 0
@@ -33239,6 +33288,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6451838655149515070}
     - target: {fileID: 4031626127902435113, guid: ebb90f2a082939d45a0741a0691c0e4e, type: 3}
+      propertyPath: enemyCatFacesController
+      value: 
+      objectReference: {fileID: 8882229184719862492}
+    - target: {fileID: 4031626127902435113, guid: ebb90f2a082939d45a0741a0691c0e4e, type: 3}
       propertyPath: soundsEffectsController
       value: 
       objectReference: {fileID: 1761320819}
@@ -33246,6 +33299,10 @@ PrefabInstance:
       propertyPath: virtualCameraController
       value: 
       objectReference: {fileID: 1368633567}
+    - target: {fileID: 4031626127902435113, guid: ebb90f2a082939d45a0741a0691c0e4e, type: 3}
+      propertyPath: playerCatFacesController
+      value: 
+      objectReference: {fileID: 2161882285810448940}
     - target: {fileID: 4031626127902435113, guid: ebb90f2a082939d45a0741a0691c0e4e, type: 3}
       propertyPath: enemyGameplayBootstrapper
       value: 
@@ -58952,6 +59009,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &8882229184719862492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069782708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f9f3f170e786843974f18760973545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catFaceDataSurprised: {fileID: 0}
+  catFaceDataBrave: {fileID: 0}
+  catFaceDataWorried: {fileID: 11400000, guid: daa245f62ad4ac4498a7862b38162755, type: 2}
+  catFaceDataHappy: {fileID: 0}
+  catFaceDataSad: {fileID: 11400000, guid: 4d727b1b9a65d7a418e8676040e89b70, type: 2}
+  catFaceDataDead: {fileID: 11400000, guid: e4e9b1ee9de6be840b79dbd8b0110d2a, type: 2}
+  catBodyBuilderList:
+  - {fileID: 600476656}
+  - {fileID: 663008086}
+  - {fileID: 1028255383}
+  - {fileID: 468266270}
 --- !u!1 &8898519089435838652
 GameObject:
   m_ObjectHideFlags: 0

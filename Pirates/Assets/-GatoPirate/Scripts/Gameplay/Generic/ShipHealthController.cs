@@ -28,6 +28,8 @@ public class ShipHealthController : MonoBehaviour
     public VoidEvent TriggerPlayerLostAnimationEvent { get; set; }
     // Ad events
     public VoidEvent ReviveSuccessEvent { get; set; }
+    // Face events
+    public VoidEvent UpdateToDeadFaceEnemyEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
 
@@ -95,6 +97,7 @@ public class ShipHealthController : MonoBehaviour
         StopCombatEvent.Raise();
         if (shipType.Equals(CharacterType.ENEMY))
         {
+            UpdateToDeadFaceEnemyEvent.Raise();
             TriggerEnemyLostAnimationEvent.Raise();
         }
         else
@@ -108,7 +111,7 @@ public class ShipHealthController : MonoBehaviour
         {
             CurrentHealth = (int)ShipHealth;
             CurrentHealthUIEvent.Raise(CurrentHealth / ShipHealth);
-            // TODO: Trigger resume combat event
+            // Trigger resume combat event
             ResumeCombatEvent.Raise();
         }
     }

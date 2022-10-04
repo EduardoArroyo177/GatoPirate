@@ -95,3 +95,13 @@ MonoBehaviour:
   TriggerCombatWeakSpotTutorialEvent: {fileID: 11400000, guid: dfef225f63e564f49932286cb193daa8, type: 2}
   TriggerCombatResourcesBoxTutorialEvent: {fileID: 11400000, guid: 1a39a1b1a7bd518459d8c15c829373d9, type: 2}
   RemoveAdsPurchasedEvent: {fileID: 11400000, guid: d995a89fa15a11c46aefe2dcedc23014, type: 2}
+  playerCatFacesController: {fileID: 0}
+  UpdateToSurprisedFacePlayerEvent: {fileID: 11400000, guid: 8c87036f835cc4144820adba3da0d99f, type: 2}
+  UpdateToBraveFacePlayerEvent: {fileID: 11400000, guid: 25b7c439a43549a4caed75cd95d41fd3, type: 2}
+  UpdateToHappyFacePlayerEvent: {fileID: 11400000, guid: 82dad2834de698042af941eefc910467, type: 2}
+  UpdateToWorriedFacePlayerEvent: {fileID: 11400000, guid: b5c1b6dad2cd66b4ba40efa392af7670, type: 2}
+  UpdateToSadFacePlayerEvent: {fileID: 11400000, guid: 6985254d15483c846b58be31398fb07f, type: 2}
+  enemyCatFacesController: {fileID: 0}
+  UpdateToWorriedFaceEnemyEvent: {fileID: 11400000, guid: 1fad7ea8d1abc57408227d95379b54e3, type: 2}
+  UpdateToSadFaceEnemyEvent: {fileID: 11400000, guid: fd0013c5ecd69f24c91cc6c62ab585e3, type: 2}
+  UpdateToDeadFaceEnemyEvent: {fileID: 11400000, guid: 06afd4d9dc379f043b30a0e778a5cdde, type: 2}

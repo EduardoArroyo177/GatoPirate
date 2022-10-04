@@ -173,7 +173,18 @@ public enum SkinType
     BARBOSA,
     DAVY_JONES,
     JACK_SPARROW_HAT,
-    JOJO_JOTARO
+    JOJO_JOTARO,
+    BEAR,
+    PIRATE2,
+    PIRATE3,
+    SKIRT1,
+    SKIRT2,
+    PLUMBER_GREEN,
+    PLUMBER_RED,
+    RABBIT,
+    SCIENTIST,
+    SCIENTIST_BOY,
+    SUPERGIRL
 }
 
 public enum ItemTier

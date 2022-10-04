@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
+  m_Name: CatSkin_Scientist
+  m_EditorClassIdentifier: 
+  skinType: 31
+  skinTier: 0
+  skinName: The Scientist
+  catHeadFrontSkinSprite: {fileID: 0}
+  catHeadBackSkinSprite: {fileID: 0}
+  catBodyFrontSkinSprite: {fileID: 21300000, guid: 969c84310c3a0d047831327de39a78ac, type: 3}
+  catBodyBackSkinSprite: {fileID: 0}
+  catLeftPawSkinSprite: {fileID: 21300000, guid: a5f73b2e3dbb4ca4e86254eb40a4f944, type: 3}
+  catLeftPawAccesorySkinSprite: {fileID: 0}
+  catRightPawSkinSprite: {fileID: 21300000, guid: 380d9b1caa1e1f54c9c7afb2192363bf, type: 3}
+  catRightPawAccesorySkinSprite: {fileID: 0}
+  catLeftBottomPawSkinSprite: {fileID: 0}
+  catRightBottomPawSkinSprite: {fileID: 0}
+  catTailSkinSprite: {fileID: 0}
+  catTailSpecialSkinSprite: {fileID: 0}
+  noTail: 0
+  skinColor: {r: 1, g: 1, b: 1, a: 1}
+  skinDescription: This is fur real, don't get confused with that old song
+  skinPreviewSprite: {fileID: 21300000, guid: 1c1eb98a960ab624596e5ff8e0c6a25f, type: 3}
+  skinPrice: 0
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0

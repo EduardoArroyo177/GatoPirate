@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
+  m_Name: CatSkin_Pirate3
+  m_EditorClassIdentifier: 
+  skinType: 25
+  skinTier: 0
+  skinName: Sailor Bones
+  catHeadFrontSkinSprite: {fileID: 21300000, guid: 23569166933ad0c46a03029c0181e6f9, type: 3}
+  catHeadBackSkinSprite: {fileID: 21300000, guid: 3a2f09997ba0bdf41896bbdfb2686952, type: 3}
+  catBodyFrontSkinSprite: {fileID: 21300000, guid: 18797cc250850e54cb8125834b0c3dd5, type: 3}
+  catBodyBackSkinSprite: {fileID: 0}
+  catLeftPawSkinSprite: {fileID: 21300000, guid: b39ee6852cee6a148af5b88d140e1260, type: 3}
+  catLeftPawAccesorySkinSprite: {fileID: 0}
+  catRightPawSkinSprite: {fileID: 21300000, guid: 7da5b0145fab056439507d5b38892beb, type: 3}
+  catRightPawAccesorySkinSprite: {fileID: 0}
+  catLeftBottomPawSkinSprite: {fileID: 0}
+  catRightBottomPawSkinSprite: {fileID: 0}
+  catTailSkinSprite: {fileID: 0}
+  catTailSpecialSkinSprite: {fileID: 0}
+  noTail: 0
+  skinColor: {r: 1, g: 1, b: 1, a: 1}
+  skinDescription: Arrr, Arrgh, Yarr, Gar... meow
+  skinPreviewSprite: {fileID: 21300000, guid: 01cb57455c22e274aa1498382dc70793, type: 3}
+  skinPrice: 0
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0

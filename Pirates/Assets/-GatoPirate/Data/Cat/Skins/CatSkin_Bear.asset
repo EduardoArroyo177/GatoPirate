@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
+  m_Name: CatSkin_Bear
+  m_EditorClassIdentifier: 
+  skinType: 23
+  skinTier: 0
+  skinName: Bear
+  catHeadFrontSkinSprite: {fileID: 21300000, guid: bbd1f2efbe52a3d45b8b4a3a548e713f, type: 3}
+  catHeadBackSkinSprite: {fileID: 0}
+  catBodyFrontSkinSprite: {fileID: 21300000, guid: 413926147c144974480552731c7bdebd, type: 3}
+  catBodyBackSkinSprite: {fileID: 0}
+  catLeftPawSkinSprite: {fileID: 21300000, guid: c521905fef38b2340b953661fe0aceae, type: 3}
+  catLeftPawAccesorySkinSprite: {fileID: 0}
+  catRightPawSkinSprite: {fileID: 21300000, guid: 4ed2c6f69397d9b4793aebc31c026092, type: 3}
+  catRightPawAccesorySkinSprite: {fileID: 0}
+  catLeftBottomPawSkinSprite: {fileID: 21300000, guid: 99a7c76814372c54cb7bc2dc261d4385, type: 3}
+  catRightBottomPawSkinSprite: {fileID: 21300000, guid: 655749d434512f04c8dea392a45db97b, type: 3}
+  catTailSkinSprite: {fileID: 0}
+  catTailSpecialSkinSprite: {fileID: 21300000, guid: f3eaa695c5eacac4fae5f24a2e289a41, type: 3}
+  noTail: 0
+  skinColor: {r: 1, g: 1, b: 1, a: 1}
+  skinDescription: I got a pun but it's pretty bad, BEAR with me
+  skinPreviewSprite: {fileID: 21300000, guid: 1ec0b9e2e24ba1e4ebd176cc60b0a870, type: 3}
+  skinPrice: 0
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0

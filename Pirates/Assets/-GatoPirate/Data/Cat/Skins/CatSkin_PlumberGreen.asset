@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
+  m_Name: CatSkin_PlumberGreen
+  m_EditorClassIdentifier: 
+  skinType: 28
+  skinTier: 0
+  skinName: Plumber Green
+  catHeadFrontSkinSprite: {fileID: 0}
+  catHeadBackSkinSprite: {fileID: 0}
+  catBodyFrontSkinSprite: {fileID: 21300000, guid: d3b8b31b38a8e03439387399ac03fb69, type: 3}
+  catBodyBackSkinSprite: {fileID: 0}
+  catLeftPawSkinSprite: {fileID: 21300000, guid: 2ef634d3acbeeab4c8b0489116eee850, type: 3}
+  catLeftPawAccesorySkinSprite: {fileID: 0}
+  catRightPawSkinSprite: {fileID: 21300000, guid: 99874359963d4674d95ba84bba1dc6fc, type: 3}
+  catRightPawAccesorySkinSprite: {fileID: 0}
+  catLeftBottomPawSkinSprite: {fileID: 21300000, guid: 033db762ea2c6364797f30b3f238a108, type: 3}
+  catRightBottomPawSkinSprite: {fileID: 21300000, guid: 649bd6a7e44a52041839a69dac46ba30, type: 3}
+  catTailSkinSprite: {fileID: 0}
+  catTailSpecialSkinSprite: {fileID: 0}
+  noTail: 0
+  skinColor: {r: 1, g: 1, b: 1, a: 1}
+  skinDescription: Okey dokey!
+  skinPreviewSprite: {fileID: 21300000, guid: b25798c1deba6aa4a88c13f9281eb295, type: 3}
+  skinPrice: 0
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
+  m_Name: CatSkin_Skirt2
+  m_EditorClassIdentifier: 
+  skinType: 27
+  skinTier: 0
+  skinName: Betty Tunabreath
+  catHeadFrontSkinSprite: {fileID: 21300000, guid: d7fba500b25b9cf448e85a1375b8dc72, type: 3}
+  catHeadBackSkinSprite: {fileID: 0}
+  catBodyFrontSkinSprite: {fileID: 21300000, guid: e0a879e97d5357c4cb928bc5fe3cf259, type: 3}
+  catBodyBackSkinSprite: {fileID: 0}
+  catLeftPawSkinSprite: {fileID: 21300000, guid: c762486410f06cb4e85c02f3c07b8dd4, type: 3}
+  catLeftPawAccesorySkinSprite: {fileID: 0}
+  catRightPawSkinSprite: {fileID: 21300000, guid: 8e6527d3259921d4ea828088641e3d22, type: 3}
+  catRightPawAccesorySkinSprite: {fileID: 0}
+  catLeftBottomPawSkinSprite: {fileID: 21300000, guid: efe94788d93fa2d4eb1da36c57a56fe9, type: 3}
+  catRightBottomPawSkinSprite: {fileID: 21300000, guid: 02fe3086080440d4c8e4530f175f5c14, type: 3}
+  catTailSkinSprite: {fileID: 0}
+  catTailSpecialSkinSprite: {fileID: 0}
+  noTail: 0
+  skinColor: {r: 1, g: 1, b: 1, a: 1}
+  skinDescription: Make that cat walk the plank
+  skinPreviewSprite: {fileID: 21300000, guid: 75a0f69bf9ceb044daa6fb93140e95f4, type: 3}
+  skinPrice: 0
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0

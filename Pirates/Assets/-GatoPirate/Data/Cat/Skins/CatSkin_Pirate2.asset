@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
+  m_Name: CatSkin_Pirate2
+  m_EditorClassIdentifier: 
+  skinType: 24
+  skinTier: 0
+  skinName: Blackfurred Pete
+  catHeadFrontSkinSprite: {fileID: 21300000, guid: 11a4e5642de3724428e9b4647cafbc2b, type: 3}
+  catHeadBackSkinSprite: {fileID: 0}
+  catBodyFrontSkinSprite: {fileID: 21300000, guid: 2c8249264e215964094f8ef422239cba, type: 3}
+  catBodyBackSkinSprite: {fileID: 0}
+  catLeftPawSkinSprite: {fileID: 21300000, guid: 3b462d574ab98094a972ae9a83418cbd, type: 3}
+  catLeftPawAccesorySkinSprite: {fileID: 0}
+  catRightPawSkinSprite: {fileID: 21300000, guid: 86914ad3bdc3cc440b0560029007da81, type: 3}
+  catRightPawAccesorySkinSprite: {fileID: 0}
+  catLeftBottomPawSkinSprite: {fileID: 21300000, guid: e3f43ab60cc9ebd4bbfe291656157e44, type: 3}
+  catRightBottomPawSkinSprite: {fileID: 21300000, guid: 389fcf8773f295440ae00248a38ffe86, type: 3}
+  catTailSkinSprite: {fileID: 0}
+  catTailSpecialSkinSprite: {fileID: 0}
+  noTail: 0
+  skinColor: {r: 1, g: 1, b: 1, a: 1}
+  skinDescription: With a bottle of milk and a yo ho ho
+  skinPreviewSprite: {fileID: 21300000, guid: 0948bcdd6f9c8bf4a926442692c18a4d, type: 3}
+  skinPrice: 0
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0

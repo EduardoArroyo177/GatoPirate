@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
+  m_Name: CatSkin_Rabbit
+  m_EditorClassIdentifier: 
+  skinType: 30
+  skinTier: 0
+  skinName: Rabbit
+  catHeadFrontSkinSprite: {fileID: 21300000, guid: fa7694cda351aeb429bcc645af6c939f, type: 3}
+  catHeadBackSkinSprite: {fileID: 0}
+  catBodyFrontSkinSprite: {fileID: 21300000, guid: e715d9e15b7f6d64ebde2aed4559b204, type: 3}
+  catBodyBackSkinSprite: {fileID: 0}
+  catLeftPawSkinSprite: {fileID: 21300000, guid: 0a8ef26e0ce8ec14da9b18d01fd5f067, type: 3}
+  catLeftPawAccesorySkinSprite: {fileID: 0}
+  catRightPawSkinSprite: {fileID: 21300000, guid: 443c20bde067d7740be51d7383f32070, type: 3}
+  catRightPawAccesorySkinSprite: {fileID: 0}
+  catLeftBottomPawSkinSprite: {fileID: 21300000, guid: 8354f060004660c418ce77adb6a11196, type: 3}
+  catRightBottomPawSkinSprite: {fileID: 21300000, guid: 131a58e9d70de3043ac8f5cef14ae556, type: 3}
+  catTailSkinSprite: {fileID: 0}
+  catTailSpecialSkinSprite: {fileID: 21300000, guid: c82a6909e621ac3488ca7eb98816606f, type: 3}
+  noTail: 0
+  skinColor: {r: 1, g: 1, b: 1, a: 1}
+  skinDescription: For it's hop, hop, hop, and away I go!
+  skinPreviewSprite: {fileID: 21300000, guid: 2e2d8d8c5ccda2b40bf20d946b4c2381, type: 3}
+  skinPrice: 0
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
+  m_Name: Skin_Dino2
+  m_EditorClassIdentifier: 
+  skinType: 0
+  skinTier: 0
+  skinName: 
+  catHeadFrontSkinSprite: {fileID: 21300000, guid: 911dffb02043811458cd235d26decf52, type: 3}
+  catHeadBackSkinSprite: {fileID: 21300000, guid: 6165142099fba3c46b0d3b85af7ad346, type: 3}
+  catBodyFrontSkinSprite: {fileID: 21300000, guid: 2a7cf66b3b79eb641961ec20c5f125cf, type: 3}
+  catBodyBackSkinSprite: {fileID: 21300000, guid: e1b70d5acb9becb429d0cfa1ad91a9c3, type: 3}
+  catLeftPawSkinSprite: {fileID: 21300000, guid: ce398272346db96479cf60ed2349eaf0, type: 3}
+  catLeftPawAccesorySkinSprite: {fileID: 0}
+  catRightPawSkinSprite: {fileID: 21300000, guid: e30584b2ecb7d3e428e643935e1cd2a2, type: 3}
+  catRightPawAccesorySkinSprite: {fileID: 0}
+  catLeftBottomPawSkinSprite: {fileID: 21300000, guid: dd0f79f434da99349a410b6f7f77e4ba, type: 3}
+  catRightBottomPawSkinSprite: {fileID: 21300000, guid: 5dd599ea327fafb4e871a4a38706ef8d, type: 3}
+  catTailSkinSprite: {fileID: 21300000, guid: ff35343c8d7c36c41ab12ae63662cdc2, type: 3}
+  catTailSpecialSkinSprite: {fileID: 0}
+  noTail: 0
+  skinColor: {r: 0, g: 0, b: 0, a: 0}
+  skinDescription: 
+  skinPreviewSprite: {fileID: 21300000, guid: e5c748704d1e42f4e91030e9187d2ce5, type: 3}
+  skinPrice: 0
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0

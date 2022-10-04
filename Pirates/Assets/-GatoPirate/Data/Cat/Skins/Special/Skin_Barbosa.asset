@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
+  m_Name: Skin_Barbosa
+  m_EditorClassIdentifier: 
+  skinType: 0
+  skinTier: 0
+  skinName: 
+  catHeadFrontSkinSprite: {fileID: 21300000, guid: 50b657af7806aee42a90342b941ca23f, type: 3}
+  catHeadBackSkinSprite: {fileID: 21300000, guid: 4ebf336284cdd254ca533fddd80e16ec, type: 3}
+  catBodyFrontSkinSprite: {fileID: 21300000, guid: 34f3d02491fcc2445a5b95489c145841, type: 3}
+  catBodyBackSkinSprite: {fileID: 0}
+  catLeftPawSkinSprite: {fileID: 21300000, guid: 1d9e03d02e0ecc444b12d45f807c2417, type: 3}
+  catLeftPawAccesorySkinSprite: {fileID: 0}
+  catRightPawSkinSprite: {fileID: 21300000, guid: 1d0203e64a001174bbbbf44b2ef55d04, type: 3}
+  catRightPawAccesorySkinSprite: {fileID: 0}
+  catLeftBottomPawSkinSprite: {fileID: 21300000, guid: d22026218a541304387ad20e266b7b76, type: 3}
+  catRightBottomPawSkinSprite: {fileID: 21300000, guid: b6ae0627545ffa647ad4c5cba0932fff, type: 3}
+  catTailSkinSprite: {fileID: 0}
+  catTailSpecialSkinSprite: {fileID: 0}
+  noTail: 0
+  skinColor: {r: 0, g: 0, b: 0, a: 0}
+  skinDescription: 
+  skinPreviewSprite: {fileID: 21300000, guid: 43a2a2eaa7fb522418f3658c8b6a4850, type: 3}
+  skinPrice: 0
+  currencyType: 0
+  islandToUnlock: 0
+  isUnlocked: 0

@@ -46,7 +46,7 @@ MonoBehaviour:
   normalResourcesDroppedAmntMax: 10
   chanceToDropResourcesBox: 0
   resourcesBoxesPerCombat: 3
-  resourcesBoxAmntMin: 100
-  resourcesBoxAmntMax: 250
+  resourcesBoxAmntMin: 75
+  resourcesBoxAmntMax: 180
   resourcesBoxTimeToDestroy: 5
   chanceToGiveChest: 0

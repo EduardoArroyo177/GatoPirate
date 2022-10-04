@@ -48,8 +48,8 @@ public class PanelCurrenciesController : MonoBehaviour
     public void Initialize()
     {        
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CurrenciesUpdatedEvent, CurrenciesUpdatedEventCallback));
-        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CurrencyUpdateAnimationFinishedEvent, CurrencyUpdateAnimationFinishedEventCallback));
-
+        if(CurrencyUpdateAnimationFinishedEvent)
+            _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CurrencyUpdateAnimationFinishedEvent, CurrencyUpdateAnimationFinishedEventCallback));
         if (ShowSpentCurrencyEvent)
             _eventHandlers.Add(EventHandlerFactory<CurrencyType, int>.BuildEventHandler(ShowSpentCurrencyEvent, ShowSpentCurrencyEventCallback));
         if(ShowRewardedCurrencyEvent)

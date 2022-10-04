@@ -29,7 +29,7 @@ MonoBehaviour:
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
   skinColor: {r: 1, g: 1, b: 1, a: 1}
-  skinDescription: This is fur real, don't get confused with that old song
+  skinDescription: Wubba lubba meow meow!
   skinPreviewSprite: {fileID: 21300000, guid: 1c1eb98a960ab624596e5ff8e0c6a25f, type: 3}
   skinPrice: 0
   currencyType: 0

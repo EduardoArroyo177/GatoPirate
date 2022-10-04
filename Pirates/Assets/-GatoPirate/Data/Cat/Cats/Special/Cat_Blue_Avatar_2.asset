@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catType: 31
   catTier: 1
-  catName: Catvatar B
+  catName: Cat Sully
   catHeadSprite: {fileID: 21300000, guid: 207096816a9e30141b5c15596e6e2621, type: 3}
   catBodySprite: {fileID: 21300000, guid: d724cd917b8dd5240ab502263c943d92, type: 3}
   catLeftPawSprite: {fileID: 21300000, guid: 25143c82325ffe54b9305c91fad572a4, type: 3}
@@ -24,7 +24,7 @@ MonoBehaviour:
   catTailSprite: {fileID: 21300000, guid: 6079587231dd66d4193166c9d18809ed, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
   catColor: {r: 1, g: 1, b: 1, a: 1}
-  catDescription: 
+  catDescription: "We\xB4ll explore this new world together"
   catPreviewSprite: {fileID: 21300000, guid: 2fb396a8f36e8d2428d982e40591bbf7, type: 3}
   catPrice: 2000
   currencyType: 0

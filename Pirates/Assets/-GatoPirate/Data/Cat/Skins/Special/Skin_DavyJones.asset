@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinType: 20
   skinTier: 1
-  skinName: Caty Jones
+  skinName: Catvy Jones
   catHeadFrontSkinSprite: {fileID: 21300000, guid: 7c558bc3649edc848b39a666d7b7bc72, type: 3}
   catHeadBackSkinSprite: {fileID: 21300000, guid: 1b25a166074a0894eac49e2e27cded2c, type: 3}
   catBodyFrontSkinSprite: {fileID: 21300000, guid: 909da74bad9310d44977690e7d789dd2, type: 3}
@@ -29,7 +29,7 @@ MonoBehaviour:
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
   skinColor: {r: 1, g: 1, b: 1, a: 1}
-  skinDescription: 
+  skinDescription: ' My heart in a chest wil be yours'
   skinPreviewSprite: {fileID: 21300000, guid: 42db8afeeb521de42aeac28b0acf4ef1, type: 3}
   skinPrice: 2600
   currencyType: 0

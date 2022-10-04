@@ -24,7 +24,7 @@ MonoBehaviour:
   catTailSprite: {fileID: 21300000, guid: 862d7adb5bae7214e9d6f347f0cefc8c, type: 3}
   catEyesSprite: {fileID: 21300000, guid: 9b440919a4b445445aa80d713bb25e8a, type: 3}
   catColor: {r: 1, g: 1, b: 1, a: 1}
-  catDescription: 
+  catDescription: Meow, that's right!
   catPreviewSprite: {fileID: 21300000, guid: 01c1004c68896ae42830f40356d95b7c, type: 3}
   catPrice: 2000
   currencyType: 0

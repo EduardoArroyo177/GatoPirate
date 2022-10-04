@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinType: 13
   skinTier: 1
-  skinName: 
+  skinName: Catzilla
   catHeadFrontSkinSprite: {fileID: 21300000, guid: 911dffb02043811458cd235d26decf52, type: 3}
   catHeadBackSkinSprite: {fileID: 21300000, guid: 6165142099fba3c46b0d3b85af7ad346, type: 3}
   catBodyFrontSkinSprite: {fileID: 21300000, guid: 2a7cf66b3b79eb641961ec20c5f125cf, type: 3}
@@ -29,7 +29,7 @@ MonoBehaviour:
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
   skinColor: {r: 1, g: 1, b: 1, a: 1}
-  skinDescription: 
+  skinDescription: Meooooow!!!!!
   skinPreviewSprite: {fileID: 21300000, guid: e5c748704d1e42f4e91030e9187d2ce5, type: 3}
   skinPrice: 2600
   currencyType: 0

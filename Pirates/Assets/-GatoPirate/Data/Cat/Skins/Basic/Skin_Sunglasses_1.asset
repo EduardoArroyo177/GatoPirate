@@ -29,7 +29,7 @@ MonoBehaviour:
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
   skinColor: {r: 1, g: 1, b: 1, a: 1}
-  skinDescription: 
+  skinDescription: Turn down for what
   skinPreviewSprite: {fileID: 21300000, guid: 6c9dbeb2e95fdd94eb60a6474cb37eae, type: 3}
   skinPrice: 2200
   currencyType: 0

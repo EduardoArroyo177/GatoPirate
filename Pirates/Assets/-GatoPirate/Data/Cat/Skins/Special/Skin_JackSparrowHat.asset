@@ -29,7 +29,7 @@ MonoBehaviour:
   catTailSpecialSkinSprite: {fileID: 0}
   noTail: 0
   skinColor: {r: 1, g: 1, b: 1, a: 1}
-  skinDescription: 
+  skinDescription: "I\u2019m Captain Cat Sparrow. The original. The only!"
   skinPreviewSprite: {fileID: 21300000, guid: c037a996983b94844b8f849c0e8f9ab2, type: 3}
   skinPrice: 2600
   currencyType: 0

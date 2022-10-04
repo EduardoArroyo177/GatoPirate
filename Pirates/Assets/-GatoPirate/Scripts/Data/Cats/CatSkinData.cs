@@ -54,7 +54,7 @@ public class CatSkinData : ScriptableObject
 
     [Header("Color")]
     [SerializeField]
-    private Color skinColor;
+    private Color skinColor = Color.white;
 
     [Header("Catalogue data")]
     [Header("Cat data")]

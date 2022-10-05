@@ -128,7 +128,7 @@ public class HuaweiGameServicesController : MonoBehaviour
     
     public void SubmitScore(string _leaderboardID, int score)
     {
-        Debug.Log("start AsyncSubmitScore with ranking id: " + _leaderboardID + " score: " + 2);
+        Debug.Log("start AsyncSubmitScore with ranking id: " + _leaderboardID + " score: " + score);
         HuaweiGameService.AsyncSubmitScore(_leaderboardID, score, _submitScoreListener);
     }
 

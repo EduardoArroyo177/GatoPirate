@@ -72,14 +72,14 @@ public class LeaderboardsController : MonoBehaviour
 
     private void PlayerInitialRankDataEventCallback(LeaderboardScoreData _playerScoreData)
     {
-        if (_playerScoreData.playerRank > 0)
-        {
+        //if (_playerScoreData.playerRank > 0)
+        //{
             leaderboardsView.CurrentPlayerRankView.SetRankIcon(GetRankSprite((int)_playerScoreData.playerRank));
             leaderboardsView.CurrentPlayerRankView.SetPlayerRankData(_playerScoreData.playerDisplayRank,
                 _playerScoreData.playerScore.ToString(), _playerScoreData.playerName);
             if (_playerScoreData.playerRank < 4)
                 leaderboardsView.CurrentPlayerRankView.SetAsFirstPlaces();
-        }
+        //}
 
         if (LeaderboardsDataSaveManager.Instance.GetLeaderboardScore(LeaderboardType.COMBATS_WON) > 0)
         {
@@ -96,9 +96,9 @@ public class LeaderboardsController : MonoBehaviour
 
     private void PlayerRankDataEventCallback(LeaderboardScoreData _playerScoreData)
     {
-        if (_playerScoreData.playerRank < 0)
-            // TODO: Show "nothing to see here"
-            return;
+        //if (_playerScoreData.playerRank < 0)
+        //    // TODO: Show "nothing to see here"
+        //    return;
 
         leaderboardsView.CurrentPlayerRankView.SetRankIcon(GetRankSprite((int)_playerScoreData.playerRank));
         leaderboardsView.CurrentPlayerRankView.SetPlayerRankData(_playerScoreData.playerDisplayRank,

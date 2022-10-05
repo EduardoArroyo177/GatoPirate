@@ -90,7 +90,7 @@ public class MRewardAdStatusListener : RewardAdStatusListener
     }
     public override void onRewarded(Reward arg0)
     {
-        //Debug.Log($"RewardAdStatusListener onRewarded {arg0.getName()}");
+        Debug.Log($"RewardAdStatusListener onRewarded {arg0.getName()}");
         rewardSuccess = true;
     }
     public override void onRewardAdFailedToShow(int arg0)

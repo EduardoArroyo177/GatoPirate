@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CatSkin_PlumberGreen
   m_EditorClassIdentifier: 
   skinType: 28
-  skinTier: 0
+  skinTier: 1
   skinName: Plumber Green
   catHeadFrontSkinSprite: {fileID: 0}
   catHeadBackSkinSprite: {fileID: 0}
@@ -31,7 +31,7 @@ MonoBehaviour:
   skinColor: {r: 1, g: 1, b: 1, a: 1}
   skinDescription: Okey dokey!
   skinPreviewSprite: {fileID: 21300000, guid: b25798c1deba6aa4a88c13f9281eb295, type: 3}
-  skinPrice: 0
+  skinPrice: 2600
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

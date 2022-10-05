@@ -25,8 +25,8 @@ MonoBehaviour:
   catRightPawAccesorySkinSprite: {fileID: 0}
   catLeftBottomPawSkinSprite: {fileID: 21300000, guid: dd0f79f434da99349a410b6f7f77e4ba, type: 3}
   catRightBottomPawSkinSprite: {fileID: 21300000, guid: 5dd599ea327fafb4e871a4a38706ef8d, type: 3}
-  catTailSkinSprite: {fileID: 21300000, guid: ff35343c8d7c36c41ab12ae63662cdc2, type: 3}
-  catTailSpecialSkinSprite: {fileID: 0}
+  catTailSkinSprite: {fileID: 0}
+  catTailSpecialSkinSprite: {fileID: 21300000, guid: ff35343c8d7c36c41ab12ae63662cdc2, type: 3}
   noTail: 0
   skinColor: {r: 1, g: 1, b: 1, a: 1}
   skinDescription: Meooooow!!!!!

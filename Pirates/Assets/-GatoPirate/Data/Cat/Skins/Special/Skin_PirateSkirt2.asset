@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
-  m_Name: CatSkin_Skirt2
+  m_Name: Skin_PirateSkirt2
   m_EditorClassIdentifier: 
   skinType: 27
-  skinTier: 0
+  skinTier: 1
   skinName: Betty Tunabreath
   catHeadFrontSkinSprite: {fileID: 21300000, guid: d7fba500b25b9cf448e85a1375b8dc72, type: 3}
   catHeadBackSkinSprite: {fileID: 0}
@@ -31,7 +31,7 @@ MonoBehaviour:
   skinColor: {r: 1, g: 1, b: 1, a: 1}
   skinDescription: Make that cat walk the plank
   skinPreviewSprite: {fileID: 21300000, guid: 75a0f69bf9ceb044daa6fb93140e95f4, type: 3}
-  skinPrice: 0
+  skinPrice: 2600
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

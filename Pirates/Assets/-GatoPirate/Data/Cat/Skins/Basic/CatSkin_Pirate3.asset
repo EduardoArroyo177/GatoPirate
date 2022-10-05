@@ -31,7 +31,7 @@ MonoBehaviour:
   skinColor: {r: 1, g: 1, b: 1, a: 1}
   skinDescription: Arrr, Arrgh, Yarr, Gar... meow
   skinPreviewSprite: {fileID: 21300000, guid: 01cb57455c22e274aa1498382dc70793, type: 3}
-  skinPrice: 0
+  skinPrice: 2200
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

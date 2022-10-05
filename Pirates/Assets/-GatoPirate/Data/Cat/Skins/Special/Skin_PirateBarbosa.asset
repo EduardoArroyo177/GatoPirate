@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a7ec81202edb98468a1344029ac8db9, type: 3}
-  m_Name: Skin_Barbosa
+  m_Name: Skin_PirateBarbosa
   m_EditorClassIdentifier: 
   skinType: 19
   skinTier: 1

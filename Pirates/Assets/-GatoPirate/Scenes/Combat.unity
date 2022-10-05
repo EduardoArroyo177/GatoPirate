@@ -3727,7 +3727,7 @@ MonoBehaviour:
   catRightBottomPawRenderer: {fileID: 1191767120}
   catTailRenderer: {fileID: 1881539315}
   catFaceRenderer: {fileID: 2013606373}
-  catSkinData: {fileID: 0}
+  catSkinData: {fileID: 11400000, guid: 3d884f327b6c8444794f61f4e6611641, type: 2}
   catHeadFrontSkinRenderer: {fileID: 1443262769}
   catHeadBackSkinRenderer: {fileID: 14892473}
   catBodyFrontSkinRenderer: {fileID: 1564105522}
@@ -4585,7 +4585,7 @@ MonoBehaviour:
   catRightBottomPawRenderer: {fileID: 1157874021}
   catTailRenderer: {fileID: 1526544661}
   catFaceRenderer: {fileID: 153405520}
-  catSkinData: {fileID: 0}
+  catSkinData: {fileID: 11400000, guid: 04550aebe748ffd46a8bb89277c91f8f, type: 2}
   catHeadFrontSkinRenderer: {fileID: 637659484}
   catHeadBackSkinRenderer: {fileID: 1244135161}
   catBodyFrontSkinRenderer: {fileID: 208120250}
@@ -5011,7 +5011,7 @@ MonoBehaviour:
   catRightBottomPawRenderer: {fileID: 64539671}
   catTailRenderer: {fileID: 2006840631}
   catFaceRenderer: {fileID: 2114916476}
-  catSkinData: {fileID: 0}
+  catSkinData: {fileID: 11400000, guid: 3c01c801b6696514facb86ddad70574d, type: 2}
   catHeadFrontSkinRenderer: {fileID: 1388823362}
   catHeadBackSkinRenderer: {fileID: 1356623806}
   catBodyFrontSkinRenderer: {fileID: 785330925}
@@ -8621,7 +8621,7 @@ MonoBehaviour:
   catRightBottomPawRenderer: {fileID: 1226637645}
   catTailRenderer: {fileID: 1819127474}
   catFaceRenderer: {fileID: 41858389}
-  catSkinData: {fileID: 0}
+  catSkinData: {fileID: 11400000, guid: 5f7a8717c6d6db04db74d29b89016837, type: 2}
   catHeadFrontSkinRenderer: {fileID: 1810303978}
   catHeadBackSkinRenderer: {fileID: 1726262332}
   catBodyFrontSkinRenderer: {fileID: 1088453442}

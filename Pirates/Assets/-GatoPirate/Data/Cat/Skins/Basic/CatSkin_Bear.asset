@@ -31,7 +31,7 @@ MonoBehaviour:
   skinColor: {r: 1, g: 1, b: 1, a: 1}
   skinDescription: I got a pun but it's pretty bad, BEAR with me
   skinPreviewSprite: {fileID: 21300000, guid: 1ec0b9e2e24ba1e4ebd176cc60b0a870, type: 3}
-  skinPrice: 0
+  skinPrice: 2200
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

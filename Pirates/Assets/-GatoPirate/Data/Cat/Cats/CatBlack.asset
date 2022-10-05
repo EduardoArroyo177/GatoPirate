@@ -22,7 +22,7 @@ MonoBehaviour:
   catLeftBottomPawSprite: {fileID: 21300000, guid: 0dce8eae80708074a9d1aab5de3bb93f, type: 3}
   catRightBottomPawSprite: {fileID: 21300000, guid: 525809c75ae3ab44593e4eb90a513b55, type: 3}
   catTailSprite: {fileID: 21300000, guid: d48f650a14c74ef49a38bb035ce7e576, type: 3}
-  catEyesSprite: {fileID: 21300000, guid: c778bfdc8c1abf447995579f0d511f9a, type: 3}
+  catEyesSprite: {fileID: 21300000, guid: 6c9c019eee451c94e9e1ab5478b8a0c2, type: 3}
   catColor: {r: 1, g: 1, b: 1, a: 1}
   catDescription: Bad luck is just a myth!... Ok, maybe you can fall down and break
     a leg while having this by your side, but not because of bad luck!

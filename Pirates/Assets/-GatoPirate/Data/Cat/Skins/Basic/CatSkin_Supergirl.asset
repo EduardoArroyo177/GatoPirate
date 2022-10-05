@@ -31,7 +31,7 @@ MonoBehaviour:
   skinColor: {r: 1, g: 1, b: 1, a: 1}
   skinDescription: Hope, help, and compassion for all!
   skinPreviewSprite: {fileID: 21300000, guid: 9b7ec558d7c0fa945b0a7e49c70bcce1, type: 3}
-  skinPrice: 0
+  skinPrice: 2200
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

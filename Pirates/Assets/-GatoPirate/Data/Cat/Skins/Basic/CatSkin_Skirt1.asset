@@ -31,7 +31,7 @@ MonoBehaviour:
   skinColor: {r: 1, g: 1, b: 1, a: 1}
   skinDescription: Aye Aye, Captain
   skinPreviewSprite: {fileID: 21300000, guid: 51652c4d88f7cc84b82b7b2b54543cdf, type: 3}
-  skinPrice: 0
+  skinPrice: 2200
   currencyType: 0
   islandToUnlock: 0
   isUnlocked: 0

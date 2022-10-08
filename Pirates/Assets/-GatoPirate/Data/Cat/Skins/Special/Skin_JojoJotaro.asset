@@ -17,7 +17,7 @@ MonoBehaviour:
   skinName: Jocato Kujo
   catHeadFrontSkinSprite: {fileID: 21300000, guid: 9356b5090aaf9ef4c91d83e58e0a6077, type: 3}
   catHeadBackSkinSprite: {fileID: 21300000, guid: 5fe7703c2abc8d946bcde1561a3a1a91, type: 3}
-  catBodyFrontSkinSprite: {fileID: 0}
+  catBodyFrontSkinSprite: {fileID: 21300000, guid: 7575de534efca4e4e8be814f063269c7, type: 3}
   catBodyBackSkinSprite: {fileID: 0}
   catLeftPawSkinSprite: {fileID: 21300000, guid: 50b7a2e9c16a5f94bb5dd109fc779e68, type: 3}
   catLeftPawAccesorySkinSprite: {fileID: 0}

@@ -15,7 +15,7 @@ MonoBehaviour:
   skinType: 31
   skinTier: 0
   skinName: The Scientist
-  catHeadFrontSkinSprite: {fileID: 0}
+  catHeadFrontSkinSprite: {fileID: 21300000, guid: d5b0e7c3849701a468daf84e8fb5994d, type: 3}
   catHeadBackSkinSprite: {fileID: 0}
   catBodyFrontSkinSprite: {fileID: 21300000, guid: 969c84310c3a0d047831327de39a78ac, type: 3}
   catBodyBackSkinSprite: {fileID: 0}

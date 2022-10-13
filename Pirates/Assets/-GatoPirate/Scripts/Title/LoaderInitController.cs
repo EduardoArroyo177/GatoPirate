@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
 
 public class LoaderInitController : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class LoaderInitController : MonoBehaviour
             // Load island scene
             StartCoroutine(LoadSceneAsync(GameScenes.MainMenu.ToString()));
         }
+        GameAnalytics.Initialize();
     }
 
     IEnumerator LoadSceneAsync(string _sceneName)

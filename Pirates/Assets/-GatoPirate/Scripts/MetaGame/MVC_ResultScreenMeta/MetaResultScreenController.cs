@@ -89,6 +89,7 @@ public class MetaResultScreenController : MonoBehaviour
         StopCoroutine("CurrencyCounterAnimation");
         // Save new resource amount
         CurrencyDataSaveManager.Instance.UpdateCurrency(CurrencyType.GOLDEN_COINS, earnedCoins);
+        GameAnalyticsController.Instance.EarnedCurrencyEvent(CurrencyType.GOLDEN_COINS, earnedCoins, CurrencyOrigin.COMBAT_GOLDEN_COINS);
         // Remove earned resources
         CurrencyDataSaveManager.Instance.UpdateEarnedCurrency(CurrencyType.GOLDEN_COINS, -earnedCoins);
 

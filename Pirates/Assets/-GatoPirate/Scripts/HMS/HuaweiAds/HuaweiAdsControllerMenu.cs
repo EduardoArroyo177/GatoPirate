@@ -90,6 +90,7 @@ public class HuaweiAdsControllerMenu : MonoBehaviour
     {
         // Add coins
         CurrencyDataSaveManager.Instance.UpdateCurrency(CurrencyType.GOLDEN_COINS, freeCoinsAmount);
+        GameAnalyticsController.Instance.EarnedCurrencyEvent(CurrencyType.GOLDEN_COINS, freeCoinsAmount, CurrencyOrigin.FREE_GOLDEN_COINS);
         ShowRewardedCurrencyEvent.Raise(CurrencyType.GOLDEN_COINS, freeCoinsAmount);
         // TODO: Trigger sound
     }

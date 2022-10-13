@@ -102,6 +102,12 @@ public enum CurrencyType
     WOOD,
     PREMIUM_GEM
 }
+
+public enum CurrencyOrigin
+{
+    COMBAT_GOLDEN_COINS,
+    FREE_GOLDEN_COINS
+}
 #endregion
 
 #region Cats

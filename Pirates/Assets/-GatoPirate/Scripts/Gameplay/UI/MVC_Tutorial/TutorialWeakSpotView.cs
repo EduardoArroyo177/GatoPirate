@@ -15,5 +15,21 @@ public class TutorialWeakSpotView : MonoBehaviour
     {
         TutorialCombatController.CompleteWeakSpotTutorial();
     }
+
+    // Analytics
+    public void TutorialFinishedAnalytics()
+    {
+        GameAnalyticsController.Instance.GameFlowEvent($"Tutorial:WeakSpot:Finished");
+    }
+
+    public void SkipTutorial()
+    {
+        GameAnalyticsController.Instance.GameFlowEvent("Tutorial:WeakSpot:Skip");
+    }
+
+    public void TutorialStepFinished(int _step)
+    {
+        GameAnalyticsController.Instance.GameFlowEvent($"Tutorial:WeakSpot:StepCompleted:{_step}");
+    }
     #endregion
 }

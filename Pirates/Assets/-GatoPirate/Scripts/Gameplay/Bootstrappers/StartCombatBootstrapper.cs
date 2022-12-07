@@ -332,6 +332,8 @@ public class StartCombatBootstrapper : MonoBehaviour
 
         UpdateToHappyFacePlayerEvent.Raise();
         Invoke("StartingAnimation", 0.5f);
+
+        GameAnalyticsController.Instance.GameFlowEvent("SceneLoaded:Combat");
     }
 
     private void StartingAnimation()

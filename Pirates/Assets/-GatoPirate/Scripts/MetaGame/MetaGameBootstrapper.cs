@@ -432,6 +432,8 @@ public class MetaGameBootstrapper : MonoBehaviour
         leaderboardsController.Initialize();
 
         //PlayerLogin();
+
+        GameAnalyticsController.Instance.GameFlowEvent("SceneLoaded:MainMenu");
     }
 
     private void GameInitializationCompleted()

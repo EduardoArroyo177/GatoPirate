@@ -126,6 +126,8 @@ public class ResultScreenController : MonoBehaviour
             TutorialDataSaveManager.Instance.UpdateTutorialCompleted(TutorialType.FIRST_COMBAT);
 
         LeaderboardsDataSaveManager.Instance.UpdateLeaderboardScore(LeaderboardType.COMBATS_WON, 1);
+
+        GameAnalyticsController.Instance.GameFlowEvent("Combat:Finished:Win");
     }
 
     private IEnumerator CurrencyCounterAnimation(int _startingAmnt, int _totalAmnt = 0)
@@ -180,6 +182,8 @@ public class ResultScreenController : MonoBehaviour
         reviveScreenView.gameObject.SetActive(true);
         // Trigger revive screen shown sound
         TriggerCombatSoundEvent.Raise(CombatSounds.REVIVE_SCREEN_SHOWN);
+
+        GameAnalyticsController.Instance.GameFlowEvent("Combat:Finished:Lose");
     }
 
     #region Public methods

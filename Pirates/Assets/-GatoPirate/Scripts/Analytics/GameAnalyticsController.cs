@@ -12,4 +12,14 @@ public class GameAnalyticsController : SceneSingleton<GameAnalyticsController>
         GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, _currencyType.ToString().Replace("_", "")
             ,_amount, _currencyOrigin.ToString(), _currencyOrigin.ToString());
     }
+
+    public void GameFlowEvent(string _eventName)
+    {
+        GameAnalytics.NewDesignEvent(_eventName);
+    }
+
+    public void GameFlowEvent(string _eventName, float _eventValue)
+    {
+        GameAnalytics.NewDesignEvent(_eventName, _eventValue);
+    }
 }

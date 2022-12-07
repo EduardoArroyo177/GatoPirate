@@ -12,5 +12,21 @@ public class TutorialCombatView : MonoBehaviour
     {
         TutorialCombatController.CompleteCombatTutorial();
     }
+
+    // Analytics
+    public void TutorialFinishedAnalytics()
+    {
+        GameAnalyticsController.Instance.GameFlowEvent($"Tutorial:Combat:Finished");
+    }
+
+    public void SkipTutorial()
+    {
+        GameAnalyticsController.Instance.GameFlowEvent("Tutorial:Combat:Skip");
+    }
+
+    public void TutorialStepFinished(int _step)
+    {
+        GameAnalyticsController.Instance.GameFlowEvent($"Tutorial:Combat:StepCompleted:{_step}");
+    }
     #endregion
 }

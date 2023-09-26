@@ -62,3 +62,7 @@ crashlytics-build.properties
 *.log
 *.log
 Honk/Logs/shadercompiler-UnityShaderCompiler.exe0.log
+*.dwlt
+*.dwlt
+Pirates/UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+Pirates/UserSettings/Layouts/default-2021.dwlt

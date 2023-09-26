@@ -1,35 +1,59 @@
 {
-    "m_SelectedDeviceId": "2KTYD21706202168",
+    "m_SelectedDeviceId": "87VNW20916003258",
     "m_SelectedPackage": {
-        "deviceId": "2KTYD21706202168",
-        "name": "com.vadventures.pirates.huawei",
-        "processId": 29322,
+        "deviceId": "87VNW20916003258",
+        "name": "com.vadventures.piratecats.huawei",
+        "processId": 10533,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "2KTYD21706202168",
-            "name": "com.DefaultCompany.Pirates",
-            "processId": 20953,
+            "name": "com.huawei.android.launcher",
+            "processId": 2245,
             "exited": false
         },
         {
             "deviceId": "2KTYD21706202168",
-            "name": "com.vadventures.pirates.huawei",
-            "processId": 23997,
-            "exited": false
+            "name": "com.vadventures.piratecats.huawei",
+            "processId": 3705,
+            "exited": true
         },
         {
             "deviceId": "2KTYD21706202168",
-            "name": "com.vadventures.pirates.huawei",
-            "processId": 25412,
-            "exited": false
+            "name": "com.vadventures.piratecats.huawei",
+            "processId": 5816,
+            "exited": true
         },
         {
             "deviceId": "2KTYD21706202168",
-            "name": "com.vadventures.pirates.huawei",
-            "processId": 29322,
+            "name": "com.vadventures.piratecats.huawei",
+            "processId": 7537,
+            "exited": true
+        },
+        {
+            "deviceId": "2KTYD21706202168",
+            "name": "com.vadventures.piratecats.huawei",
+            "processId": 9694,
+            "exited": true
+        },
+        {
+            "deviceId": "2KTYD21706202168",
+            "name": "com.vadventures.piratecats.huawei",
+            "processId": 29719,
+            "exited": false
+        },
+        {
+            "deviceId": "87VNW20916003258",
+            "name": "com.vadventures.piratecats.huawei",
+            "processId": 6629,
+            "exited": true
+        },
+        {
+            "deviceId": "87VNW20916003258",
+            "name": "com.vadventures.piratecats.huawei",
+            "processId": 10533,
             "exited": false
         }
     ],

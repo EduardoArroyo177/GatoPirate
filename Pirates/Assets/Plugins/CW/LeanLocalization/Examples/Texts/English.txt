@@ -1,0 +1,5 @@
+﻿Title,"Hello English"
+MAIN_MENU_BTN_RECRUIT,"Recruit cats"
+MAIN_MENU_BTN_CREW,"Cat crew"
+MAIN_MENU_BTN_LEADERBOARDS,"Leaderboards"
+MAIN_MENU_BTN_STORE,"Store"

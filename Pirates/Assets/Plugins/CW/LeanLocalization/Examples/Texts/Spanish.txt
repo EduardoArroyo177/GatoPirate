@@ -1,0 +1,5 @@
+﻿Title,"¡Hola! español"
+MAIN_MENU_BTN_RECRUIT,"Recluta gatos"
+MAIN_MENU_BTN_CREW,"Gatripulación"
+MAIN_MENU_BTN_LEADERBOARDS,"Puntajes"
+MAIN_MENU_BTN_STORE,"Tienda"

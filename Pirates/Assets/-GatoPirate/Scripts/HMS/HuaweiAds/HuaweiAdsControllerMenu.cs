@@ -7,7 +7,7 @@ using UnityAtoms.BaseAtoms;
 using UnityAtoms;
 using Void = UnityAtoms.Void;
 
-public class HuaweiAdsControllerMenu : MonoBehaviour
+public class HuaweiAdsControllerMenu : IAdsController
 {
     [Header("Testing IDs")]
     [SerializeField]
@@ -28,14 +28,14 @@ public class HuaweiAdsControllerMenu : MonoBehaviour
     private int freeCoinsAmount;
 
     // Events
-    public VoidEvent FreeCoinsRewardSuccessEvent { get; set; }
-    public VoidEvent LoadFreeCoinsAdRecruitmentEvent { get; set; }
-    public VoidEvent LoadFreeCoinsAdStoreEvent { get; set; }
-    public CurrencyTypeIntEvent ShowRewardedCurrencyEvent { get; set; }
+    //public VoidEvent FreeCoinsRewardSuccessEvent { get; set; }
+    //public VoidEvent LoadFreeCoinsAdRecruitmentEvent { get; set; }
+    //public VoidEvent LoadFreeCoinsAdStoreEvent { get; set; }
+    //public CurrencyTypeIntEvent ShowRewardedCurrencyEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
-    public void Initialize()
+    public override void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(FreeCoinsRewardSuccessEvent, FreeCoinsRewardSuccessEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadFreeCoinsAdRecruitmentEvent, LoadFreeCoinsAdRecruitmentEventCallback));

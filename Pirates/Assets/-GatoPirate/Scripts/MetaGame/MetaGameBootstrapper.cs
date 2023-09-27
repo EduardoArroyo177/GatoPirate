@@ -177,7 +177,7 @@ public class MetaGameBootstrapper : MonoBehaviour
 
     [Header("Ads")]
     [SerializeField]
-    private HuaweiAdsControllerMenu adsControllerMenu;
+    private IAdsController adsControllerMenu;
     [SerializeField]
     private VoidEvent FreeCoinsRewardSuccessEvent;
     [SerializeField]

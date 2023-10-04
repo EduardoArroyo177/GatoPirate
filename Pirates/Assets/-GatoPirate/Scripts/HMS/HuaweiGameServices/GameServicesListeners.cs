@@ -47,6 +47,27 @@ public class MyLoginListener : ILoginListener
     }
 }
 
+public class AntiAddictionListener : IAntiAddictionListener
+{
+    public void OnExit()
+    {
+        Debug.Log("Exit");
+    }
+}
+
+public class HInitListener : IInitListener
+{
+    public void OnFailure(int code, string message)
+    {
+        Debug.Log($"Init failed with code: {code} message: {message}");
+    }
+
+    public void OnSuccess()
+    {
+        Debug.Log("Init successful");
+    }
+}
+
 #region Player
 // Player
 public class MyGetPlayerListener : IGetPlayerListener

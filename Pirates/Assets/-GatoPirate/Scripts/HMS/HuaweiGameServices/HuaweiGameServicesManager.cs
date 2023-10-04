@@ -489,7 +489,7 @@ public class HuaweiGameServicesManager : MonoBehaviour
     public void InitService()
     {
         Debug.Log("starting init");
-        HuaweiGameService.Init();
+        HuaweiGameService.Init(new AntiAddictionListener(), new HInitListener());
         Debug.Log("init finished");
     }
 

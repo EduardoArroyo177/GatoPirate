@@ -53,7 +53,7 @@ public class HuaweiGameServicesController : MonoBehaviour
     private void InitService()
     {
         Debug.Log("starting init");
-        HuaweiGameService.Init();
+        HuaweiGameService.Init(new AntiAddictionListener(), new HInitListener());
         Debug.Log("init finished");
     }
 

@@ -2,43 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.HuaweiAppGallery;
-using UnityEngine.HuaweiAppGallery.Listener;
-using UnityEngine.HuaweiAppGallery.Model;
 using System;
 
 public class HuaweiGameServicesManager : MonoBehaviour
 {
-    private static ILoginListener _loginListener = new MyLoginListener();
-    private static ICancelAuthListener _cancelAuthListener = new MyCancelAuthListener();
+    //private static ILoginListener _loginListener = new MyLoginListener();
+    //private static ICancelAuthListener _cancelAuthListener = new MyCancelAuthListener();
 
-    private static ILeaderboardSwitchStatusListener _leaderboardSwitchStatusListener =
-        new MyLeaderboardSwitchStatusListener();
+    //private static ILeaderboardSwitchStatusListener _leaderboardSwitchStatusListener =
+    //    new MyLeaderboardSwitchStatusListener();
 
-    private static ISubmitScoreListener _submitScoreListener = new MySubmitScoreListener();
-    private static IGetLeaderboardIntentListener _getLeaderboardIntentListener = new MyGetLeaderboardIntentListener();
-    private static IGetLeaderboardsListener _getLeaderboardsListener = new MyGetLeaderboardsListener();
-    private static IGetLeaderboardListener _getLeaderboardListener = new MyGetLeaderboardListener();
-    private static IGetLeaderboardScoresListener _getLeaderboardScoresListener = new MyGetLeaderboardScoresListener();
-    private static IGetLeaderboardScoreListener _getLeaderboardScoreListener = new MyGetLeaderboardScoreListener();
-    private static IGetGameListener _getGameListener = new MyGetGameListener();
-    private static IGetPlayerListener _getPlayerListener = new MyGetPlayerListener();
-    private static IGetPlayerListener _getGamePlayerListener = new MyGetGamePlayerListener();
-    private static IGetPlayerStatisticsListener _getPlayerStatisticsListener = new MyGetPlayerStatisticsListener();
-    private static IGetCachePlayerIdListener _getCachePlayerIdListener = new MyGetCachePlayerIdListener();
-    private static ISubmitPlayerEventListener _submitPlayerEventListener = new MySubmitPlayerEventListener();
-    private static ISubmitPlayerEventListener _submitGameBeginEventListener = new MySubmitGameBeginEventListener();
-    private static IGetPlayerExtraInfoListener _getPlayerExtraInfoListener = new MyGetPlayerExtraInfoListener();
-    private static ISavePlayerInfoListener _savePlayerInfoListener = new MySavePlayerInfoListener();
-    private static IGameTrialProcessListener _gameTrialProcessListener = new MyGameTrialProcessListener();
-    private static ILimitSizeListener _limitSizeListener = new MyLimitSizeListener();
-    private static IGetSnapshotDataListener _getSnapshotDataListener = new MyGetSnapshotDataListener();
-    private static IGetAllSnapshotDataListener _getAllSnapshotDataListener = new MyGetAllSnapshotDataListener();
-    private static IGetShowSnapshotListIntentListener _getShowSnapshotListIntentListener = new MyGetShowSnapshotListIntentListener();
-    private static IGetCoverImageListener _getCoverImageListener = new MyGetCoverImageListener();
-    private static IGetSnapshotResultListener _getSnapshotResultListener = new MyGetSnapshotResultListener();
-    private static IGetSnapshotResultListener _updateSnapshotResultListener = new UpdateGetSnapshotResultListener();
-    private static IDeleteSnapshotListener _deleteSnapshotListener = new MyDeleteSnapshotListener();
+    //private static ISubmitScoreListener _submitScoreListener = new MySubmitScoreListener();
+    //private static IGetLeaderboardIntentListener _getLeaderboardIntentListener = new MyGetLeaderboardIntentListener();
+    //private static IGetLeaderboardsListener _getLeaderboardsListener = new MyGetLeaderboardsListener();
+    //private static IGetLeaderboardListener _getLeaderboardListener = new MyGetLeaderboardListener();
+    //private static IGetLeaderboardScoresListener _getLeaderboardScoresListener = new MyGetLeaderboardScoresListener();
+    //private static IGetLeaderboardScoreListener _getLeaderboardScoreListener = new MyGetLeaderboardScoreListener();
+    //private static IGetGameListener _getGameListener = new MyGetGameListener();
+    //private static IGetPlayerListener _getPlayerListener = new MyGetPlayerListener();
+    //private static IGetPlayerListener _getGamePlayerListener = new MyGetGamePlayerListener();
+    //private static IGetPlayerStatisticsListener _getPlayerStatisticsListener = new MyGetPlayerStatisticsListener();
+    //private static IGetCachePlayerIdListener _getCachePlayerIdListener = new MyGetCachePlayerIdListener();
+    //private static ISubmitPlayerEventListener _submitPlayerEventListener = new MySubmitPlayerEventListener();
+    //private static ISubmitPlayerEventListener _submitGameBeginEventListener = new MySubmitGameBeginEventListener();
+    //private static IGetPlayerExtraInfoListener _getPlayerExtraInfoListener = new MyGetPlayerExtraInfoListener();
+    //private static ISavePlayerInfoListener _savePlayerInfoListener = new MySavePlayerInfoListener();
+    //private static IGameTrialProcessListener _gameTrialProcessListener = new MyGameTrialProcessListener();
+    //private static ILimitSizeListener _limitSizeListener = new MyLimitSizeListener();
+    //private static IGetSnapshotDataListener _getSnapshotDataListener = new MyGetSnapshotDataListener();
+    //private static IGetAllSnapshotDataListener _getAllSnapshotDataListener = new MyGetAllSnapshotDataListener();
+    //private static IGetShowSnapshotListIntentListener _getShowSnapshotListIntentListener = new MyGetShowSnapshotListIntentListener();
+    //private static IGetCoverImageListener _getCoverImageListener = new MyGetCoverImageListener();
+    //private static IGetSnapshotResultListener _getSnapshotResultListener = new MyGetSnapshotResultListener();
+    //private static IGetSnapshotResultListener _updateSnapshotResultListener = new UpdateGetSnapshotResultListener();
+    //private static IDeleteSnapshotListener _deleteSnapshotListener = new MyDeleteSnapshotListener();
 
     private static string rankingId = "";
 
@@ -482,14 +479,14 @@ public class HuaweiGameServicesManager : MonoBehaviour
     public void InitApp()
     {
         Debug.Log("starting appInit");
-        HuaweiGameService.AppInit();
+        //HuaweiGameService.AppInit();
         Debug.Log("appInit finished");
     }
 
     public void InitService()
     {
         Debug.Log("starting init");
-        HuaweiGameService.Init(new AntiAddictionListener(), new HInitListener());
+        //HuaweiGameService.Init(new AntiAddictionListener(), new HInitListener());
         Debug.Log("init finished");
     }
 
@@ -499,56 +496,56 @@ public class HuaweiGameServicesManager : MonoBehaviour
         {
             playerLogin = true;
             Debug.Log("starting login");
-            AccountAuthParamsHelper authParamsHelper = new AccountAuthParamsHelper();
-            authParamsHelper.SetAuthorizationCode().SetAccessToken().SetIdToken().SetUid().SetId().SetEmail().CreateParams();
-            HuaweiGameService.Login(_loginListener);
+            //AccountAuthParamsHelper authParamsHelper = new AccountAuthParamsHelper();
+           // authParamsHelper.SetAuthorizationCode().SetAccessToken().SetIdToken().SetUid().SetId().SetEmail().CreateParams();
+           // HuaweiGameService.Login(_loginListener);
         }
     }
 
     public void GetCurrentPlayer()
     {
         Debug.Log("start getCurrentPlayer.");
-        HuaweiGameService.GetCurrentPlayer(true, _getPlayerListener);
+        //HuaweiGameService.GetCurrentPlayer(true, _getPlayerListener);
     }
 
     public void GetLeaderbaords()
     {
         Debug.Log("start GetRankingsData");
 
-        HuaweiGameService.GetLeaderboardsData(true, _getLeaderboardsListener);
+        //HuaweiGameService.GetLeaderboardsData(true, _getLeaderboardsListener);
     }
 
     public void GetSpecificLeaderboard()
     {
         Debug.Log("start GetRankingData");
 
-        HuaweiGameService.GetLeaderboardData(leaderboardID, true, _getLeaderboardListener);
+        //HuaweiGameService.GetLeaderboardData(leaderboardID, true, _getLeaderboardListener);
     }
 
     public void ChangeSwitchStatus()
     {
         Debug.Log("start SetRankingSwitchStatus with status open");
-        HuaweiGameService.SetLeaderboardSwitchStatus(1, _leaderboardSwitchStatusListener);
+        //HuaweiGameService.SetLeaderboardSwitchStatus(1, _leaderboardSwitchStatusListener);
     }
 
     public void SubmitScore(int score)
     {
         Debug.Log("start AsyncSubmitScore with ranking id: " + leaderboardID + " score: " + 2);
-        HuaweiGameService.AsyncSubmitScore(leaderboardID, score, _submitScoreListener);
+        //HuaweiGameService.AsyncSubmitScore(leaderboardID, score, _submitScoreListener);
     }
 
     public void GetLeaderboardScores()
     {
         Debug.Log("start GetRankingTopScores-String rankingId, int timeDimension, int maxResults, long offsetPlayerRank");
-        HuaweiGameService.GetLeaderboardTopScores(leaderboardID, 1, 10, 0, 0, _getLeaderboardScoresListener);
+        //HuaweiGameService.GetLeaderboardTopScores(leaderboardID, 1, 10, 0, 0, _getLeaderboardScoresListener);
     }
 
     public void GetCurrentPlayerScores()
     {
-        HuaweiGameService.GetCurrentPlayerLeaderboardScore(leaderboardID, 1, _getLeaderboardScoreListener);
+       // HuaweiGameService.GetCurrentPlayerLeaderboardScore(leaderboardID, 1, _getLeaderboardScoreListener);
     }
 
-    public class MyCancelAuthListener : ICancelAuthListener
+    public class MyCancelAuthListener 
     {
         public void OnSuccess()
         {
@@ -564,7 +561,7 @@ public class HuaweiGameServicesManager : MonoBehaviour
     }
 
     // Leader board
-    public class MyLeaderboardSwitchStatusListener : ILeaderboardSwitchStatusListener
+    public class MyLeaderboardSwitchStatusListener 
     {
         public void OnSuccess(int statusValue)
         {
@@ -581,7 +578,7 @@ public class HuaweiGameServicesManager : MonoBehaviour
 
     
 
-    public class MyGetLeaderboardIntentListener : IGetLeaderboardIntentListener
+    public class MyGetLeaderboardIntentListener 
     {
         public void OnSuccess(AndroidJavaObject intent)
         {
@@ -605,20 +602,20 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyGetGamePlayerListener : IGetPlayerListener
+    public class MyGetGamePlayerListener
     {
-        public void OnSuccess(Player player)
+        public void OnSuccess( )
         {
-            if (player == null)
-            {
-                Log("player == null");
-                return;
-            }
+            //if (player == null)
+            //{
+            //    Log("player == null");
+            //    return;
+            //}
             var msg = "getGamePlayer succeed. \n";
-            msg += string.Format(
-                "displayName:{0}, playerId:{1}, playerSign:{2}, openId:{3}, unionId:{4}, openIdSign:{5}, accessToken:{6}",
-                player.DisplayName, player.PlayerId, player.PlayerSign, player.OpenId, player.UnionId, player.OpenIdSign, player.AccessToken
-            );
+            //msg += string.Format(
+            //    "displayName:{0}, playerId:{1}, playerSign:{2}, openId:{3}, unionId:{4}, openIdSign:{5}, accessToken:{6}",
+            //    player.DisplayName, player.PlayerId, player.PlayerSign, player.OpenId, player.UnionId, player.OpenIdSign, player.AccessToken
+            //);
             Log(msg);
             //playerId = player.PlayerId;
             //openId = player.OpenId;
@@ -631,23 +628,23 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyGetPlayerStatisticsListener : IGetPlayerStatisticsListener
+    public class MyGetPlayerStatisticsListener 
     {
-        public void OnSuccess(PlayerStatistics playerStatistics)
+        public void OnSuccess()
         {
-            if (playerStatistics == null)
-            {
-                Log("playerStatistics == null");
-                return;
-            }
-            var msg = "GetGamePlayerStatistics succeed. \n";
-            msg += string.Format(
-                "average session length:{0}, day since played:{1}, num of sessions:{2}, num of purchases:{3}, total purchase:{4}",
-                playerStatistics.AverageSessionLength, playerStatistics.DaysSinceLastPlayed,
-                playerStatistics.NumberOfSessions, playerStatistics.NumberOfPurchases,
-                playerStatistics.TotalPurchasesAmountRange
-            );
-            Log(msg);
+            //if (playerStatistics == null)
+            //{
+            //    Log("playerStatistics == null");
+            //    return;
+            //}
+            //var msg = "GetGamePlayerStatistics succeed. \n";
+            //msg += string.Format(
+            //    "average session length:{0}, day since played:{1}, num of sessions:{2}, num of purchases:{3}, total purchase:{4}",
+            //    playerStatistics.AverageSessionLength, playerStatistics.DaysSinceLastPlayed,
+            //    playerStatistics.NumberOfSessions, playerStatistics.NumberOfPurchases,
+            //    playerStatistics.TotalPurchasesAmountRange
+            //);
+            //Log(msg);
         }
 
         public void OnFailure(int code, string message)
@@ -657,7 +654,7 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyGetCachePlayerIdListener : IGetCachePlayerIdListener
+    public class MyGetCachePlayerIdListener
     {
         public void OnSuccess(string cachePlayerId)
         {
@@ -672,7 +669,7 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MySubmitGameBeginEventListener : ISubmitPlayerEventListener
+    public class MySubmitGameBeginEventListener
     {
         public void OnSuccess(string jsonRequest)
         {
@@ -697,7 +694,7 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MySubmitPlayerEventListener : ISubmitPlayerEventListener
+    public class MySubmitPlayerEventListener 
     {
         public void OnSuccess(string jsonRequest)
         {
@@ -712,7 +709,7 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MySavePlayerInfoListener : ISavePlayerInfoListener
+    public class MySavePlayerInfoListener
     {
         public void OnSuccess()
         {
@@ -727,7 +724,7 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyGameTrialProcessListener : IGameTrialProcessListener
+    public class MyGameTrialProcessListener
     {
         public void OnTrialTimeout()
         {
@@ -748,21 +745,21 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyGetPlayerExtraInfoListener : IGetPlayerExtraInfoListener
+    public class MyGetPlayerExtraInfoListener
     {
-        public void OnSuccess(PlayerExtraInfo playerExtraInfo)
+        public void OnSuccess()
         {
-            if (playerExtraInfo == null)
-            {
-                Log("playerExtraInfo == null");
-                return;
-            }
-            var msg = "GetPlayerExtraInfo succeed. \n";
-            msg += string.Format(
-                "isAdult:{0}, playerId:{1}, playerDuration:{2}, isRealName:{3}, openId:{4}",
-                playerExtraInfo.IsAdult, playerExtraInfo.PlayerId, playerExtraInfo.PlayerDuration, playerExtraInfo.IsRealName, playerExtraInfo.OpenId
-            );
-            Log(msg);
+            //if (playerExtraInfo == null)
+            //{
+            //    Log("playerExtraInfo == null");
+            //    return;
+            //}
+            //var msg = "GetPlayerExtraInfo succeed. \n";
+            //msg += string.Format(
+            //    "isAdult:{0}, playerId:{1}, playerDuration:{2}, isRealName:{3}, openId:{4}",
+            //    playerExtraInfo.IsAdult, playerExtraInfo.PlayerId, playerExtraInfo.PlayerDuration, playerExtraInfo.IsRealName, playerExtraInfo.OpenId
+            //);
+            //Log(msg);
         }
 
         public void OnFailure(int code, string message)
@@ -772,22 +769,22 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyGetGameListener : IGetGameListener
+    public class MyGetGameListener
     {
-        public void OnSuccess(Game game)
+        public void OnSuccess()
         {
-            if (game == null)
-            {
-                Log("game == null");
-                return;
-            }
-            var msg = "GetGamePlayerStatistics succeed. \n";
-            msg += string.Format(
-                "AchievementTotalCount:{0}, application id:{1}, description:{2}, display name:{3}, leaderboard count:{4}, primary category:{5}, seconday category:{6}",
-                game.AchievementTotalCount, game.ApplicationId, game.Description, game.DisplayName,
-                game.LeaderboardCount, game.PrimaryCategory, game.SecondaryCategory
-            );
-            Log(msg);
+            //if (game == null)
+            //{
+            //    Log("game == null");
+            //    return;
+            //}
+            //var msg = "GetGamePlayerStatistics succeed. \n";
+            //msg += string.Format(
+            //    "AchievementTotalCount:{0}, application id:{1}, description:{2}, display name:{3}, leaderboard count:{4}, primary category:{5}, seconday category:{6}",
+            //    game.AchievementTotalCount, game.ApplicationId, game.Description, game.DisplayName,
+            //    game.LeaderboardCount, game.PrimaryCategory, game.SecondaryCategory
+            //);
+            //Log(msg);
         }
 
         public void OnFailure(int code, string message)
@@ -797,7 +794,7 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyLimitSizeListener : ILimitSizeListener
+    public class MyLimitSizeListener 
     {
         public void OnSuccess(int limitSize)
         {
@@ -812,23 +809,23 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyGetSnapshotDataListener : IGetSnapshotDataListener
+    public class MyGetSnapshotDataListener
     {
-        public void OnSuccess(SnapshotData snapshotData)
+        public void OnSuccess()
         {
-            if (snapshotData == null)
-            {
-                Log("snapshotData == null");
-                return;
-            }
-            var msg = "AddSnapshot succeed. \n";
-            msg += string.Format(
-                "snapshot id{0}, unique name{1}, player name:{2}, played time:{3}, progress value:{4}, desc:{5}, gameName:{6}",
-                snapshotData.SnapshotId, snapshotData.UniqueName, snapshotData.Player != null ? snapshotData.Player.DisplayName : "", snapshotData.PlayedTime,
-                snapshotData.ProgressValue, snapshotData.Description, snapshotData.Game != null ? snapshotData.Game.DisplayName : "");
-            Log(msg);
+            //if (snapshotData == null)
+            //{
+            //    Log("snapshotData == null");
+            //    return;
+            //}
+            //var msg = "AddSnapshot succeed. \n";
+            //msg += string.Format(
+            //    "snapshot id{0}, unique name{1}, player name:{2}, played time:{3}, progress value:{4}, desc:{5}, gameName:{6}",
+            //    snapshotData.SnapshotId, snapshotData.UniqueName, snapshotData.Player != null ? snapshotData.Player.DisplayName : "", snapshotData.PlayedTime,
+            //    snapshotData.ProgressValue, snapshotData.Description, snapshotData.Game != null ? snapshotData.Game.DisplayName : "");
+            //Log(msg);
 
-            string snapshotId = snapshotData.SnapshotId;
+            //string snapshotId = snapshotData.SnapshotId;
             //string tempSnapshotData = snapshotData;
         }
 
@@ -839,7 +836,7 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyGetShowSnapshotListIntentListener : IGetShowSnapshotListIntentListener
+    public class MyGetShowSnapshotListIntentListener
     {
         public void OnSuccess(AndroidJavaObject intent)
         {
@@ -863,32 +860,32 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyGetAllSnapshotDataListener : IGetAllSnapshotDataListener
+    public class MyGetAllSnapshotDataListener 
     {
-        public void OnSuccess(List<SnapshotData> allSnapshotData)
+        public void OnSuccess()
         {
-            if (allSnapshotData == null)
-            {
-                Log("allSnapshotData == null");
-                return;
-            }
-            var msg = "AddSnapshot succeed. \n";
+            //if (allSnapshotData == null)
+            //{
+            //    Log("allSnapshotData == null");
+            //    return;
+            //}
+            //var msg = "AddSnapshot succeed. \n";
 
-            foreach (var snapshotData in allSnapshotData)
-            {
-                msg += string.Format(
-                    "snapshot id:{0}, unique name:{1}, player name:{2}, played time:{3}, progress value:{4}, desc:{5}, gameName:{6} \n",
-                    snapshotData.SnapshotId, snapshotData.UniqueName, snapshotData.Player != null ? snapshotData.Player.DisplayName : "", snapshotData.PlayedTime,
-                    snapshotData.ProgressValue, snapshotData.Description, snapshotData.Game != null ? snapshotData.Game.DisplayName : "");
-            }
-            if (allSnapshotData != null && allSnapshotData.Count > 0)
-            {
-                SnapshotData sd = allSnapshotData[0];
-                //snapshotId = sd.SnapshotId;
-                //tempSnapshotData = sd;
-            }
+            //foreach (var snapshotData in allSnapshotData)
+            //{
+            //    msg += string.Format(
+            //        "snapshot id:{0}, unique name:{1}, player name:{2}, played time:{3}, progress value:{4}, desc:{5}, gameName:{6} \n",
+            //        snapshotData.SnapshotId, snapshotData.UniqueName, snapshotData.Player != null ? snapshotData.Player.DisplayName : "", snapshotData.PlayedTime,
+            //        snapshotData.ProgressValue, snapshotData.Description, snapshotData.Game != null ? snapshotData.Game.DisplayName : "");
+            //}
+            //if (allSnapshotData != null && allSnapshotData.Count > 0)
+            //{
+            //    SnapshotData sd = allSnapshotData[0];
+            //    //snapshotId = sd.SnapshotId;
+            //    //tempSnapshotData = sd;
+            //}
 
-            Log(msg);
+            //Log(msg);
         }
 
         public void OnFailure(int code, string message)
@@ -898,7 +895,7 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyGetCoverImageListener : IGetCoverImageListener
+    public class MyGetCoverImageListener 
     {
         public void OnSuccess(string coverImage)
         {
@@ -918,19 +915,19 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyGetSnapshotResultListener : IGetSnapshotResultListener
+    public class MyGetSnapshotResultListener 
     {
-        public void OnSuccess(SnapshotResult snapshotResult)
+        public void OnSuccess()
         {
-            if (snapshotResult == null)
-            {
-                Log("snapshotResult == null");
-                return;
-            }
-            var msg = "snapshot operation success. \n";
-            msg += string.Format("id: {0}, description:{1}", snapshotResult.Snapshot.SnapshotData.SnapshotId,
-                snapshotResult.Snapshot.SnapshotData.Description);
-            Log(msg);
+            //if (snapshotResult == null)
+            //{
+            //    Log("snapshotResult == null");
+            //    return;
+            //}
+            //var msg = "snapshot operation success. \n";
+            //msg += string.Format("id: {0}, description:{1}", snapshotResult.Snapshot.SnapshotData.SnapshotId,
+            //    snapshotResult.Snapshot.SnapshotData.Description);
+            //Log(msg);
         }
 
         public void OnFailure(int code, string message)
@@ -940,35 +937,35 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class UpdateGetSnapshotResultListener : IGetSnapshotResultListener
+    public class UpdateGetSnapshotResultListener
     {
-        public void OnSuccess(SnapshotResult snapshotResult)
+        public void OnSuccess()
         {
-            var msg = "update snapshot operation success.";
-            if (snapshotResult.IsDifference())
-            {
-                msg += "There is a data conflict. \n start handleConflict... \n";
-                msg += "chose server archive... \n";
-                Snapshot serverSnapshot = snapshotResult.SnapshotConflict.ServerSnapshot;
-                //                demo selects the archive on the server side, you can try to get the archive to be modified when conflict occurs
-                //                Snapshot conflictSnapshot = snapshotResult.SnapshotConflict.ConflictSnapshot;
-                if (serverSnapshot == null)
-                {
-                    msg += "serverSnapshot == null.";
-                    Log(msg);
-                    return;
-                }
+            //var msg = "update snapshot operation success.";
+            //if (snapshotResult.IsDifference())
+            //{
+            //    msg += "There is a data conflict. \n start handleConflict... \n";
+            //    msg += "chose server archive... \n";
+            //    Snapshot serverSnapshot = snapshotResult.SnapshotConflict.ServerSnapshot;
+            //    //                demo selects the archive on the server side, you can try to get the archive to be modified when conflict occurs
+            //    //                Snapshot conflictSnapshot = snapshotResult.SnapshotConflict.ConflictSnapshot;
+            //    if (serverSnapshot == null)
+            //    {
+            //        msg += "serverSnapshot == null.";
+            //        Log(msg);
+            //        return;
+            //    }
 
-                msg += "start UpdateSnapshot(snapshot)...";
-                HuaweiGameService.UpdateSnapshot(serverSnapshot, _updateSnapshotResultListener);
-            }
-            else
-            {
-                msg += "There is no data conflict. \n";
-                msg += string.Format("id: {0}, playedTime:{1}, progressValue:{2}, description:{3}", snapshotResult.Snapshot.SnapshotData.SnapshotId,
-                    snapshotResult.Snapshot.SnapshotData.PlayedTime, snapshotResult.Snapshot.SnapshotData.ProgressValue, snapshotResult.Snapshot.SnapshotData.Description);
-                Log(msg);
-            }
+            //    msg += "start UpdateSnapshot(snapshot)...";
+            //    HuaweiGameService.UpdateSnapshot(serverSnapshot, _updateSnapshotResultListener);
+            //}
+            //else
+            //{
+            //    msg += "There is no data conflict. \n";
+            //    msg += string.Format("id: {0}, playedTime:{1}, progressValue:{2}, description:{3}", snapshotResult.Snapshot.SnapshotData.SnapshotId,
+            //        snapshotResult.Snapshot.SnapshotData.PlayedTime, snapshotResult.Snapshot.SnapshotData.ProgressValue, snapshotResult.Snapshot.SnapshotData.Description);
+            //    Log(msg);
+            //}
         }
 
         public void OnFailure(int code, string message)
@@ -978,7 +975,7 @@ public class HuaweiGameServicesManager : MonoBehaviour
         }
     }
 
-    public class MyDeleteSnapshotListener : IDeleteSnapshotListener
+    public class MyDeleteSnapshotListener
     {
         public void OnSuccess(string snapshotId)
         {

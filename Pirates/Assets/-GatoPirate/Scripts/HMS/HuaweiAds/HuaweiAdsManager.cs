@@ -1,6 +1,4 @@
-﻿using HuaweiService;
-using HuaweiService.ads;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,51 +40,51 @@ public class HuaweiAdsManager : MonoBehaviour
 
     public void LoadImageAds()
     {
-        InterstitialAd ad = new InterstitialAd(new Context());
-        ad.setAdId(imageAdsID);
-        ad.setAdListener(new InterstitialAdListener(ad));
-        AdParam.Builder builder = new AdParam.Builder();
-        AdParam adParam = builder.build();
-        ad.loadAd(adParam);
+        //InterstitialAd ad = new InterstitialAd(new Context());
+        //ad.setAdId(imageAdsID);
+        //ad.setAdListener(new InterstitialAdListener(ad));
+        //AdParam.Builder builder = new AdParam.Builder();
+        //AdParam adParam = builder.build();
+        //ad.loadAd(adParam);
     }
     public void LoadVideoAds()
     {
-        InterstitialAd ad = new InterstitialAd(new Context());
-        ad.setAdId(videoAdsID);
-        ad.setAdListener(new InterstitialAdListener(ad));
-        AdParam.Builder builder = new AdParam.Builder();
-        ad.loadAd(builder.build());
+        //InterstitialAd ad = new InterstitialAd(new Context());
+        //ad.setAdId(videoAdsID);
+        //ad.setAdListener(new InterstitialAdListener(ad));
+        //AdParam.Builder builder = new AdParam.Builder();
+        //ad.loadAd(builder.build());
     }
     public void LoadRewardAds()
     {
-        RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
-        AdParam adParam = new AdParam.Builder().build();
-        MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad);
-        ad.loadAd(adParam, rewardAdLoadListener);
+        //RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
+        //AdParam adParam = new AdParam.Builder().build();
+        //MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad);
+        //ad.loadAd(adParam, rewardAdLoadListener);
     }
 
     public void SetConsentStatus(bool personal)
     {
-        Consent consentInfo = Consent.getInstance(new Context());
-        var consentStatus = personal ? ConsentStatus.PERSONALIZED : ConsentStatus.NON_PERSONALIZED;
-        consentInfo.setConsentStatus(consentStatus);
-        Debug.Log($"set consent status as {consentStatus}");
+        //Consent consentInfo = Consent.getInstance(new Context());
+        //var consentStatus = personal ? ConsentStatus.PERSONALIZED : ConsentStatus.NON_PERSONALIZED;
+        //consentInfo.setConsentStatus(consentStatus);
+        //Debug.Log($"set consent status as {consentStatus}");
     }
 
     public void CheckConsentStatus()
     {
-        Consent consentInfo = Consent.getInstance(new Context());
-        consentInfo.requestConsentUpdate(new MConsentUpdateListener());
+        //Consent consentInfo = Consent.getInstance(new Context());
+        //consentInfo.requestConsentUpdate(new MConsentUpdateListener());
     }
 
     public void SetRequestOptionsNonPersonalizedAd()
     {
-        RequestOptions reqOptions = HwAds.getRequestOptions()
-            .toBuilder()
-            .setNonPersonalizedAd(new Integer(NonPersonalizedAd.ALLOW_ALL))
-            .build();
-        HwAds.setRequestOptions(reqOptions);
+        //RequestOptions reqOptions = HwAds.getRequestOptions()
+        //    .toBuilder()
+        //    .setNonPersonalizedAd(new Integer(NonPersonalizedAd.ALLOW_ALL))
+        //    .build();
+        //HwAds.setRequestOptions(reqOptions);
 
-        Debug.Log("RequestOptions NonPersonalizedAd:" + HwAds.getRequestOptions().getNonPersonalizedAd());
+       // Debug.Log("RequestOptions NonPersonalizedAd:" + HwAds.getRequestOptions().getNonPersonalizedAd());
     }
 }

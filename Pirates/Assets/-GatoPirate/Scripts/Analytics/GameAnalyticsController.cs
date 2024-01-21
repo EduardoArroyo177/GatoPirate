@@ -1,6 +1,5 @@
 using GameAnalyticsSDK.Events;
 using GameAnalyticsSDK;
-using HuaweiService;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
-using UnityEngine.HuaweiAppGallery.Listener;
-using UnityEngine.HuaweiAppGallery.Model;
 
-public class MyLoginListener : ILoginListener
+public class MyLoginListener 
 {
     private BoolEvent LoginSuccessfulEvent;
 
@@ -16,38 +14,38 @@ public class MyLoginListener : ILoginListener
         LoginSuccessfulEvent = loginSuccessfulEvent;
     }
 
-    public void OnSuccess(SignInAccountProxy signInAccountProxy)
+    public void OnSuccess()
     {
-        if (signInAccountProxy == null)
-        {
-            Debug.Log("signInAccountProxy == null");
-            return;
-        }
+        //if (signInAccountProxy == null)
+        //{
+        //    Debug.Log("signInAccountProxy == null");
+        //    return;
+        //}
 
-        string msg = "get login success with signInAccountProxy info: \n";
-        msg += String.Format("displayName:{0}, email:{1}, uid:{2}, openId:{3}, unionId:{4}, accessToken:{5}, serverAuthCode:{6}, idToken:{7}",
-        signInAccountProxy.DisplayName, signInAccountProxy.Email, signInAccountProxy.Uid, signInAccountProxy.OpenId, signInAccountProxy.UnionId,
-        signInAccountProxy.AccessToken, signInAccountProxy.ServerAuthCode, signInAccountProxy.IdToken);
+        string msg = "HW: get login success with signInAccountProxy info: \n";
+        //msg += String.Format("displayName:{0}, email:{1}, uid:{2}, openId:{3}, unionId:{4}, accessToken:{5}, serverAuthCode:{6}, idToken:{7}",
+        //signInAccountProxy.DisplayName, signInAccountProxy.Email, signInAccountProxy.Uid, signInAccountProxy.OpenId, signInAccountProxy.UnionId,
+        //signInAccountProxy.AccessToken, signInAccountProxy.ServerAuthCode, signInAccountProxy.IdToken);
         Debug.Log(msg);
 
-        LoginSuccessfulEvent?.Raise(true);
+        //LoginSuccessfulEvent?.Raise(true);
     }
 
     public void OnSignOut()
     {
-        string msg = "sign out success.";
+        string msg = "HW: sign out success.";
         Debug.Log(msg);
     }
 
     public void OnFailure(int code, string message)
     {
-        string msg = "account method failed, code:" + code + " message:" + message;
+        string msg = "HW: account method failed, code:" + code + " message:" + message;
         Debug.Log(msg);
         LoginSuccessfulEvent?.Raise(false);
     }
 }
 
-public class AntiAddictionListener : IAntiAddictionListener
+public class AntiAddictionListener 
 {
     public void OnExit()
     {
@@ -55,7 +53,7 @@ public class AntiAddictionListener : IAntiAddictionListener
     }
 }
 
-public class HInitListener : IInitListener
+public class HInitListener
 {
     public void OnFailure(int code, string message)
     {
@@ -70,20 +68,20 @@ public class HInitListener : IInitListener
 
 #region Player
 // Player
-public class MyGetPlayerListener : IGetPlayerListener
+public class MyGetPlayerListener 
 {
-    public void OnSuccess(Player player)
+    public void OnSuccess()
     {
-        if (player == null)
-        {
-            Debug.Log("player == null");
-            return;
-        }
+        //if (player == null)
+        //{
+        //    Debug.Log("player == null");
+        //    return;
+        //}
         var msg = "getCurrentPlayer succeed. \n";
-        msg += string.Format(
-            "displayName:{0}, playerId:{1}, signTimestamp:{2}, playerSign:{3}, level:{4}, openId:{5}, unionId:{6}",
-            player.DisplayName, player.PlayerId, player.SignTimestamp, player.PlayerSign, player.Level, player.OpenId, player.UnionId
-        );
+        //msg += string.Format(
+        //    "displayName:{0}, playerId:{1}, signTimestamp:{2}, playerSign:{3}, level:{4}, openId:{5}, unionId:{6}",
+        //    player.DisplayName, player.PlayerId, player.SignTimestamp, player.PlayerSign, player.Level, player.OpenId, player.UnionId
+        //);
         Debug.Log(msg);
         //playerId = player.PlayerId;
     }
@@ -97,29 +95,29 @@ public class MyGetPlayerListener : IGetPlayerListener
 #endregion
 
 #region Leaderboards
-public class MySubmitScoreListener : ISubmitScoreListener
+public class MySubmitScoreListener 
 {
     private VoidEvent ScoreSubmittedEvent;
     public MySubmitScoreListener(VoidEvent _scoreSubmittedEvent = null)
     {
         ScoreSubmittedEvent = _scoreSubmittedEvent;
     }
-    public void OnSuccess(ScoreSubmission scoreSubmission)
+    public void OnSuccess()
     {
-        if (scoreSubmission == null)
-        {
-            Debug.Log("socreSubmission == null");
-            return;
-        }
+        //if (scoreSubmission == null)
+        //{
+        //    Debug.Log("socreSubmission == null");
+        //    return;
+        //}
         string msg = "success submitted.";
-        msg += string.Format("leaderboard id:{0}, playerId:{1}, scoreResults: \n", scoreSubmission.LeaderboardId,
-            scoreSubmission.PlayerId);
+        //msg += string.Format("leaderboard id:{0}, playerId:{1}, scoreResults: \n", scoreSubmission.LeaderboardId,
+        //    scoreSubmission.PlayerId);
         
-        foreach (KeyValuePair<int, ScoreSubmission.Result> r in scoreSubmission.ScoreResults)
-        {
-            msg += string.Format("key: {0}, rawScore:{1}, formattedScore:{2}, scoreTag:{3}, isBest:{4}; \n", r.Key,
-                r.Value.RawScore, r.Value.FormattedScore, r.Value.ScoreTag, r.Value.IsBest);
-        }
+        //foreach (KeyValuePair<int, ScoreSubmission.Result> r in scoreSubmission.ScoreResults)
+        //{
+        //    msg += string.Format("key: {0}, rawScore:{1}, formattedScore:{2}, scoreTag:{3}, isBest:{4}; \n", r.Key,
+        //        r.Value.RawScore, r.Value.FormattedScore, r.Value.ScoreTag, r.Value.IsBest);
+        //}
 
         Debug.Log(msg);
         ScoreSubmittedEvent?.Raise();
@@ -132,22 +130,22 @@ public class MySubmitScoreListener : ISubmitScoreListener
     }
 }
 
-public class MyGetLeaderboardsListener : IGetLeaderboardsListener
+public class MyGetLeaderboardsListener 
 {
-    public void OnSuccess(List<LeaderboardProxy> leaderboards)
+    public void OnSuccess()
     {
-        if (leaderboards == null)
-        {
-            Debug.Log("leaderboards == null");
-            return;
-        }
-        var msg = "get leader board data succeed with count: " + leaderboards.Count + "\n";
-        foreach (var l in leaderboards)
-        {
-            msg += string.Format("leaderBoardId: {0}, display name:{1}, score order:{2} \n", l.LeaderboardId,
-                l.LeaderboardDisplayName, l.LeaderboardScoreOrder);
+        //if (leaderboards == null)
+        //{
+        //    Debug.Log("leaderboards == null");
+        //    return;
+        //}
+        var msg = "get leader board data succeed with count: "; /*+ leaderboards.Count + "\n";*/
+        //foreach (var l in leaderboards)
+        //{
+        //    msg += string.Format("leaderBoardId: {0}, display name:{1}, score order:{2} \n", l.LeaderboardId,
+        //        l.LeaderboardDisplayName, l.LeaderboardScoreOrder);
 
-        }
+//        }
 
         Debug.Log(msg);
     }
@@ -159,19 +157,19 @@ public class MyGetLeaderboardsListener : IGetLeaderboardsListener
     }
 }
 
-public class MyGetLeaderboardListener : IGetLeaderboardListener
+public class MyGetLeaderboardListener
 {
-    public void OnSuccess(LeaderboardProxy leaderboardProxy)
+    public void OnSuccess()
     {
-        if (leaderboardProxy == null)
-        {
-            Debug.Log("leaderboard == null");
-            return;
-        }
+        //if (leaderboardProxy == null)
+        //{
+        //    Debug.Log("leaderboard == null");
+        //    return;
+        //}
         var msg = "get leader board data succeed. \n";
-        msg += string.Format("leaderboard Id: {0}, display name: {1}, score order:{2}",
-            leaderboardProxy.LeaderboardId, leaderboardProxy.LeaderboardDisplayName,
-            leaderboardProxy.LeaderboardScoreOrder);
+        //msg += string.Format("leaderboard Id: {0}, display name: {1}, score order:{2}",
+        //    leaderboardProxy.LeaderboardId, leaderboardProxy.LeaderboardDisplayName,
+        //    leaderboardProxy.LeaderboardScoreOrder);
         Debug.Log(msg);
     }
 
@@ -182,7 +180,7 @@ public class MyGetLeaderboardListener : IGetLeaderboardListener
     }
 }
 
-public class MyGetLeaderboardScoresListener : IGetLeaderboardScoresListener
+public class MyGetLeaderboardScoresListener
 {
     private LeaderboardDataListEvent LeaderboardRankDataListEvent;
 
@@ -191,35 +189,35 @@ public class MyGetLeaderboardScoresListener : IGetLeaderboardScoresListener
         LeaderboardRankDataListEvent = _leaderboardRankDataListEvent;
     }
 
-    public void OnSuccess(LeaderboardScores leaderboardScores)
+    public void OnSuccess()
     {
-        if (leaderboardScores == null)
-        {
-            Debug.Log("get succeed, but leaderboardsData == null");
-            return;
-        }
+        //if (leaderboardScores == null)
+        //{
+        //    Debug.Log("get succeed, but leaderboardsData == null");
+        //    return;
+        //}
         List<LeaderboardScoreData> leaderboardScoreDataList = new List<LeaderboardScoreData>();
         LeaderboardScoreData leaderboardScoreDataHelper;
         
         var msg = "get succeed. \n";
-        msg += string.Format("leaderboard id: {0}, display name:{1} \n",
-            leaderboardScores.LeaderboardProxy.LeaderboardId,
-            leaderboardScores.LeaderboardProxy.LeaderboardDisplayName);
+        //msg += string.Format("leaderboard id: {0}, display name:{1} \n",
+        //    leaderboardScores.LeaderboardProxy.LeaderboardId,
+        //    leaderboardScores.LeaderboardProxy.LeaderboardDisplayName);
 
-        foreach (var score in leaderboardScores.LeaderboardScoreList)
-        {
-            msg += string.Format("rank:{0}, score:{1}, timespan:{2}, player rank:{3}, scoreTag:{4}, player name: {5}, \n",
-                score.DisplayRank,
-                score.PlayerRawScore, score.TimeSpan, score.PlayerRank, score.ScoreTag,
-                score.ScoreOwnerPlayer.DisplayName);
+        //foreach (var score in leaderboardScores.LeaderboardScoreList)
+        //{
+        //    msg += string.Format("rank:{0}, score:{1}, timespan:{2}, player rank:{3}, scoreTag:{4}, player name: {5}, \n",
+        //        score.DisplayRank,
+        //        score.PlayerRawScore, score.TimeSpan, score.PlayerRank, score.ScoreTag,
+        //        score.ScoreOwnerPlayer.DisplayName);
 
-            leaderboardScoreDataHelper = new LeaderboardScoreData();
-            leaderboardScoreDataHelper.playerDisplayRank = score.DisplayRank;
-            leaderboardScoreDataHelper.playerName = score.ScoreOwnerPlayer.DisplayName;
-            leaderboardScoreDataHelper.playerScore = score.PlayerRawScore;
-            leaderboardScoreDataHelper.playerRank = score.PlayerRank;
-            leaderboardScoreDataList.Add(leaderboardScoreDataHelper);
-        }
+        //    leaderboardScoreDataHelper = new LeaderboardScoreData();
+        //    leaderboardScoreDataHelper.playerDisplayRank = score.DisplayRank;
+        //    leaderboardScoreDataHelper.playerName = score.ScoreOwnerPlayer.DisplayName;
+        //    leaderboardScoreDataHelper.playerScore = score.PlayerRawScore;
+        //    leaderboardScoreDataHelper.playerRank = score.PlayerRank;
+        //    leaderboardScoreDataList.Add(leaderboardScoreDataHelper);
+        //}
         Debug.Log(msg);
         LeaderboardRankDataListEvent?.Raise(leaderboardScoreDataList);
     }
@@ -231,7 +229,7 @@ public class MyGetLeaderboardScoresListener : IGetLeaderboardScoresListener
     }
 }
 
-public class MyGetLeaderboardScoreListener : IGetLeaderboardScoreListener
+public class MyGetLeaderboardScoreListener 
 {
     private LeaderboardDataEvent PlayerRankDataEvent;
 
@@ -240,26 +238,26 @@ public class MyGetLeaderboardScoreListener : IGetLeaderboardScoreListener
         PlayerRankDataEvent = _playerRankDataEvent;
     }
 
-    public void OnSuccess(LeaderboardScore score)
+    public void OnSuccess()
     {
-        if (score == null)
-        {
-            Debug.Log("leaderboardScore == null");
-            return;
-        }
+        //if (score == null)
+        //{
+        //    Debug.Log("leaderboardScore == null");
+        //    return;
+        //}
         var msg = "get currentplayer leaderboard succeed. \n";
-        msg += string.Format("rank:{0}, score:{1}, timespan:{2}, player rank:{3}, scoreTag:{4}, \n",
-            score.DisplayRank,
-            score.PlayerRawScore, score.TimeSpan, score.PlayerRank, score.ScoreTag);
+        //msg += string.Format("rank:{0}, score:{1}, timespan:{2}, player rank:{3}, scoreTag:{4}, \n",
+        //    score.DisplayRank,
+        //    score.PlayerRawScore, score.TimeSpan, score.PlayerRank, score.ScoreTag);
 
-        LeaderboardScoreData currentPlayerScores = new LeaderboardScoreData();
-        currentPlayerScores.playerDisplayRank = score.DisplayRank;
-        currentPlayerScores.playerName = score.ScoreOwnerPlayer.DisplayName;
-        currentPlayerScores.playerRank = score.PlayerRank;
-        currentPlayerScores.playerScore = score.PlayerRawScore;
+        //LeaderboardScoreData currentPlayerScores = new LeaderboardScoreData();
+        //currentPlayerScores.playerDisplayRank = score.DisplayRank;
+        //currentPlayerScores.playerName = score.ScoreOwnerPlayer.DisplayName;
+        //currentPlayerScores.playerRank = score.PlayerRank;
+        //currentPlayerScores.playerScore = score.PlayerRawScore;
 
         Debug.Log(msg);
-        PlayerRankDataEvent?.Raise(currentPlayerScores);
+        //PlayerRankDataEvent?.Raise(currentPlayerScores);
     }
 
     public void OnFailure(int code, string message)

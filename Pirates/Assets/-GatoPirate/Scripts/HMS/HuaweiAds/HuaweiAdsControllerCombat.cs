@@ -1,5 +1,3 @@
-using HuaweiService.ads;
-using HuaweiService;
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms.BaseAtoms;
@@ -60,17 +58,17 @@ public class HuaweiAdsControllerCombat : MonoBehaviour
             Debug.Log("Remove ads purchased, giving reward for free");
         CombatRewardAdSuccessEventCallback(new Void());
 #else
-        if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsumableIAP.REMOVE_ADS))
-            CombatRewardAdSuccessEventCallback(new Void());
-        else
-        {
-        //RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
-        // TODO: Uncomment this for publishing
-        RewardAd ad = new RewardAd(new Context(), reviveID);
-        AdParam adParam = new AdParam.Builder().build();
-        MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad, CombatRewardAdSuccessEvent);
-        ad.loadAd(adParam, rewardAdLoadListener);
-        }
+        //if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsumableIAP.REMOVE_ADS))
+        //    CombatRewardAdSuccessEventCallback(new Void());
+        //else
+        //{
+        ////RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
+        //// TODO: Uncomment this for publishing
+        //RewardAd ad = new RewardAd(new Context(), reviveID);
+        //AdParam adParam = new AdParam.Builder().build();
+        //MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad, CombatRewardAdSuccessEvent);
+        //ad.loadAd(adParam, rewardAdLoadListener);
+        //}
 #endif
     }
 
@@ -82,17 +80,17 @@ public class HuaweiAdsControllerCombat : MonoBehaviour
             Debug.Log("Remove ads purchased, giving reward for free");
         CombatRewardAdSuccessEventCallback(new Void());
 #else
-if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsumableIAP.REMOVE_ADS))
-            CombatRewardAdSuccessEventCallback(new Void());
-        else
-        {
-        //RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
-        // TODO: Uncomment this for publishing
-        RewardAd ad = new RewardAd(new Context(), doubleRewardID);
-        AdParam adParam = new AdParam.Builder().build();
-        MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad, CombatRewardAdSuccessEvent);
-        ad.loadAd(adParam, rewardAdLoadListener);
-        }
+//if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsumableIAP.REMOVE_ADS))
+//            CombatRewardAdSuccessEventCallback(new Void());
+//        else
+//        {
+//        //RewardAd ad = new RewardAd(new Context(), rewardedAdsID);
+//        // TODO: Uncomment this for publishing
+//        RewardAd ad = new RewardAd(new Context(), doubleRewardID);
+//        AdParam adParam = new AdParam.Builder().build();
+//        MRewardLoadListener rewardAdLoadListener = new MRewardLoadListener(ad, CombatRewardAdSuccessEvent);
+//        ad.loadAd(adParam, rewardAdLoadListener);
+//        }
 #endif  
     }
 
@@ -120,30 +118,30 @@ if (PurchasesDataSaveManager.Instance.GetPurchasedNonConsumableStatus(NonConsuma
 #endregion
 
 #region Other ad methods
-    public void SetConsentStatus(bool personal)
-    {
-        Consent consentInfo = Consent.getInstance(new Context());
-        var consentStatus = personal ? ConsentStatus.PERSONALIZED : ConsentStatus.NON_PERSONALIZED;
-        consentInfo.setConsentStatus(consentStatus);
-        Debug.Log($"set consent status as {consentStatus}");
-    }
+    //public void SetConsentStatus(bool personal)
+    //{
+    //    Consent consentInfo = Consent.getInstance(new Context());
+    //    var consentStatus = personal ? ConsentStatus.PERSONALIZED : ConsentStatus.NON_PERSONALIZED;
+    //    consentInfo.setConsentStatus(consentStatus);
+    //    Debug.Log($"set consent status as {consentStatus}");
+    //}
 
-    public void CheckConsentStatus()
-    {
-        Consent consentInfo = Consent.getInstance(new Context());
-        consentInfo.requestConsentUpdate(new MConsentUpdateListener());
-    }
+    //public void CheckConsentStatus()
+    //{
+    //    Consent consentInfo = Consent.getInstance(new Context());
+    //    consentInfo.requestConsentUpdate(new MConsentUpdateListener());
+    //}
 
-    public void SetRequestOptionsNonPersonalizedAd()
-    {
-        RequestOptions reqOptions = HwAds.getRequestOptions()
-            .toBuilder()
-            .setNonPersonalizedAd(new Integer(NonPersonalizedAd.ALLOW_ALL))
-            .build();
-        HwAds.setRequestOptions(reqOptions);
+    //public void SetRequestOptionsNonPersonalizedAd()
+    //{
+    //    RequestOptions reqOptions = HwAds.getRequestOptions()
+    //        .toBuilder()
+    //        .setNonPersonalizedAd(new Integer(NonPersonalizedAd.ALLOW_ALL))
+    //        .build();
+    //    HwAds.setRequestOptions(reqOptions);
 
-        Debug.Log("RequestOptions NonPersonalizedAd:" + HwAds.getRequestOptions().getNonPersonalizedAd());
-    }
+    //    Debug.Log("RequestOptions NonPersonalizedAd:" + HwAds.getRequestOptions().getNonPersonalizedAd());
+    //}
 #endregion
 
 #region OnDestroy

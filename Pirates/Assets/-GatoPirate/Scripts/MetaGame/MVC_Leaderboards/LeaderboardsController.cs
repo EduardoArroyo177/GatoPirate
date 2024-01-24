@@ -48,7 +48,11 @@ public class LeaderboardsController : MonoBehaviour
             LeaderboardsDataSaveManager.Instance.IsLoggedIn = true;
             // Hide
             leaderboardsView.ShowLoginMissingView(false);
-            Invoke("RequestPlayerScoreData", 0.5f);
+            //Invoke("RequestPlayerScoreData", 0.5f);
+        }
+        else
+        { 
+            // TODO: Implement error message screen/pop up
         }
     }
 
@@ -66,8 +70,13 @@ public class LeaderboardsController : MonoBehaviour
         }
         else
         {
-            PlayerLoginEvent.Raise();
+            Invoke("LoginWithDelay", 0.5f);
         }
+    }
+
+    private void LoginWithDelay()
+    {
+        PlayerLoginEvent.Raise();
     }
 
     private void PlayerInitialRankDataEventCallback(LeaderboardScoreData _playerScoreData)

@@ -406,6 +406,10 @@ public class MetaGameBootstrapper : MonoBehaviour
         // Load purchased items
         PurchasesDataSaveManager.Instance.CallForPurchasedIAP();
 
+        // Huawei login
+        HuaweiAccountLoginManager.LoginSuccessfulEvent = LoginSuccessfulEvent;
+        HuaweiAccountLoginManager.Initialize();
+
         // Game services
         servicesController.PlayerLoginEvent = PlayerLoginEvent;
         servicesController.LoginSuccessfulEvent = LoginSuccessfulEvent;

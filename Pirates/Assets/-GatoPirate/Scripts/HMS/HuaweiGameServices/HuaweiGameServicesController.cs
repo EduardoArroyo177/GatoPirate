@@ -97,6 +97,8 @@ public class HuaweiGameServicesController : MonoBehaviour
 #if UNITY_EDITOR
         return;
 #endif
+        HuaweiAccountLoginManager.Login();
+
         //Debug.Log("Loign");
         //    _loginListener = new MyLoginListener(LoginSuccessfulEvent);
         //    //AccountAuthParamsHelper authParamsHelper = new AccountAuthParamsHelper();

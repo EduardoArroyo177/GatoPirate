@@ -1,3 +1,9 @@
+using HmsPlugin;
+using HuaweiMobileServices.Base;
+using HuaweiMobileServices.Game;
+using HuaweiMobileServices.Id;
+using HuaweiMobileServices.Utils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;
@@ -28,6 +34,13 @@ public class LeaderboardsController : MonoBehaviour
     public StringIntEvent SubmitHighScoreEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
+
+    private AccountAuthService authService;
+    private AccountAuthParams authParams;
+    public Action<AuthAccount> SignInSuccess { get; set; }
+    public Action<HMSException> SignInFailure { get; set; }
+
+
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory<bool>.BuildEventHandler(LoginSuccessfulEvent, LoginSuccessfulEventCallback));
@@ -40,6 +53,67 @@ public class LeaderboardsController : MonoBehaviour
         leaderboardsView.LeaderboardsController = this;
     }
 
+    public void Init()
+    {
+        Debug.Log("HMS GAMES init");
+        authService = HMSAccountKitManager.Instance.GetGameAuthService();
+        authParams = new AccountAuthParamsHelper(AccountAuthParams.DEFAULT_AUTH_REQUEST_PARAM_GAME).CreateParams();
+
+        ITask<AuthAccount> taskAuthHuaweiId = authService.SilentSignIn();
+        taskAuthHuaweiId.AddOnSuccessListener((result) =>
+        {
+            //archivesClient = HMSSaveGameManager.Instance.GetArchivesClient();
+            InitJosApps(result);
+            SignInSuccess?.Invoke(result);
+
+        }).AddOnFailureListener((exception) =>
+        {
+            Debug.Log("HMS GAMES: The app has not been authorized");
+            authService.StartSignIn((auth) => { InitJosApps(auth); SignInSuccess?.Invoke(auth); }, (exc) => SignInFailure?.Invoke(exc));
+            InitGameManagers();
+        });
+    }
+
+    private void InitJosApps(AuthAccount result)
+    {
+        var appParams = new AppParams(authParams);
+        HMSAccountKitManager.Instance.HuaweiId = result;
+        Debug.Log("HMS GAMES: Setted app");
+        IJosAppsClient josAppsClient = JosApps.GetJosAppsClient();
+        Debug.Log("HMS GAMES: jossClient");
+        josAppsClient.Init(appParams);
+
+        Debug.Log("HMS GAMES: jossClient init");
+        Invoke("InitGameManagers", 3.0f);
+        Invoke("ShowLeaderboards",5.0f);
+    }
+
+    public void InitGameManagers()
+    {
+        HMSLeaderboardManager.Instance.rankingsClient = Games.GetRankingsClient();
+    }
+
+    public void ShowLeaderboards()
+    {
+        Debug.Log("Showing leaderboards");
+        HMSLeaderboardManager.Instance.ShowLeaderboards();
+        HMSLeaderboardManager.Instance.OnShowLeaderboardsSuccess = OnShowLeaderboardsSuccess;
+        HMSLeaderboardManager.Instance.OnShowLeaderboardsFailure = OnShowLeaderboardsFailure;
+
+    }
+
+    private void OnShowLeaderboardsSuccess()
+    {
+        Debug.Log("ShowLeaderboards SUCCESS.");
+
+    }
+
+    private void OnShowLeaderboardsFailure(HMSException exception)
+    {
+        Debug.LogError("ShowLeaderboards ERROR:" + exception);
+
+    }
+
     #region Event callbacks
     private void LoginSuccessfulEventCallback(bool _loginSuccess)
     {
@@ -48,7 +122,7 @@ public class LeaderboardsController : MonoBehaviour
             LeaderboardsDataSaveManager.Instance.IsLoggedIn = true;
             // Hide
             leaderboardsView.ShowLoginMissingView(false);
-            //Invoke("RequestPlayerScoreData", 0.5f);
+            Invoke("RequestPlayerScoreData", 0.5f);
         }
         else
         { 
@@ -56,22 +130,23 @@ public class LeaderboardsController : MonoBehaviour
         }
     }
 
-    private void OpenLeaderboardsEventCallback(Void _item)
+    private void OpenLeaderboardsEventCallback(UnityAtoms.Void _item)
     {
-        leaderboardsView.gameObject.SetActive(true);
+        //leaderboardsView.gameObject.SetActive(true);
 
-        // Check if we're logged in
-        if (LeaderboardsDataSaveManager.Instance.IsLoggedIn)
-        {
-            if (!LeaderboardsDataSaveManager.Instance.IsLeaderboardDataLoaded)
-            {
-                Invoke("RequestPlayerScoreData", 0.5f);
-            }
-        }
-        else
-        {
-            Invoke("LoginWithDelay", 0.5f);
-        }
+        //// Check if we're logged in
+        //if (LeaderboardsDataSaveManager.Instance.IsLoggedIn)
+        //{
+        //    if (!LeaderboardsDataSaveManager.Instance.IsLeaderboardDataLoaded)
+        //    {
+        //        Invoke("RequestPlayerScoreData", 0.5f);
+        //    }
+        //}
+        //else
+        //{
+        //    Invoke("LoginWithDelay", 0.5f);
+        //}
+        RequestLogin();
     }
 
     private void LoginWithDelay()
@@ -121,7 +196,7 @@ public class LeaderboardsController : MonoBehaviour
         StartCoroutine(FillLeaderboardData(_leaderboardData));
     }
 
-    private void ScoreSubmittedEventCallback(Void _item)
+    private void ScoreSubmittedEventCallback(UnityAtoms.Void _item)
     {
         LeaderboardsDataSaveManager.Instance.UpdateLeaderboardScore(LeaderboardType.COMBATS_WON, 0);
         LeaderboardsDataSaveManager.Instance.ScoreToUpdate = 0;
@@ -191,7 +266,8 @@ public class LeaderboardsController : MonoBehaviour
     #region Public methods
     public void RequestLogin()
     {
-        PlayerLoginEvent.Raise();
+        //PlayerLoginEvent.Raise();
+        Init();
     }
     #endregion
 

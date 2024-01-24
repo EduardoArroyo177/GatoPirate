@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: HMSLeaderboardSettings
   m_EditorClassIdentifier: 
   settings:
-    _keys: []
-    _values: []
+    _keys:
+    - 6F1C1984A28B2C5DFDC2F507D4D99E1DB9737BD0AD067DFB1BC03C30EA0BAD58
+    _values:
+    - 

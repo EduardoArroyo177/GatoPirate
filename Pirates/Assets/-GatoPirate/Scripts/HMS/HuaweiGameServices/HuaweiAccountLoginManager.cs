@@ -10,9 +10,11 @@ using UnityEngine;
 
 public class HuaweiAccountLoginManager : SceneSingleton<HuaweiAccountLoginManager>
 {
-    public static BoolEvent LoginSuccessfulEvent { get; set; }
+    public bool LoggedIn { get; set; }
+    public bool JosInit { get; set; }
+    public BoolEvent LoginSuccessfulEvent { get; set; }
 
-    public static void Initialize()
+    public void Initialize()
     {
 #if UNITY_EDITOR
         return;
@@ -21,18 +23,19 @@ public class HuaweiAccountLoginManager : SceneSingleton<HuaweiAccountLoginManage
         HMSAccountKitManager.Instance.OnSignInFailed = OnLoginFailure;
     }
 
-    public static void Login()
+    public void Login()
     {
         HMSAccountKitManager.Instance.SignIn();
     }
 
-    public static void OnLoginSuccess(AuthAccount authHuaweiId)
+    public void OnLoginSuccess(AuthAccount authHuaweiId)
     {
         Debug.Log($"Login succesful {authHuaweiId.DisplayName}");
+        LoggedIn = true;
         LoginSuccessfulEvent.Raise(true);
     }
 
-    public static void OnLoginFailure(HMSException error)
+    public void OnLoginFailure(HMSException error)
     {
         Debug.LogError($"An error occurred {error.WrappedExceptionMessage}");
         LoginSuccessfulEvent.Raise(false);

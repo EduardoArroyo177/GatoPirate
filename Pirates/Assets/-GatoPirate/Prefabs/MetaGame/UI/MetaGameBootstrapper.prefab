@@ -131,6 +131,7 @@ MonoBehaviour:
   leaderboardsController: {fileID: 0}
   OpenLeaderboardsEvent: {fileID: 11400000, guid: 668f5dab518f396499e4f8db35c81d38, type: 2}
   RequestLeaderboardsDataEvent: {fileID: 11400000, guid: af64aeafb2c60e14bbcdffb1f5dfeca3, type: 2}
+  LeaderboardsDataRetrievedEvent: {fileID: 11400000, guid: acc558f7a0658aa45b3d61ed3d0a80ec, type: 2}
   PlayerInitialRankDataEvent: {fileID: 11400000, guid: 9cf79997bf880ad4c9fa62120a23295c, type: 2}
   PlayerRankDataEvent: {fileID: 11400000, guid: a287730cc6b7cb94a9cf8e4bcd2adb4a, type: 2}
   LeaderboardRankDataListEvent: {fileID: 11400000, guid: b1ad2143a86606c498773cb853a96e07, type: 2}

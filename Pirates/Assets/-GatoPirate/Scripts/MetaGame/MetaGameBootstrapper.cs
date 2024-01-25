@@ -214,6 +214,8 @@ public class MetaGameBootstrapper : MonoBehaviour
     private VoidEvent OpenLeaderboardsEvent;
     [SerializeField] 
     private StringEvent RequestLeaderboardsDataEvent;
+    [SerializeField]
+    private BoolEvent LeaderboardsDataRetrievedEvent;
     [SerializeField] 
     private LeaderboardDataEvent PlayerInitialRankDataEvent;
     [SerializeField]
@@ -407,13 +409,13 @@ public class MetaGameBootstrapper : MonoBehaviour
         PurchasesDataSaveManager.Instance.CallForPurchasedIAP();
 
         // Huawei login
-        HuaweiAccountLoginManager.LoginSuccessfulEvent = LoginSuccessfulEvent;
-        HuaweiAccountLoginManager.Initialize();
+        HuaweiAccountLoginManager.Instance.LoginSuccessfulEvent = LoginSuccessfulEvent;
+        HuaweiAccountLoginManager.Instance.Initialize();
 
         // Game services
         servicesController.PlayerLoginEvent = PlayerLoginEvent;
-        servicesController.LoginSuccessfulEvent = LoginSuccessfulEvent;
         servicesController.RequestLeaderboardsDataEvent = RequestLeaderboardsDataEvent;
+        servicesController.LeaderboardsDataRetrievedEvent = LeaderboardsDataRetrievedEvent;
         servicesController.PlayerInitialRankDataEvent = PlayerInitialRankDataEvent;
         servicesController.PlayerRankDataEvent = PlayerRankDataEvent;
         servicesController.LeaderboardRankDataListEvent = LeaderboardRankDataListEvent;
@@ -427,6 +429,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         leaderboardsController.LoginSuccessfulEvent = LoginSuccessfulEvent;
         leaderboardsController.OpenLeaderboardsEvent = OpenLeaderboardsEvent;
         leaderboardsController.RequestLeaderboardsDataEvent = RequestLeaderboardsDataEvent;
+        leaderboardsController.LeaderboardsDataRetrievedEvent = LeaderboardsDataRetrievedEvent;
         leaderboardsController.PlayerInitialRankDataEvent = PlayerInitialRankDataEvent;
         leaderboardsController.PlayerRankDataEvent = PlayerRankDataEvent;
         leaderboardsController.LeaderboardRankDataListEvent = LeaderboardRankDataListEvent;

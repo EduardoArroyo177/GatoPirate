@@ -8,15 +8,17 @@ using HmsPlugin;
 using HuaweiMobileServices.Base;
 using HuaweiMobileServices.Utils;
 using HuaweiMobileServices.Game;
+using HuaweiMobileServices.Id;
+using System;
 
 public class HuaweiGameServicesController : MonoBehaviour
 {
     #region Events
     // Login
     public VoidEvent PlayerLoginEvent { get; set; }
-    public BoolEvent LoginSuccessfulEvent { get; set; }
 
     // Leaderboards
+    public BoolEvent LeaderboardsDataRetrievedEvent { get; set; }
     public StringEvent RequestLeaderboardsDataEvent { get; set; }
     public LeaderboardDataEvent PlayerInitialRankDataEvent { get; set; }
     public LeaderboardDataEvent PlayerRankDataEvent { get; set; }
@@ -24,17 +26,14 @@ public class HuaweiGameServicesController : MonoBehaviour
     public StringEvent RequestPlayerScoreEvent { get; set; }
     public StringIntEvent SubmitHighScoreEvent { get; set; }
     public VoidEvent ScoreSubmittedEvent { get; set; }
-
     #endregion
 
-    //private ILoginListener _loginListener;
-    //private IGetLeaderboardScoreListener _getLeaderboardScoreListener; // Get player rank
-    //private IGetLeaderboardScoresListener _getLeaderboardScoresListener; // Get rank list
-
-    //private ISubmitScoreListener _submitScoreListener;
-    //private IGetLeaderboardsListener _getLeaderboardsListener = new MyGetLeaderboardsListener();
-    //private IGetLeaderboardListener _getLeaderboardListener = new MyGetLeaderboardListener();
-    //private IGetPlayerListener _getPlayerListener = new MyGetPlayerListener();
+    #region Huawei stuff
+    private AccountAuthService authService;
+    private AccountAuthParams authParams;
+    public Action<AuthAccount> SignInSuccess { get; set; }
+    public Action<HMSException> SignInFailure { get; set; }
+    #endregion
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -50,23 +49,26 @@ public class HuaweiGameServicesController : MonoBehaviour
         HMSGameServiceManager.Instance.OnGetPlayerInfoFailure = OnFailureListener;
 
 #if UNITY_ANDROID && !UNITY_EDITOR
-        //InitService();
-        //InitApp();
 #endif
     }
     #region Initialization
-    private void InitService()
+    private void InitJosApps()
     {
-        Debug.Log("starting init");
-        //HuaweiGameService.Init(new AntiAddictionListener(), new HInitListener());
-        Debug.Log("init finished");
+        authParams = new AccountAuthParamsHelper(AccountAuthParams.DEFAULT_AUTH_REQUEST_PARAM_GAME).CreateParams();
+        var appParams = new AppParams(authParams);
+        Debug.Log("HMS GAMES: Setted app");
+        IJosAppsClient josAppsClient = JosApps.GetJosAppsClient();
+        Debug.Log("HMS GAMES: jossClient");
+        josAppsClient.Init(appParams);
+        HuaweiAccountLoginManager.Instance.JosInit = true;
+
+        Debug.Log("HMS GAMES: jossClient init");
+        Invoke("InitGameManagers", 1.5f);
     }
 
-    private void InitApp()
+    private void InitGameManagers()
     {
-        Debug.Log("starting appInit");
-        //HuaweiGameService.AppInit();
-        Debug.Log("appInit finished");
+        HMSLeaderboardManager.Instance.rankingsClient = Games.GetRankingsClient();
     }
     #endregion
 
@@ -78,15 +80,20 @@ public class HuaweiGameServicesController : MonoBehaviour
 
     private void RequestPlayerScoreEventCallback(string _leaderboardID)
     {
-       // _getLeaderboardScoreListener = new MyGetLeaderboardScoreListener(PlayerInitialRankDataEvent);
-        GetCurrentPlayerScores(_leaderboardID);
+        if (HuaweiAccountLoginManager.Instance.JosInit)
+        {
+            ShowLeaderboards();
+        }
+        else
+        {
+            InitJosApps();
+            Invoke("ShowLeaderboards", 4.0f);
+        }
     }
 
     private void RequestLeaderboardsDataEventCallback(string _leaderboardID)
     {
-        //_getLeaderboardScoreListener = new MyGetLeaderboardScoreListener(PlayerRankDataEvent);
         GetCurrentPlayerScores(_leaderboardID);
-        //_getLeaderboardScoresListener = new MyGetLeaderboardScoresListener(LeaderboardRankDataListEvent);
         GetLeaderboardScores(_leaderboardID);
     }
 
@@ -104,7 +111,7 @@ public class HuaweiGameServicesController : MonoBehaviour
 #if UNITY_EDITOR
         return;
 #endif
-        HuaweiAccountLoginManager.Login();
+        HuaweiAccountLoginManager.Instance.Login();
     }
 
     public void GetCurrentPlayer()
@@ -115,6 +122,16 @@ public class HuaweiGameServicesController : MonoBehaviour
     #endregion
 
     #region Leaderboards
+    private void ShowLeaderboards()
+    {
+        Debug.Log("HMS Showing leaderboards");
+        LeaderboardsDataRetrievedEvent.Raise(true);
+        HMSLeaderboardManager.Instance.ShowLeaderboards();
+        HMSLeaderboardManager.Instance.OnShowLeaderboardsSuccess = OnShowLeaderboardsSuccess;
+        HMSLeaderboardManager.Instance.OnShowLeaderboardsFailure = OnShowLeaderboardsFailure;
+
+    }
+
     public void GetCurrentPlayerScores(string _leaderboardID)
     {
         //HMSLeaderboardManager.Instance.ShowLeaderboards();
@@ -126,14 +143,14 @@ public class HuaweiGameServicesController : MonoBehaviour
 
     private void OnShowLeaderboardsSuccess()
     {
-        Debug.Log("ShowLeaderboards SUCCESS.");
-
+        LeaderboardsDataRetrievedEvent.Raise(true);
+        Debug.Log("HMS ShowLeaderboards SUCCESS.");
     }
 
     private void OnShowLeaderboardsFailure(HMSException exception)
     {
-        Debug.LogError("ShowLeaderboards ERROR: " + exception);
-
+        LeaderboardsDataRetrievedEvent.Raise(false);
+        Debug.LogError("HMS ShowLeaderboards ERROR: " + exception);
     }
 
     public void GetLeaderboardScores(string _leaderboardID)

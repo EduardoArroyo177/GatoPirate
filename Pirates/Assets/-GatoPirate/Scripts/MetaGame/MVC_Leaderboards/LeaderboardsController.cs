@@ -22,6 +22,7 @@ public class LeaderboardsController : MonoBehaviour
     // Input events
     public BoolEvent LoginSuccessfulEvent { get; set; }
     public VoidEvent OpenLeaderboardsEvent { get; set; }
+    public BoolEvent LeaderboardsDataRetrievedEvent { get; set; }
     public LeaderboardDataEvent PlayerInitialRankDataEvent { get; set; }
     public LeaderboardDataEvent PlayerRankDataEvent { get; set; }
     public LeaderboardDataListEvent LeaderboardRankDataListEvent { get; set; }
@@ -35,16 +36,13 @@ public class LeaderboardsController : MonoBehaviour
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
-    private AccountAuthService authService;
-    private AccountAuthParams authParams;
-    public Action<AuthAccount> SignInSuccess { get; set; }
-    public Action<HMSException> SignInFailure { get; set; }
-
-
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory<bool>.BuildEventHandler(LoginSuccessfulEvent, LoginSuccessfulEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(OpenLeaderboardsEvent, OpenLeaderboardsEventCallback));
+        _eventHandlers.Add(EventHandlerFactory<bool>.BuildEventHandler(LeaderboardsDataRetrievedEvent, LeaderboardsDataRetrievedEventCallback));
+
+
         _eventHandlers.Add(EventHandlerFactory<LeaderboardScoreData>.BuildEventHandler(PlayerInitialRankDataEvent, PlayerInitialRankDataEventCallback));
         _eventHandlers.Add(EventHandlerFactory<LeaderboardScoreData>.BuildEventHandler(PlayerRankDataEvent, PlayerRankDataEventCallback));
         _eventHandlers.Add(EventHandlerFactory<List<LeaderboardScoreData>>.BuildEventHandler(LeaderboardRankDataListEvent, LeaderboardRankDataListEventCallback));
@@ -53,105 +51,55 @@ public class LeaderboardsController : MonoBehaviour
         leaderboardsView.LeaderboardsController = this;
     }
 
-    public void Init()
-    {
-        Debug.Log("HMS GAMES init");
-        authService = HMSAccountKitManager.Instance.GetGameAuthService();
-        authParams = new AccountAuthParamsHelper(AccountAuthParams.DEFAULT_AUTH_REQUEST_PARAM_GAME).CreateParams();
-
-        ITask<AuthAccount> taskAuthHuaweiId = authService.SilentSignIn();
-        taskAuthHuaweiId.AddOnSuccessListener((result) =>
-        {
-            //archivesClient = HMSSaveGameManager.Instance.GetArchivesClient();
-            InitJosApps(result);
-            SignInSuccess?.Invoke(result);
-
-        }).AddOnFailureListener((exception) =>
-        {
-            Debug.Log("HMS GAMES: The app has not been authorized");
-            authService.StartSignIn((auth) => { InitJosApps(auth); SignInSuccess?.Invoke(auth); }, (exc) => SignInFailure?.Invoke(exc));
-            InitGameManagers();
-        });
-    }
-
-    private void InitJosApps(AuthAccount result)
-    {
-        var appParams = new AppParams(authParams);
-        HMSAccountKitManager.Instance.HuaweiId = result;
-        Debug.Log("HMS GAMES: Setted app");
-        IJosAppsClient josAppsClient = JosApps.GetJosAppsClient();
-        Debug.Log("HMS GAMES: jossClient");
-        josAppsClient.Init(appParams);
-
-        Debug.Log("HMS GAMES: jossClient init");
-        Invoke("InitGameManagers", 3.0f);
-        Invoke("ShowLeaderboards",5.0f);
-    }
-
-    public void InitGameManagers()
-    {
-        HMSLeaderboardManager.Instance.rankingsClient = Games.GetRankingsClient();
-    }
-
-    public void ShowLeaderboards()
-    {
-        Debug.Log("Showing leaderboards");
-        HMSLeaderboardManager.Instance.ShowLeaderboards();
-        HMSLeaderboardManager.Instance.OnShowLeaderboardsSuccess = OnShowLeaderboardsSuccess;
-        HMSLeaderboardManager.Instance.OnShowLeaderboardsFailure = OnShowLeaderboardsFailure;
-
-    }
-
-    private void OnShowLeaderboardsSuccess()
-    {
-        Debug.Log("ShowLeaderboards SUCCESS.");
-
-    }
-
-    private void OnShowLeaderboardsFailure(HMSException exception)
-    {
-        Debug.LogError("ShowLeaderboards ERROR:" + exception);
-
-    }
-
     #region Event callbacks
     private void LoginSuccessfulEventCallback(bool _loginSuccess)
     {
         if (_loginSuccess)
         {
-            LeaderboardsDataSaveManager.Instance.IsLoggedIn = true;
-            // Hide
-            leaderboardsView.ShowLoginMissingView(false);
-            Invoke("RequestPlayerScoreData", 0.5f);
+            // Show requesting leaderboards pop up
+            leaderboardsView.ShowLeaderboardsRequested();
+            // Request leaderboard data
+            Invoke("RequestPlayerScoreData", 1.5f);
         }
         else
-        { 
+        {
             // TODO: Implement error message screen/pop up
+            leaderboardsView.ShowLeaderboardsPopUp(false);
         }
     }
 
     private void OpenLeaderboardsEventCallback(UnityAtoms.Void _item)
     {
-        //leaderboardsView.gameObject.SetActive(true);
-
-        //// Check if we're logged in
-        //if (LeaderboardsDataSaveManager.Instance.IsLoggedIn)
-        //{
-        //    if (!LeaderboardsDataSaveManager.Instance.IsLeaderboardDataLoaded)
-        //    {
-        //        Invoke("RequestPlayerScoreData", 0.5f);
-        //    }
-        //}
-        //else
-        //{
-        //    Invoke("LoginWithDelay", 0.5f);
-        //}
-        RequestLogin();
+        // Check if we are already logged in, if so, show leaderboards right away, other way, request log in
+        if (HuaweiAccountLoginManager.Instance.LoggedIn)
+        {
+            // Show pop up for requesting leaderboards data
+            leaderboardsView.ShowLeaderboardsPopUp(true);
+            leaderboardsView.ShowLeaderboardsRequested();
+            Invoke("RequestPlayerScoreData", 1.5f);
+        }
+        else
+        {
+            // Show pop up for requesting log in
+            leaderboardsView.ShowLeaderboardsPopUp(true);
+            leaderboardsView.ShowLoginRequested();
+            Invoke("RequestLogin", 0.5f);
+            //RequestLogin();
+        }
     }
 
-    private void LoginWithDelay()
+    private void LeaderboardsDataRetrievedEventCallback(bool _dataRetrievedSuccess)
     {
-        PlayerLoginEvent.Raise();
+        Debug.Log($"HMS Leaderboards data retrieved!!! {_dataRetrievedSuccess}");
+        if (_dataRetrievedSuccess)
+        {
+            leaderboardsView.ShowLeaderboardsPopUp(false);
+        }
+        else
+        {
+            // TODO: Show error pop up (with option to close it
+            leaderboardsView.ShowLeaderboardsPopUp(false);
+        }
     }
 
     private void PlayerInitialRankDataEventCallback(LeaderboardScoreData _playerScoreData)
@@ -238,9 +186,6 @@ public class LeaderboardsController : MonoBehaviour
 
     private void RequestPlayerScoreData()
     {
-        Debug.Log("Requesting player score");
-        // Show loading panel
-        leaderboardsView.ShowLoadingDataView(true);
         RequestPlayerScoreEvent.Raise(combatsWonLeaderboardID);
     }
 
@@ -266,8 +211,7 @@ public class LeaderboardsController : MonoBehaviour
     #region Public methods
     public void RequestLogin()
     {
-        //PlayerLoginEvent.Raise();
-        Init();
+        PlayerLoginEvent.Raise();
     }
     #endregion
 

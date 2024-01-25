@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LeaderboardsView : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject pnl_LoginMissing;
+   
     [SerializeField]
     private GameObject pnl_LoadingData;
     [SerializeField]
@@ -30,6 +30,12 @@ public class LeaderboardsView : MonoBehaviour
     private Sprite thirdPlaceSprite;
     [SerializeField]
     private Sprite genericPositionSprite;
+
+    [Header("Log in")]
+    [SerializeField]
+    private GameObject pnl_LoginMissing;
+    [SerializeField]
+    private TextMeshProUGUI lbl_content;
 
     public LeaderboardsController LeaderboardsController { get; set; }
 
@@ -61,6 +67,21 @@ public class LeaderboardsView : MonoBehaviour
     public void ShowNoRecordsFoundView(bool _show)
     {
         pnl_NoRecordsFound.SetActive(true);
+    }
+
+    public void ShowLoginRequested()
+    {
+        lbl_content.text = "Signing in...";
+    }
+
+    public void ShowLeaderboardsRequested()
+    {
+        lbl_content.text = "Requesting leaderboards...";
+    }
+
+    public void ShowLeaderboardsPopUp(bool _open)
+    {
+        gameObject.SetActive(_open);
     }
 
     #region Button methods

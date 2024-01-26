@@ -11,7 +11,6 @@ public class LeaderboardsDataSaveManager : SceneSingleton<LeaderboardsDataSaveMa
 
     public DataSaveLeaderboardListStructure LeaderboardsData { get => leaderboardsData; set => leaderboardsData = value; }
 
-    public bool IsLoggedIn { get; set; }
     public bool IsLeaderboardDataLoaded { get; set; }
     public int ScoreToUpdate { get; set; }
 

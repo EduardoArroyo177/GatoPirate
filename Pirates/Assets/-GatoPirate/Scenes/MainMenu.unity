@@ -18631,6 +18631,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MVC_MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8654426571109037578, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 386f870e72239ac4e84ce4389ff1acf5, type: 3}
 --- !u!1001 &3736737379484626829

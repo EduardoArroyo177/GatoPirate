@@ -15,10 +15,6 @@ public class LeaderboardsController : MonoBehaviour
     [SerializeField]
     private LeaderboardsView leaderboardsView;
 
-    [Header("Leaderboards")]
-    [SerializeField]
-    private string combatsWonLeaderboardID;
-
     // Input events
     public BoolEvent LoginSuccessfulEvent { get; set; }
     public VoidEvent OpenLeaderboardsEvent { get; set; }
@@ -43,12 +39,12 @@ public class LeaderboardsController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(OpenLeaderboardsEvent, OpenLeaderboardsEventCallback));
         _eventHandlers.Add(EventHandlerFactory<bool>.BuildEventHandler(LeaderboardsDataRetrievedEvent, LeaderboardsDataRetrievedEventCallback));
 
-
+        #region Methods not used for the moment
         _eventHandlers.Add(EventHandlerFactory<LeaderboardScoreData>.BuildEventHandler(PlayerInitialRankDataEvent, PlayerInitialRankDataEventCallback));
         _eventHandlers.Add(EventHandlerFactory<LeaderboardScoreData>.BuildEventHandler(PlayerRankDataEvent, PlayerRankDataEventCallback));
         _eventHandlers.Add(EventHandlerFactory<List<LeaderboardScoreData>>.BuildEventHandler(LeaderboardRankDataListEvent, LeaderboardRankDataListEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ScoreSubmittedEvent, ScoreSubmittedEventCallback));
-
+        #endregion
         leaderboardsView.LeaderboardsController = this;
         leaderboardsView.OpenScreenEvent = this.OpenScreenEvent;
     }
@@ -90,6 +86,7 @@ public class LeaderboardsController : MonoBehaviour
         }
     }
 
+    // TODO: Fix this
     private void LeaderboardsDataRetrievedEventCallback(bool _dataRetrievedSuccess)
     {
         Debug.Log($"HMS Leaderboards data retrieved!!! {_dataRetrievedSuccess}");
@@ -104,6 +101,7 @@ public class LeaderboardsController : MonoBehaviour
         }
     }
 
+    #region Methods not used anymore (for the moment)
     private void PlayerInitialRankDataEventCallback(LeaderboardScoreData _playerScoreData)
     {
         //if (_playerScoreData.playerRank > 0)
@@ -152,8 +150,19 @@ public class LeaderboardsController : MonoBehaviour
         LeaderboardsDataSaveManager.Instance.ScoreToUpdate = 0;
         Invoke("RequestLeaderboardsData", 0.5f);
     }
-
     #endregion
+    #endregion
+    private void SubmitScore()
+    {
+        // Check if comes from combat and Check if player is logged in
+        if (LeaderboardsDataSaveManager.Instance.GetLeaderboardScore(LeaderboardType.COMBATS_WON) >= 0
+            && HuaweiAccountLoginManager.Instance.LoggedIn)
+        {
+            // Call update leaderboards
+            // Then show pop up for leaderboards updated correctly
+        }}
+
+    #region Methods not used for the moment
     private IEnumerator FillLeaderboardData(List<LeaderboardScoreData> _leaderboardData)
     {
         GameObject rankViewHelper;
@@ -179,23 +188,16 @@ public class LeaderboardsController : MonoBehaviour
             leaderboardsView.ShowNoRecordsFoundView(true);
     }
 
-    private void SubmitScore()
-    {
-        // TODO: Show updating score panel instead of loading data panel
-        leaderboardsView.ShowLoadingDataView(true);
-        SubmitHighScoreEvent.Raise(combatsWonLeaderboardID, LeaderboardsDataSaveManager.Instance.ScoreToUpdate);
-    }
-
     private void RequestPlayerScoreData()
     {
-        RequestPlayerScoreEvent.Raise(combatsWonLeaderboardID);
+        //RequestPlayerScoreEvent.Raise(combatsWonLeaderboardID);
     }
 
     private void RequestLeaderboardsData()
     {
         // Show loading panel
         leaderboardsView.ShowLoadingDataView(true);
-        RequestLeaderboardsDataEvent.Raise(combatsWonLeaderboardID);
+        //RequestLeaderboardsDataEvent.Raise(combatsWonLeaderboardID);
     }
 
     private Sprite GetRankSprite(int _rank)
@@ -209,6 +211,7 @@ public class LeaderboardsController : MonoBehaviour
         else
             return leaderboardsView.GenericPositionSprite;
     }
+    #endregion
 
     #region Public methods
     public void RequestLogin()

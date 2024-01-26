@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 public class LeaderboardsView : MonoBehaviour
@@ -38,6 +39,9 @@ public class LeaderboardsView : MonoBehaviour
     private TextMeshProUGUI lbl_content;
 
     public LeaderboardsController LeaderboardsController { get; set; }
+
+    // Events
+    public BoolEvent OpenScreenEvent { get; set; }
 
     public Transform RankViewContent { get => rankViewContent; set => rankViewContent = value; }
 
@@ -82,6 +86,7 @@ public class LeaderboardsView : MonoBehaviour
     public void ShowLeaderboardsPopUp(bool _open)
     {
         gameObject.SetActive(_open);
+        OpenScreenEvent.Raise(_open);
     }
 
     #region Button methods

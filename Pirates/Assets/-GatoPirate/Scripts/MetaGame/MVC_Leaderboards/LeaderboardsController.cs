@@ -29,6 +29,7 @@ public class LeaderboardsController : MonoBehaviour
     public VoidEvent ScoreSubmittedEvent { get; set; }
 
     // Output events
+    public BoolEvent OpenScreenEvent { get; set; }
     public VoidEvent PlayerLoginEvent { get; set; }
     public StringEvent RequestPlayerScoreEvent { get; set; }
     public StringEvent RequestLeaderboardsDataEvent { get; set; }
@@ -49,6 +50,7 @@ public class LeaderboardsController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ScoreSubmittedEvent, ScoreSubmittedEventCallback));
 
         leaderboardsView.LeaderboardsController = this;
+        leaderboardsView.OpenScreenEvent = this.OpenScreenEvent;
     }
 
     #region Event callbacks

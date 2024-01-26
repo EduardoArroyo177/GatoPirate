@@ -14,6 +14,11 @@ public class HuaweiAccountLoginManager : SceneSingleton<HuaweiAccountLoginManage
     public bool JosInit { get; set; }
     public BoolEvent LoginSuccessfulEvent { get; set; }
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void Initialize()
     {
 #if UNITY_EDITOR

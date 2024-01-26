@@ -426,6 +426,7 @@ public class MetaGameBootstrapper : MonoBehaviour
 
         // Leaderboards
         leaderboardsController.PlayerLoginEvent = PlayerLoginEvent;
+        leaderboardsController.OpenScreenEvent = OpenScreenEvent;
         leaderboardsController.LoginSuccessfulEvent = LoginSuccessfulEvent;
         leaderboardsController.OpenLeaderboardsEvent = OpenLeaderboardsEvent;
         leaderboardsController.RequestLeaderboardsDataEvent = RequestLeaderboardsDataEvent;

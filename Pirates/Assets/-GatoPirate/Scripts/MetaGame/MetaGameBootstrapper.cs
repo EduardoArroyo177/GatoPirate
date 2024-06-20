@@ -177,7 +177,7 @@ public class MetaGameBootstrapper : MonoBehaviour
 
     [Header("Ads")]
     [SerializeField]
-    private HuaweiAdsControllerMenu adsControllerMenu;
+    private VungleAdsControllerMenu adsControllerMenu;
     [SerializeField]
     private VoidEvent FreeCoinsRewardSuccessEvent;
     [SerializeField]
@@ -404,32 +404,32 @@ public class MetaGameBootstrapper : MonoBehaviour
         resultScreenController.Initialize();
 
         // Load purchased items
-        PurchasesDataSaveManager.Instance.CallForPurchasedIAP();
+        //PurchasesDataSaveManager.Instance.CallForPurchasedIAP();
 
         // Game services
-        servicesController.PlayerLoginEvent = PlayerLoginEvent;
-        servicesController.LoginSuccessfulEvent = LoginSuccessfulEvent;
-        servicesController.RequestLeaderboardsDataEvent = RequestLeaderboardsDataEvent;
-        servicesController.PlayerInitialRankDataEvent = PlayerInitialRankDataEvent;
-        servicesController.PlayerRankDataEvent = PlayerRankDataEvent;
-        servicesController.LeaderboardRankDataListEvent = LeaderboardRankDataListEvent;
-        servicesController.RequestPlayerScoreEvent = RequestPlayerScoreEvent;
-        servicesController.SubmitHighScoreEvent = SubmitHighScoreEvent;
-        servicesController.ScoreSubmittedEvent = ScoreSubmittedEvent;
-        servicesController.Initialize();
+        //servicesController.PlayerLoginEvent = PlayerLoginEvent;
+        //servicesController.LoginSuccessfulEvent = LoginSuccessfulEvent;
+        //servicesController.RequestLeaderboardsDataEvent = RequestLeaderboardsDataEvent;
+        //servicesController.PlayerInitialRankDataEvent = PlayerInitialRankDataEvent;
+        //servicesController.PlayerRankDataEvent = PlayerRankDataEvent;
+        //servicesController.LeaderboardRankDataListEvent = LeaderboardRankDataListEvent;
+        //servicesController.RequestPlayerScoreEvent = RequestPlayerScoreEvent;
+        //servicesController.SubmitHighScoreEvent = SubmitHighScoreEvent;
+        //servicesController.ScoreSubmittedEvent = ScoreSubmittedEvent;
+        //servicesController.Initialize();
 
-        // Leaderboards
-        leaderboardsController.PlayerLoginEvent = PlayerLoginEvent;
-        leaderboardsController.LoginSuccessfulEvent = LoginSuccessfulEvent;
-        leaderboardsController.OpenLeaderboardsEvent = OpenLeaderboardsEvent;
-        leaderboardsController.RequestLeaderboardsDataEvent = RequestLeaderboardsDataEvent;
-        leaderboardsController.PlayerInitialRankDataEvent = PlayerInitialRankDataEvent;
-        leaderboardsController.PlayerRankDataEvent = PlayerRankDataEvent;
-        leaderboardsController.LeaderboardRankDataListEvent = LeaderboardRankDataListEvent;
-        leaderboardsController.RequestPlayerScoreEvent = RequestPlayerScoreEvent;
-        leaderboardsController.SubmitHighScoreEvent = SubmitHighScoreEvent;
-        leaderboardsController.ScoreSubmittedEvent = ScoreSubmittedEvent;
-        leaderboardsController.Initialize();
+        //// Leaderboards
+        //leaderboardsController.PlayerLoginEvent = PlayerLoginEvent;
+        //leaderboardsController.LoginSuccessfulEvent = LoginSuccessfulEvent;
+        //leaderboardsController.OpenLeaderboardsEvent = OpenLeaderboardsEvent;
+        //leaderboardsController.RequestLeaderboardsDataEvent = RequestLeaderboardsDataEvent;
+        //leaderboardsController.PlayerInitialRankDataEvent = PlayerInitialRankDataEvent;
+        //leaderboardsController.PlayerRankDataEvent = PlayerRankDataEvent;
+        //leaderboardsController.LeaderboardRankDataListEvent = LeaderboardRankDataListEvent;
+        //leaderboardsController.RequestPlayerScoreEvent = RequestPlayerScoreEvent;
+        //leaderboardsController.SubmitHighScoreEvent = SubmitHighScoreEvent;
+        //leaderboardsController.ScoreSubmittedEvent = ScoreSubmittedEvent;
+        //leaderboardsController.Initialize();
 
         //PlayerLogin();
 

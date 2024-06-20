@@ -112,8 +112,10 @@ public class StartCombatBootstrapper : MonoBehaviour
     private FloatEvent TriggerShakingCameraEvent;
 
     [Header("Ads")]
+    //[SerializeField]
+    //private HuaweiAdsControllerCombat huaweiAdsController;
     [SerializeField]
-    private HuaweiAdsControllerCombat huaweiAdsController;
+    private VungleAdsControllerCombat vungleAdsController;
     [SerializeField]
     private VoidEvent LoadReviveAdEvent;
     [SerializeField]
@@ -306,13 +308,13 @@ public class StartCombatBootstrapper : MonoBehaviour
         enemyGameplayBootstrapper.InitializeBootstrapper();
 
         // Ads
-        huaweiAdsController.LoadReviveAdEvent = LoadReviveAdEvent;
-        huaweiAdsController.LoadDoubleRewardAdEvent = LoadDoubleRewardAdEvent;
-        huaweiAdsController.LoadCombatFinishedAdEvent = LoadCombatFinishedAdEvent;
-        huaweiAdsController.CombatRewardAdSuccessEvent = CombatRewardAdSuccessEvent;
-        huaweiAdsController.ReviveSuccessEvent = ReviveSuccessEvent;
-        huaweiAdsController.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
-        huaweiAdsController.Initialize();
+        vungleAdsController.LoadReviveAdEvent = LoadReviveAdEvent;
+        vungleAdsController.LoadDoubleRewardAdEvent = LoadDoubleRewardAdEvent;
+        vungleAdsController.LoadCombatFinishedAdEvent = LoadCombatFinishedAdEvent;
+        vungleAdsController.CombatRewardAdSuccessEvent = CombatRewardAdSuccessEvent;
+        vungleAdsController.ReviveSuccessEvent = ReviveSuccessEvent;
+        vungleAdsController.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
+        vungleAdsController.Initialize();
 
         // IAP
         PurchasesDataSaveManager.Instance.CallForPurchasedIAP();

@@ -50,12 +50,12 @@ public class StoreController : MonoBehaviour
             storeItemViewList[i].PurchaseStoreItemEvent = PurchaseStoreItemEvent;
             storeItemViewList[i].TriggerUISoundEvent = TriggerUISoundEvent;
         }
-        iapController.StoreProductsListEvent = StoreProductsListEvent;
-        iapController.StorePurchasesListEvent = StorePurchasesListEvent;
-        iapController.PurchaseItemSuccesfulEvent = PurchaseItemSuccesfulEvent;
-        iapController.PurchaseResultEvent = PurchaseResultEvent;
-        iapController.ConsumedItemSuccesfulEvent = ConsumedItemSuccesfulEvent;
-        iapController.Initialize();
+        //iapController.StoreProductsListEvent = StoreProductsListEvent;
+        //iapController.StorePurchasesListEvent = StorePurchasesListEvent;
+        //iapController.PurchaseItemSuccesfulEvent = PurchaseItemSuccesfulEvent;
+        //iapController.PurchaseResultEvent = PurchaseResultEvent;
+        //iapController.ConsumedItemSuccesfulEvent = ConsumedItemSuccesfulEvent;
+        //iapController.Initialize();
     }
 
     #region Event callbacks

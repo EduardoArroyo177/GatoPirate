@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: VAdventures
+  companyName: Virtual Adventures
   productName: Pirate Cats
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -135,7 +135,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.2.3
+  bundleVersion: 1.0.0
   preloadedAssets:
   - {fileID: 0}
   metroInputSource: 0
@@ -754,13 +754,48 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: PirateCats
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: D:\GameDevelopment\Edar_Github\GatoPirate\Pirates\Assets\WSATestCertificate.pfx
-  metroCertificatePassword: 
-  metroCertificateSubject: VAdventures
-  metroCertificateIssuer: VAdventures
-  metroCertificateNotAfter: 00c2da5bd97ddb01
+  metroCertificatePath: Assets/WSATestCertificate.pfx
+  metroCertificatePassword: _ea|_cb_>4<9
+  metroCertificateSubject: Virtual Adventures
+  metroCertificateIssuer: Virtual Adventures
+  metroCertificateNotAfter: 801fedcf0fe3db01
   metroApplicationDescription: Pirate Cats
-  wsaImages: {}
+  wsaImages:
+    65636: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_50x50.png
+    65661: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_63x63.png
+    65686: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_75x75.png
+    65736: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_100x100.png
+    65936: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_200x200.png
+    2031632: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_16x16.png
+    2031640: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_24x24.png
+    2031648: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_32x32.png
+    2031664: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_48x48.png
+    2031716: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_44x44.png
+    2031741: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_55x55.png
+    2031766: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_66x66.png
+    2031816: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_88x88.png
+    2031872: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_256.png
+    2032016: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_176x176.png
+    2097252: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_71x71.png
+    2097277: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_89x89.png
+    2097302: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_107x107.png
+    2097352: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_142x142.png
+    2097552: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_284x284.png
+    2162788: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_150x150.png
+    2162813: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_188x188.png
+    2162838: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_225x225.png
+    2162888: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_300x300.png
+    2163088: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_600x600.png
+    2228324: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_310.png
+    2228349: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_388x388.png
+    2228374: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_465x465.png
+    2228424: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_620x620.png
+    2228624: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_1240x1240-min.png
+    2293860: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_Rect_310x150.png
+    2293885: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_Rect_388x188.png
+    2293910: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_Rect_465x225.png
+    2293960: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_Rect_620x300.png
+    2294160: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_Rect_1240x600-min.png
   metroTileShortName: Pirate Cats
   metroTileShowName: 0
   metroMediumTileShowName: 0
@@ -773,7 +808,9 @@ PlayerSettings:
   metroTileBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21568628, a: 0}
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628, a: 1}
   metroSplashScreenUseBackgroundColor: 0
-  platformCapabilities: {}
+  platformCapabilities:
+    WindowsStoreApps:
+      InternetClient: True
   metroTargetDeviceFamilies:
     Desktop: True
   metroFTAName: 

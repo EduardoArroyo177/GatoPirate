@@ -31,7 +31,13 @@ public class VungleAdsControllerMenu : MonoBehaviour
     public void Initialize()
     {
         // Vungle Init
-        Vungle.init(windowsAppID);
+        if (!Vungle.isInitialized())
+            Vungle.init(windowsAppID);
+        else
+        {
+            Vungle.loadAd(freeCoinsRecruitmentPlacementID);
+            Vungle.loadAd(freeCoinsStorePlacementID);
+        }
         Vungle.onInitializeEvent += VungleInitialized;
         Vungle.adPlayableEvent += AdPlayable;
         Vungle.onAdStartedEvent += AdStarted;
@@ -160,6 +166,12 @@ if (Vungle.isAdvertAvailable(freeCoinsRecruitmentPlacementID))
     #region OnDestroy
     private void OnDestroy()
     {
+
+        Vungle.onInitializeEvent -= VungleInitialized;
+        Vungle.adPlayableEvent -= AdPlayable;
+        Vungle.onAdStartedEvent -= AdStarted;
+        Vungle.onAdFinishedEvent -= AdFinished;
+
         foreach (var item in _eventHandlers)
         {
             item.UnregisterListener();

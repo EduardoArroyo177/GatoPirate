@@ -32,7 +32,13 @@ public class VungleAdsControllerCombat : MonoBehaviour
     public void Initialize()
     {
         // Vungle Init
-        Vungle.init(windowsAppID);
+        if (!Vungle.isInitialized())
+            Vungle.init(windowsAppID);
+        else
+        {
+            Vungle.loadAd(doubleRewardPlacementID);
+            Vungle.loadAd(revivePlacementID);
+        }
         Vungle.setLogEnable(true);
         Vungle.onInitializeEvent += VungleInitialized;
         Vungle.adPlayableEvent += AdPlayable;
@@ -46,28 +52,28 @@ public class VungleAdsControllerCombat : MonoBehaviour
         //RealtimeConsole.Instance.open();
     }
 
-    //public void TestAds()
-    //{
-    //    if (Vungle.isInitialized())
-    //    {
-    //        Debug.Log("Vungle: Initialized!");
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Vungle: Not initialized, so initializing");
-    //        Vungle.init(windowsAppID);
-           
-    //    }
+    public void TestAds()
+    {
+        if (Vungle.isInitialized())
+        {
+            Debug.Log("Vungle: Initialized!");
+        }
+        else
+        {
+            Debug.Log("Vungle: Not initialized, so initializing");
+            Vungle.init(windowsAppID);
 
-    //    if (Vungle.isAdvertAvailable(revivePlacementID))
-    //    {
-    //        Vungle.playAd(revivePlacementID);
-    //    }
-    //    else
-    //    {
-    //        Debug.Log($"Vungle: Ad not available");
-    //    }
-    //}
+        }
+
+        if (Vungle.isAdvertAvailable(revivePlacementID))
+        {
+            Vungle.playAd(revivePlacementID);
+        }
+        else
+        {
+            Debug.Log($"Vungle: Ad not available");
+        }
+    }
 
     #region Vungle init
     private void VungleInitialized()
@@ -89,7 +95,7 @@ public class VungleAdsControllerCombat : MonoBehaviour
 
     private void AdFinished(string _placementID, AdFinishedEventArgs _args)
     {
-        Debug.Log($"Add finished placement {_placementID} is completed? {_args.IsCompletedView}");
+        Debug.Log($"Vungle: Add finished placement {_placementID} is completed? {_args.IsCompletedView}");
 
         if(_args.IsCompletedView)
             CombatRewardAdSuccessEventCallback(new Void());
@@ -182,6 +188,22 @@ if (Vungle.isAdvertAvailable(doubleRewardPlacementID))
         }
 
         combatAdType = CombatAdType.NONE;
+    }
+    #endregion
+
+    #region OnDestroy
+    private void OnDestroy()
+    {
+        Vungle.onInitializeEvent -= VungleInitialized;
+        Vungle.adPlayableEvent -= AdPlayable;
+        Vungle.onAdStartedEvent -= AdStarted;
+        Vungle.onAdFinishedEvent -= AdFinished;
+
+        foreach (var item in _eventHandlers)
+        {
+            item.UnregisterListener();
+        }
+        _eventHandlers.Clear();
     }
     #endregion
 }

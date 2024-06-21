@@ -1,3 +1,4 @@
+using Mosframe;
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;
@@ -336,6 +337,8 @@ public class StartCombatBootstrapper : MonoBehaviour
         Invoke("StartingAnimation", 0.5f);
 
         GameAnalyticsController.Instance.GameFlowEvent("SceneLoaded:Combat");
+
+        //RealtimeConsole.Instance.open();
     }
 
     private void StartingAnimation()

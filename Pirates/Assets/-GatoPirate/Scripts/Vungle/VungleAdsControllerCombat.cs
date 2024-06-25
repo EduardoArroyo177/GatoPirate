@@ -4,7 +4,6 @@ using UnityAtoms.BaseAtoms;
 using UnityAtoms;
 using UnityEngine;
 using static HuaweiAdsControllerCombat;
-using Mosframe;
 
 public class VungleAdsControllerCombat : MonoBehaviour
 {

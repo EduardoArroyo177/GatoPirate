@@ -758,7 +758,7 @@ PlayerSettings:
   metroCertificatePassword: _ea|_cb_>4<9
   metroCertificateSubject: Virtual Adventures
   metroCertificateIssuer: Virtual Adventures
-  metroCertificateNotAfter: 801fedcf0fe3db01
+  metroCertificateNotAfter: 80e4fcaa7be5db01
   metroApplicationDescription: Pirate Cats
   wsaImages:
     65636: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_50x50.png
@@ -766,6 +766,11 @@ PlayerSettings:
     65686: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_75x75.png
     65736: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_100x100.png
     65936: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_200x200.png
+    131172: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Splash/VAdventures-Logo_620x300.png
+    131197: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Splash/VAdventures-Logo_775x375.png
+    131222: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Splash/VAdventures-Logo_930x450.png
+    131272: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Splash/VAdventures-Logo_1240x600.png
+    131472: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Splash/VAdventures-Logo_2480x1200.png
     2031632: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_16x16.png
     2031640: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_24x24.png
     2031648: Assets/-GatoPirate/Rendereables/Sprites/Icon/UWP/Icon_Pirate_Cats_32x32.png

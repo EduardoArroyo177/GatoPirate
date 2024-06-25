@@ -16,6 +16,7 @@ public class LoaderInitController : MonoBehaviour
 
     private void Awake()
     {
+        UnityEngine.Screen.SetResolution(1920, 1080, true);
         TutorialDataSaveManager.Instance.LoadTutorialSavedData();
     }
 

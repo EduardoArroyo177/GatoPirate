@@ -4,6 +4,7 @@ GENERIC_NEXT,Next
 GENERIC_FINISH,Finish
 GENERIC_QUIT,Quit
 GENERIC_CANCEL,Cancel
+GENERIC_ACCEPT,Accept
 
 // Pop ups
 POP_UP_CONFIRMATION_QUIT,Are you sure you want to quit?
@@ -16,13 +17,13 @@ RESULT_SCREEN_TITLE,YOU WON!
 RESULT_SCREEN_REWARD_TITLE,Your reward:
 RESULT_SCREEN_AD,Watch an ad and double your reward!
 // Tutorial
-TUTORIAL_COMBAT_1,Hold on, Pirate! I know you can’t wait to win to those Kitty Cats using our powerful <B>Big Purrr Cat force</B>, but let me tell you the basics
+TUTORIAL_COMBAT_1,Hold on, Pirate! I know you canâ€™t wait to win to those Kitty Cats using our powerful <B>Big Purrr Cat force</B>, but let me tell you the basics
 TUTORIAL_COMBAT_2,The 4 of us in your crew are in charge of different attacks inside the ship
 TUTORIAL_COMBAT_3,One is in charge of the <color=#0000FF> <B>Basic Cannon </color></B>, tap on the middle of the screen to shoot it. You can shoot it as many times as you want
-TUTORIAL_COMBAT_4,Two are in charge of the <color=#0000FF><B>Strong Cannons</color></B>, tap on the left or right of the screen to shoot them. They’re strong, but you’ll need to wait for them to cool down before shooting again, pay attention!
-TUTORIAL_COMBAT_5,The other crew member is in charge of the Automatic Cannon, don’t worry, they know what to do, so they’ll shoot it automatically from time to time.
-TUTORIAL_COMBAT_6,Finally, a cannon to surpass steel gear… the <color=#0000FF><B>Big Purr Cannon</color></B>, you’ll notice when it’s ready, just tap the button and you’ll see the real power of the ball of yarn, it takes a long time to be ready, so hang on while it’s loading. 
-TUTORIAL_COMBAT_7,That’s it from now, just remember the enemies may be different from time to time, you’re gonna face some strong Pirate Cats and sometimes you’ll just find some <B><I>Pirate School for Kitty Cats</B></I> recently graduated kittie pirates which will be super easy to deal with…
+TUTORIAL_COMBAT_4,Two are in charge of the <color=#0000FF><B>Strong Cannons</color></B>, tap on the left or right of the screen to shoot them. Theyâ€™re strong, but youâ€™ll need to wait for them to cool down before shooting again, pay attention!
+TUTORIAL_COMBAT_5,The other crew member is in charge of the Automatic Cannon, donâ€™t worry, they know what to do, so theyâ€™ll shoot it automatically from time to time.
+TUTORIAL_COMBAT_6,Finally, a cannon to surpass steel gearâ€¦ the <color=#0000FF><B>Big Purr Cannon</color></B>, youâ€™ll notice when itâ€™s ready, just tap the button and youâ€™ll see the real power of the ball of yarn, it takes a long time to be ready, so hang on while itâ€™s loading. 
+TUTORIAL_COMBAT_7,Thatâ€™s it from now, just remember the enemies may be different from time to time, youâ€™re gonna face some strong Pirate Cats and sometimes youâ€™ll just find some <B><I>Pirate School for Kitty Cats</B></I> recently graduated kittie pirates which will be super easy to deal withâ€¦
 TUTORIAL_COMBAT_8,Anyways, time to prove to them who is the number 1 <B>Pirate Cat Crew!</B>
-TUTORIAL_COMBAT_WEAKSPOT,You see that red spot in the enemy ship’s windows? It means they’re having troubles there, shoot it directly to cause bigger damage to they’re ship!
+TUTORIAL_COMBAT_WEAKSPOT,You see that red spot in the enemy shipâ€™s windows? It means theyâ€™re having troubles there, shoot it directly to cause bigger damage to theyâ€™re ship!
 TUTORIAL_COMBAT_RESOURCES,One more thing, from time to time, the enemies are gonna drop boxes out of their ship, they think that'll make them stay afloat (how cute kitties), shoot them to break them and keep their resources to you!

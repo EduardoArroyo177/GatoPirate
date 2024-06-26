@@ -1,0 +1,29 @@
+// Common messages
+GENERIC_LOADING,Cargando...
+GENERIC_NEXT,Siguiente
+GENERIC_FINISH,Completado
+GENERIC_QUIT,Abandonar
+GENERIC_CANCEL,Cancelar
+
+// Pop ups
+POP_UP_CONFIRMATION_QUIT,¿Estás seguro de querer abandonar el combate?
+
+// Combat
+COMBAT_SKIP,Saltar introducción
+COMBAT_READY,¿Listos?
+COMBAT_GO,¡Adelante!
+RESULT_SCREEN_TITLE,¡GANASTE!
+RESULT_SCREEN_REWARD_TITLE,Tu recompensa:
+RESULT_SCREEN_AD,¡Mira un anuncio y duplica tu recompensa!
+// Tutorial
+TUTORIAL_COMBAT_1,¡Espera, Pirata! Sé que no puedes esperar a ganarle a esos gatitos usando nuestra poderosa <B> Gran Fuerza de Ronroneos Gatunos </B>, pero déjame explicarte lo básico
+TUTORIAL_COMBAT_2,Los 4 de nosotros en tu tripulación estamos a cargo de diferentes ataques dentro del barco
+TUTORIAL_COMBAT_3,Uno está a cargo del <color=#0000FF> <B>Cañón Básico </color></B>, haz click en el medio de la pantalla para dispararlo. Puedes disparar las veces que quieras.
+TUTORIAL_COMBAT_4,Dos están a cargo de los <color=#0000FF><B>Cañones Fuertes</color></B>, haz click en la parte izquierda o derecha de la pantalla para dispararlos. Son fuertes pero necesitarás esperar a que terminen de recargarse, ¡pon atención!
+TUTORIAL_COMBAT_5,El otro miembro de la tripulación está a cargo del <color=#0000FF><B>Cañón Automático</color></B>, no te preocupes, sabe qué hacer, disparará automáticamente de vez en cuando.
+TUTORIAL_COMBAT_6,Finalmente, un cañón para superar el Steel Gear... el <color=#0000FF><B>Cañón del Gran Ronroneo</color></B>, notarás cuando esté listo, sólo toca el botón y verás el verdadero poder de la bola de estambre, toma tiempo en estar listo, así que espera un poco.
+TUTORIAL_COMBAT_7,Eso es todo por ahora,sólo recuerda, los enemigos serán diferentes de vez en cuando, te enfrentarás a algunos Gatos Piratas fuertes y otras veces sólo te encontrarás con algunos gatitos recién graduados de la <B><I>Escuela de Piratas para Gatitos Pirata</B></I>, que serán muy fáciles de derrotar.
+TUTORIAL_COMBAT_8,En fin, ¡es hora de probar quién es la <B>Tripulación de Gatos Pirata</B> número 1!
+TUTORIAL_COMBAT_WEAKSPOT,¿Ves ese punto rojo en la ventana del barco enemigo? Significa que tienen problemas ahí, dispara directamente para causar un daño aún más grande a su barco
+TUTORIAL_COMBAT_RESOURCES,Una cosa más, de vez en cuando, los enemigos soltarán cajas de su barco, piensan que eso los mantendrá a flote (qué inocentes gatitos), ¡dispárales para romperlas y quedarte con sus recursos!
+

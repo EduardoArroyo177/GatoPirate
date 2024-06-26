@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.29411766}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 8170321453395293993}
   - component: {fileID: 5065077471667291791}
   - component: {fileID: 366401870465208187}
+  - component: {fileID: 5877732291618939118}
   m_Layer: 5
   m_Name: Lbl_Ready
   m_TagString: Untagged
@@ -474,7 +475,22 @@ MonoBehaviour:
   optionalInt0: 0
   optionalRotationMode: 0
   optionalScrambleMode: 0
+  optionalShakeRandomnessMode: 0
   optionalString: 
+--- !u!114 &5877732291618939118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4858969727801150476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: COMBAT_READY
+  filePath: 
 --- !u!1 &5110559297384388790
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +504,7 @@ GameObject:
   - component: {fileID: 7978994824817841271}
   - component: {fileID: 3448633170416732883}
   - component: {fileID: 9074947897823380461}
+  - component: {fileID: 8424209750767066369}
   m_Layer: 5
   m_Name: Lbl_Go (1)
   m_TagString: Untagged
@@ -570,7 +587,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
+  m_fontSize: 79.75
   m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -754,7 +771,22 @@ MonoBehaviour:
   optionalInt0: 0
   optionalRotationMode: 0
   optionalScrambleMode: 0
+  optionalShakeRandomnessMode: 0
   optionalString: 
+--- !u!114 &8424209750767066369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110559297384388790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: COMBAT_GO
+  filePath: 
 --- !u!1 &6451838654472242290
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +878,7 @@ GameObject:
   - component: {fileID: 6451838654504878346}
   - component: {fileID: 6451838654504878347}
   - component: {fileID: 6451838654504878344}
+  - component: {fileID: 5166120010448304754}
   m_Layer: 5
   m_Name: Lbl_ReadyShadow
   m_TagString: Untagged
@@ -1101,7 +1134,22 @@ MonoBehaviour:
   optionalInt0: 0
   optionalRotationMode: 0
   optionalScrambleMode: 0
+  optionalShakeRandomnessMode: 0
   optionalString: 
+--- !u!114 &5166120010448304754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6451838654504878350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: COMBAT_READY
+  filePath: 
 --- !u!1 &6451838654719194880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,6 +1163,7 @@ GameObject:
   - component: {fileID: 6451838654719195004}
   - component: {fileID: 6451838654719195005}
   - component: {fileID: 6451838654719194882}
+  - component: {fileID: 7226012915488559078}
   m_Layer: 5
   m_Name: Lbl_GoShadow
   m_TagString: Untagged
@@ -1198,7 +1247,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
+  m_fontSize: 79.75
   m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1394,4 +1443,19 @@ MonoBehaviour:
   optionalInt0: 0
   optionalRotationMode: 0
   optionalScrambleMode: 0
+  optionalShakeRandomnessMode: 0
   optionalString: 
+--- !u!114 &7226012915488559078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6451838654719194880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: COMBAT_GO
+  filePath: 

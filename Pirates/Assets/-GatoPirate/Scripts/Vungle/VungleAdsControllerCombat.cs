@@ -4,6 +4,7 @@ using UnityAtoms.BaseAtoms;
 using UnityAtoms;
 using UnityEngine;
 using static HuaweiAdsControllerCombat;
+using Mosframe;
 
 public class VungleAdsControllerCombat : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class VungleAdsControllerCombat : MonoBehaviour
         Vungle.adPlayableEvent += AdPlayable;
         Vungle.onAdStartedEvent += AdStarted;
         Vungle.onAdFinishedEvent += AdFinished;
+        Vungle.onErrorEvent += VungleError;
 
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CombatRewardAdSuccessEvent, CombatRewardAdSuccessEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadReviveAdEvent, LoadReviveAdEventCallback));
@@ -53,6 +55,7 @@ public class VungleAdsControllerCombat : MonoBehaviour
 
     public void TestAds()
     {
+        RealtimeConsole.Instance.open();
         if (Vungle.isInitialized())
         {
             Debug.Log("Vungle: Initialized!");
@@ -64,9 +67,9 @@ public class VungleAdsControllerCombat : MonoBehaviour
 
         }
 
-        if (Vungle.isAdvertAvailable(revivePlacementID))
+        if (Vungle.isAdvertAvailable(combatCompletedPlacementID))
         {
-            Vungle.playAd(revivePlacementID);
+            Vungle.playAd(combatCompletedPlacementID);
         }
         else
         {
@@ -98,6 +101,11 @@ public class VungleAdsControllerCombat : MonoBehaviour
 
         if(_args.IsCompletedView)
             CombatRewardAdSuccessEventCallback(new Void());
+    }
+
+    private void VungleError(string _error)
+    {
+        Debug.Log($"Vungle: An error occured {_error}");
     }
     #endregion
 
@@ -197,6 +205,7 @@ if (Vungle.isAdvertAvailable(doubleRewardPlacementID))
         Vungle.adPlayableEvent -= AdPlayable;
         Vungle.onAdStartedEvent -= AdStarted;
         Vungle.onAdFinishedEvent -= AdFinished;
+        Vungle.onErrorEvent -= VungleError;
 
         foreach (var item in _eventHandlers)
         {

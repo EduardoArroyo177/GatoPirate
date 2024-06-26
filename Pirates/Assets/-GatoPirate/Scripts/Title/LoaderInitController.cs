@@ -35,7 +35,7 @@ public class LoaderInitController : MonoBehaviour
             // Load island scene
             StartCoroutine(LoadSceneAsync(GameScenes.MainMenu.ToString()));
         }
-        GameAnalytics.Initialize();
+        //GameAnalytics.Initialize();
     }
 
     IEnumerator LoadSceneAsync(string _sceneName)

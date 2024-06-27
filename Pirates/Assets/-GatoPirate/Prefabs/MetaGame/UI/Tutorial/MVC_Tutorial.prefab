@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1848376683809729176}
   - component: {fileID: 1848376683809729178}
   - component: {fileID: 1848376683809729177}
+  - component: {fileID: 6851688455276883073}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -70,7 +71,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -134,9 +135,23 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6851688455276883073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848376683809729183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_COMBAT3
+  filePath: 
 --- !u!1 &1848376683870525932
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +473,7 @@ GameObject:
   - component: {fileID: 1848376683984297833}
   - component: {fileID: 1848376683984297835}
   - component: {fileID: 1848376683984297834}
+  - component: {fileID: 749656996662168646}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -516,7 +532,7 @@ MonoBehaviour:
   m_text: "Congrats on taking care of those inexperienced pirate cats, this is the
     first of many fights you\u2019ll face! "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -580,9 +596,23 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &749656996662168646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848376683984297832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_COMBAT2
+  filePath: 
 --- !u!1 &1848376683992457032
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +700,7 @@ GameObject:
   - component: {fileID: 1848376684052337169}
   - component: {fileID: 1848376684052337171}
   - component: {fileID: 1848376684052337170}
+  - component: {fileID: 2601509763641987848}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -729,8 +760,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
+  m_sharedMaterial: {fileID: 5416806443266638455, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -796,6 +827,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2601509763641987848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848376684052337168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_COMBAT1
+  filePath: 
 --- !u!1 &1848376684097578132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1073,7 @@ GameObject:
   - component: {fileID: 1848376684166220257}
   - component: {fileID: 1848376684166220259}
   - component: {fileID: 1848376684166220258}
+  - component: {fileID: 145649788123503197}
   m_Layer: 5
   m_Name: Lbl_SkipIntro (1)
   m_TagString: Untagged
@@ -1152,6 +1198,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &145649788123503197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848376684166220256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_NEXT
+  filePath: 
 --- !u!1 &1848376684194045932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1302,7 @@ GameObject:
   - component: {fileID: 1848376684240392346}
   - component: {fileID: 1848376684240392340}
   - component: {fileID: 1848376684240392347}
+  - component: {fileID: 1678629609501437288}
   m_Layer: 5
   m_Name: Lbl_SkipIntro (1)
   m_TagString: Untagged
@@ -1366,6 +1427,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1678629609501437288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848376684240392345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_NEXT
+  filePath: 
 --- !u!1 &1848376684270786971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,6 +1530,7 @@ GameObject:
   - component: {fileID: 1848376684321424766}
   - component: {fileID: 1848376684321424760}
   - component: {fileID: 1848376684321424767}
+  - component: {fileID: 8235154593171019811}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1514,7 +1590,7 @@ MonoBehaviour:
     select any of the Cats and you\u2019ll be able to change their cosplay or manage
     your crew.\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1578,9 +1654,23 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8235154593171019811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848376684321424765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_ISLAND1
+  filePath: 
 --- !u!1 &1848376684332436914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,6 +1827,7 @@ GameObject:
   - component: {fileID: 1848376684474442258}
   - component: {fileID: 1848376684474442284}
   - component: {fileID: 1848376684474442259}
+  - component: {fileID: 7016520730231894678}
   m_Layer: 5
   m_Name: Lbl_SkipIntro (1)
   m_TagString: Untagged
@@ -1861,6 +1952,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7016520730231894678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848376684474442257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_NEXT
+  filePath: 
 --- !u!1 &1848376684650060638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,6 +2826,7 @@ GameObject:
   - component: {fileID: 1848376685102859981}
   - component: {fileID: 1848376685102859983}
   - component: {fileID: 1848376685102859982}
+  - component: {fileID: 3109531252049592243}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2779,7 +2885,7 @@ MonoBehaviour:
   m_text: "I'm happy you came back with that loot!, you can do many things with it,
     but don't worry I won't burden with all of it at the moment. \nEnjoy your Island!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2843,9 +2949,23 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3109531252049592243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848376685102859980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_COMBAT4
+  filePath: 
 --- !u!1 &1848376685155742891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,6 +3135,7 @@ GameObject:
   - component: {fileID: 1848376685196484479}
   - component: {fileID: 1848376685196484473}
   - component: {fileID: 1848376685196484472}
+  - component: {fileID: 7127218403150672952}
   m_Layer: 5
   m_Name: Lbl_SkipIntro (1)
   m_TagString: Untagged
@@ -3139,6 +3260,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7127218403150672952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848376685196484478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_NEXT
+  filePath: 
 --- !u!1 &1848376685407419604
 GameObject:
   m_ObjectHideFlags: 0
@@ -3529,6 +3664,7 @@ GameObject:
   - component: {fileID: 1848376685482108664}
   - component: {fileID: 1848376685482108666}
   - component: {fileID: 1848376685482108665}
+  - component: {fileID: 658197987114132824}
   m_Layer: 5
   m_Name: Lbl_SkipIntro (1)
   m_TagString: Untagged
@@ -3653,6 +3789,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &658197987114132824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848376685482108671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_NEXT
+  filePath: 
 --- !u!1 &1848376685524886600
 GameObject:
   m_ObjectHideFlags: 0
@@ -3664,6 +3814,7 @@ GameObject:
   - component: {fileID: 1848376685524886601}
   - component: {fileID: 1848376685524886603}
   - component: {fileID: 1848376685524886602}
+  - component: {fileID: 4977189147840783942}
   m_Layer: 5
   m_Name: Lbl_SkipIntro (1)
   m_TagString: Untagged
@@ -3788,6 +3939,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4977189147840783942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848376685524886600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_FINISH
+  filePath: 
 --- !u!1 &1848376685537807134
 GameObject:
   m_ObjectHideFlags: 0
@@ -4623,6 +4788,7 @@ GameObject:
   - component: {fileID: 1848376685929443881}
   - component: {fileID: 1848376685929443883}
   - component: {fileID: 1848376685929443882}
+  - component: {fileID: 8177827453497330310}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4681,7 +4847,7 @@ MonoBehaviour:
   m_text: Time to explain, coins will let you recruit cats!, remember that we want
     to become the number 1 Pirate Cat Crew, and to achieve that, we need a team.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4745,9 +4911,23 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8177827453497330310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848376685929443880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_RECRUITMENT1
+  filePath: 
 --- !u!1 &2471140215816980731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,6 +5061,7 @@ GameObject:
   - component: {fileID: 2471140215879790594}
   - component: {fileID: 2471140215879791612}
   - component: {fileID: 2471140215879790595}
+  - component: {fileID: 5599628746235795958}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4939,7 +5120,7 @@ MonoBehaviour:
   m_text: Tap on the cat you want to switch from your ship, then tap the cat you
     want from the cat list and that's it! )it works viceversa too!)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5003,9 +5184,23 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5599628746235795958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140215879790593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_CREW2
+  filePath: 
 --- !u!1 &2471140215918072497
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,6 +5212,7 @@ GameObject:
   - component: {fileID: 2471140215918072498}
   - component: {fileID: 2471140215918072492}
   - component: {fileID: 2471140215918072499}
+  - component: {fileID: 7524866665718311359}
   m_Layer: 5
   m_Name: Lbl_SkipIntro (1)
   m_TagString: Untagged
@@ -5141,6 +5337,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7524866665718311359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140215918072497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_FINISH
+  filePath: 
 --- !u!1 &2471140215941521377
 GameObject:
   m_ObjectHideFlags: 0
@@ -5386,6 +5596,7 @@ GameObject:
   - component: {fileID: 2471140215947859186}
   - component: {fileID: 2471140215947859180}
   - component: {fileID: 2471140215947859187}
+  - component: {fileID: 3709041149546665699}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5444,7 +5655,7 @@ MonoBehaviour:
   m_text: Your Crew is made up of 4 great Pirates, here in the <color=#302DD2><B>Crew
     Management</color></B> you can choose  the big 4 you want for the next fight.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5508,9 +5719,23 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3709041149546665699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140215947859185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_CREW1
+  filePath: 
 --- !u!1 &2471140215971236251
 GameObject:
   m_ObjectHideFlags: 0
@@ -5985,6 +6210,7 @@ GameObject:
   - component: {fileID: 2471140216344603915}
   - component: {fileID: 2471140216344603909}
   - component: {fileID: 2471140216344603908}
+  - component: {fileID: 5868120593208764696}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -6042,7 +6268,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Now go for a walk across your Island!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6106,9 +6332,23 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5868120593208764696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140216344603914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_ISLAND2
+  filePath: 
 --- !u!1 &2471140216350199665
 GameObject:
   m_ObjectHideFlags: 0
@@ -6422,6 +6662,7 @@ GameObject:
   - component: {fileID: 2471140216546655565}
   - component: {fileID: 2471140216546655567}
   - component: {fileID: 2471140216546655566}
+  - component: {fileID: 6499183403817672428}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -6482,7 +6723,7 @@ MonoBehaviour:
     Only because is for you, the
     first recruited cat will go with you for free!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6546,9 +6787,23 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6499183403817672428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140216546655564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_RECRUITMENT4
+  filePath: 
 --- !u!1 &2471140216578793593
 GameObject:
   m_ObjectHideFlags: 0
@@ -6656,6 +6911,7 @@ GameObject:
   - component: {fileID: 2471140216580878993}
   - component: {fileID: 2471140216580878995}
   - component: {fileID: 2471140216580878994}
+  - component: {fileID: 5661255825884958723}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -6715,7 +6971,7 @@ MonoBehaviour:
     so check the prices first, but don\u2019t worry they\u2019re all experts, they\u2019ll
     be worthy."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6779,9 +7035,23 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5661255825884958723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140216580878992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_RECRUITMENT2
+  filePath: 
 --- !u!1 &2471140216620592804
 GameObject:
   m_ObjectHideFlags: 0
@@ -7401,6 +7671,7 @@ GameObject:
   - component: {fileID: 2471140216789711258}
   - component: {fileID: 2471140216789711252}
   - component: {fileID: 2471140216789711259}
+  - component: {fileID: 4385917401178989078}
   m_Layer: 5
   m_Name: Lbl_SkipIntro (1)
   m_TagString: Untagged
@@ -7525,6 +7796,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4385917401178989078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140216789711257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_FINISH
+  filePath: 
 --- !u!1 &2471140216816320740
 GameObject:
   m_ObjectHideFlags: 0
@@ -7536,6 +7821,7 @@ GameObject:
   - component: {fileID: 2471140216816320741}
   - component: {fileID: 2471140216816320743}
   - component: {fileID: 2471140216816320742}
+  - component: {fileID: 5241009335773864954}
   m_Layer: 5
   m_Name: Lbl_SkipIntro (1)
   m_TagString: Untagged
@@ -7660,6 +7946,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5241009335773864954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140216816320740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_NEXT
+  filePath: 
 --- !u!1 &2471140216989856051
 GameObject:
   m_ObjectHideFlags: 0
@@ -7981,6 +8281,7 @@ GameObject:
   - component: {fileID: 2471140217028414793}
   - component: {fileID: 2471140217028414795}
   - component: {fileID: 2471140217028414794}
+  - component: {fileID: 2239824290476673664}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -8039,7 +8340,7 @@ MonoBehaviour:
   m_text: One more thing before I forget, if you just wanna go and keep fighting,
     tap on your ship and choose the option <B><color=#302DD2>Fight!</B></color>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8103,9 +8404,23 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2239824290476673664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140217028414792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_ISLAND3
+  filePath: 
 --- !u!1 &2471140217045338849
 GameObject:
   m_ObjectHideFlags: 0
@@ -8493,6 +8808,7 @@ GameObject:
   - component: {fileID: 2471140217148758894}
   - component: {fileID: 2471140217148758888}
   - component: {fileID: 2471140217148758895}
+  - component: {fileID: 7152411862900726813}
   m_Layer: 5
   m_Name: Lbl_SkipIntro (1)
   m_TagString: Untagged
@@ -8617,6 +8933,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7152411862900726813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140217148758893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_NEXT
+  filePath: 
 --- !u!1 &2471140217228512600
 GameObject:
   m_ObjectHideFlags: 0
@@ -9479,6 +9809,7 @@ GameObject:
   - component: {fileID: 2471140217616461408}
   - component: {fileID: 2471140217616461410}
   - component: {fileID: 2471140217616461409}
+  - component: {fileID: 4865885430747640511}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -9538,7 +9869,7 @@ MonoBehaviour:
     we are Cosplayer Pirate Cats, and wearing different costumes makes us feel stronger,
     so please visit the Cosplay shop as well and get us some awesome stuff from there! "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9602,9 +9933,23 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4865885430747640511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140217616461415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: MAINMENU_TUTORIAL_RECRUITMENT3
+  filePath: 
 --- !u!1 &2471140217660033831
 GameObject:
   m_ObjectHideFlags: 0
@@ -9616,6 +9961,7 @@ GameObject:
   - component: {fileID: 2471140217660033824}
   - component: {fileID: 2471140217660033826}
   - component: {fileID: 2471140217660033825}
+  - component: {fileID: 6893576916864196306}
   m_Layer: 5
   m_Name: Lbl_SkipIntro (1)
   m_TagString: Untagged
@@ -9740,6 +10086,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6893576916864196306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140217660033831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_NEXT
+  filePath: 
 --- !u!1 &2471140217686188880
 GameObject:
   m_ObjectHideFlags: 0
@@ -9896,6 +10256,7 @@ GameObject:
   - component: {fileID: 2471140217792612415}
   - component: {fileID: 2471140217792612409}
   - component: {fileID: 2471140217792612408}
+  - component: {fileID: 3077535795549680202}
   m_Layer: 5
   m_Name: Lbl_SkipIntro (1)
   m_TagString: Untagged
@@ -10020,6 +10381,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3077535795549680202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471140217792612414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_FINISH
+  filePath: 
 --- !u!1 &2471140217825832524
 GameObject:
   m_ObjectHideFlags: 0

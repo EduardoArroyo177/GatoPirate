@@ -5,15 +5,45 @@ GENERIC_FINISH,Finish
 GENERIC_QUIT,Quit
 GENERIC_CANCEL,Cancel
 GENERIC_ACCEPT,Accept
+GENERIC_COSPLAY,Cosplay
+GENERIC_COSPLAY_TITLE,COSPLAY
+GENERIC_CATCREW,Cat Crew
+GENERIC_CATCREW_TITLE,CAT CREW
+GENERIC_FIGHT,Fight!
+GENERIC_CATS,Cats
+GENERIC_RECRUIT_CATS,Recruit Cats
 
 // Pop ups
 POP_UP_CONFIRMATION_QUIT,Are you sure you want to quit?
+
+// Main menu
+MAINMENU_RECRUITMENT_TITLE,RECRUITMENT
+MAINMENU_RECRUITMENT_CATS_BASIC,Kitties
+MAINMENU_RECRUITMENT_CATS_SPECIAL,Big Purrs
+MAINMENU_RECRUITMENT_CATEGORY_SKIN_BASIC,Low Cost
+MAINMENU_RECRUITMENT_CATEGORY_SKIN_SPECIAL,Ready for the convention
+MAINMENU_RECRUITMENT_CATEGORY_SKIN_PREMIUM,Did it cost what!?
+// Tutorial
+MAINMENU_TUTORIAL_COMBAT1,What a fight!
+MAINMENU_TUTORIAL_COMBAT2,Congrats on taking care of those inexperienced pirate cats, this is the first of many fights you’ll face! 
+MAINMENU_TUTORIAL_COMBAT3,Ah!, and by the way, welcome to your island! Everything you see is yours!
+MAINMENU_TUTORIAL_COMBAT4,I'm happy you came back with that loot!, you can do many things with it, but don't worry I won't burden with all of it at the moment. \nEnjoy your Island!
+MAINMENU_TUTORIAL_RECRUITMENT1,Time to explain, coins will let you recruit cats!, remember that we want to become the number 1 Pirate Cat Crew, and to achieve that, we need a team.
+MAINMENU_TUTORIAL_RECRUITMENT2,There are some picky Cats that will charge you a bigger amount of coins, so check the prices first, but don’t worry they’re all experts, they’ll be worthy.
+MAINMENU_TUTORIAL_RECRUITMENT3,Ehem… I know this may sound weird, but all of us here are cosplayers, we are Cosplayer Pirate Cats, and wearing different costumes makes us feel stronger, so please visit the Cosplay shop as well and get us some awesome stuff from there! 
+MAINMENU_TUTORIAL_RECRUITMENT4,Now go and recruit a bunch of cats! Only because is for you, the first recruited cat will go with you for free!
+MAINMENU_TUTORIAL_ISLAND1,When you recruit cats, you’ll see them wandering around the island, select any of the Cats and you’ll be able to change their cosplay or manage your crew.
+MAINMENU_TUTORIAL_ISLAND2,Now go for a walk across your Island!
+MAINMENU_TUTORIAL_ISLAND3,One more thing before I forget, if you just wanna go and keep fighting, tap on your ship and choose the option <B><color=#302DD2>Fight!</B></color>
+MAINMENU_TUTORIAL_CREW1,Your Crew is made up of 4 great Pirates, here in the <color=#302DD2><B>Crew Management</color></B> you can choose  the big 4 you want for the next fight.
+MAINMENU_TUTORIAL_CREW2,Tap on the cat you want to switch from your ship, then tap the cat you want from the cat list and that's it! (it works viceversa too!)
 
 // Combat
 COMBAT_SKIP,Skip intro
 COMBAT_READY,Ready?
 COMBAT_GO,Go!
 RESULT_SCREEN_TITLE,YOU WON!
+RESULT_SCREEN_TITLE_SUMMARY,You won:
 RESULT_SCREEN_REWARD_TITLE,Your reward:
 RESULT_SCREEN_AD,Watch an ad and double your reward!
 // Tutorial

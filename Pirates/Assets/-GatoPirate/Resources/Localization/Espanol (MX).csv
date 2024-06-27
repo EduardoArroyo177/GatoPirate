@@ -5,15 +5,45 @@ GENERIC_FINISH,Completado
 GENERIC_QUIT,Abandonar
 GENERIC_CANCEL,Cancelar
 GENERIC_ACCEPT,Aceptar
+GENERIC_COSPLAY,Cosplay
+GENERIC_COSPLAY_TITLE,COSPLAY
+GENERIC_CATCREW,Tripulación Gatuna
+GENERIC_CATCREW_TITLE,TRIPULACIÓN GATUNA
+GENERIC_FIGHT,¡Combate!
+GENERIC_CATS,Gatos
+GENERIC_RECRUIT_CATS,Reclutar Gatos
 
 // Pop ups
 POP_UP_CONFIRMATION_QUIT,¿Estás seguro de querer abandonar el combate?
+
+// Main menu
+MAINMENU_RECRUITMENT_TITLE,RECLUTAMIENTO
+MAINMENU_RECRUITMENT_CATEGORY_CATS_BASIC,Gatitos
+MAINMENU_RECRUITMENT_CATEGORY_CATS_SPECIAL,Grandes Ronroneadores
+MAINMENU_RECRUITMENT_CATEGORY_SKIN_BASIC,De Bajo Costo
+MAINMENU_RECRUITMENT_CATEGORY_SKIN_SPECIAL,Listos para la Convención
+MAINMENU_RECRUITMENT_CATEGORY_SKIN_PREMIUM,¿!Cuánto te costó!?
+// Tutorial
+MAINMENU_TUTORIAL_COMBAT1,!Qué pelea!
+MAINMENU_TUTORIAL_COMBAT2,Felicidades en encargarte de esos inexpertos gatos piratas, ¡esta solo fue la primera de muchas batallas!
+MAINMENU_TUTORIAL_COMBAT3,¡Ah! Y por cierto, ¡Bienvenido a tu isla! ¡Todo lo que ves es tuyo!
+MAINMENU_TUTORIAL_COMBAT4,¡Estoy feliz que regresaras con tal botín!, puedes hacer muchas cosas con eso, pero no te preocupes, no te abrumaré con eso por el momento. ¡Disfruta tu Isla!
+MAINMENU_TUTORIAL_RECRUITMENT1,Hora de explicar, las monedas te permiten reclutar gatos, recuerda que nos queremos convertir en la Tripulación Gatuna número 1, y para alcanzarlo, necesitamos un equipo
+MAINMENU_TUTORIAL_RECRUITMENT2,Existen Gatos quisquillosos que te cobrarán grandes cantidades de monedas, checa primero sus precios, pero no te preocupes, todos son expertos y todos son dignos.
+MAINMENU_TUTORIAL_RECRUITMENT3,Ehem… Esto puede sonar raro, pero todos los presentes somos cosplayers, somos Gatos Pirata Cosplayers, y el disfrzarnos nos hace sentir más poderosos, así que visita la tienda de Cosplay también y ¡tráenos algunas cosas grandiosas de ahí!
+MAINMENU_TUTORIAL_RECRUITMENT4,¡Ahora ve y recluta un montón de gatos! Sólo por ser tú, el primer recluta va gratis.
+MAINMENU_TUTORIAL_ISLAND1,Cuando reclutas gatos, los verás vagando alrededor de la isla, selecciona cualquiera de ellos y podrás cambiar su cosplay y manejar tu tripulación.
+MAINMENU_TUTORIAL_ISLAND2,¡Ahora ve a dar una vuelta por tu Isla!
+MAINMENU_TUTORIAL_ISLAND3,Una cosa más antes de irme, si sólo quieres ir y combatir, da click en el barco y selecciona la opción <B><color=#302DD2>¡Combate!</B></color>
+MAINMENU_TUTORIAL_CREW1,Tu tripulación consiste en 4 grandes Piratas, aquí podrás elegir a los 4 grandes que quieres para tu próxima batalla.
+MAINMENU_TUTORIAL_CREW2,Selecciona el gato que quieres cambiar de tu barco, luego selecciona el gato que quieres desde tu lista de gatos y eso es todo (también funciona viceversa)
 
 // Combat
 COMBAT_SKIP,Saltar introducción
 COMBAT_READY,¿Listos?
 COMBAT_GO,¡Adelante!
 RESULT_SCREEN_TITLE,¡GANASTE!
+RESULT_SCREEN_TITLE_SUMMARY,Ganaste:
 RESULT_SCREEN_REWARD_TITLE,Tu recompensa:
 RESULT_SCREEN_AD,¡Mira un anuncio y duplica tu recompensa!
 // Tutorial

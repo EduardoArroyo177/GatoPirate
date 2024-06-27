@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72282124}
   m_AnchorMax: {x: 1, y: 0.78063047}
-  m_AnchoredPosition: {x: 0, y: 6.452484}
+  m_AnchoredPosition: {x: 0, y: 6.4525146}
   m_SizeDelta: {x: 0, y: -12.9049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6122318772905084716
@@ -2201,6 +2201,25 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6168496229937348218, guid: 37ee5c5071786654d88fe6c42ec5e7b3, type: 3}
   m_PrefabInstance: {fileID: 5145749006403664845}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3865178452401561147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8271564574216545782, guid: 37ee5c5071786654d88fe6c42ec5e7b3, type: 3}
+  m_PrefabInstance: {fileID: 5145749006403664845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5061902602400824941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865178452401561147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_ACCEPT
+  filePath: 
 --- !u!1 &4303273524519340014 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8993990880450051107, guid: 37ee5c5071786654d88fe6c42ec5e7b3, type: 3}
@@ -2552,7 +2571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4739816450826041256, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
       propertyPath: m_fontSize
-      value: 35.35
+      value: 39.55
       objectReference: {fileID: 0}
     - target: {fileID: 7164356791774511081, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
       propertyPath: m_RaycastTarget
@@ -2596,11 +2615,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7896636124591892788, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -49.6804
+      value: -940.9778
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896636124591892788, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 4.182
       objectReference: {fileID: 0}
     - target: {fileID: 7896636124591892788, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -6.648926
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896636124591892788, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.3878002
       objectReference: {fileID: 0}
     - target: {fileID: 7896636124591892789, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
       propertyPath: m_text
@@ -2608,7 +2635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7896636124591892789, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
       propertyPath: m_fontSize
-      value: 35.35
+      value: 39.55
       objectReference: {fileID: 0}
     - target: {fileID: 7896636125387732130, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
       propertyPath: m_RaycastTarget
@@ -2732,8 +2759,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
+--- !u!1 &398836501793746922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8515812660960765059, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
+  m_PrefabInstance: {fileID: 8333574455791389545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5061902602400824942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398836501793746922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_COSPLAY_TITLE
+  filePath: 
 --- !u!224 &2175433679130050516 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7896636125387732157, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
   m_PrefabInstance: {fileID: 8333574455791389545}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2175433679925813854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7896636124591892791, guid: 486e0f9534aaba64a9c3f07622202595, type: 3}
+  m_PrefabInstance: {fileID: 8333574455791389545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5061902602400824943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175433679925813854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d142b07b87fe46443bf1fa6696ae3964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: GENERIC_COSPLAY_TITLE
+  filePath: 

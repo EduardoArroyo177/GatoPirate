@@ -12,9 +12,15 @@ GENERIC_CATCREW_TITLE,TRIPULACIÓN GATUNA
 GENERIC_FIGHT,¡Combate!
 GENERIC_CATS,Gatos
 GENERIC_RECRUIT_CATS,Reclutar Gatos
+GENERIC_SETTINGS,OPCIONES
+GENERIC_FREE_COINS,¡Monedas gratis!
+GENERIC_FREE,¡Gratis!
+GENERIC_PAUSE,PAUSA
 
 // Pop ups
 POP_UP_CONFIRMATION_QUIT,¿Estás seguro de querer abandonar el combate?
+POP_UP_NO_RESOURCES_TITLE,¡No hay suficientes monedas!
+POP_UP_NO_RESOURCES_DESCRIPTION,¡Mira un video y recibe 250 monedas gratis!
 
 // Main menu
 MAINMENU_RECRUITMENT_TITLE,RECLUTAMIENTO
@@ -46,6 +52,12 @@ RESULT_SCREEN_TITLE,¡GANASTE!
 RESULT_SCREEN_TITLE_SUMMARY,Ganaste:
 RESULT_SCREEN_REWARD_TITLE,Tu recompensa:
 RESULT_SCREEN_AD,¡Mira un anuncio y duplica tu recompensa!
+REVIVE_SCREEN_TITLE1,¡Oh, no!
+REVIVE_SCREEN_TITLE2,¡Perdimos!
+REVIVE_SCREEN_DESCRIPTION,Capitán, ¡Fuimos derrotados! \nPero tenemos otra oportunidad
+REVIVE_SCREEN_AD,¡Mira un anuncio o paga algunas monedas para continuar la pelea! 
+REVIVE_SCREEN_QUIT,No, gracias, vayámonos a la isla
+
 // Tutorial
 TUTORIAL_COMBAT_1,¡Espera, Pirata! Sé que no puedes esperar a ganarle a esos gatitos usando nuestra poderosa <B> Gran Fuerza de Ronroneos Gatunos </B>, pero déjame explicarte lo básico
 TUTORIAL_COMBAT_2,Los 4 de nosotros en tu tripulación estamos a cargo de diferentes ataques dentro del barco

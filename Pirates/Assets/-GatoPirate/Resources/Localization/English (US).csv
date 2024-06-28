@@ -12,9 +12,15 @@ GENERIC_CATCREW_TITLE,CAT CREW
 GENERIC_FIGHT,Fight!
 GENERIC_CATS,Cats
 GENERIC_RECRUIT_CATS,Recruit Cats
+GENERIC_SETTINGS,SETTINGS
+GENERIC_FREE_COINS,Free coins!
+GENERIC_FREE,Free!
+GENERIC_PAUSE,PAUSE
 
 // Pop ups
 POP_UP_CONFIRMATION_QUIT,Are you sure you want to quit?
+POP_UP_NO_RESOURCES_TITLE,Not enough coins!
+POP_UP_NO_RESOURCES_DESCRIPTION,Watch a video and receive 250 coins for free!
 
 // Main menu
 MAINMENU_RECRUITMENT_TITLE,RECRUITMENT
@@ -46,6 +52,12 @@ RESULT_SCREEN_TITLE,YOU WON!
 RESULT_SCREEN_TITLE_SUMMARY,You won:
 RESULT_SCREEN_REWARD_TITLE,Your reward:
 RESULT_SCREEN_AD,Watch an ad and double your reward!
+REVIVE_SCREEN_TITLE1,Oh, no!
+REVIVE_SCREEN_TITLE2,We lost!
+REVIVE_SCREEN_DESCRIPTION,Captain, we've been defeated! \nBut we still have a second chance
+REVIVE_SCREEN_AD,Watch an ad or pay some coins to continue the fight!
+REVIVE_SCREEN_QUIT,No, thanks, let's go back to the island
+
 // Tutorial
 TUTORIAL_COMBAT_1,Hold on, Pirate! I know you can’t wait to win to those Kitty Cats using our powerful <B>Big Purrr Cat force</B>, but let me tell you the basics
 TUTORIAL_COMBAT_2,The 4 of us in your crew are in charge of different attacks inside the ship

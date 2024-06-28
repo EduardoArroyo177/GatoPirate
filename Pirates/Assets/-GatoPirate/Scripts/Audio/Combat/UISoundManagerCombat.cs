@@ -24,6 +24,7 @@ public class UISoundManagerCombat : MonoBehaviour
     public VoidEvent UISoundButtonCancelEvent { get; set; }
     public VoidEvent UISoundTapEvent { get; set; }
     public FloatEvent SetSoundsVolumeEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private AudioSource audioSource;
@@ -37,6 +38,7 @@ public class UISoundManagerCombat : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UISoundButtonCancelEvent, UISoundButtonCancelEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UISoundTapEvent, UISoundTapEventCallback));
         _eventHandlers.Add(EventHandlerFactory<float>.BuildEventHandler(SetSoundsVolumeEvent, SetSoundsVolumeEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
     }
 
     #region Event callbacks
@@ -82,7 +84,7 @@ public class UISoundManagerCombat : MonoBehaviour
     #endregion
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

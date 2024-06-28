@@ -137,3 +137,4 @@ MonoBehaviour:
   RequestPlayerScoreEvent: {fileID: 11400000, guid: caed255753c7e02458e25cc89688e1f5, type: 2}
   SubmitHighScoreEvent: {fileID: 11400000, guid: feef4537bb5b8e547a6874f8f66e40b4, type: 2}
   ScoreSubmittedEvent: {fileID: 11400000, guid: 664afe0a64d62644d9bfb2953b11303c, type: 2}
+  UnloadEventsEvent: {fileID: 11400000, guid: 1d10cbf981cc6294da162656a4f5b38c, type: 2}

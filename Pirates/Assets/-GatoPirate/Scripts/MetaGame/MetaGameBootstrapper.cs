@@ -227,6 +227,10 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField] 
     private VoidEvent ScoreSubmittedEvent;
 
+    [Header("Unload events")]
+    [SerializeField]
+    private VoidEvent UnloadEventsEvent;
+
     #endregion
 
     private void Awake()
@@ -245,6 +249,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         musicManager.TriggerIslandMusicEvent = TriggerIslandMusicEvent;
         musicManager.TriggerStoreMusicEvent = TriggerStoreMusicEvent;
         musicManager.SetMusicVolumeEvent = SetMusicVolumeEvent;
+        musicManager.UnloadEventsEvent = UnloadEventsEvent;
         musicManager.Initialize();
 
         soundsManager.UISoundScreenOpenEvent = UISoundScreenOpenEvent;
@@ -256,9 +261,11 @@ public class MetaGameBootstrapper : MonoBehaviour
         soundsManager.TriggerCatSoundEvent = TriggerCatSoundEvent;
         soundsManager.TriggerShipSoundEvent = TriggerShipSoundEvent;
         soundsManager.TriggerUISoundEvent = TriggerUISoundEvent;
+        soundsManager.UnloadEventsEvent = UnloadEventsEvent;
         soundsManager.Initialize();
 
         ambienceAudioManager.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        ambienceAudioManager.UnloadEventsEvent = UnloadEventsEvent;
         ambienceAudioManager.Initialize();
 
         // Vibration 
@@ -266,6 +273,7 @@ public class MetaGameBootstrapper : MonoBehaviour
 
         // Scene loader
         sceneLoaderManager.LoadCombatSceneEvent = LoadCombatSceneEvent;
+        sceneLoaderManager.UnloadEventsEvent = UnloadEventsEvent;
         sceneLoaderManager.Initialize();
 
         // Settings
@@ -278,10 +286,12 @@ public class MetaGameBootstrapper : MonoBehaviour
         virtualCameraControllerMainMenu.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
         virtualCameraControllerMainMenu.TriggerShipCameraEvent = TriggerShipCameraEvent;
         virtualCameraControllerMainMenu.CloseShipCameraEvent = CloseShipCameraEvent;
+        virtualCameraControllerMainMenu.UnloadEventsEvent = UnloadEventsEvent;
         virtualCameraControllerMainMenu.Initialize();
 
         // Main menu
         mainMenuController.CatSelectedEvent = CatSelectedEvent;
+        mainMenuController.UnloadEventsEvent = UnloadEventsEvent;
         mainMenuController.Initialize();
 
         // Currency panels
@@ -292,6 +302,7 @@ public class MetaGameBootstrapper : MonoBehaviour
             pnl_currenciesList[index].ShowRewardedCurrencyEvent = ShowRewardedCurrencyEvent;
             pnl_currenciesList[index].OpenStoreEvent = OpenStoreEvent;
             pnl_currenciesList[index].CurrencyUpdateAnimationFinishedEvent = CurrencyUpdateAnimationFinishedEvent;
+            pnl_currenciesList[index].UnloadEventsEvent = UnloadEventsEvent;
             pnl_currenciesList[index].Initialize();
         }
 
@@ -309,6 +320,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         islandCatsController.OpenShipOptionsEvent = OpenShipOptionsEvent;
         islandCatsController.TriggerShipSoundEvent = TriggerShipSoundEvent;
         islandCatsController.TriggerCatSoundEvent = TriggerCatSoundEvent;
+        islandCatsController.UnloadEventsEvent = UnloadEventsEvent;
         islandCatsController.Initialize();
 
         // Cat crew management
@@ -321,6 +333,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catCrewManagementController.StartCombatEvent = StartCombatEvent;
         catCrewManagementController.TriggerCatSoundEvent = TriggerCatSoundEvent;
         catCrewManagementController.TriggerMetaGameCrewTutorialEvent = TriggerMetaGameCrewTutorialEvent;
+        catCrewManagementController.UnloadEventsEvent = UnloadEventsEvent;
         catCrewManagementController.Initialize();
 
         // Cat recruitment
@@ -340,6 +353,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catRecruitmentController.TriggerMetaGameRecruitmentTutorialEvent = TriggerMetaGameRecruitmentTutorialEvent;
         catRecruitmentController.FreeRecruitmentTutorialEvent = FreeRecruitmentTutorialEvent;
         catRecruitmentController.TriggerMetaGameIslandTutorialEvent = TriggerMetaGameIslandTutorialEvent;
+        catRecruitmentController.UnloadEventsEvent = UnloadEventsEvent;
         catRecruitmentController.Initialize();
 
         // Cat options
@@ -347,6 +361,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catOptionsController.CloseSelectedCatCameraEvent = CloseSelectedCatCameraEvent;
         catOptionsController.OpenCatCrewManagementEvent = OpenCatCrewManagementEvent;
         catOptionsController.OpenSkinManagementEvent = OpenSkinManagementEvent;
+        catOptionsController.UnloadEventsEvent = UnloadEventsEvent;
         catOptionsController.Initialize();
 
         // Skin management
@@ -355,6 +370,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         catSkinManagementController.CatUpdatedEvent = CatUpdatedEvent;
         catSkinManagementController.SkinPurchasedEvent = SkinPurchasedEvent;
         catSkinManagementController.TriggerCatSoundEvent = TriggerCatSoundEvent;
+        catSkinManagementController.UnloadEventsEvent = UnloadEventsEvent;
         catSkinManagementController.Initialize();
 
         // Ship options
@@ -364,6 +380,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         shipOptionsController.LoadCombatSceneEvent = LoadCombatSceneEvent;
         shipOptionsController.OpenCatCrewManagementNoIDEvent = OpenCatCrewManagementNoIDEvent;
         shipOptionsController.StartCombatEvent = StartCombatEvent;
+        shipOptionsController.UnloadEventsEvent = UnloadEventsEvent;
         shipOptionsController.Initialize();
 
         // Store
@@ -378,6 +395,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         storeController.PurchaseResultEvent = PurchaseResultEvent;
         storeController.ConsumedItemSuccesfulEvent = ConsumedItemSuccesfulEvent;
         storeController.RemoveAdsPurchasedEvent = RemoveAdsPurchasedEvent;
+        storeController.UnloadEventsEvent = UnloadEventsEvent;
         storeController.Initialize();
 
         // Ads
@@ -385,6 +403,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         adsControllerMenu.LoadFreeCoinsAdRecruitmentEvent = LoadFreeCoinsAdRecruitmentEvent;
         adsControllerMenu.LoadFreeCoinsAdStoreEvent = LoadFreeCoinsAdStoreEvent;
         adsControllerMenu.ShowRewardedCurrencyEvent = ShowRewardedCurrencyEvent;
+        adsControllerMenu.UnloadEventsEvent = UnloadEventsEvent;
         adsControllerMenu.Initialize();
 
         // Tutorial
@@ -393,6 +412,7 @@ public class MetaGameBootstrapper : MonoBehaviour
         tutorialMetaGameController.TriggerMetaGameIslandTutorialEvent = TriggerMetaGameIslandTutorialEvent;
         tutorialMetaGameController.TriggerMetaGameCrewTutorialEvent = TriggerMetaGameCrewTutorialEvent;
         tutorialMetaGameController.FreeRecruitmentTutorialEvent = FreeRecruitmentTutorialEvent;
+        tutorialMetaGameController.UnloadEventsEvent = UnloadEventsEvent;
         tutorialMetaGameController.Initialize();
 
         // Init completed
@@ -440,5 +460,10 @@ public class MetaGameBootstrapper : MonoBehaviour
     {
         TriggerIslandMusicEvent.Raise();
         CurrenciesUpdatedEvent.Raise();
+    }
+
+    private void OnDestroy()
+    {
+        UnloadEventsEvent.Raise();
     }
 }

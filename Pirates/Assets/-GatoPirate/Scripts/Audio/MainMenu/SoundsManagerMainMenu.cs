@@ -59,6 +59,8 @@ public class SoundsManagerMainMenu : MonoBehaviour
     public ShipSoundEvent TriggerShipSoundEvent { get; set; }
     public UISoundsEvent TriggerUISoundEvent { get; set; }
 
+    public VoidEvent UnloadEventsEvent { get; set; }
+
     private List<IAtomEventHandler> _eventHandlers = new();
     private AudioSource audioSource;
 
@@ -74,6 +76,7 @@ public class SoundsManagerMainMenu : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<CatMeowSounds>.BuildEventHandler(TriggerCatSoundEvent, TriggerCatSoundEventCallback));
         _eventHandlers.Add(EventHandlerFactory<ShipSounds>.BuildEventHandler(TriggerShipSoundEvent, TriggerShipSoundEventCallback));
         _eventHandlers.Add(EventHandlerFactory<UISounds>.BuildEventHandler(TriggerUISoundEvent, TriggerUISoundEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
 
     }
 
@@ -188,7 +191,7 @@ public class SoundsManagerMainMenu : MonoBehaviour
     }
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {
@@ -196,5 +199,14 @@ public class SoundsManagerMainMenu : MonoBehaviour
         }
         _eventHandlers.Clear();
     }
+
+    //private void OnDestroy()
+    //{
+    //    foreach (var item in _eventHandlers)
+    //    {
+    //        item.UnregisterListener();
+    //    }
+    //    _eventHandlers.Clear();
+    //}
     #endregion
 }

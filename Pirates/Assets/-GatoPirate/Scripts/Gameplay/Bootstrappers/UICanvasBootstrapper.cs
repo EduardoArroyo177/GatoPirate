@@ -45,6 +45,8 @@ public class UICanvasBootstrapper : MonoBehaviour
     public VoidEvent TriggerCombatWeakSpotTutorialEvent { get; set; }
     public VoidEvent TriggerCombatResourcesBoxTutorialEvent { get; set; }
 
+    public VoidEvent UnloadEventsEvent { get; set; }
+
     // Properties
     public int ReviveCurrencyPrice { get; set; }
 
@@ -78,6 +80,7 @@ public class UICanvasBootstrapper : MonoBehaviour
         resultScreenController.ReviveCurrencyPrice = ReviveCurrencyPrice;
         resultScreenController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
         resultScreenController.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
+        resultScreenController.UnloadEventsEvent = UnloadEventsEvent;
         resultScreenController.Initialize();
 
         // Tutorial 
@@ -87,6 +90,7 @@ public class UICanvasBootstrapper : MonoBehaviour
         tutorialCombatController.TriggerCombatTutorialEvent = TriggerCombatTutorialEvent;
         tutorialCombatController.TriggerCombatWeakSpotTutorialEvent = TriggerCombatWeakSpotTutorialEvent;
         tutorialCombatController.TriggerCombatResourcesBoxTutorialEvent = TriggerCombatResourcesBoxTutorialEvent;
+        tutorialCombatController.UnloadEventsEvent = UnloadEventsEvent;
         tutorialCombatController.Initialize();
     }
 }

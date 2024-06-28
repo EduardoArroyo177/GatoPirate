@@ -14,6 +14,8 @@ public class MusicManagerCombat : MonoBehaviour
     public VoidEvent TriggerCombatMusicEvent { get; set; }
     public FloatEvent SetMusicVolumeEvent { get; set; }
     public VoidEvent SetPreviousMusicVolumeEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private AudioSource audioSource;
@@ -26,6 +28,7 @@ public class MusicManagerCombat : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerCombatMusicEvent, TriggerCombatMusicEventCallback));
         _eventHandlers.Add(EventHandlerFactory<float>.BuildEventHandler(SetMusicVolumeEvent, SetMusicVolumeEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(SetPreviousMusicVolumeEvent, SetPreviousMusicVolumeEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
 
     }
 
@@ -50,7 +53,7 @@ public class MusicManagerCombat : MonoBehaviour
     #endregion
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

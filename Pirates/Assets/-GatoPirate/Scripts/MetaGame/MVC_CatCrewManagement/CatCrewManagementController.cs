@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;
@@ -27,6 +26,9 @@ public class CatCrewManagementController : MonoBehaviour
     // Tutorial
     public VoidEvent TriggerMetaGameCrewTutorialEvent { get; set; }
 
+    public VoidEvent UnloadEventsEvent { get; set; }
+
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private List<OwnedCatView> ownedCatsList = new();
@@ -50,6 +52,7 @@ public class CatCrewManagementController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(OpenCatCrewManagementEvent, OpenCatCrewManagementEventCallback));
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(CatUpdatedEvent, CatUpdatedEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(OpenCatCrewManagementNoIDEvent, OpenCatCrewManagementNoIDEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
 
         catCrewManagementView.CatCrewManagementController = this;
 
@@ -376,7 +379,7 @@ public class CatCrewManagementController : MonoBehaviour
     #endregion
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

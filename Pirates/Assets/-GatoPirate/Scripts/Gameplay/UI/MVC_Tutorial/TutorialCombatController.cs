@@ -19,6 +19,7 @@ public class TutorialCombatController : MonoBehaviour
     public VoidEvent TriggerCombatTutorialEvent { get; set; }
     public VoidEvent TriggerCombatWeakSpotTutorialEvent { get; set; }
     public VoidEvent TriggerCombatResourcesBoxTutorialEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -27,6 +28,7 @@ public class TutorialCombatController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerCombatTutorialEvent, TriggerCombatTutorialEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerCombatWeakSpotTutorialEvent, TriggerCombatWeakSpotTutorialEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerCombatResourcesBoxTutorialEvent, TriggerCombatResourcesBoxTutorialEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
 
         tutorialCombatView.TutorialCombatController = this;
         tutorialWeakSpotView.TutorialCombatController = this;
@@ -110,7 +112,7 @@ public class TutorialCombatController : MonoBehaviour
     #endregion
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

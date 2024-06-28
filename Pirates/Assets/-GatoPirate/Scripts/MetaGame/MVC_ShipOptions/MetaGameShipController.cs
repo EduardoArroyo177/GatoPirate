@@ -23,7 +23,7 @@ public class MetaGameShipController : MonoBehaviour
     public VoidEvent LoadCombatSceneEvent { get; set; }
     public VoidEvent OpenCatCrewManagementNoIDEvent { get; set; }
     public VoidEvent StartCombatEvent { get; set; }
-
+    public VoidEvent UnloadEventsEvent { get; set; }
 
 
     private List<IAtomEventHandler> _eventHandlers = new();
@@ -34,6 +34,7 @@ public class MetaGameShipController : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(OpenShipOptionsEvent, OpenShipOptionsEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartCombatEvent, StartCombatEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
 
         shipOptionsView.ShipOptionsController = this;
     }
@@ -97,8 +98,8 @@ public class MetaGameShipController : MonoBehaviour
         shipOptionsView.gameObject.SetActive(false);
     }
 
-    #region On Destroy
-    private void OnDestroy()
+    #region OnDestroy
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

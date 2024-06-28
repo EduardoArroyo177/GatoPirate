@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
@@ -166,6 +167,10 @@ public class StartCombatBootstrapper : MonoBehaviour
     [SerializeField]
     private VoidEvent UpdateToDeadFaceEnemyEvent;
 
+    [Header("Unload events")]
+    [SerializeField]
+    private VoidEvent UnloadEventsEvent;
+
     private int playerActiveCannons;
 
     private void Awake()
@@ -186,6 +191,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         // Scene loader
         sceneLoaderManager.LoadMainMenuSceneEvent = LoadMainMenuSceneEvent;
         sceneLoaderManager.LoadCombatSceneEvent = LoadCombatSceneEvent;
+        sceneLoaderManager.UnloadEventsEvent = UnloadEventsEvent;
         sceneLoaderManager.Initialize();
 
         // Combat data
@@ -196,15 +202,18 @@ public class StartCombatBootstrapper : MonoBehaviour
         musicManagerCombat.TriggerCombatMusicEvent = TriggerCombatMusicEvent;
         musicManagerCombat.SetMusicVolumeEvent = SetMusicVolumeEvent;
         musicManagerCombat.SetPreviousMusicVolumeEvent = SetPreviousMusicVolumeEvent;
+        musicManagerCombat.UnloadEventsEvent = UnloadEventsEvent;
         musicManagerCombat.Initialize();
 
         // Sfx 
         soundsEffectsController.TriggerCombatSoundEvent = TriggerCombatSoundEvent;
         soundsEffectsController.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        soundsEffectsController.UnloadEventsEvent = UnloadEventsEvent;
         soundsEffectsController.Initialize();
 
         // Ambience
         ambienceAudioManager.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        ambienceAudioManager.UnloadEventsEvent = UnloadEventsEvent;
         ambienceAudioManager.Initialize();
 
         // UI
@@ -214,6 +223,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         uiSoundManagerCombat.UISoundButtonCancelEvent = UISoundButtonCancelEvent;
         uiSoundManagerCombat.UISoundTapEvent = UISoundTapEvent;
         uiSoundManagerCombat.SetSoundsVolumeEvent = SetSoundsVolumeEvent;
+        uiSoundManagerCombat.UnloadEventsEvent = UnloadEventsEvent;
         uiSoundManagerCombat.Initialize();
 
         // Settings
@@ -227,6 +237,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         // Start combat controller
         startCombatController.TriggerCombatTutorialEvent = TriggerCombatTutorialEvent;
         startCombatController.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
+        startCombatController.UnloadEventsEvent = UnloadEventsEvent;
         startCombatController.Initialize();
 
         // Virtual cameras
@@ -234,6 +245,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         virtualCameraController.TriggerPlayerStartingAnimationEvent = TriggerPlayerStartingAnimationEvent;
         virtualCameraController.TriggerEnemyStartingAnimationEvent = TriggerEnemyStartingAnimationEvent;
         virtualCameraController.StartingAnimationsFinishedEvent = StartingAnimationsFinishedEvent;
+        virtualCameraController.UnloadEventsEvent = UnloadEventsEvent;
         virtualCameraController.Initialize();
 
         uiCanvasBootstrapper.PauseGameEvent = PauseGameEvent;
@@ -258,6 +270,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         uiCanvasBootstrapper.TriggerCombatTutorialEvent = TriggerCombatTutorialEvent;
         uiCanvasBootstrapper.TriggerCombatWeakSpotTutorialEvent = TriggerCombatWeakSpotTutorialEvent;
         uiCanvasBootstrapper.TriggerCombatResourcesBoxTutorialEvent = TriggerCombatResourcesBoxTutorialEvent;
+        uiCanvasBootstrapper.UnloadEventsEvent = UnloadEventsEvent;
         uiCanvasBootstrapper.Initialize();
 
         // Player
@@ -314,6 +327,7 @@ public class StartCombatBootstrapper : MonoBehaviour
         vungleAdsController.CombatRewardAdSuccessEvent = CombatRewardAdSuccessEvent;
         vungleAdsController.ReviveSuccessEvent = ReviveSuccessEvent;
         vungleAdsController.DoubleRewardSuccessEvent = DoubleRewardSuccessEvent;
+        vungleAdsController.UnloadEventsEvent = UnloadEventsEvent;
         vungleAdsController.Initialize();
 
         // IAP
@@ -325,11 +339,13 @@ public class StartCombatBootstrapper : MonoBehaviour
         playerCatFacesController.UpdateToHappyFaceEvent = UpdateToHappyFacePlayerEvent;
         playerCatFacesController.UpdateToWorriedFaceEvent = UpdateToWorriedFacePlayerEvent;
         playerCatFacesController.UpdateToSadFaceEvent = UpdateToSadFacePlayerEvent;
+        playerCatFacesController.UnloadEventsEvent = UnloadEventsEvent;
         playerCatFacesController.Initialize();
 
         enemyCatFacesController.UpdateToWorriedFaceEvent = UpdateToWorriedFaceEnemyEvent;
         enemyCatFacesController.UpdateToSadFaceEvent = UpdateToSadFaceEnemyEvent;
         enemyCatFacesController.UpdateToDeadFaceEvent = UpdateToDeadFaceEnemyEvent;
+        enemyCatFacesController.UnloadEventsEvent = UnloadEventsEvent;
         enemyCatFacesController.Initialize();
 
         UpdateToHappyFacePlayerEvent.Raise();
@@ -349,5 +365,10 @@ public class StartCombatBootstrapper : MonoBehaviour
     private void CombatInitializationCompleted()
     {
         TriggerCombatMusicEvent.Raise();
+    }
+
+    private void OnDestroy()
+    {
+        UnloadEventsEvent.Raise();
     }
 }

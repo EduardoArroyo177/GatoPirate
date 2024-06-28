@@ -35,6 +35,8 @@ public class CombatCatFacesController : MonoBehaviour
     public VoidEvent UpdateToSadFaceEvent { get; set; }
     // Faces for enemy
     public VoidEvent UpdateToDeadFaceEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -52,6 +54,7 @@ public class CombatCatFacesController : MonoBehaviour
             _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UpdateToSadFaceEvent, UpdateToSadFaceEventCallback));
         if (UpdateToDeadFaceEvent)
             _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UpdateToDeadFaceEvent, UpdateToDeadFaceEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
     }
 
     #region Event callbacks
@@ -111,7 +114,7 @@ public class CombatCatFacesController : MonoBehaviour
     #endregion
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {
@@ -120,5 +123,4 @@ public class CombatCatFacesController : MonoBehaviour
         _eventHandlers.Clear();
     }
     #endregion
-
 }

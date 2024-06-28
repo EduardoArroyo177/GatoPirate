@@ -13,6 +13,8 @@ public class CatOptionsController : MonoBehaviour
     public VoidEvent CloseSelectedCatCameraEvent { get; set; }
     public StringEvent OpenCatCrewManagementEvent { get; set; }
     public StringEvent OpenSkinManagementEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -21,6 +23,7 @@ public class CatOptionsController : MonoBehaviour
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(OpenSelectedCatOptionsEvent, OpenSelectedCatOptionsEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
         catOptionsView.catOptionsController = this;
     }
 
@@ -49,8 +52,8 @@ public class CatOptionsController : MonoBehaviour
     }
     #endregion
 
-    #region On Destroy
-    private void OnDestroy()
+    #region OnDestroy
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

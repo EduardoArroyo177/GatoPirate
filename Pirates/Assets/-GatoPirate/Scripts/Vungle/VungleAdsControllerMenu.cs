@@ -25,6 +25,8 @@ public class VungleAdsControllerMenu : MonoBehaviour
     public VoidEvent LoadFreeCoinsAdRecruitmentEvent { get; set; }
     public VoidEvent LoadFreeCoinsAdStoreEvent { get; set; }
     public CurrencyTypeIntEvent ShowRewardedCurrencyEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -47,6 +49,8 @@ public class VungleAdsControllerMenu : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(FreeCoinsRewardSuccessEvent, FreeCoinsRewardSuccessEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadFreeCoinsAdRecruitmentEvent, LoadFreeCoinsAdRecruitmentEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadFreeCoinsAdStoreEvent, LoadFreeCoinsAdStoreEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
+
     }
 
     #region Vungle init
@@ -164,9 +168,8 @@ if (Vungle.isAdvertAvailable(freeCoinsRecruitmentPlacementID))
     #endregion
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
-
         Vungle.onInitializeEvent -= VungleInitialized;
         Vungle.adPlayableEvent -= AdPlayable;
         Vungle.onAdStartedEvent -= AdStarted;

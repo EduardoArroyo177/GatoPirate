@@ -10,13 +10,15 @@ public class MainMenuController : MonoBehaviour
     private MainMenuView mainMenuView;
 
     public VoidEvent CatSelectedEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CatSelectedEvent, CatSelectedEventCallback));
-
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
     }
 
     private void CatSelectedEventCallback(Void _item)
@@ -25,8 +27,8 @@ public class MainMenuController : MonoBehaviour
         mainMenuView.gameObject.SetActive(false);
     }
 
-    #region On Destroy
-    private void OnDestroy()
+    #region OnDestroy
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

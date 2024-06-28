@@ -25,6 +25,8 @@ public class VungleAdsControllerCombat : MonoBehaviour
     public VoidEvent CombatRewardAdSuccessEvent { get; set; }
     public VoidEvent ReviveSuccessEvent { get; set; }
     public VoidEvent DoubleRewardSuccessEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private CombatAdType combatAdType = CombatAdType.NONE;
@@ -50,7 +52,7 @@ public class VungleAdsControllerCombat : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadReviveAdEvent, LoadReviveAdEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadDoubleRewardAdEvent, LoadDoubleRewardAdEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadCombatFinishedAdEvent, LoadCombatFinishedAdEventCallback));
-        //RealtimeConsole.Instance.open();
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
     }
 
     public void TestAds()
@@ -199,7 +201,7 @@ if (Vungle.isAdvertAvailable(doubleRewardPlacementID))
     #endregion
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         Vungle.onInitializeEvent -= VungleInitialized;
         Vungle.adPlayableEvent -= AdPlayable;

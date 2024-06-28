@@ -35,6 +35,9 @@ public class IslandCatsController : MonoBehaviour
     public VoidEvent TriggerShipCameraEvent { get; set; }
     public VoidEvent OpenShipOptionsEvent { get; set; }
 
+    public VoidEvent UnloadEventsEvent { get; set; }
+
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -42,6 +45,7 @@ public class IslandCatsController : MonoBehaviour
     {
         _eventHandlers.Add(EventHandlerFactory<CatType, string>.BuildEventHandler(NewCatPurchasedEvent, NewCatPurchasedEventCallback));
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(CatUpdatedEvent, CatUpdatedEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
 
         islandShipButton.TriggerShipCameraEvent = TriggerShipCameraEvent;
         islandShipButton.OpenShipOptionsEvent = OpenShipOptionsEvent;
@@ -204,7 +208,8 @@ public class IslandCatsController : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    #region OnDestroy
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {
@@ -212,4 +217,5 @@ public class IslandCatsController : MonoBehaviour
         }
         _eventHandlers.Clear();
     }
+    #endregion
 }

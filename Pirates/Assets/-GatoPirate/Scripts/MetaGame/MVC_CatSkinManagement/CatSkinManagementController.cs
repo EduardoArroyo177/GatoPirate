@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityAtoms;
@@ -19,6 +18,8 @@ public class CatSkinManagementController : MonoBehaviour
     // Sounds
     public CatSoundEvent TriggerCatSoundEvent { get; set; }
 
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private List<OwnedSkinView> ownedSkinList = new();
@@ -32,6 +33,7 @@ public class CatSkinManagementController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(OpenSkinManagementEvent, OpenSkinManagementEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int>.BuildEventHandler(SelectSkinEvent, SelectSkinEventCallback));
         _eventHandlers.Add(EventHandlerFactory<string>.BuildEventHandler(SkinPurchasedEvent, SkinPurchasedEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
 
         catSkinManagementView.CatSkinManagementController = this;
         // Initialize current cat with cat id from event
@@ -187,7 +189,7 @@ public class CatSkinManagementController : MonoBehaviour
     #endregion
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

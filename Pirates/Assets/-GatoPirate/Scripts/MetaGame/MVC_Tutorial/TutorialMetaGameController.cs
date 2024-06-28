@@ -20,6 +20,8 @@ public class TutorialMetaGameController : MonoBehaviour
     public VoidEvent TriggerMetaGameIslandTutorialEvent { get; set; }
     public VoidEvent TriggerMetaGameCrewTutorialEvent { get; set; }
     public VoidEvent FreeRecruitmentTutorialEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -30,6 +32,8 @@ public class TutorialMetaGameController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerMetaGameIslandTutorialEvent, TriggerMetaGameIslandTutorialEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerMetaGameCrewTutorialEvent, TriggerMetaGameCrewTutorialEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(FreeRecruitmentTutorialEvent, FreeRecruitmentTutorialEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
+
         tutorialMetaGameView.TutorialMetaGameController = this;
         tutorialMetaGameRecruitmentView.TutorialMetaGameController = this;
         tutorialMetaGameIslandView.TutorialMetaGameController = this;
@@ -121,7 +125,7 @@ public class TutorialMetaGameController : MonoBehaviour
 
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

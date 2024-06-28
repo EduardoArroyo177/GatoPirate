@@ -14,6 +14,8 @@ public class SceneLoaderManager : MonoBehaviour
 
     public VoidEvent LoadCombatSceneEvent { get; set; }
     public VoidEvent LoadMainMenuSceneEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -23,6 +25,8 @@ public class SceneLoaderManager : MonoBehaviour
             _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadCombatSceneEvent, LoadCombatSceneEventCallback));
         if(LoadMainMenuSceneEvent)
             _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadMainMenuSceneEvent, LoadMainMenuSceneEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
+
     }
 
     #region Event callbacks
@@ -51,8 +55,9 @@ public class SceneLoaderManager : MonoBehaviour
         }
     }
 
-    #region On Destroy
-    private void OnDestroy()
+
+    #region OnDestroy
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

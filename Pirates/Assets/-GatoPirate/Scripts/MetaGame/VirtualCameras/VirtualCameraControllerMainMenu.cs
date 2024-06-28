@@ -21,6 +21,8 @@ public class VirtualCameraControllerMainMenu : MonoBehaviour
     // Ship camera
     public VoidEvent TriggerShipCameraEvent { get; set; }
     public VoidEvent CloseShipCameraEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -32,6 +34,8 @@ public class VirtualCameraControllerMainMenu : MonoBehaviour
         // Ships
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerShipCameraEvent, TriggerShipCameraEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CloseShipCameraEvent, CloseShipCameraEventCallback));
+
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
     }
 
     #region Event callbacks
@@ -59,8 +63,9 @@ public class VirtualCameraControllerMainMenu : MonoBehaviour
     }
     #endregion
 
-    #region On Destroy
-    private void OnDestroy()
+
+    #region OnDestroy
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

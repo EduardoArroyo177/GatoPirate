@@ -55,6 +55,9 @@ public class CatRecruitmentController : MonoBehaviour
     public VoidEvent FreeRecruitmentTutorialEvent { get; set; }
     public VoidEvent TriggerMetaGameIslandTutorialEvent { get; set; }
 
+    public VoidEvent UnloadEventsEvent { get; set; }
+
+
 
     #endregion
 
@@ -74,7 +77,8 @@ public class CatRecruitmentController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedCatInfoEvent, ShowSelectedCatEventCallback));
         _eventHandlers.Add(EventHandlerFactory<int, ItemTier>.BuildEventHandler(ShowSelectedSkinInfoEvent, ShowSelectedSkinInfoEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CurrenciesUpdatedEvent, CurrenciesUpdatedEventCallback));
-        
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
+
         catRecruitmentView.CatRecruitmentController = this;
        
         catRecruitmentPopUpsView.OpenGoToStorePopUpEvent = OpenGoToStorePopUpEvent;
@@ -541,14 +545,13 @@ public class CatRecruitmentController : MonoBehaviour
     #endregion
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {
             item.UnregisterListener();
         }
         _eventHandlers.Clear();
-
         catRecruitmentPopUpsView.CleanListeners();
     }
     #endregion

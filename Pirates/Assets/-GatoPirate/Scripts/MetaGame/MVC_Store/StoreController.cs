@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -33,6 +32,8 @@ public class StoreController : MonoBehaviour
     public PurchaseInfoEvent ConsumedItemSuccesfulEvent { get; set; }
     public VoidEvent RemoveAdsPurchasedEvent { get; set; }
 
+    public VoidEvent UnloadEventsEvent { get; set; }
+
     private List<IAtomEventHandler> _eventHandlers = new();
 
     public void Initialize()
@@ -45,6 +46,8 @@ public class StoreController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory<PurchaseInfo>.BuildEventHandler(ConsumedItemSuccesfulEvent, ConsumedItemSuccesfulEventCallback));
         _eventHandlers.Add(EventHandlerFactory<string,PurchaseInfo>.BuildEventHandler(PurchaseResultEvent, PurchaseResultEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(RemoveAdsPurchasedEvent, RemoveAdsPurchasedEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
+
         for (int i = 0; i < storeItemViewList.Count; i++)
         {
             storeItemViewList[i].PurchaseStoreItemEvent = PurchaseStoreItemEvent;
@@ -236,7 +239,7 @@ public class StoreController : MonoBehaviour
 
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

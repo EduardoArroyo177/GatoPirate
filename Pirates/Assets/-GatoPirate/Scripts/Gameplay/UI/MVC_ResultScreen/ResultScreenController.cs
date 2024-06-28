@@ -28,6 +28,8 @@ public class ResultScreenController : MonoBehaviour
     // IAP events
     public VoidEvent RemoveAdsPurchasedEvent { get; set; }
 
+    public VoidEvent UnloadEventsEvent { get; set; }
+
     // Properties
     public int ReviveCurrencyPrice { get; set; }
 
@@ -41,9 +43,11 @@ public class ResultScreenController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(ReviveSuccessEvent, ReviveSuccessEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(DoubleRewardSuccessEvent, DoubleRewardSuccessEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(RemoveAdsPurchasedEvent, RemoveAdsPurchasedEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
         resultScreenView.ResultScreenController = this;
         reviveScreenView.ResultScreenController = this;
         reviveScreenView.PanelCurrenciesController.CurrenciesUpdatedEvent = CurrenciesUpdatedEvent;
+        reviveScreenView.PanelCurrenciesController.UnloadEventsEvent = UnloadEventsEvent;
         reviveScreenView.PanelCurrenciesController.Initialize();
     }
 
@@ -220,7 +224,7 @@ public class ResultScreenController : MonoBehaviour
     #endregion
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

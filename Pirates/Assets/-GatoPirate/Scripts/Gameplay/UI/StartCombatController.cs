@@ -15,12 +15,15 @@ public class StartCombatController : MonoBehaviour
 
     public VoidEvent TriggerCombatTutorialEvent { get; set; }
     public VoidEvent StartingAnimationsFinishedEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
     public void Initialize()
     {
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartingAnimationsFinishedEvent, StartingAnimationsFinishedEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
     }
 
     private void StartingAnimationsFinishedEventCallback(Void _item)
@@ -40,7 +43,8 @@ public class StartCombatController : MonoBehaviour
         startCombatView.SetActive(false);
     }
 
-    private void OnDestroy()
+    #region OnDestroy
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {
@@ -48,4 +52,5 @@ public class StartCombatController : MonoBehaviour
         }
         _eventHandlers.Clear();
     }
+    #endregion
 }

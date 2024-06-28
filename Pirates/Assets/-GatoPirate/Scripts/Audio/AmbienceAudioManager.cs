@@ -9,6 +9,7 @@ public class AmbienceAudioManager : MonoBehaviour
     [SerializeField]
     private float volumeDefaultValue;
     public FloatEvent SetSoundsVolumeEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
     private AudioSource audioSource;
@@ -17,6 +18,7 @@ public class AmbienceAudioManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         _eventHandlers.Add(EventHandlerFactory<float>.BuildEventHandler(SetSoundsVolumeEvent, SetSoundsVolumeEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
     }
 
     #region Event callbacks
@@ -28,7 +30,7 @@ public class AmbienceAudioManager : MonoBehaviour
     #endregion
 
     #region OnDestroy
-    private void OnDestroy()
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

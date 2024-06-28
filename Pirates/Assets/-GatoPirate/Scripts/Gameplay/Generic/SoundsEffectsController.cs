@@ -30,6 +30,8 @@ public class SoundsEffectsController : MonoBehaviour
 
     public CombatSoundEvent TriggerCombatSoundEvent { get; set; }
     public FloatEvent SetSoundsVolumeEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     private List<IAtomEventHandler> _eventHandlers = new List<IAtomEventHandler>();
     private AudioSource audioSource;
@@ -39,6 +41,7 @@ public class SoundsEffectsController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         _eventHandlers.Add(EventHandlerFactory<CombatSounds>.BuildEventHandler(TriggerCombatSoundEvent, TriggerCombatSoundEventCallback));
         _eventHandlers.Add(EventHandlerFactory<float>.BuildEventHandler(SetSoundsVolumeEvent, SetSoundsVolumeEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
     }
 
     #region Event callbacks
@@ -79,8 +82,8 @@ public class SoundsEffectsController : MonoBehaviour
     }
 
 
-    #region On Destroy
-    private void OnDestroy()
+    #region OnDestroy
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

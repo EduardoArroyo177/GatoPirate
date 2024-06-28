@@ -19,6 +19,7 @@ public class VirtualCameraController : MonoBehaviour
     public VoidEvent TriggerPlayerStartingAnimationEvent { get; set; }
     public VoidEvent TriggerEnemyStartingAnimationEvent { get; set; }
     public VoidEvent StartingAnimationsFinishedEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
 
     private List<IAtomEventHandler> _eventHandlers = new();
 
@@ -28,6 +29,7 @@ public class VirtualCameraController : MonoBehaviour
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerPlayerStartingAnimationEvent, TriggerPlayerStartingAnimationEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(TriggerEnemyStartingAnimationEvent, TriggerEnemyStartingAnimationEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(StartingAnimationsFinishedEvent, StartingAnimationsFinishedEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
 
     }
 
@@ -64,7 +66,8 @@ public class VirtualCameraController : MonoBehaviour
     }
     #endregion
 
-    private void OnDestroy()
+    #region OnDestroy
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {
@@ -72,5 +75,6 @@ public class VirtualCameraController : MonoBehaviour
         }
         _eventHandlers.Clear();
     }
+    #endregion
 
 }

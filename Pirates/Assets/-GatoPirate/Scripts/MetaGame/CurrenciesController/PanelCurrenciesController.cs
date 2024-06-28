@@ -37,6 +37,8 @@ public class PanelCurrenciesController : MonoBehaviour
     public CurrencyTypeIntEvent ShowRewardedCurrencyEvent { get; set; }
     public VoidEvent OpenStoreEvent { get; set; }
     public VoidEvent CurrencyUpdateAnimationFinishedEvent { get; set; }
+    public VoidEvent UnloadEventsEvent { get; set; }
+
 
     // Properties
     public TextMeshProUGUI Lbl_goldenCoinsAmnt { get => lbl_goldenCoinsAmnt; set => lbl_goldenCoinsAmnt = value; }
@@ -54,6 +56,8 @@ public class PanelCurrenciesController : MonoBehaviour
             _eventHandlers.Add(EventHandlerFactory<CurrencyType, int>.BuildEventHandler(ShowSpentCurrencyEvent, ShowSpentCurrencyEventCallback));
         if(ShowRewardedCurrencyEvent)
             _eventHandlers.Add(EventHandlerFactory<CurrencyType, int>.BuildEventHandler(ShowRewardedCurrencyEvent, ShowRewardedCurrencyEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
+
     }
 
     #region Event callbacks
@@ -124,8 +128,8 @@ public class PanelCurrenciesController : MonoBehaviour
     }
     #endregion
 
-    #region On Destroy
-    private void OnDestroy()
+    #region OnDestroy
+    private void UnloadEventsEventCallback(Void _item)
     {
         foreach (var item in _eventHandlers)
         {

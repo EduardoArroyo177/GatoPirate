@@ -11,12 +11,20 @@ public class ShineSpriteEffectAnimation : MonoBehaviour
     private float shineReversePauseDuration;
     [SerializeField]
     private float loopDuration;
+    [SerializeField]
+    private bool automaticActivation;
 
     private Material currentMaterial;
 
     private void Awake()
     {
-        currentMaterial = GetComponent<Image>().material;
+        if(GetComponent<Image>() != null)
+            currentMaterial = GetComponent<Image>().material;
+        else if(GetComponent<SpriteRenderer>() != null)
+            currentMaterial = GetComponent<SpriteRenderer>().material;
+
+        if (automaticActivation)
+            StartShineAnimation();
     }
 
     public void StartShineAnimation()

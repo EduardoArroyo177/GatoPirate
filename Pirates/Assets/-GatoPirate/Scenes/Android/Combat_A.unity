@@ -460,7 +460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7277134502612188659, guid: c2db0f5af66aae6468c498ba5d1ab9e6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00091553
+      value: 0.00091552734
       objectReference: {fileID: 0}
     - target: {fileID: 7277134503295541639, guid: c2db0f5af66aae6468c498ba5d1ab9e6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -655,7 +655,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &41858387
 GameObject:
@@ -1013,7 +1013,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &64539668
 GameObject:
@@ -2287,11 +2287,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1637883478173728837, guid: 1362eb9c59bb5a541a8da9e749b4cdcf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.003479004
+      value: -0.0034179688
       objectReference: {fileID: 0}
     - target: {fileID: 1637883478173728837, guid: 1362eb9c59bb5a541a8da9e749b4cdcf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.002380371
+      value: -0.0024414062
       objectReference: {fileID: 0}
     - target: {fileID: 1961835925589254980, guid: 1362eb9c59bb5a541a8da9e749b4cdcf, type: 3}
       propertyPath: m_Pivot.x
@@ -7816,7 +7816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 945616742}
   m_Layer: 0
-  m_Name: '***** HUAWEI *****'
+  m_Name: '***** ADS *****'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7915,7 +7915,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0.07, z: -11.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8886,7 +8886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77955747, y: 0.00000002582868}
   m_AnchorMax: {x: 0.9999981, y: 0.1323002}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0.00012207031}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.000061035156, y: -0.00008392334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1031926693
@@ -12467,7 +12467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1495111582}
-  - component: {fileID: 1495111581}
+  - component: {fileID: 1495111583}
   m_Layer: 0
   m_Name: VungleAdsControllerCombat
   m_TagString: Untagged
@@ -12475,22 +12475,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1495111581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495111580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfcbccf1277122142b70492a9c5f50bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  windowsAppID: 65cbf9607ec96f667da817fa
-  doubleRewardPlacementID: DOUBLE_REWARD-3557685
-  revivePlacementID: REVIVE-7651736
-  combatCompletedPlacementID: COMBAT_COMPLETED-4350476
 --- !u!4 &1495111582
 Transform:
   m_ObjectHideFlags: 0
@@ -12504,8 +12488,24 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1495111583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495111580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5bf6fa67bee0b54d97188418e647484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  androidAppID: 66ea211d58fb9d52b9a34ed7
+  doubleRewardPlacementID: DOUBLEREWARD-1977010
+  revivePlacementID: REVIVE-7866181
+  combatCompletedPlacementID: COMBATCOMPLETED-0189025
 --- !u!4 &1497885292 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6287298538263949460, guid: d718c21b4533d1a48b3ff5924f2a87a1, type: 3}
@@ -12800,6 +12800,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 300192572, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 300192573, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 300192573, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 300192574, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697745391, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697745392, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697745392, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.28
+      objectReference: {fileID: 0}
     - target: {fileID: 4935636193705334285, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -12847,6 +12875,22 @@ PrefabInstance:
     - target: {fileID: 4935636193705334286, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
       propertyPath: m_Name
       value: VirtualCameras
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935636193894048579, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935636194161865715, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935636194161865715, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935636194161865716, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f15f1ae749b76d44bad3ad48887f4ec, type: 3}
@@ -20198,11 +20242,11 @@ PrefabInstance:
     - target: {fileID: 1475633071, guid: 8a0b2fe999395c644b4cc11c08fb9315, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1495111581}
+      objectReference: {fileID: 0}
     - target: {fileID: 1804516129, guid: 8a0b2fe999395c644b4cc11c08fb9315, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1495111581}
+      objectReference: {fileID: 0}
     - target: {fileID: 1162875017987543633, guid: 8a0b2fe999395c644b4cc11c08fb9315, type: 3}
       propertyPath: m_fontSize
       value: 80
@@ -34245,6 +34289,10 @@ PrefabInstance:
       value: StartCombatBootstrapper
       objectReference: {fileID: 0}
     - target: {fileID: 4031626127902435113, guid: ebb90f2a082939d45a0741a0691c0e4e, type: 3}
+      propertyPath: adsController
+      value: 
+      objectReference: {fileID: 1495111583}
+    - target: {fileID: 4031626127902435113, guid: ebb90f2a082939d45a0741a0691c0e4e, type: 3}
       propertyPath: musicManagerCombat
       value: 
       objectReference: {fileID: 432435301}
@@ -34263,7 +34311,7 @@ PrefabInstance:
     - target: {fileID: 4031626127902435113, guid: ebb90f2a082939d45a0741a0691c0e4e, type: 3}
       propertyPath: vungleAdsController
       value: 
-      objectReference: {fileID: 1495111581}
+      objectReference: {fileID: 0}
     - target: {fileID: 4031626127902435113, guid: ebb90f2a082939d45a0741a0691c0e4e, type: 3}
       propertyPath: ambienceAudioManager
       value: 

@@ -177,7 +177,7 @@ public class MetaGameBootstrapper : MonoBehaviour
 
     [Header("Ads")]
     [SerializeField]
-    private VungleAdsControllerMenu adsControllerMenu;
+    private AdsControllerBeach adsControllerMenu;
     [SerializeField]
     private VoidEvent FreeCoinsRewardSuccessEvent;
     [SerializeField]

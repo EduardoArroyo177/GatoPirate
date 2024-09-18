@@ -8,7 +8,7 @@ public class VungleAdsControllerMenuAndroid : AdsControllerBeach
 {
     [Header("Game IDs")]
     [SerializeField]
-    private string windowsAppID;
+    private string androidAppID;
 
     [Header("Game IDs")]
     [SerializeField]
@@ -30,7 +30,7 @@ public class VungleAdsControllerMenuAndroid : AdsControllerBeach
     {
         // Vungle Init
         if (!Vungle.isInitialized())
-            Vungle.init(windowsAppID);
+            Vungle.init(androidAppID);
         else
         {
             Vungle.loadAd(freeCoinsRecruitmentPlacementID);

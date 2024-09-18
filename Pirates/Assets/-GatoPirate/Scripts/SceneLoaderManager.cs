@@ -33,19 +33,19 @@ public class SceneLoaderManager : MonoBehaviour
     private void LoadCombatSceneEventCallback(Void _item)
     {
         pnl_loading.SetActive(true);
-        StartCoroutine(LoadSceneAsync(GameScenes.Combat.ToString()));
+        StartCoroutine(LoadSceneAsync((int)GameScenes.Combat));
     }
 
     private void LoadMainMenuSceneEventCallback(Void _item)
     {
         pnl_loading.SetActive(true);
-        StartCoroutine(LoadSceneAsync(GameScenes.MainMenu.ToString()));
+        StartCoroutine(LoadSceneAsync((int)GameScenes.MainMenu));
     }
     #endregion
 
-    IEnumerator LoadSceneAsync(string _sceneName)
+    IEnumerator LoadSceneAsync(int _scene)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_sceneName);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_scene);
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)

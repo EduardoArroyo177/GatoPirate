@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dade7381b8d88a4882bd39687406e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windowsAppID: 66ea211d58fb9d52b9a34ed7
+  androidAppID: 66ea211d58fb9d52b9a34ed7
   freeCoinsRecruitmentPlacementID: FREECOINSRECRUITMENT-3748348
   freeCoinsStorePlacementID: FREECOINSSTORE-0596335
   freeCoinsAmount: 250

@@ -38,11 +38,11 @@
     <file>Assets/Plugins/Android/com.google.android.instantapps.instantapps-1.1.0.aar</file>
   </files>
   <settings>
-    <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
-    <setting name="bundleId" value="com.vadventures.piratecats.huawei" />
+    <setting name="androidAbis" value="arm64-v8a" />
+    <setting name="bundleId" value="com.vadventures.piratecatsadventures" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
-    <setting name="gradlePropertiesTemplateEnabled" value="True" />
+    <setting name="gradlePropertiesTemplateEnabled" value="False" />
     <setting name="gradleTemplateEnabled" value="False" />
     <setting name="installAndroidPackages" value="True" />
     <setting name="localMavenRepoDir" value="Assets/GeneratedLocalRepo" />

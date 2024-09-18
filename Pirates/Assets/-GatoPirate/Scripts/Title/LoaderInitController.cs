@@ -28,19 +28,19 @@ public class LoaderInitController : MonoBehaviour
             combatData.EnemyShipData = enemyTutorialShipData;
             combatData.PlayerShipData = playerTutorialShipData;
             // Load combat scene
-            StartCoroutine(LoadSceneAsync(GameScenes.Combat.ToString()));
+            StartCoroutine(LoadSceneAsync((int)GameScenes.Combat));
         }
         else
         {
             // Load island scene
-            StartCoroutine(LoadSceneAsync(GameScenes.MainMenu.ToString()));
+            StartCoroutine(LoadSceneAsync((int)GameScenes.MainMenu));
         }
         //GameAnalytics.Initialize();
     }
 
-    IEnumerator LoadSceneAsync(string _sceneName)
+    IEnumerator LoadSceneAsync(int _scene)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_sceneName);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_scene);
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)

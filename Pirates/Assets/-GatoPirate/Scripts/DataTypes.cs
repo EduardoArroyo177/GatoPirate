@@ -5,8 +5,9 @@ using UnityEngine;
 #region Scenes
 public enum GameScenes
 {
+    Loader,
+    MainMenu,
     Combat,
-    MainMenu
 }
 #endregion
 

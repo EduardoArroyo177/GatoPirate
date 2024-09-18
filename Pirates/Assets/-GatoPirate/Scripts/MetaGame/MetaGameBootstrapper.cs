@@ -199,13 +199,13 @@ public class MetaGameBootstrapper : MonoBehaviour
     [SerializeField] 
     private VoidEvent FreeRecruitmentTutorialEvent;
 
-    [Header("Game services")]
-    [SerializeField]
-    private HuaweiGameServicesController servicesController;
-    [SerializeField]
-    private VoidEvent PlayerLoginEvent;
-    [SerializeField]
-    private BoolEvent LoginSuccessfulEvent;
+    //[Header("Game services")]
+    //[SerializeField]
+    //private HuaweiGameServicesController servicesController;
+    //[SerializeField]
+    //private VoidEvent PlayerLoginEvent;
+    //[SerializeField]
+    //private BoolEvent LoginSuccessfulEvent;
 
     [Header("Leaderboards")]
     [SerializeField]

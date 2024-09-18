@@ -4,7 +4,7 @@ using UnityAtoms.BaseAtoms;
 using UnityAtoms;
 using UnityEngine;
 
-public class VungleAdsControllerMenu : AdsControllerBeach
+public class VungleAdsControllerMenuAndroid : AdsControllerBeach
 {
     [Header("Game IDs")]
     [SerializeField]

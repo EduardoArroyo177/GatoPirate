@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityAtoms.BaseAtoms;
 using UnityAtoms;
 using UnityEngine;
-using Mosframe;
 
 public class VungleAdsControllerCombatAndroid : AdsControllerCombat
 {
@@ -184,7 +183,6 @@ if (Vungle.isAdvertAvailable(doubleRewardPlacementID))
 
     public void TestAds()
     {
-        RealtimeConsole.Instance.open();
         if (Vungle.isInitialized())
         {
             Debug.Log("Vungle: Initialized!");

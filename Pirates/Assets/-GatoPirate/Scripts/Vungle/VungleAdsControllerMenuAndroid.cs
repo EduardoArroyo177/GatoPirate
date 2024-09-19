@@ -39,7 +39,7 @@ public class VungleAdsControllerMenuAndroid : AdsControllerBeach
         Vungle.onInitializeEvent += VungleInitialized;
         Vungle.adPlayableEvent += AdPlayable;
         Vungle.onAdStartedEvent += AdStarted;
-        Vungle.onAdFinishedEvent += AdFinished;
+        Vungle.onAdEndEvent += AdFinished;
 
         // Events
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(FreeCoinsRewardSuccessEvent, FreeCoinsSuccess));
@@ -66,10 +66,9 @@ public class VungleAdsControllerMenuAndroid : AdsControllerBeach
         Debug.Log($"Vungle: Ad started with placement id {_placementID}");
     }
 
-    private void AdFinished(string _placementID, AdFinishedEventArgs _args)
+    private void AdFinished(string _placementID)
     {
-        Debug.Log($"Add finished placement {_placementID} is completed? {_args.IsCompletedView}");
-        if (_args.IsCompletedView)
+        Debug.Log($"Add finished placement {_placementID}");
             FreeCoinsSuccess(new Void());
     }
     #endregion
@@ -169,7 +168,7 @@ if (Vungle.isAdvertAvailable(freeCoinsRecruitmentPlacementID))
         Vungle.onInitializeEvent -= VungleInitialized;
         Vungle.adPlayableEvent -= AdPlayable;
         Vungle.onAdStartedEvent -= AdStarted;
-        Vungle.onAdFinishedEvent -= AdFinished;
+        Vungle.onAdEndEvent -= AdFinished;
 
         foreach (var item in _eventHandlers)
         {

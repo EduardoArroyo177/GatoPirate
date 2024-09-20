@@ -1,0 +1,33 @@
+$1476
+
+https://ads.tiktok.com/business/creativecenter/pc/en
+linktree
+
+Pirate Cats Adventures
+Super Pirate Cats Adventures
+
+
+* Stretched cats in recruitment and crew screens **
+* Free coins ad not working **
+* Stretched tutorial icons **
+* Stretched close buttons in main scene **
+* Earned rewards animation **
+
+* Fill Google store page *
+* Fill Amazon store page
+* Fill Huawei store page
+* Update Windows store page (new name)
+
+* Create build for playstore
+* Publish to Playstore
+* Create build for amazon
+* Publish to Amazon
+* Create build for Huawei
+* Publish to Huawei
+* Create updated build for UWP
+* Publish update to Windows store
+
+
+-671 480 0
+
+ java -jar pepk.jar --keystore=vadventures.keystore --alias=vadventures --encryptionkey=encryption_public_key.pem --output=output.zip --include-cert --rsa-aes-encryption 

@@ -16,12 +16,14 @@ public class LoaderInitController : MonoBehaviour
 
     private void Awake()
     {
-        UnityEngine.Screen.SetResolution(1920, 1080, true);
+        //UnityEngine.Screen.SetResolution(1920, 1080, true);
         TutorialDataSaveManager.Instance.LoadTutorialSavedData();
     }
 
+    // Called from title animation 
     public void LoadGame()
     {
+        Debug.Log("Loading game");
         if (!TutorialDataSaveManager.Instance.GetTutorialCompletedStatus(TutorialType.FIRST_COMBAT))
         {
             // Fill combat data with tutorial data

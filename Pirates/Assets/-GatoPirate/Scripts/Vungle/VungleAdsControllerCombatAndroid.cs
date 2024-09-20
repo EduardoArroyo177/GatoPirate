@@ -33,7 +33,7 @@ public class VungleAdsControllerCombatAndroid : AdsControllerCombat
         Vungle.onInitializeEvent += VungleInitialized;
         Vungle.adPlayableEvent += AdPlayable;
         Vungle.onAdStartedEvent += AdStarted;
-        Vungle.onAdFinishedEvent += AdFinished;
+        Vungle.onAdEndEvent += AdFinished;
         Vungle.onErrorEvent += VungleError;
 
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CombatRewardAdSuccessEvent, CombatRewardAdSuccessEventCallback));
@@ -61,12 +61,10 @@ public class VungleAdsControllerCombatAndroid : AdsControllerCombat
         Debug.Log($"Vungle: Ad started with placement id {_placementID}");
     }
 
-    private void AdFinished(string _placementID, AdFinishedEventArgs _args)
+    private void AdFinished(string _placementID)
     {
-        Debug.Log($"Vungle: Add finished placement {_placementID} is completed? {_args.IsCompletedView}");
-
-        if(_args.IsCompletedView)
-            CombatRewardAdSuccessEventCallback(new Void());
+        Debug.Log($"Vungle: Add finished placement {_placementID}");
+        CombatRewardAdSuccessEventCallback(new Void());
     }
 
     private void VungleError(string _error)
@@ -168,7 +166,7 @@ if (Vungle.isAdvertAvailable(doubleRewardPlacementID))
         Vungle.onInitializeEvent -= VungleInitialized;
         Vungle.adPlayableEvent -= AdPlayable;
         Vungle.onAdStartedEvent -= AdStarted;
-        Vungle.onAdFinishedEvent -= AdFinished;
+        Vungle.onAdEndEvent -= AdFinished;
         Vungle.onErrorEvent -= VungleError;
 
         foreach (var item in _eventHandlers)

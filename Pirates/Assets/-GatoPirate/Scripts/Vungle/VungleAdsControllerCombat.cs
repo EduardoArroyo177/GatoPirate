@@ -11,7 +11,7 @@ public enum CombatAdType
     NONE
 }
 
-public class VungleAdsControllerCombat : MonoBehaviour
+public class VungleAdsControllerCombat : AdsControllerCombat
 {
     [Header("Game IDs")]
     [SerializeField]
@@ -23,20 +23,10 @@ public class VungleAdsControllerCombat : MonoBehaviour
     [SerializeField]
     private string combatCompletedPlacementID;
 
-    // Events
-    public VoidEvent LoadReviveAdEvent { get; set; }
-    public VoidEvent LoadDoubleRewardAdEvent { get; set; }
-    public VoidEvent LoadCombatFinishedAdEvent { get; set; }
-    public VoidEvent CombatRewardAdSuccessEvent { get; set; }
-    public VoidEvent ReviveSuccessEvent { get; set; }
-    public VoidEvent DoubleRewardSuccessEvent { get; set; }
-    public VoidEvent UnloadEventsEvent { get; set; }
-
-
     private List<IAtomEventHandler> _eventHandlers = new();
     private CombatAdType combatAdType = CombatAdType.NONE;
 
-    public void Initialize()
+    public override void Initialize()
     {
         // Vungle Init
         if (!Vungle.isInitialized())
@@ -54,8 +44,8 @@ public class VungleAdsControllerCombat : MonoBehaviour
         Vungle.onErrorEvent += VungleError;
 
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(CombatRewardAdSuccessEvent, CombatRewardAdSuccessEventCallback));
-        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadReviveAdEvent, LoadReviveAdEventCallback));
-        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadDoubleRewardAdEvent, LoadDoubleRewardAdEventCallback));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadReviveAdEvent, PlayAdRevive));
+        _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadDoubleRewardAdEvent, PlayAdDoubleReward));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(LoadCombatFinishedAdEvent, LoadCombatFinishedAdEventCallback));
         _eventHandlers.Add(EventHandlerFactory.BuildEventHandler(UnloadEventsEvent, UnloadEventsEventCallback));
     }
@@ -116,7 +106,7 @@ public class VungleAdsControllerCombat : MonoBehaviour
     #endregion
 
     #region Event callbacks
-    private void LoadReviveAdEventCallback(Void _item)
+    public override void PlayAdRevive(Void _item)
     {
         combatAdType = CombatAdType.REVIVE;
 #if UNITY_EDITOR
@@ -150,7 +140,7 @@ public class VungleAdsControllerCombat : MonoBehaviour
 #endif
     }
 
-    private void LoadDoubleRewardAdEventCallback(Void _item)
+    public override void PlayAdDoubleReward(Void _item)
     {
         combatAdType = CombatAdType.DOUBLE;
 #if UNITY_EDITOR

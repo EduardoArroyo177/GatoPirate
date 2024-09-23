@@ -6,19 +6,18 @@ linktree
 Pirate Cats Adventures
 Super Pirate Cats Adventures
 
+***** INTERNAL TESTING *****
 
-* Stretched cats in recruitment and crew screens **
-* Free coins ad not working **
-* Stretched tutorial icons **
-* Stretched close buttons in main scene **
-* Earned rewards animation **
+* Squished image in combat tutorial
+* Combat intro cameras
+* Landscape ads
 
 * Fill Google store page *
 * Fill Amazon store page
 * Fill Huawei store page
-* Update Windows store page (new name)
+* Update Windows store page (new name) **
 
-* Create build for playstore
+* Create build for playstore *
 * Publish to Playstore
 * Create build for amazon
 * Publish to Amazon
@@ -26,3 +25,25 @@ Super Pirate Cats Adventures
 * Publish to Huawei
 * Create updated build for UWP
 * Publish update to Windows store
+
+* Implement analytics
+
+
+
+***** COMPLETED *****
+* Island navigation **
+* Settings screen **
+* Free coins lbl spanish **
+* Island ship selected camera **
+* Result screen (winner) **
+* Result screen loose **
+* Pay coins lbl **
+* Free lbl **
+* Skip intro lbl spanish **
+
+
+* Stretched cats in recruitment and crew screens **
+* Free coins ad not working **
+* Stretched tutorial icons **
+* Stretched close buttons in main scene **
+* Earned rewards animation **

@@ -28,6 +28,7 @@ public class VungleAdsControllerMenuAndroid : AdsControllerBeach
 
     public override void Initialize()
     {
+        Debug.Log("INITIALIZING");
         // Vungle Init
         if (!Vungle.isInitialized())
             Vungle.init(androidAppID);
@@ -36,6 +37,7 @@ public class VungleAdsControllerMenuAndroid : AdsControllerBeach
             Vungle.loadAd(freeCoinsRecruitmentPlacementID);
             Vungle.loadAd(freeCoinsStorePlacementID);
         }
+        Vungle.setLogEnable(true);
         Vungle.onInitializeEvent += VungleInitialized;
         Vungle.adPlayableEvent += AdPlayable;
         Vungle.onAdStartedEvent += AdStarted;
@@ -51,6 +53,7 @@ public class VungleAdsControllerMenuAndroid : AdsControllerBeach
     #region Vungle init
     private void VungleInitialized()
     {
+        Debug.Log("VUNGLE INITIALIZED°!!!!!!!!");
         Debug.Log("Vungle: Vungle initialized succesfully");
         Vungle.loadAd(freeCoinsRecruitmentPlacementID);
         Vungle.loadAd(freeCoinsStorePlacementID);

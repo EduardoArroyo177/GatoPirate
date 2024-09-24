@@ -12567,54 +12567,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1495111580
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1495111582}
-  - component: {fileID: 1495111583}
-  m_Layer: 0
-  m_Name: VungleAdsControllerCombat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1495111582
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495111580}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 909.5106, y: 779.4196, z: -14.653291}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1495111583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495111580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bf6fa67bee0b54d97188418e647484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  androidAppID: 66ea211d58fb9d52b9a34ed7
-  doubleRewardPlacementID: DOUBLEREWARD-1977010
-  revivePlacementID: REVIVE-7866181
-  combatCompletedPlacementID: COMBATCOMPLETED-0189025
 --- !u!4 &1497885292 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6287298538263949460, guid: d718c21b4533d1a48b3ff5924f2a87a1, type: 3}
@@ -18650,6 +18602,63 @@ MonoBehaviour:
   normalStrength: 5
   normalSmoothing: 1
   computingNormal: 0
+--- !u!1001 &312020580737543078
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2413319979849567773, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
+      propertyPath: m_Name
+      value: VungleAdsControllerCombatAmazon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923509275718503806, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 909.5106
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923509275718503806, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 779.4196
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923509275718503806, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.653291
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923509275718503806, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923509275718503806, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923509275718503806, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923509275718503806, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923509275718503806, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923509275718503806, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923509275718503806, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
 --- !u!4 &503416803854181431
 Transform:
   m_ObjectHideFlags: 0
@@ -18683,6 +18692,17 @@ MonoBehaviour:
   normalStrength: 5
   normalSmoothing: 1
   computingNormal: 0
+--- !u!114 &632542000086182550 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5570153109688069807, guid: 70944df0aaced5e4da7d35e0e46e422a, type: 3}
+  m_PrefabInstance: {fileID: 312020580737543078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5bf6fa67bee0b54d97188418e647484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &668688190438691898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20732,6 +20752,10 @@ PrefabInstance:
     - target: {fileID: 4679204906218713456, guid: 8a0b2fe999395c644b4cc11c08fb9315, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679204907275224698, guid: 8a0b2fe999395c644b4cc11c08fb9315, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 44.75305
       objectReference: {fileID: 0}
     - target: {fileID: 6083865471381164878, guid: 8a0b2fe999395c644b4cc11c08fb9315, type: 3}
       propertyPath: m_fontSize
@@ -34664,7 +34688,7 @@ PrefabInstance:
     - target: {fileID: 4031626127902435113, guid: ebb90f2a082939d45a0741a0691c0e4e, type: 3}
       propertyPath: adsController
       value: 
-      objectReference: {fileID: 1495111583}
+      objectReference: {fileID: 632542000086182550}
     - target: {fileID: 4031626127902435113, guid: ebb90f2a082939d45a0741a0691c0e4e, type: 3}
       propertyPath: musicManagerCombat
       value: 
@@ -46663,7 +46687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5472430118247379365, guid: c937c22ac1cd4dc48bb31dd0791282f0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5472430118263971505, guid: c937c22ac1cd4dc48bb31dd0791282f0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -61736,7 +61760,7 @@ SceneRoots:
   - {fileID: 1021637771}
   - {fileID: 2067679102}
   - {fileID: 945616742}
-  - {fileID: 1495111582}
+  - {fileID: 312020580737543078}
   - {fileID: 53095506}
   - {fileID: 35353008}
   - {fileID: 823102739}

@@ -148,7 +148,7 @@ public class VungleAdsControllerCombat : AdsControllerCombat
             Debug.Log("Remove ads purchased, giving reward for free");
         CombatRewardAdSuccessEventCallback(new Void());
 #else
-if (Vungle.isAdvertAvailable(doubleRewardPlacementID))
+        if (Vungle.isAdvertAvailable(doubleRewardPlacementID))
         {
             Vungle.playAd(doubleRewardPlacementID);
         }

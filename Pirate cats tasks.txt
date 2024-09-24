@@ -1,4 +1,3 @@
-$1476
 
 https://ads.tiktok.com/business/creativecenter/pc/en
 linktree
@@ -8,14 +7,12 @@ Super Pirate Cats Adventures
 
 ***** INTERNAL TESTING *****
 
-* Squished image in combat tutorial
 * Combat intro cameras
 * Landscape ads
 
 * Fill Google store page *
 * Fill Amazon store page
 * Fill Huawei store page
-* Update Windows store page (new name) **
 
 * Create build for playstore *
 * Publish to Playstore
@@ -23,10 +20,10 @@ Super Pirate Cats Adventures
 * Publish to Amazon
 * Create build for Huawei
 * Publish to Huawei
-* Create updated build for UWP
-* Publish update to Windows store
+
 
 * Implement analytics
+* Accomodate lifebar
 
 
 
@@ -47,3 +44,7 @@ Super Pirate Cats Adventures
 * Stretched tutorial icons **
 * Stretched close buttons in main scene **
 * Earned rewards animation **
+* Squished image in combat tutorial **
+* Update Windows store page (new name) **
+* Create updated build for UWP **
+* Publish update to Windows store **

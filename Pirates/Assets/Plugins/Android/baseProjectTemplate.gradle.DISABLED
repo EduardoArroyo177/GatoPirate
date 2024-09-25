@@ -1,0 +1,18 @@
+allprojects {
+	buildscript {
+		repositories {
+			maven { url 'https://developer.huawei.com/repo/' }
+			maven { url "https://maven.google.com" }
+			mavenLocal()
+			mavenCentral()
+		}
+		dependencies {
+			classpath 'com.huawei.agconnect:agcp:1.9.1.301'
+			
+		}
+	}
+	repositories {
+		maven { url 'https://developer.huawei.com/repo/' }
+		maven { url "https://maven.google.com" }
+	}
+}

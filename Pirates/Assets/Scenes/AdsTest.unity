@@ -679,52 +679,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839719125}
   m_CullTransparentMesh: 1
---- !u!1 &878749753
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 878749755}
-  - component: {fileID: 878749754}
-  m_Layer: 0
-  m_Name: VungleTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &878749754
+--- !u!114 &878749754 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8186822098290018384, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
+  m_PrefabInstance: {fileID: 7570037020184334839}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878749753}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18a11f6a530a51c4bb261b8cb0c7171a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  androidAppID: 66eaf794f909844620b78983
-  freeCoinsRecruitmentPlacementID: FREECOINSRECRUITMENT-9421784
---- !u!4 &878749755
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878749753}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 881.19653, y: 1079.236, z: 50.08361}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &909269299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,12 +1292,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992851126}
   m_CullTransparentMesh: 1
+--- !u!1001 &7570037020184334839
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1305657792915828741, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 881.19653
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305657792915828741, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1079.236
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305657792915828741, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 50.08361
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305657792915828741, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305657792915828741, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305657792915828741, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305657792915828741, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305657792915828741, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305657792915828741, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305657792915828741, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150160054575210334, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
+      propertyPath: m_Name
+      value: VungleTest
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0286d6fb61212e40a07926565e67f8b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 544802397}
   - {fileID: 180578289}
-  - {fileID: 878749755}
+  - {fileID: 7570037020184334839}
   - {fileID: 524217754}
   - {fileID: 909269302}
